@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "WebFetch(domain:www.skinuity.com)",
+      "WebFetch(domain:www.vistaprint.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "WebFetch(domain:irvineprinting.com)",
+      "WebFetch(domain:www.canva.com)",
+      "WebFetch(domain:www.printingforless.com)",
+      "WebFetch(domain:www.gotprint.com)",
+      "WebFetch(domain:canvaprint.guide)",
+      "WebFetch(domain:www.moo.com)",
+      "WebFetch(domain:printingforless.com)",
+      "WebFetch(domain:www.uprinting.com)",
+      "WebFetch(domain:www.4over4.com)",
+      "WebFetch(domain:www.instantprint.co.uk)",
+      "WebFetch(domain:www.overnightprints.com)",
+      "Bash(awk -F: '$2 > 3930 && $2 < 4060')",
+      "Bash(python3)",
+      "Bash(python3 -c ' *)",
+      "Bash(xxd)",
+      "Bash(python3 rebuild.py)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(import shutil *)",
+      "Bash(osascript -e 'tell application \"pCloud Drive\" to quit')",
+      "Bash(sed -i '' 's/qty: \\\\['\\\\''100'\\\\'','\\\\''250'\\\\'','\\\\''500'\\\\'','\\\\''1,000'\\\\'','\\\\''2,500'\\\\'','\\\\''5,000'\\\\''\\\\],$/qty: ['\\\\''25'\\\\'','\\\\''50'\\\\'','\\\\''100'\\\\'','\\\\''250'\\\\'','\\\\''500'\\\\'','\\\\''1,000'\\\\'','\\\\''2,500'\\\\'','\\\\''5,000'\\\\''],/' '/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/quote.html')",
+      "Bash(sed -i '' 's/qty: \\\\['\\\\''100'\\\\'','\\\\''250'\\\\'','\\\\''500'\\\\'','\\\\''1,000'\\\\'','\\\\''2,500'\\\\'','\\\\''5,000'\\\\'','\\\\''10,000'\\\\''\\\\],$/qty: ['\\\\''25'\\\\'','\\\\''50'\\\\'','\\\\''100'\\\\'','\\\\''250'\\\\'','\\\\''500'\\\\'','\\\\''1,000'\\\\'','\\\\''2,500'\\\\'','\\\\''5,000'\\\\'','\\\\''10,000'\\\\''],/' '/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/quote.html')",
+      "Bash(sed -i '' 's/qty: \\\\['\\\\''100'\\\\'','\\\\''250'\\\\'','\\\\''500'\\\\'','\\\\''1,000'\\\\'','\\\\''2,500'\\\\''\\\\],$/qty: ['\\\\''25'\\\\'','\\\\''50'\\\\'','\\\\''100'\\\\'','\\\\''250'\\\\'','\\\\''500'\\\\'','\\\\''1,000'\\\\'','\\\\''2,500'\\\\''],/' '/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/quote.html')",
+      "Bash(grep -iE \"\\\\.\\(jpg|jpeg|png|webp|svg\\)$\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:8787/site/products.html\")",
+      "Bash(curl -sL -o /dev/null -w \"%{url_effective} %{http_code}\" \"http://localhost:8787/site/products.html\")",
+      "Bash(curl -s http://localhost:8787/index.html)",
+      "Bash(curl -s http://localhost:8787/ -o /tmp/idx.html -w \"%{http_code}\\\\n\")",
+      "Read(//tmp/**)"
+    ]
+  }
+}

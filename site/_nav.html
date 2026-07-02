@@ -1,0 +1,118 @@
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
+      <div class="nav-logo-symbol-wrap">
+        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Events &amp; Retail</span>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=NCR+Forms" class="nav-prod-item">NCR Forms</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+    </div>
+  </nav>

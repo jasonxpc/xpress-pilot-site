@@ -1,0 +1,3170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Quote — Xpress Printing | Irvine, CA</title>
+  <meta name="description" content="Request a print quote from Xpress Printing in Irvine, CA. We reply with an exact price within 30 minutes. Business cards, flyers, banners, brochures and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:      #1E2D3D;
+      --cyan:       #0891B2;
+      --sky:        #38BDF8;
+      --crimson:    #DC2626;
+      --cyan-tint:  #E0F2FE;
+      --cool-white: #F8FAFC;
+      --white:      #FFFFFF;
+      --text:       #111827;
+      --text-muted: #6B7280;
+      --border:     #E2E8F0;
+      --font: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cool-white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid #E2E8F0;
+      height: 64px;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-logo-symbol-wrap {
+      height: 32px;
+      overflow: hidden;
+      flex-shrink: 0;
+    transform: translate(1px, -2px);
+  }
+    .nav-logo-symbol {
+      height: 52px;
+      width: auto;
+      display: block;
+      position: relative;
+      top: -8px;
+    }
+    .nav-logo-text   { height: 22px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+      cursor: default;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-trigger { color: var(--cyan); }
+
+    .mega-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid #E2E8F0;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.12);
+      padding: 32px 48px;
+      width: 860px;
+      z-index: 300;
+    }
+
+    .nav-dropdown:hover .mega-menu { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+
+    .mega-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 12px;
+    }
+
+    .mega-col ul { list-style: none; }
+    .mega-col ul li { margin-bottom: 6px; }
+    .mega-col ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color .15s;
+    }
+    .mega-col ul li a:hover { color: var(--cyan); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-upload {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      border: 1.5px solid var(--cyan);
+      background: transparent;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-upload:hover { background: var(--cyan-tint); }
+
+    .btn-quote-nav {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-quote-nav:hover { opacity: .88; }
+
+    /* ─── TOP HERO ─── */
+    .quote-hero {
+      background: var(--slate);
+      padding: 22px 64px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .quote-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .quote-hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-right: 8px;
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+    }
+
+    .trust-badge span { color: var(--sky); margin-right: 4px; }
+
+    /* ─── QUOTE PAGE LAYOUT ─── */
+    .quote-page-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      align-items: start;
+      background: var(--cool-white);
+    }
+    .quote-sidebar {
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      padding: 24px 0;
+    }
+    .sidebar-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 0 20px 12px;
+      display: block;
+    }
+    .sidebar-product-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 5px 20px;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: background .12s, color .12s;
+    }
+    .sidebar-product-btn:hover { background: var(--cool-white); color: var(--cyan); }
+    .sidebar-product-btn.active { background: var(--cyan-tint); color: var(--cyan); font-weight: 600; }
+    .sidebar-product-btn svg { flex-shrink: 0; color: var(--text-muted); }
+    .sidebar-product-btn:hover svg, .sidebar-product-btn.active svg { color: var(--cyan); }
+    /* Group icon tints — subtle, only the SVG */
+    [data-group="marketing"] .sidebar-product-btn svg,
+    [data-group="booklets"]  .sidebar-product-btn svg { color: #0891B2; }
+    [data-group="cards"]     .sidebar-product-btn svg,
+    [data-group="events"]    .sidebar-product-btn svg { color: #D97706; }
+    [data-group="large"]     .sidebar-product-btn svg { color: #65A30D; }
+    [data-group="marketing"] .sidebar-product-btn:hover svg,
+    [data-group="marketing"] .sidebar-product-btn.active svg,
+    [data-group="booklets"]  .sidebar-product-btn:hover svg,
+    [data-group="booklets"]  .sidebar-product-btn.active svg,
+    [data-group="cards"]     .sidebar-product-btn:hover svg,
+    [data-group="cards"]     .sidebar-product-btn.active svg,
+    [data-group="events"]    .sidebar-product-btn:hover svg,
+    [data-group="events"]    .sidebar-product-btn.active svg,
+    [data-group="large"]     .sidebar-product-btn:hover svg,
+    [data-group="large"]     .sidebar-product-btn.active svg { color: var(--cyan); }
+    /* Sidebar search */
+    .sidebar-search-wrap { padding: 0 12px 12px; }
+    .sidebar-search-inner { position: relative; }
+    .sidebar-search {
+      width: 100%; padding: 7px 28px 7px 30px; border: 1.5px solid var(--border);
+      border-radius: 6px; font-size: 13px; font-family: var(--font); color: var(--text);
+      background: var(--cool-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 9px center;
+      outline: none; box-sizing: border-box;
+    }
+    .sidebar-search:focus { border-color: var(--cyan); }
+    .sidebar-search::placeholder { color: #9ca3af; }
+    .sidebar-search-inner { position: relative; }
+    .sidebar-search-clear { display: none; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #9ca3af; font-size: 14px; line-height: 1; padding: 2px 4px; }
+    .sidebar-search-clear:hover { color: var(--slate); }
+    .sidebar-search-clear.visible { display: block; }
+    /* Sidebar groups */
+    .sidebar-group { margin-top: 16px; }
+    .sidebar-group:first-of-type { margin-top: 0; }
+    .sidebar-group-label {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; border: none; cursor: pointer;
+      font-size: 10px; font-weight: 700; color: #6B7280;
+      text-transform: uppercase; letter-spacing: .08em; font-family: var(--font);
+      padding: 6px 16px 6px 20px;
+      background: #f1f5f9;
+      border-radius: 0;
+    }
+    /* Group label color coding — mirrors logo palette */
+    [data-group="cards"]     .sidebar-group-label,
+    [data-group="events"]    .sidebar-group-label { background: #FEF3C7; color: #92400E; }
+    [data-group="large"]     .sidebar-group-label { background: #ECFCCB; color: #3F6212; }
+    .sidebar-group-label svg { opacity: 0.5; flex-shrink: 0; transition: transform .2s; }
+    .sidebar-group-label + .sidebar-product-btn { padding-top: 9px; }
+    .sidebar-group.collapsed .sidebar-group-label svg { transform: rotate(-90deg); }
+    .sidebar-group.collapsed .sidebar-product-btn { display: none; }
+    .sidebar-group.hidden { display: none; }
+    @media (max-width: 900px) {
+      .quote-page-layout { grid-template-columns: 1fr; }
+      .quote-sidebar { display: none; }
+    }
+
+    /* File upload */
+    .q-file-zone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1.5px dashed var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+    }
+
+    .q-file-zone:hover { border-color: var(--cyan); background: var(--cyan-tint); }
+
+    .q-file-input { display: none; }
+
+    .q-file-icon { color: var(--text-muted); flex-shrink: 0; }
+
+    .q-file-text { font-size: 13px; color: var(--text-muted); }
+    .q-file-text strong { color: var(--slate); font-weight: 600; }
+
+    .q-qty-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .q-qty-pills { display: contents !important; }
+    input.q-qty-custom { width: 110px; }
+
+    /* Print Mode custom dropdown */
+    .pm-trigger {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      width: 100%; padding: 11px 14px; background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 8px; color: var(--slate); font-size: 14px; font-family: var(--font); cursor: pointer; text-align: left;
+    }
+    .pm-trigger:hover { border-color: var(--cyan); }
+    .pm-trigger.open { border-color: var(--cyan); }
+    .pm-trigger svg { flex-shrink: 0; color: var(--slate); opacity: 0.5; transition: transform 0.15s; }
+    .pm-trigger.open svg { transform: rotate(180deg); }
+    .pm-menu {
+      display: none; position: fixed; z-index: 9999;
+      background: var(--white); border: 1.5px solid var(--cyan);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .pm-menu.open { display: block; }
+    .pm-option {
+      display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center;
+      width: 100%; padding: 9px 14px; background: none; border: none; color: var(--slate);
+      font-size: 14px; font-family: var(--font); cursor: pointer; text-align: left;
+    }
+    .pm-option:hover { background: #f0f4f8; }
+    .pm-option.selected { color: var(--cyan); }
+    .pm-code { font-weight: 700; }
+    .pm-desc { color: #6b7280; }
+    .pm-option.selected .pm-desc { color: var(--cyan); }
+    .pm-option-single { display: block; }
+    .pm-desc-full { color: var(--slate); }
+    .pm-option-dim { display: flex; align-items: center; gap: 0; }
+    .pm-dim-w { min-width: 46px; text-align: right; font-weight: 700; flex-shrink: 0; }
+    .pm-dim-x { color: #9ca3af; padding: 0 6px; flex-shrink: 0; }
+    .pm-dim-h { min-width: 38px; font-weight: 700; flex-shrink: 0; padding-right: 14px; }
+    .pm-dim-name { color: #6b7280; }
+    .pm-badge { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; background: var(--cyan); color: #fff; border-radius: 3px; padding: 1px 5px; margin-left: 8px; vertical-align: middle; line-height: 1.6; }
+    .pm-note { display: inline; font-size: 12px; color: #9ca3af; margin-left: 6px; }
+    .q-pill-wrap { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .q-pill-label { font-size: 8px; font-weight: 700; color: #D97706; text-transform: uppercase; letter-spacing: .05em; line-height: 1; }
+
+    .q-file-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 5px; }
+    .q-file-note { font-size: 11px; color: var(--text-muted); }
+    .q-file-note.warn { color: #DC2626; font-weight: 600; }
+    .q-file-large-link { font-size: 11px; color: var(--cyan); text-decoration: none; white-space: nowrap; }
+    .q-file-large-link:hover { text-decoration: underline; }
+    .q-file-zone.oversized { border-color: #DC2626; background: rgba(220,38,38,.05); }
+
+
+    .quote-split {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 48fr 52fr;
+      gap: 0;
+      min-height: 600px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      align-items: start;
+    }
+    .quote-split > * { min-width: 0; }
+
+    /* ─── LEFT PANEL ─── */
+    .quote-preview {
+      background: var(--slate);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      position: sticky;
+      top: 88px;
+      align-self: start;
+      min-height: 560px;
+      border-radius: 15px 0 0 15px;
+    }
+
+    .preview-product-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 24px;
+    }
+
+    .preview-svg-wrap {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .preview-svg-wrap svg { width: 100%; height: auto; transition: opacity .3s; }
+
+    .preview-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      max-width: 280px;
+    }
+
+    .preview-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ─── RIGHT PANEL ─── */
+    .quote-form-panel {
+      padding: 40px 44px 44px;
+      background: var(--white);
+      border-radius: 0 15px 15px 0;
+    }
+
+    .quote-no-product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 320px;
+      text-align: center;
+      gap: 16px;
+      padding: 40px;
+    }
+    .no-product-title { font-size: 18px; font-weight: 700; color: var(--slate); }
+    .no-product-sub   { font-size: 14px; color: var(--text-muted); max-width: 260px; line-height: 1.6; }
+
+    .q-section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--slate);
+      letter-spacing: -.01em;
+      margin-bottom: 4px;
+    }
+
+    .q-section-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* ─── FORM ROWS ─── */
+    .q-row {
+      margin-bottom: 20px;
+    }
+
+    .q-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 7px;
+    }
+
+    .q-select-wrap {
+      position: relative;
+    }
+
+    .q-select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--text-muted);
+      pointer-events: none;
+    }
+
+    .q-select {
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--slate);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 36px 11px 14px;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+
+    .q-select:focus { border-color: var(--cyan); }
+
+    /* Pill toggle buttons */
+    .q-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .q-pill {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 16px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .q-pill:hover { border-color: var(--sky); color: var(--cyan); }
+    .q-pill.selected { border-color: var(--cyan); background: var(--cyan-tint); color: var(--cyan); }
+
+    /* Turnaround pill with date badge */
+    .q-turn-pill {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px;
+      cursor: pointer;
+      transition: all .15s;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 110px;
+    }
+
+    .q-turn-pill:hover { border-color: var(--sky); color: var(--cyan); }
+    .q-turn-pill.selected { border-color: var(--cyan); background: var(--cyan-tint); color: var(--cyan); }
+    .q-turn-pill.selected .turn-date { color: rgba(8,145,178,.7); }
+
+    .turn-label { font-size: 13px; font-weight: 700; }
+    .turn-date { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+    .turn-rush-note { font-size: 11px; color: var(--text-muted); margin-top: 8px; }
+
+    /* Divider */
+    .q-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    /* Contact fields */
+    .q-input {
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--slate);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      width: 100%;
+      outline: none;
+      transition: border-color .15s;
+    }
+
+    .q-input:focus { border-color: var(--cyan); }
+
+    .q-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .q-input-row-narrow { grid-template-columns: 3fr 2fr; }
+
+    .q-textarea {
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--slate);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      width: 100%;
+      outline: none;
+      resize: vertical;
+      min-height: 80px;
+      transition: border-color .15s;
+    }
+
+    .q-textarea:focus { border-color: var(--cyan); }
+
+    /* Submit */
+    .q-submit {
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      border: none;
+      border-radius: 10px;
+      padding: 15px 32px;
+      width: 100%;
+      cursor: pointer;
+      transition: opacity .15s;
+      margin-top: 8px;
+    }
+
+    .q-submit:hover { opacity: .88; }
+    .q-submit:disabled { opacity: .4; cursor: not-allowed; }
+
+    .q-terms {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Hidden rows */
+    .q-row.hidden { display: none; }
+
+    /* ─── CONFIRMATION ─── */
+    .confirm-panel { display: none; padding: 60px 44px; }
+    .confirm-panel.active { display: block; }
+    .confirm-check { width: 72px; height: 72px; border-radius: 50%; border: 3px solid var(--cyan); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 32px; color: var(--cyan); }
+    .confirm-h2 { font-size: 28px; font-weight: 800; color: var(--slate); text-align: center; margin-bottom: 12px; }
+    .confirm-body { font-size: 15px; color: var(--text-muted); text-align: center; margin-bottom: 24px; }
+    .confirm-info-box { background: var(--cyan-tint); border: 1px solid var(--sky); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; }
+    .confirm-info-box p { font-size: 14px; color: var(--slate); margin-bottom: 4px; }
+    .confirm-next-title { font-size: 15px; font-weight: 700; color: var(--slate); margin-bottom: 12px; }
+    .confirm-steps { list-style: none; margin-bottom: 24px; }
+    .confirm-steps li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--text); margin-bottom: 10px; line-height: 1.5; }
+    .confirm-step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--cyan); color: var(--white); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .confirm-contact { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+    .confirm-contact a { color: var(--cyan); font-weight: 600; }
+    .confirm-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-home { display: inline-block; font-family: var(--font); font-size: 14px; font-weight: 600; color: var(--slate); border: 1.5px solid var(--border); background: var(--white); padding: 12px 24px; border-radius: 8px; transition: background .15s; }
+    .btn-home:hover { background: var(--cool-white); }
+    .btn-upload-confirm { display: inline-block; font-family: var(--font); font-size: 14px; font-weight: 700; color: var(--white); background: var(--cyan); padding: 12px 24px; border-radius: 8px; transition: opacity .15s; }
+    .btn-upload-confirm:hover { opacity: .88; }
+
+    /* ─── CTA ─── */
+    .cta-section { background: var(--slate); padding: 80px 64px; text-align: center; }
+    .cta-h2 { font-size: 48px; font-weight: 800; color: var(--white); letter-spacing: -.02em; }
+    .cta-sub { font-size: 17px; color: rgba(255,255,255,.6); margin-top: 12px; }
+
+    .btn-cta {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      padding: 16px 40px;
+      border-radius: 9px;
+      margin-top: 32px;
+      transition: opacity .15s;
+    }
+
+    .btn-cta:hover { opacity: .88; }
+    .cta-micro { font-size: 13px; color: rgba(255,255,255,.4); margin-top: 16px; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .mega-menu { width: 700px; grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .btn-upload { display: none; }
+      .quote-hero { padding: 40px 24px 0; }
+      .quote-hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .quote-hero-h1 { font-size: 32px; }
+      .quote-split { grid-template-columns: 1fr; }
+      .quote-preview { display: none; }
+      .q-input-row { grid-template-columns: 1fr; }
+      .cta-section { padding: 56px 24px; }
+      .cta-h2 { font-size: 36px; }
+      
+      
+      
+    }
+
+    @media (max-width: 480px) {
+      .q-pills { gap: 6px; }
+      .q-turn-pill { min-width: 90px; }
+      
+      .confirm-buttons { flex-direction: column; }
+    }
+  
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--slate);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 56px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand-logo {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-brand-logo-img {
+      height: 26px;
+      width: auto;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .footer-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .footer-contact-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+      text-decoration: none;
+    }
+    .footer-contact-link svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: rgba(255,255,255,.35);
+    }
+    .footer-contact-link:hover { color: var(--cyan); }
+    .footer-contact-link:hover svg { color: var(--cyan); }
+    .footer-slogan {
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+    .footer-slogan strong { font-weight: 700; }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-hour-row {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+    }
+    .footer-same-day {
+      font-size: 13px;
+      color: var(--cyan);
+      margin-top: 4px;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(8,145,178,.12);
+      border: 1px solid rgba(8,145,178,.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+    }
+    @media (max-width: 960px) {
+      .footer { padding: 48px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ─── COPY TOAST ─── */
+    .copy-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--slate);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
+      <div class="nav-logo-symbol-wrap">
+        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Events &amp; Retail</span>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=NCR+Forms" class="nav-prod-item">NCR Forms</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+    </div>
+  </nav>
+
+<!-- ─── TOP HERO ─── -->
+<section class="quote-hero">
+  <div class="quote-hero-inner">
+    <span class="quote-hero-eyebrow">Get a Quote</span>
+    <div class="trust-badges">
+      <span class="trust-badge"><span>&#9889;</span>30-Min Reply</span>
+      <span class="trust-badge"><span>&#10003;</span>No Hidden Fees</span>
+      <span class="trust-badge"><span>&#128205;</span>Irvine, CA Pick-Up</span>
+      <span class="trust-badge"><span>&#9993;</span>info@xpressprinting.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUOTE PAGE LAYOUT ─── -->
+<div class="quote-page-layout">
+
+  <aside class="quote-sidebar">
+    <p class="sidebar-label">What are you printing?</p>
+    <div class="sidebar-search-wrap">
+      <div class="sidebar-search-inner">
+        <input type="text" id="sidebar-search-input" class="sidebar-search" placeholder="Search products…" oninput="filterSidebar(this.value)">
+        <button type="button" class="sidebar-search-clear" id="sidebar-search-clear" onclick="clearSidebarSearch()" title="Clear">✕</button>
+      </div>
+    </div>
+
+    <div class="sidebar-group" data-group="marketing">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Marketing Prints <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Flyers" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+        Flyers
+      </button>
+      <button class="sidebar-product-btn" data-product="Brochures" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        Brochures
+      </button>
+      <button class="sidebar-product-btn" data-product="Postcards" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M12 10v9"/></svg>
+        Postcards
+      </button>
+      <button class="sidebar-product-btn" data-product="Rack Cards" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+        Rack Cards
+      </button>
+      <button class="sidebar-product-btn" data-product="Door Hangers" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="5" width="10" height="17" rx="2"/><path d="M12 5a2 2 0 0 0-2-2h0a2 2 0 0 0 0 4h2"/></svg>
+        Door Hangers
+      </button>
+      <button class="sidebar-product-btn" data-product="Posters" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Posters
+      </button>
+    </div>
+
+    <div class="sidebar-group" data-group="cards">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Cards &amp; Stationery <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Business Cards" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M6 10h4M6 13h2"/></svg>
+        Business Cards
+      </button>
+      <button class="sidebar-product-btn" data-product="Hang Tags" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>
+        Hang Tags
+      </button>
+      <button class="sidebar-product-btn" data-product="Stickers &amp; Labels" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        Stickers &amp; Labels
+      </button>
+      <button class="sidebar-product-btn" data-product="Certificates" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+        Certificates
+      </button>
+    </div>
+
+    <div class="sidebar-group" data-group="large">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Large Format &amp; Signs <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Banners &amp; Signs" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><circle cx="5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="19" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="5" cy="18" r="1.2" fill="currentColor" stroke="none"/><circle cx="19" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Banners &amp; Signs
+      </button>
+      <button class="sidebar-product-btn" data-product="Yard Signs" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="12" rx="2"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+        Yard Signs
+      </button>
+      <button class="sidebar-product-btn" data-product="Posters" onclick="selectSidebarProduct(this)" style="display:none" data-dupe="1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Posters
+      </button>
+      <button class="sidebar-product-btn" data-product="Window Clings" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+        Window Clings
+      </button>
+    </div>
+
+    <div class="sidebar-group" data-group="booklets">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Booklets &amp; Folders <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Booklets" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Booklets
+      </button>
+      <button class="sidebar-product-btn" data-product="Presentation Folders" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Presentation Folders
+      </button>
+      <button class="sidebar-product-btn" data-product="Menus" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        Menus
+      </button>
+    </div>
+
+    <div class="sidebar-group" data-group="events">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Events &amp; Retail <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Table Tents" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20L12 4l7 16"/></svg>
+        Table Tents
+      </button>
+      <button class="sidebar-product-btn" data-product="Calendars" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Calendars
+      </button>
+    </div>
+
+    <div class="sidebar-group" data-group="office">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Office &amp; Business <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Letterhead" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+        Letterhead
+      </button>
+      <button class="sidebar-product-btn" data-product="Envelopes" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="2,5 12,13 22,5"/></svg>
+        Envelopes
+      </button>
+      <button class="sidebar-product-btn" data-product="Notepads" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/></svg>
+        Notepads
+      </button>
+      <button class="sidebar-product-btn" data-product="NCR Forms" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 9v10"/></svg>
+        NCR Forms
+      </button>
+      <button class="sidebar-product-btn" data-product="Invoice Books" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 9v6"/></svg>
+        Invoice Books
+      </button>
+    </div>
+
+    <div class="sidebar-group" data-group="other">
+      <button type="button" class="sidebar-group-label" onclick="toggleSidebarGroup(this)">Other <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="sidebar-product-btn" data-product="Other" onclick="selectSidebarProduct(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Other / Not Listed
+      </button>
+    </div>
+  </aside>
+
+  <div class="quote-split" id="quote-split" style="padding: 40px 64px;">
+
+    <!-- LEFT: PREVIEW -->
+    <div class="quote-preview" id="quote-preview">
+      <div class="preview-product-label" id="preview-label">Select a product →</div>
+      <div class="preview-svg-wrap" id="preview-svg-wrap">
+        <!-- Default: generic print icon -->
+        <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="20" width="100" height="128" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+          <rect x="44" y="36" width="72" height="6" rx="3" fill="rgba(255,255,255,.25)"/>
+          <rect x="44" y="50" width="55" height="4" rx="2" fill="rgba(255,255,255,.14)"/>
+          <rect x="44" y="60" width="65" height="4" rx="2" fill="rgba(255,255,255,.14)"/>
+          <rect x="44" y="70" width="48" height="4" rx="2" fill="rgba(255,255,255,.14)"/>
+          <rect x="44" y="90" width="72" height="42" rx="4" fill="rgba(8,145,178,.18)" stroke="rgba(56,189,248,.25)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="preview-tags" id="preview-tags"></div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="quote-form-panel" id="quote-form-panel">
+
+      <!-- NO-PRODUCT PLACEHOLDER -->
+      <div class="quote-no-product" id="quote-no-product">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <p class="no-product-title">Select a product to get started</p>
+        <p class="no-product-sub">Choose from the list on the left — we'll show you the right options.</p>
+      </div>
+
+      <!-- CONFIRMATION (hidden until submit) -->
+      <div class="confirm-panel" id="confirm-panel">
+        <div class="confirm-check">&#10003;</div>
+        <h2 class="confirm-h2">Quote request sent!</h2>
+        <p class="confirm-body">We'll reply to <strong id="confirm-email"></strong> with your exact price — usually within 30 minutes.</p>
+        <div class="confirm-info-box">
+          <p>&#9990; (949) 851-9710 &nbsp;&middot;&nbsp; Mon&ndash;Fri 9AM&ndash;5PM</p>
+        </div>
+        <div class="confirm-next-title">What happens next:</div>
+        <ul class="confirm-steps">
+          <li><span class="confirm-step-num">1</span> We review your request and prepare your exact quote.</li>
+          <li><span class="confirm-step-num">2</span> You receive an email with price + options (usually within 30 min).</li>
+          <li><span class="confirm-step-num">3</span> Approve the quote &rarr; send files &rarr; we print.</li>
+          <li><span class="confirm-step-num">4</span> Pick up in Irvine or arrange delivery.</li>
+        </ul>
+        <p class="confirm-contact">Questions? Call <a href="tel:9498519710">(949) 851-9710</a> or email <a href="mailto:info@xpressprinting.com">info@xpressprinting.com</a></p>
+        <div class="confirm-buttons">
+          <a href="index.html" class="btn-home">Back to Homepage</a>
+          <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload-confirm" target="_blank" rel="noopener">Upload Your Files &rarr;</a>
+        </div>
+      </div>
+
+      <!-- MAIN FORM -->
+      <div id="main-form-wrap">
+
+      <form id="quote-form" action="https://formspree.io/f/REPLACE_WITH_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="products"   id="hid-products">
+        <input type="hidden" name="specs"      id="hid-specs">
+        <input type="hidden" name="quantities" id="hid-quantities">
+        <input type="hidden" name="turnaround" id="hid-turnaround">
+        <input type="hidden" id="hid-qty" name="quantity">
+        <input type="hidden" id="hid-cover-opt" name="cover_option">
+        <input type="hidden" name="_subject"   value="New Quote Request — Xpress Printing">
+
+        <!-- SIZE (shown for most products) -->
+        <div class="q-row" id="qr-size">
+          <label class="q-label">Finished Size</label>
+          <input type="hidden" id="q-size" name="size">
+          <div class="pm-dropdown" id="dd-size">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('dd-size')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu"></div>
+          </div>
+        </div>
+
+        <!-- CUSTOM SIZE (shown when Custom Size selected) -->
+        <div class="q-row hidden" id="qr-custom-size">
+          <label class="q-label">Custom Size (inches)</label>
+          <div class="q-input-row" style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center;">
+            <input type="number" id="q-custom-w" name="custom_width" class="q-input" placeholder='Width"' min="0.5" step="0.25" oninput="updatePreviewTags()">
+            <span style="color:var(--text-muted); font-size:14px; text-align:center;">×</span>
+            <input type="number" id="q-custom-h" name="custom_height" class="q-input" placeholder='Height"' min="0.5" step="0.25" oninput="updatePreviewTags()">
+          </div>
+        </div>
+
+        <!-- PAPER WEIGHT -->
+        <div class="q-row" id="qr-paper">
+          <label class="q-label">Paper / Material</label>
+          <input type="hidden" id="q-paper" name="paper">
+          <div class="pm-dropdown" id="dd-paper">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('dd-paper')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu"></div>
+          </div>
+        </div>
+
+        <!-- COATING -->
+        <div class="q-row" id="qr-coating">
+          <label class="q-label">Coating / Finish</label>
+          <input type="hidden" id="q-coating" name="coating">
+          <div class="pm-dropdown" id="dd-coating">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('dd-coating')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu"></div>
+          </div>
+        </div>
+
+        <!-- PRINT MODE (replaces Color + Sides) -->
+        <div class="q-row hidden" id="qr-print-mode" style="overflow:visible;">
+          <label class="q-label">Print Mode</label>
+          <input type="hidden" id="q-print-mode" name="print_mode">
+          <div class="pm-dropdown" id="pm-dropdown-main">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('pm-dropdown-main')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu" id="pm-menu-main">
+              <button type="button" class="pm-option" data-val="4/4 — Full Color, Double-Sided" onclick="selectPmOption('pm-dropdown-main','q-print-mode',this)"><span class="pm-code">4/4</span><span class="pm-desc">Full Color, Double-Sided</span></button>
+              <button type="button" class="pm-option" data-val="4/0 — Full Color, Single-Sided" onclick="selectPmOption('pm-dropdown-main','q-print-mode',this)"><span class="pm-code">4/0</span><span class="pm-desc">Full Color, Single-Sided</span></button>
+              <button type="button" class="pm-option" data-val="4/1 — Color Front / B&W Back" onclick="selectPmOption('pm-dropdown-main','q-print-mode',this)"><span class="pm-code">4/1</span><span class="pm-desc">Color Front / B&amp;W Back</span></button>
+              <button type="button" class="pm-option" data-val="1/1 — B&W, Double-Sided" onclick="selectPmOption('pm-dropdown-main','q-print-mode',this)"><span class="pm-code">1/1</span><span class="pm-desc">B&amp;W, Double-Sided</span></button>
+              <button type="button" class="pm-option" data-val="1/0 — B&W, Single-Sided" onclick="selectPmOption('pm-dropdown-main','q-print-mode',this)"><span class="pm-code">1/0</span><span class="pm-desc">B&amp;W, Single-Sided</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRINT MODE booklet variant (always double-sided) -->
+        <div class="q-row hidden" id="qr-print-mode-2sided" style="overflow:visible;">
+          <label class="q-label">Print Mode</label>
+          <input type="hidden" id="q-print-mode-2sided" name="print_mode">
+          <div class="pm-dropdown" id="pm-dropdown-2sided">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('pm-dropdown-2sided')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu" id="pm-menu-2sided">
+              <button type="button" class="pm-option" data-val="4/4 — Full Color" onclick="selectPmOption('pm-dropdown-2sided','q-print-mode-2sided',this)"><span class="pm-code">4/4</span><span class="pm-desc">Full Color</span></button>
+              <button type="button" class="pm-option" data-val="1/1 — B&W" onclick="selectPmOption('pm-dropdown-2sided','q-print-mode-2sided',this)"><span class="pm-code">1/1</span><span class="pm-desc">B&amp;W</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOLDING (Brochures) -->
+        <div class="q-row hidden" id="qr-fold">
+          <label class="q-label">Folding</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="fold" data-val="No Fold" onclick="selectPill(this)">No Fold</button>
+            <button type="button" class="q-pill" data-field="fold" data-val="Bi-Fold" onclick="selectPill(this)">Bi-Fold</button>
+            <button type="button" class="q-pill" data-field="fold" data-val="Tri-Fold" onclick="selectPill(this)">Tri-Fold</button>
+            <button type="button" class="q-pill" data-field="fold" data-val="Z-Fold" onclick="selectPill(this)">Z-Fold</button>
+          </div>
+        </div>
+
+        <!-- SCORE (Brochures on cover stock) -->
+        <div class="q-row hidden" id="qr-score">
+          <label class="q-label">Score / Crease</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="score" data-val="No Score" onclick="selectPill(this)">No Score</button>
+            <button type="button" class="q-pill" data-field="score" data-val="Score Before Fold" onclick="selectPill(this)">Score Before Fold</button>
+          </div>
+        </div>
+
+        <!-- BUNDLE (Flyers/Brochures) -->
+        <div class="q-row hidden" id="qr-bundle">
+          <label class="q-label">Shrink-Wrap Bundle</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="bundle" data-val="No Bundle" onclick="selectPill(this)">No Bundle</button>
+            <button type="button" class="q-pill" data-field="bundle" data-val="25 per pack" onclick="selectPill(this)">25 per pack</button>
+            <button type="button" class="q-pill" data-field="bundle" data-val="50 per pack" onclick="selectPill(this)">50 per pack</button>
+          </div>
+        </div>
+
+        <!-- BANNER SIZE (Banners only) -->
+        <div class="q-row hidden" id="qr-banner-size">
+          <label class="q-label">Banner Size (inches)</label>
+          <div class="q-input-row">
+            <input class="q-input" type="text" id="q-bn-w" placeholder="Width (e.g. 36)" oninput="updatePreviewTags()">
+            <input class="q-input" type="text" id="q-bn-h" placeholder="Height (e.g. 24)" oninput="updatePreviewTags()">
+          </div>
+        </div>
+
+
+        <!-- CORNERS (Business Cards) -->
+        <div class="q-row hidden" id="qr-corners">
+          <label class="q-label">Corners</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="corners" data-val="Square Corners" onclick="selectPill(this)">Square</button>
+            <button type="button" class="q-pill" data-field="corners" data-val="Rounded Corners (1/4&quot;)" onclick="selectPill(this)">Rounded</button>
+          </div>
+        </div>
+
+        <!-- SHAPE (Stickers & Labels) -->
+        <div class="q-row hidden" id="qr-shape">
+          <label class="q-label">Cut Style</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="shape" data-val="Die-Cut" onclick="selectPill(this)">Die-Cut</button>
+            <button type="button" class="q-pill" data-field="shape" data-val="Kiss-Cut" onclick="selectPill(this)">Kiss-Cut</button>
+            <button type="button" class="q-pill" data-field="shape" data-val="Circle" onclick="selectPill(this)">Circle</button>
+            <button type="button" class="q-pill" data-field="shape" data-val="Square / Rectangle" onclick="selectPill(this)">Square / Rect</button>
+          </div>
+        </div>
+
+        <!-- BINDING (Booklets) -->
+        <div class="q-row hidden" id="qr-binding">
+          <label class="q-label">Binding</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="binding" data-val="Saddle Stitch" onclick="selectPill(this)">Saddle Stitch</button>
+            <button type="button" class="q-pill" data-field="binding" data-val="Spiral / Coil" onclick="selectPill(this)">Spiral / Coil</button>
+            <button type="button" class="q-pill" data-field="binding" data-val="Perfect Bind" onclick="selectPill(this)">Perfect Bind</button>
+          </div>
+        </div>
+
+        <!-- PAGE COUNT (Booklets) -->
+        <div class="q-row hidden" id="qr-pages">
+          <label class="q-label">Inside Pages (excluding cover)</label>
+          <input type="hidden" id="q-pages" name="pages">
+          <div class="pm-dropdown" id="dd-pages">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('dd-pages')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu"></div>
+          </div>
+        </div>
+
+        <!-- BOOKLET COVER PAPER -->
+        <div class="q-row hidden" id="qr-cover-paper">
+          <label class="q-label">Cover Stock</label>
+          <input type="hidden" id="q-cover-paper" name="cover_paper">
+          <div class="pm-dropdown" id="dd-cover-paper">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('dd-cover-paper')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu"></div>
+          </div>
+          <div class="q-pills" style="margin-top:8px;">
+            <button type="button" class="q-pill selected" data-field="cover-opt" data-val="With Separate Cover" onclick="selectPill(this)">Separate Cover</button>
+            <button type="button" class="q-pill" data-field="cover-opt" data-val="Self Cover (no separate cover)" onclick="selectPill(this)">Self Cover</button>
+          </div>
+        </div>
+
+        <!-- BOOKLET INSIDE PAPER -->
+        <div class="q-row hidden" id="qr-inside-paper">
+          <label class="q-label">Inside Pages Stock</label>
+          <input type="hidden" id="q-inside-paper" name="inside_paper">
+          <div class="pm-dropdown" id="dd-inside-paper">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('dd-inside-paper')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu"></div>
+          </div>
+        </div>
+
+        <!-- FINISHING (Banners) -->
+        <div class="q-row hidden" id="qr-finishing">
+          <label class="q-label">Finishing</label>
+          <div class="q-pills">
+            <button type="button" class="q-pill selected" data-field="finishing" data-val="Hemmed &amp; Grommeted" onclick="selectPill(this)">Hemmed + Grommets</button>
+            <button type="button" class="q-pill" data-field="finishing" data-val="Hemmed Only" onclick="selectPill(this)">Hemmed Only</button>
+            <button type="button" class="q-pill" data-field="finishing" data-val="No Finishing" onclick="selectPill(this)">No Finishing</button>
+          </div>
+        </div>
+
+        <!-- QUANTITY -->
+        <div class="q-row" id="qr-qty">
+          <label class="q-label">Quantity</label>
+          <div class="q-qty-wrap">
+            <div class="q-pills q-qty-pills" id="qty-pills"></div>
+            <input type="text" inputmode="numeric" id="q-qty-custom" name="quantity_custom" class="q-input q-qty-custom" placeholder="Other qty" oninput="onQtyCustomInput(this)">
+          </div>
+        </div>
+
+        <!-- TURNAROUND -->
+        <div class="q-row">
+          <label class="q-label">Turnaround Time</label>
+          <div class="q-pills" id="turn-pills" style="flex-wrap:nowrap; gap:6px; overflow-x:auto; padding-bottom:4px;">
+          </div>
+          <p class="turn-rush-note">⚡ Same-day orders include a rush fee.</p>
+        </div>
+
+        <hr class="q-divider">
+
+        <!-- TELL US WHERE TO SEND THE QUOTE -->
+        <p class="q-section-title" style="font-size:16px;margin-bottom:16px;">Tell us where to send the quote</p>
+
+        <!-- CONTACT INFO -->
+        <div class="q-input-row">
+          <div>
+            <label class="q-label" for="q-name">Your Name</label>
+            <input class="q-input" type="text" id="q-name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div>
+            <label class="q-label" for="q-company">Company <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+            <input class="q-input" type="text" id="q-company" name="company" placeholder="Acme Corp">
+          </div>
+        </div>
+
+        <div class="q-input-row q-input-row-narrow">
+          <div>
+            <label class="q-label" for="q-email">Email Address</label>
+            <input class="q-input" type="email" id="q-email" name="email" placeholder="jane@company.com" required>
+          </div>
+          <div>
+            <label class="q-label" for="q-phone">Phone <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+            <input class="q-input" type="tel" id="q-phone" name="phone" placeholder="(949) 555-0100">
+          </div>
+        </div>
+
+        <div class="q-row">
+          <label class="q-label" for="q-notes">Notes / Special Requests <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+          <textarea class="q-textarea" id="q-notes" name="notes" placeholder="Need quotes for multiple quantities? List them here (e.g. 250 &amp; 500). Artwork ready? Special requests? Rush deadline? Let us know..."></textarea>
+        </div>
+
+        <!-- FILE UPLOAD -->
+        <div class="q-row">
+          <label class="q-label">Attach Artwork <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+          <label class="q-file-zone" for="q-file" id="q-file-zone">
+            <svg class="q-file-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            <div class="q-file-text"><strong id="q-file-name">Choose file</strong> &nbsp;or drag &amp; drop</div>
+          </label>
+          <input type="file" id="q-file" name="attachment" class="q-file-input" accept=".pdf,.ai,.eps,.png,.jpg,.jpeg,.zip,.psd">
+          <div class="q-file-meta">
+            <p class="q-file-note" id="q-file-note">PDF, AI, EPS, PNG, JPG, ZIP &middot; Max 25 MB</p>
+            <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="q-file-large-link" target="_blank" rel="noopener" id="q-file-large-link">
+              File over 25 MB? Use our uploader &rarr;
+            </a>
+          </div>
+        </div>
+
+        <button type="submit" class="q-submit" id="q-submit">Send Quote Request &rarr;</button>
+        <p class="q-terms">We reply within 30 minutes &middot; No spam, ever &middot; info@xpressprinting.com</p>
+
+      </form>
+      </div><!-- /main-form-wrap -->
+
+    </div><!-- /quote-form-panel -->
+
+    <!-- HIDDEN: legacy IDs kept for compatibility -->
+    <div style="display:none">
+      <input id="qty-custom" value="">
+      <div id="progress-bar"></div>
+      <select id="q-product">
+        <option value="">— Choose a product —</option>
+        <option value="Business Cards">Business Cards</option>
+        <option value="Flyers">Flyers</option>
+        <option value="Brochures">Brochures</option>
+        <option value="Postcards">Postcards</option>
+        <option value="Banners &amp; Signs">Banners &amp; Signs</option>
+        <option value="Stickers &amp; Labels">Stickers &amp; Labels</option>
+        <option value="Booklets">Booklets</option>
+        <option value="Presentation Folders">Presentation Folders</option>
+        <option value="Letterhead">Letterhead</option>
+        <option value="NCR Forms">NCR Forms</option>
+        <option value="Calendars">Calendars</option>
+        <option value="Other">Other / Not Listed</option>
+      </select>
+    </div><!-- /hidden-legacy -->
+
+  </div><!-- /quote-split -->
+</div><!-- /quote-page-layout -->
+
+<!-- ─── CTA STRIP ─── -->
+<section class="cta-section">
+  <h2 class="cta-h2">Ready to print?<br>Let's make it happen.</h2>
+  <p class="cta-sub">Same-day printing available. No hidden fees. Exact quote in 30 minutes.</p>
+  <a href="#" class="btn-cta" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Start Your Quote &rarr;</a>
+  <p class="cta-micro">Or email us: info@xpressprinting.com &middot; Mon&ndash;Fri 9AM&ndash;5PM</p>
+</section>
+
+<!-- ─── FOOTER ─── -->
+
+<script>
+// ─── SIDEBAR PRODUCT PICKER ───
+function toggleSidebarGroup(btn) {
+  btn.closest('.sidebar-group').classList.toggle('collapsed');
+}
+
+function clearSidebarSearch() {
+  var inp = document.getElementById('sidebar-search-input');
+  inp.value = '';
+  document.getElementById('sidebar-search-clear').classList.remove('visible');
+  filterSidebar('');
+}
+
+function filterSidebar(q) {
+  var term = q.trim().toLowerCase();
+  var clearBtn = document.getElementById('sidebar-search-clear');
+  if (clearBtn) clearBtn.classList.toggle('visible', !!term);
+  if (!term) {
+    document.querySelectorAll('.sidebar-group').forEach(function(g) {
+      g.classList.remove('hidden');
+      g.classList.remove('collapsed');
+    });
+    document.querySelectorAll('.sidebar-product-btn').forEach(function(b) { b.style.display = b.dataset.dupe ? 'none' : ''; });
+    document.querySelectorAll('.sidebar-group-label').forEach(function(l) { l.style.display = ''; });
+    return;
+  }
+  document.querySelectorAll('.sidebar-group').forEach(function(g) {
+    var btns = g.querySelectorAll('.sidebar-product-btn:not([data-dupe])');
+    var anyMatch = false;
+    btns.forEach(function(b) {
+      var match = b.textContent.trim().toLowerCase().includes(term);
+      b.style.display = match ? '' : 'none';
+      if (match) anyMatch = true;
+    });
+    g.classList.toggle('hidden', !anyMatch);
+    if (anyMatch) g.classList.remove('collapsed');
+    g.querySelector('.sidebar-group-label').style.display = anyMatch ? '' : 'none';
+  });
+}
+
+function selectSidebarProduct(btn) {
+  document.querySelectorAll('.sidebar-product-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  var product = btn.getAttribute('data-product');
+  var sel = document.getElementById('q-product');
+  if (sel) sel.value = product;
+  // Show form, hide placeholder
+  var placeholder = document.getElementById('quote-no-product');
+  var formWrap = document.getElementById('main-form-wrap');
+  if (placeholder) placeholder.style.display = 'none';
+  if (formWrap) formWrap.style.display = '';
+  onProductChange(product);
+}
+
+// ─── PRODUCT CONFIGS ───
+const PRODUCT_CONFIGS = {
+  'Business Cards': {
+    sizes: ['3.5" × 2" (Standard)', '1.75" × 3.5" (Slim)', '2" × 2" (Square)', '2" × 3.5" (Mini)', 'Custom Size'],
+    sizeMeta: {
+      '3.5" × 2" (Standard)': { badge: 'popular' }
+    },
+    paper: ['14PT Gloss', '14PT Matte', '16PT Soft Touch', '16PT Silk Matte', '16PT Linen', '100lb Cover (Slim)', 'Metallic / Foil Board', 'Plastic / PVC'],
+    paperMeta: {
+      '14PT Gloss':         { badge: 'popular', note: 'Most common choice — sharp colors, glossy finish' },
+      '14PT Matte':         { note: 'Easy to write on, no glare' },
+      '16PT Soft Touch':    { note: 'Velvety feel, premium look' },
+      '16PT Silk Matte':    { note: 'Smooth satin finish, rich colors' },
+      '16PT Linen':         { note: 'Textured classic feel' },
+
+      'Metallic / Foil Board': { note: 'Eye-catching shimmer — great for luxury brands' },
+      'Plastic / PVC':      { note: 'Waterproof & durable — credit card feel' },
+      '100lb Cover (Slim)': { note: '~30% thinner than 14PT — easy on the wallet!' }
+    },
+    showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: true, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['100','250','500','1,000','2,500'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    buyoutPapers: ['16PT Soft Touch', '16PT Silk Matte', '16PT Linen', 'Metallic / Foil Board', 'Plastic / PVC'],
+    buyoutCoatings: ['Gloss UV', 'Matte Laminate', 'Soft Touch', 'Aqueous Gloss', 'Spot UV'],
+    svgKey: 'biz-card'
+  },
+  'Flyers': {
+    sizes: ['3.5" × 8.5" (Rack Card)', '4" × 6"', '4.25" × 5.5" (Half Letter)', '5.5" × 8.5" (Half Letter)', '8.5" × 11" (Letter)', '8.5" × 14" (Legal)', '11" × 17" (Tabloid)', 'Custom Size'],
+    sizeMeta: { '8.5" × 11" (Letter)': { badge: 'popular' }, '5.5" × 8.5" (Half Letter)': { badge: 'popular' } },
+    paper: ['60lb Uncoated', '70lb Uncoated', '80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text'],
+    paperMeta: { '100lb Gloss Text': { badge: 'popular' }, '100lb Matte Text': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: true, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500','1,000','2,500','5,000','10,000'],
+    qtyMeta: { '250': { badge: 'popular' }, '500': { badge: 'popular' } },
+    svgKey: 'flyer'
+  },
+  'Brochures': {
+    sizes: ['8.5" × 11" (Letter flat)', '8.5" × 14" (Legal flat)', '11" × 17" (Tabloid flat)', '11" × 25.5" (Tabloid flat — trifold)', 'Custom Size'],
+    sizeMeta: { '8.5" × 11" (Letter flat)': { badge: 'popular' } },
+    paper: ['80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text', '100lb Gloss Cover', '100lb Matte Cover'],
+    paperMeta: { '100lb Gloss Text': { badge: 'popular' }, '100lb Matte Text': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: true, showScore: true, showBundle: true, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500','1,000','2,500'],
+    qtyMeta: { '250': { badge: 'popular' }, '500': { badge: 'popular' } },
+    svgKey: 'brochure'
+  },
+  'Postcards': {
+    sizes: ['4" × 6"', '4.25" × 5.5"', '5" × 7"', '5.5" × 8.5"', '6" × 9"', '6" × 11" (EDDM)', '8.5" × 11"', 'Custom Size'],
+    sizeMeta: { '4" × 6"': { badge: 'popular' }, '5.5" × 8.5"': { badge: 'popular' } },
+    paper: ['14PT Gloss', '14PT Matte', '16PT Soft Touch', '100lb Gloss Cover', '100lb Matte Cover'],
+    paperMeta: { '14PT Gloss': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500','1,000','2,500','5,000'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    svgKey: 'postcard'
+  },
+  'Banners & Signs': {
+    sizes: [],
+    paper: ['13oz Vinyl (Outdoor Gloss)', '13oz Vinyl (Matte)', 'Mesh Banner (Wind-Resistant)', 'Foam Board 3/16"', 'Foam Board 1/2"', 'Coroplast / Yard Sign', 'Retractable Banner Stand', 'PVC Board'],
+    paperMeta: { '13oz Vinyl (Outdoor Gloss)': { badge: 'popular' } },
+    showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: true,
+    showCorners: false, showFinishing: true, showShape: false, showBinding: false, showPages: false,
+    qty: ['1','2','3','4','5','10','25'], buyout: true,
+    qtyMeta: { '1': { badge: 'popular' }, '2': { badge: 'popular' } },
+    svgKey: 'banner'
+  },
+  'Stickers & Labels': {
+    sizes: ['2" × 2"', '2" × 3"', '3" × 3"', '3" × 4"', '4" × 4"', '4" × 6"', 'Custom Size'],
+    sizeMeta: { '3" × 3"': { badge: 'popular' }, '3" × 4"': { badge: 'popular' } },
+    paper: ['White Gloss Vinyl', 'White Matte Vinyl', 'Clear Gloss Vinyl', 'Clear Matte Vinyl', 'Kraft / Recycled', 'Foil (Gold/Silver)'],
+    paperMeta: { 'White Gloss Vinyl': { badge: 'popular' } },
+    showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: true, showBinding: false, showPages: false,
+    qty: ['50','100','250','500','1,000','2,500'],
+    qtyMeta: { '250': { badge: 'popular' }, '500': { badge: 'popular' } },
+    svgKey: 'sticker'
+  },
+  'Booklets': {
+    sizes: ['5.5" × 8.5"', '8.5" × 11"', '8.5" × 14"', 'Custom Size'],
+    sizeMeta: { '8.5" × 11"': { badge: 'popular' } },
+    paper: [],
+    coverPaper: ['80lb Gloss Cover', '80lb Matte Cover', '100lb Gloss Cover', '100lb Matte Cover', '12PT Card Stock'],
+    insidePaper: ['60lb Offset Text', '70lb Text', '80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text'],
+    showPrintMode: false, showPrintMode2Sided: true, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: true, showPages: true,
+    showCoverPaper: true,
+    qty: ['25','50','100','250','500'],
+    qtyMeta: { '100': { badge: 'popular' }, '250': { badge: 'popular' } },
+    turnaroundSet: 'assembly', buyoutBindings: ['Perfect Bind', 'Spiral / Coil'],
+    svgKey: 'booklet'
+  },
+  'Rack Cards': {
+    sizes: ['3.5" × 8.5"', '4" × 9"', 'Custom Size'],
+    sizeMeta: { '4" × 9"': { badge: 'popular' } },
+    paper: ['14PT Gloss', '14PT Matte', '16PT Soft Touch', '100lb Gloss Text'],
+    paperMeta: { '14PT Gloss': { badge: 'popular' } },
+    coating: ['Gloss UV', 'Matte Laminate', 'Soft Touch', 'Aqueous Gloss', 'None'],
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['250','500','1,000','2,500','5,000'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Posters': {
+    sizes: ['11" × 17" (Tabloid)', '12" × 18"', '18" × 24"', '24" × 36"', 'Custom Size'],
+    sizeMeta: { '11" × 17" (Tabloid)': { badge: 'popular' }, '18" × 24"': { badge: 'popular' } },
+    paper: ['100lb Gloss Text', '100lb Matte Text', '80lb Gloss Text', '80lb Matte Text'],
+    paperMeta: { '100lb Gloss Text': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500'],
+    qtyMeta: { '50': { badge: 'popular' }, '100': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Door Hangers': {
+    sizes: ['3.5" × 8.5"', '4.25" × 11"', 'Custom Size'],
+    sizeMeta: { '4.25" × 11"': { badge: 'popular' } },
+    paper: ['14PT Gloss', '14PT Matte', '16PT Soft Touch'],
+    paperMeta: { '14PT Gloss': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['250','500','1,000','2,500','5,000'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    buyout: true, svgKey: 'generic'
+  },
+  'Table Tents': {
+    sizes: ['4" × 6" (A-Frame)', '3.5" × 8.5" (Tall)', '5" × 7"', 'Custom Size'],
+    sizeMeta: { '4" × 6" (A-Frame)': { badge: 'popular' } },
+    paper: ['14PT Gloss', '14PT Matte', '16PT Soft Touch', '100lb Gloss Cover'],
+    paperMeta: { '14PT Gloss': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['50','100','250','500'],
+    qtyMeta: { '100': { badge: 'popular' }, '250': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Yard Signs': {
+    sizes: ['18" × 24"', '24" × 36"', 'Custom Size'],
+    sizeMeta: { '18" × 24"': { badge: 'popular' } },
+    paper: ['4mm Corrugated Plastic'],
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['5','10','25','50','100','250'], buyout: true,
+    qtyMeta: { '25': { badge: 'popular' }, '50': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Window Clings': {
+    sizes: ['4" × 6"', '6" × 6"', '8.5" × 11"', 'Custom Size'],
+    sizeMeta: { '8.5" × 11"': { badge: 'popular' } },
+    paper: ['Clear Static Cling', 'White Static Cling', 'Perforated Window Film'],
+    paperMeta: { 'Clear Static Cling': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['50','100','250','500'], buyout: true,
+    qtyMeta: { '100': { badge: 'popular' }, '250': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Notepads': {
+    sizes: ['4.25" × 5.5" (Half Letter)', '5.5" × 8.5" (Half Letter tall)', '8.5" × 11" (Letter)', 'Custom Size'],
+    sizeMeta: { '4.25" × 5.5" (Half Letter)': { badge: 'popular' }, '5.5" × 8.5" (Half Letter tall)': { badge: 'popular' } },
+    paper: ['60lb Offset Text', '70lb Text', '80lb Text'],
+    paperMeta: { '60lb Offset Text': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500','1,000'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    turnaroundSet: 'notepad', svgKey: 'generic'
+  },
+  'Hang Tags': {
+    sizes: ['2" × 3.5"', '2" × 4"', '3" × 3"', '3.5" × 5"', 'Custom Size'],
+    sizeMeta: { '2" × 3.5"': { badge: 'popular' } },
+    paper: ['14PT Gloss', '14PT Matte', '16PT Soft Touch'],
+    paperMeta: { '14PT Matte': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['100','250','500','1,000','2,500'],
+    qtyMeta: { '250': { badge: 'popular' }, '500': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Menus': {
+    sizes: ['4.25" × 11" (Single fold)', '8.5" × 11" (Letter)', '8.5" × 14" (Legal)', '11" × 17" (Tabloid)', 'Custom Size'],
+    sizeMeta: { '8.5" × 11" (Letter)': { badge: 'popular' }, '8.5" × 14" (Legal)': { badge: 'popular' } },
+    paper: ['100lb Gloss Text', '100lb Matte Text', '80lb Gloss Text', '80lb Matte Text', '100lb Gloss Cover', '100lb Matte Cover'],
+    paperMeta: { '100lb Gloss Cover': { badge: 'popular' }, '100lb Matte Cover': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: true, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500'],
+    qtyMeta: { '50': { badge: 'popular' }, '100': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Certificates': {
+    sizes: ['8.5" × 11" (Letter)', '8.5" × 14" (Legal)', '11" × 8.5" (Landscape)', 'Custom Size'],
+    sizeMeta: { '8.5" × 11" (Letter)': { badge: 'popular' } },
+    paper: ['80lb Gloss Cover', '100lb Gloss Cover', '100lb Matte Cover', '80lb Uncoated Cover', 'Parchment / Linen'],
+    paperMeta: { '100lb Gloss Cover': { badge: 'popular' }, 'Parchment / Linen': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500'],
+    qtyMeta: { '25': { badge: 'popular' }, '50': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Letterhead': {
+    sizes: ['8.5" × 11"'],
+    paper: ['24lb Bond White', '60lb Offset White', '70lb Text White', '80lb Text White', '32lb Premium Bond'],
+    paperMeta: { '24lb Bond White': { badge: 'popular' }, '32lb Premium Bond': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: true, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['250', '500', '1,000', '2,500'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Envelopes': {
+    sizes: ['#10 (4.125" × 9.5")', '#9 (3.875" × 8.875")', 'A2 (4.375" × 5.75")', 'A7 (5.25" × 7.25")', '6" × 9"', '9" × 12"', 'Custom Size'],
+    sizeMeta: { '#10 (4.125" × 9.5")': { badge: 'popular' } },
+    paper: ['24lb Bond White', '60lb Offset White', '70lb Text White'],
+    paperMeta: { '24lb Bond White': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['250','500','1,000','2,500','5,000'],
+    qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'Invoice Books': {
+    sizes: ['4.25" × 5.5"', '5.5" × 8.5"', '8.5" × 11"', 'Custom Size'],
+    sizeMeta: { '5.5" × 8.5"': { badge: 'popular' } },
+    paper: ['NCR 2-Part (White / Canary)', 'NCR 3-Part (White / Canary / Pink)', 'NCR 4-Part (White / Canary / Pink / Goldenrod)'],
+    paperMeta: { 'NCR 2-Part (White / Canary)': { badge: 'popular' } },
+    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250'],
+    qtyMeta: { '50': { badge: 'popular' }, '100': { badge: 'popular' } },
+    svgKey: 'generic'
+  },
+  'default': {
+    sizes: [],
+    paper: [],
+    showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
+    qty: ['25','50','100','250','500','1,000'],
+    svgKey: 'generic'
+  }
+};
+
+// ─── DYNAMIC PREVIEW RENDERER ───
+function parseSizeInches(str) {
+  if (!str) return null;
+  var m = str.match(/([\d.]+)["″]?\s*[×xX]\s*([\d.]+)/);
+  return m ? [parseFloat(m[1]), parseFloat(m[2])] : null;
+}
+
+function buildPreviewSVG(opts) {
+  // opts: { svgKey, dims[w,h], isGloss, isMatte, isSilkMatte, isSoftTouch, isLinen, isMetallic, isPlastic,
+  //         isSpotUV, fold, binding, shape, productScale, isRounded, stackLayers }
+  var VW = 320, VH = 320;
+  var MAXS = 220;
+
+  var key = opts.svgKey || 'generic';
+  var dims = opts.dims;
+  if (!dims) {
+    var DEF = {
+      'biz-card':[3.5,2],'flyer':[8.5,11],'brochure':[8.5,11],
+      'postcard':[6,4],'banner':[36,24],'sticker':[3,3],'booklet':[8.5,11],'generic':[8.5,11]
+    };
+    dims = DEF[key] || [8.5,11];
+  }
+
+  var wi = dims[0], hi = dims[1];
+  if (wi/hi > 3.2) hi = wi/3.2;
+  if (hi/wi > 3.2) wi = hi/3.2;
+
+  var scale = opts.productScale ? opts.productScale : Math.min(MAXS/wi, MAXS/hi);
+  var pw = wi*scale, ph = hi*scale;
+  var cx = VW/2, cy = VH/2;
+
+  var binding = opts.binding || '';
+  var leftRoom = /perfect|spiral|coil|wire/i.test(binding) ? 14 : 0;
+  var px = cx - pw/2 + leftRoom/2;
+  var py = cy - ph/2;
+
+  var parts = [], defs = [];
+
+  // Rounded corners: business card rounded option → large rx; otherwise minimal
+  var rx = opts.isRounded
+    ? Math.min(pw, ph) * 0.1
+    : Math.min(6, pw*0.03, ph*0.03);
+
+  // ── DEFS ──
+  if (opts.isGloss || opts.isSilkMatte) {
+    var gAlpha1 = opts.isGloss ? '.30' : '.12';
+    var gAlpha2 = opts.isGloss ? '.08' : '.03';
+    defs.push('<linearGradient id="pvg" x1="0%" y1="0%" x2="70%" y2="70%">' +
+      '<stop offset="0%" stop-color="rgba(255,255,255,'+gAlpha1+')"/>' +
+      '<stop offset="40%" stop-color="rgba(255,255,255,'+gAlpha2+')"/>' +
+      '<stop offset="100%" stop-color="rgba(255,255,255,0)"/>' +
+      '</linearGradient>');
+  }
+  if (opts.isMetallic) {
+    defs.push('<linearGradient id="pvmet" x1="0%" y1="0%" x2="100%" y2="100%">' +
+      '<stop offset="0%"   stop-color="rgba(220,210,180,.55)"/>' +
+      '<stop offset="30%"  stop-color="rgba(255,250,230,.70)"/>' +
+      '<stop offset="55%"  stop-color="rgba(180,170,140,.40)"/>' +
+      '<stop offset="80%"  stop-color="rgba(255,248,200,.60)"/>' +
+      '<stop offset="100%" stop-color="rgba(200,190,160,.45)"/>' +
+      '</linearGradient>');
+  }
+  if (opts.isPlastic) {
+    defs.push('<linearGradient id="pvpvc" x1="0%" y1="0%" x2="60%" y2="80%">' +
+      '<stop offset="0%"   stop-color="rgba(255,255,255,.40)"/>' +
+      '<stop offset="25%"  stop-color="rgba(210,235,255,.18)"/>' +
+      '<stop offset="100%" stop-color="rgba(200,225,255,.08)"/>' +
+      '</linearGradient>');
+  }
+
+  // ── QUANTITY STACK (shadow layers for non-biz-card products) ──
+  var stackN = (key === 'biz-card') ? 0 : Math.min(opts.stackLayers || 0, 7);
+  for (var si = stackN; si >= 1; si--) {
+    var soff = si * 3.5;
+    var salpha = (0.04 + (stackN - si) * 0.018).toFixed(3);
+    parts.push('<rect x="'+(px+soff)+'" y="'+(py+soff)+'" width="'+pw+'" height="'+ph+'" rx="'+rx+'" fill="rgba(255,255,255,'+salpha+')" stroke="rgba(255,255,255,.06)" stroke-width="1"/>');
+  }
+
+  // ── PERFECT BIND SPINE ──
+  if (/perfect/i.test(binding)) {
+    var spW = Math.max(10, pw*0.08);
+    var spX = px - spW;
+    parts.push('<rect x="'+spX+'" y="'+(py+4)+'" width="'+spW+'" height="'+(ph-8)+'" rx="2" fill="#0e5f7a" stroke="rgba(56,189,248,.45)" stroke-width="1"/>');
+    parts.push('<rect x="'+(spX+2)+'" y="'+(cy-11)+'" width="'+(spW-4)+'" height="3.5" rx="1.5" fill="rgba(255,255,255,.45)"/>');
+    parts.push('<rect x="'+(spX+2)+'" y="'+(cy-4)+'" width="'+(spW-4)+'" height="2.5" rx="1" fill="rgba(255,255,255,.25)"/>');
+    parts.push('<rect x="'+(spX+2)+'" y="'+(cy+4)+'" width="'+(spW-4)+'" height="2.5" rx="1" fill="rgba(255,255,255,.25)"/>');
+  }
+
+  // ── PAPER BODY ──
+  var paperFill;
+  if (opts.isMetallic)       paperFill = 'url(#pvmet)';
+  else if (opts.isPlastic)   paperFill = 'url(#pvpvc)';
+  else if (opts.isLinen)     paperFill = 'rgba(245,238,222,.14)';
+  else if (opts.isSoftTouch) paperFill = 'rgba(232,220,215,.13)';
+  else if (opts.isSilkMatte) paperFill = 'rgba(255,255,255,.11)';
+  else if (opts.isMatte)     paperFill = 'rgba(242,238,232,.11)';
+  else                       paperFill = 'rgba(255,255,255,.09)';
+
+  var paperStroke = opts.isMetallic ? 'rgba(255,240,180,.35)' :
+                    opts.isPlastic  ? 'rgba(180,220,255,.40)' :
+                    'rgba(255,255,255,.22)';
+
+  parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+ph+'" rx="'+rx+'" fill="'+paperFill+'" stroke="'+paperStroke+'" stroke-width="1.5"/>');
+
+  // ── PRODUCT CONTENT ──
+  if (key === 'biz-card') {
+    // Front face card design
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+(ph*0.38)+'" rx="'+rx+'" fill="rgba(8,145,178,.28)"/>');
+    parts.push('<rect x="'+px+'" y="'+(py+ph*0.31)+'" width="'+pw+'" height="'+(ph*0.07)+'" fill="rgba(8,145,178,.28)"/>');
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.54)+'" width="'+(pw*0.52)+'" height="'+(ph*0.13)+'" rx="2" fill="rgba(255,255,255,.58)"/>');
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.72)+'" width="'+(pw*0.38)+'" height="'+(ph*0.1)+'" rx="1.5" fill="rgba(255,255,255,.28)"/>');
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.85)+'" width="'+(pw*0.44)+'" height="'+(ph*0.08)+'" rx="1.5" fill="rgba(255,255,255,.22)"/>');
+    var logoR = Math.min(pw,ph)*0.16;
+    parts.push('<circle cx="'+(px+pw*0.8)+'" cy="'+(py+ph*0.65)+'" r="'+logoR+'" fill="rgba(8,145,178,.18)" stroke="rgba(56,189,248,.35)" stroke-width="1.5"/>');
+    parts.push('<text x="'+(px+pw*0.8)+'" y="'+(py+ph*0.70)+'" text-anchor="middle" font-size="9" font-weight="700" fill="rgba(255,255,255,.55)" font-family="sans-serif">XP</text>');
+
+    // ── BOX QUANTITY VISUALIZATION (single box, length scales with qty) ──
+    var qtyBox = opts.qtyVal || 0;
+    if (qtyBox > 0) {
+      // Box length: 250qty=40px baseline, scales up, max 220px
+      var bMinW = 40, bMaxW = 220;
+      var bw = Math.min(bMaxW, Math.round(bMinW + (qtyBox / 2500) * (bMaxW - bMinW)));
+      var bh = 16, bd = 14;
+      var ddx = Math.round(bd * 0.55), ddy = Math.round(bd * 0.32);
+      var bBaseY = 308;
+      var bx0 = cx - (bw + ddx) / 2;
+      var by0 = bBaseY - bh;
+
+      // Right face (dark)
+      parts.push('<path d="M'+(bx0+bw)+','+by0+' L'+(bx0+bw+ddx)+','+(by0-ddy)+' L'+(bx0+bw+ddx)+','+(by0+bh-ddy)+' L'+(bx0+bw)+','+(by0+bh)+'Z" fill="rgba(4,85,108,.92)"/>');
+      // Top face (light)
+      parts.push('<path d="M'+bx0+','+by0+' L'+(bx0+bw)+','+by0+' L'+(bx0+bw+ddx)+','+(by0-ddy)+' L'+(bx0+ddx)+','+(by0-ddy)+'Z" fill="rgba(56,189,248,.48)"/>');
+      // Front face
+      parts.push('<rect x="'+bx0+'" y="'+by0+'" width="'+bw+'" height="'+bh+'" fill="rgba(8,145,178,.85)" rx="2"/>');
+      // Seam line (lid)
+      parts.push('<line x1="'+bx0+'" y1="'+(by0+bh*0.40)+'" x2="'+(bx0+bw)+'" y2="'+(by0+bh*0.40)+'" stroke="rgba(255,255,255,.25)" stroke-width="0.9"/>');
+      // Right face seam
+      parts.push('<line x1="'+(bx0+bw)+'" y1="'+(by0+bh*0.40)+'" x2="'+(bx0+bw+ddx)+'" y2="'+(by0+bh*0.40-ddy)+'" stroke="rgba(255,255,255,.15)" stroke-width="0.8"/>');
+      // Qty label on front face
+      var qLabel = qtyBox >= 1000 ? (qtyBox/1000).toFixed(qtyBox%1000===0?0:1)+'k' : String(qtyBox);
+      parts.push('<text x="'+(bx0+bw/2)+'" y="'+(by0+bh*0.33)+'" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.85)" font-family="sans-serif" font-weight="700">'+qLabel+' cards</text>');
+      parts.push('<text x="'+(bx0+bw/2)+'" y="'+(by0+bh*0.72)+'" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,.45)" font-family="sans-serif">Business Cards</text>');
+    }
+
+  } else if (key === 'banner') {
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.22)+'" width="'+(pw*0.8)+'" height="'+(ph*0.2)+'" rx="2" fill="rgba(255,255,255,.45)"/>');
+    parts.push('<rect x="'+(px+pw*0.2)+'" y="'+(py+ph*0.52)+'" width="'+(pw*0.6)+'" height="'+(ph*0.12)+'" rx="2" fill="rgba(255,255,255,.2)"/>');
+    parts.push('<rect x="'+(px+pw*0.28)+'" y="'+(py+ph*0.7)+'" width="'+(pw*0.44)+'" height="'+(ph*0.1)+'" rx="2" fill="rgba(8,145,178,.3)"/>');
+    var gr = Math.min(6, pw*0.028, ph*0.045);
+    [[px+10,py+10],[px+pw-10,py+10],[px+10,py+ph-10],[px+pw-10,py+ph-10]].forEach(function(g){
+      parts.push('<circle cx="'+g[0]+'" cy="'+g[1]+'" r="'+(gr+1)+'" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>');
+      parts.push('<circle cx="'+g[0]+'" cy="'+g[1]+'" r="'+(gr*0.38)+'" fill="rgba(255,255,255,.35)"/>');
+    });
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="7" rx="'+rx+'" fill="rgba(255,255,255,.06)"/>');
+    parts.push('<rect x="'+px+'" y="'+(py+ph-7)+'" width="'+pw+'" height="7" rx="'+rx+'" fill="rgba(255,255,255,.06)"/>');
+
+  } else if (key === 'sticker') {
+    var shape = opts.shape || 'Die-Cut';
+    if (/circle/i.test(shape)) {
+      var cr = Math.min(pw,ph)/2 - 7;
+      parts.push('<circle cx="'+(px+pw/2)+'" cy="'+(py+ph/2)+'" r="'+(cr+5)+'" fill="rgba(8,145,178,.12)"/>');
+      parts.push('<circle cx="'+(px+pw/2)+'" cy="'+(py+ph/2)+'" r="'+cr+'" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="5,3"/>');
+    } else {
+      parts.push('<rect x="'+(px+6)+'" y="'+(py+6)+'" width="'+(pw-12)+'" height="'+(ph-12)+'" rx="'+(rx+3)+'" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="5,3"/>');
+    }
+    parts.push('<rect x="'+(px+pw*0.15)+'" y="'+(py+ph*0.25)+'" width="'+(pw*0.7)+'" height="'+(ph*0.22)+'" rx="2" fill="rgba(8,145,178,.28)"/>');
+    parts.push('<rect x="'+(px+pw*0.18)+'" y="'+(py+ph*0.55)+'" width="'+(pw*0.64)+'" height="'+(ph*0.1)+'" rx="1.5" fill="rgba(255,255,255,.5)"/>');
+    parts.push('<rect x="'+(px+pw*0.25)+'" y="'+(py+ph*0.7)+'" width="'+(pw*0.5)+'" height="'+(ph*0.08)+'" rx="1.5" fill="rgba(255,255,255,.25)"/>');
+
+  } else if (key === 'postcard') {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+(pw*0.5)+'" height="'+ph+'" rx="'+rx+'" fill="rgba(8,145,178,.2)"/>');
+    parts.push('<line x1="'+(px+pw*0.5)+'" y1="'+(py+10)+'" x2="'+(px+pw*0.5)+'" y2="'+(py+ph-10)+'" stroke="rgba(255,255,255,.18)" stroke-width="1"/>');
+    parts.push('<rect x="'+(px+pw*0.58)+'" y="'+(py+ph*0.08)+'" width="'+(pw*0.3)+'" height="'+(ph*0.32)+'" rx="2" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>');
+    [0.52,0.62,0.72,0.82].forEach(function(fy){
+      parts.push('<rect x="'+(px+pw*0.54)+'" y="'+(py+ph*fy)+'" width="'+(pw*(0.38-fy*0.06))+'" height="'+(ph*0.06)+'" rx="1.5" fill="rgba(255,255,255,.2)"/>');
+    });
+    parts.push('<rect x="'+(px+pw*0.06)+'" y="'+(py+ph*0.32)+'" width="'+(pw*0.38)+'" height="'+(ph*0.12)+'" rx="1.5" fill="rgba(255,255,255,.5)"/>');
+    parts.push('<rect x="'+(px+pw*0.06)+'" y="'+(py+ph*0.5)+'" width="'+(pw*0.3)+'" height="'+(ph*0.08)+'" rx="1.5" fill="rgba(255,255,255,.3)"/>');
+
+  } else if (key === 'brochure') {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+(ph*0.32)+'" rx="'+rx+'" fill="rgba(8,145,178,.2)"/>');
+    parts.push('<rect x="'+px+'" y="'+(py+ph*0.26)+'" width="'+pw+'" height="'+(ph*0.06)+'" fill="rgba(8,145,178,.2)"/>');
+    parts.push('<rect x="'+(px+pw*0.07)+'" y="'+(py+ph*0.09)+'" width="'+(pw*0.38)+'" height="'+(ph*0.09)+'" rx="2" fill="rgba(255,255,255,.55)"/>');
+    parts.push('<rect x="'+(px+pw*0.07)+'" y="'+(py+ph*0.21)+'" width="'+(pw*0.28)+'" height="'+(ph*0.04)+'" rx="1.5" fill="rgba(255,255,255,.28)"/>');
+    [0.44,0.52,0.59,0.67,0.75].forEach(function(fy){
+      parts.push('<rect x="'+(px+pw*0.07)+'" y="'+(py+ph*fy)+'" width="'+(pw*(0.82-fy*0.14))+'" height="'+(ph*0.045)+'" rx="1.5" fill="rgba(255,255,255,.16)"/>');
+    });
+
+  } else if (key === 'flyer') {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+(ph*0.33)+'" rx="'+rx+'" fill="rgba(8,145,178,.2)"/>');
+    parts.push('<rect x="'+px+'" y="'+(py+ph*0.27)+'" width="'+pw+'" height="'+(ph*0.06)+'" fill="rgba(8,145,178,.2)"/>');
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.09)+'" width="'+(pw*0.8)+'" height="'+(ph*0.1)+'" rx="2" fill="rgba(255,255,255,.55)"/>');
+    parts.push('<rect x="'+(px+pw*0.14)+'" y="'+(py+ph*0.22)+'" width="'+(pw*0.52)+'" height="'+(ph*0.04)+'" rx="1.5" fill="rgba(255,255,255,.3)"/>');
+    [0.43,0.5,0.57,0.64].forEach(function(fy){
+      parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*fy)+'" width="'+(pw*(0.82-fy*0.08))+'" height="'+(ph*0.04)+'" rx="1.5" fill="rgba(255,255,255,.18)"/>');
+    });
+    parts.push('<rect x="'+(px+pw*0.15)+'" y="'+(py+ph*0.79)+'" width="'+(pw*0.7)+'" height="'+(ph*0.12)+'" rx="3" fill="rgba(220,38,38,.22)" stroke="rgba(220,38,38,.4)" stroke-width="1"/>');
+
+  } else if (key === 'booklet') {
+    parts.push('<line x1="'+cx+'" y1="'+(py+5)+'" x2="'+cx+'" y2="'+(py+ph-5)+'" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>');
+    parts.push('<rect x="'+(px+7)+'" y="'+(py+10)+'" width="'+(pw/2-16)+'" height="'+(ph*0.38)+'" rx="3" fill="rgba(8,145,178,.2)"/>');
+    [0.55,0.64,0.72,0.81].forEach(function(fy){
+      parts.push('<rect x="'+(px+9)+'" y="'+(py+ph*fy)+'" width="'+(pw*0.38)+'" height="'+(ph*0.05)+'" rx="1.5" fill="rgba(255,255,255,.18)"/>');
+    });
+    parts.push('<rect x="'+(cx+9)+'" y="'+(py+16)+'" width="'+(pw*0.38)+'" height="'+(ph*0.07)+'" rx="2" fill="rgba(255,255,255,.45)"/>');
+    [0.32,0.42,0.51,0.6,0.69,0.78].forEach(function(fy){
+      parts.push('<rect x="'+(cx+9)+'" y="'+(py+ph*fy)+'" width="'+(pw*(0.44-fy*0.04))+'" height="'+(ph*0.05)+'" rx="1.5" fill="rgba(255,255,255,.18)"/>');
+    });
+
+  } else {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+(ph*0.27)+'" rx="'+rx+'" fill="rgba(8,145,178,.16)"/>');
+    parts.push('<rect x="'+px+'" y="'+(py+ph*0.22)+'" width="'+pw+'" height="'+(ph*0.05)+'" fill="rgba(8,145,178,.16)"/>');
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.09)+'" width="'+(pw*0.8)+'" height="'+(ph*0.07)+'" rx="2" fill="rgba(255,255,255,.42)"/>');
+    [0.37,0.45,0.52].forEach(function(fy){
+      parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*fy)+'" width="'+(pw*0.8)+'" height="'+(ph*0.04)+'" rx="1.5" fill="rgba(255,255,255,.18)"/>');
+    });
+    parts.push('<rect x="'+(px+pw*0.1)+'" y="'+(py+ph*0.7)+'" width="'+(pw*0.8)+'" height="'+(ph*0.18)+'" rx="4" fill="rgba(8,145,178,.18)" stroke="rgba(56,189,248,.25)" stroke-width="1"/>');
+  }
+
+  // ── FOLD LINES ──
+  var fold = opts.fold || 'No Fold';
+  var foldFracs = [];
+  if (/bi.?fold|half.?fold/i.test(fold))               foldFracs = [0.5];
+  else if (/tri.?fold|letter fold|c.?fold/i.test(fold)) foldFracs = [1/3, 2/3];
+  else if (/z.?fold|accordion/i.test(fold))             foldFracs = [1/3, 2/3];
+  else if (/gate fold/i.test(fold))                     foldFracs = [0.25, 0.75];
+  foldFracs.forEach(function(fx){
+    var lx = px + pw*fx;
+    parts.push('<line x1="'+lx+'" y1="'+(py+5)+'" x2="'+lx+'" y2="'+(py+ph-5)+'" stroke="rgba(255,255,255,.42)" stroke-width="1" stroke-dasharray="5,3"/>');
+    parts.push('<line x1="'+(lx-4)+'" y1="'+(py+10)+'" x2="'+lx+'" y2="'+(py+5)+'" stroke="rgba(255,255,255,.3)" stroke-width="0.8"/>');
+    parts.push('<line x1="'+(lx+4)+'" y1="'+(py+10)+'" x2="'+lx+'" y2="'+(py+5)+'" stroke="rgba(255,255,255,.3)" stroke-width="0.8"/>');
+  });
+
+  // ── BINDING ──
+  if (/saddle/i.test(binding)) {
+    var isBooklet = key === 'booklet';
+    var stapX = isBooklet ? cx : px;
+    [0.28,0.72].forEach(function(fy){
+      var sy = py + ph*fy;
+      parts.push('<path d="M'+(stapX-4)+','+(sy-5)+' L'+(stapX-4)+','+(sy+5)+' M'+(stapX+4)+','+(sy-5)+' L'+(stapX+4)+','+(sy+5)+' M'+(stapX-4)+','+(sy-5)+' L'+(stapX+4)+','+(sy-5)+'" stroke="rgba(255,255,255,.6)" stroke-width="1.8" fill="none" stroke-linecap="round"/>');
+    });
+  } else if (/spiral|coil/i.test(binding)) {
+    var coilN = Math.max(7, Math.floor(ph/13));
+    for (var ci=0; ci<coilN; ci++) {
+      var coily = py + 7 + ci*(ph-14)/Math.max(coilN-1,1);
+      parts.push('<circle cx="'+(px-8)+'" cy="'+coily+'" r="4.5" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>');
+      parts.push('<line x1="'+(px-8)+'" y1="'+(coily-4.5)+'" x2="'+px+'" y2="'+(coily-4.5)+'" stroke="rgba(255,255,255,.18)" stroke-width="1"/>');
+    }
+  } else if (/wire|twin|double.?loop/i.test(binding)) {
+    var wireN = Math.max(6, Math.floor(ph/14));
+    for (var wi3=0; wi3<wireN; wi3++) {
+      var wirey = py + 9 + wi3*(ph-18)/Math.max(wireN-1,1);
+      parts.push('<circle cx="'+(px-6)+'" cy="'+(wirey-3.5)+'" r="3" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.2"/>');
+      parts.push('<circle cx="'+(px-6)+'" cy="'+(wirey+3.5)+'" r="3" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.2"/>');
+    }
+  }
+
+  // ── LINEN TEXTURE ──
+  if (opts.isLinen) {
+    var hStep = pw / 9;
+    for (var lxi = px + hStep; lxi < px+pw-1; lxi += hStep) {
+      parts.push('<line x1="'+lxi+'" y1="'+py+'" x2="'+lxi+'" y2="'+(py+ph)+'" stroke="rgba(170,145,110,.14)" stroke-width="0.6"/>');
+    }
+    var vStep = ph / 7;
+    for (var lyi = py + vStep; lyi < py+ph-1; lyi += vStep) {
+      parts.push('<line x1="'+px+'" y1="'+lyi+'" x2="'+(px+pw)+'" y2="'+lyi+'" stroke="rgba(170,145,110,.14)" stroke-width="0.6"/>');
+    }
+  }
+
+  // ── SOFT TOUCH TEXTURE (warm micro-dots) ──
+  if (opts.isSoftTouch) {
+    [[.12,.1],[.35,.06],[.62,.12],[.85,.08],[.18,.35],[.55,.28],[.80,.40],
+     [.08,.60],[.42,.55],[.72,.62],[.92,.50],[.28,.78],[.60,.82],[.85,.72]].forEach(function(dp){
+      parts.push('<circle cx="'+(px+pw*dp[0])+'" cy="'+(py+ph*dp[1])+'" r="0.9" fill="rgba(200,180,170,.18)"/>');
+    });
+  }
+
+  // ── MATTE TEXTURE (cool micro-dots) ──
+  if (opts.isMatte && !opts.isSilkMatte && !opts.isSoftTouch) {
+    [[.18,.12],[.52,.07],[.78,.18],[.12,.42],[.82,.48],
+     [.38,.72],[.65,.63],[.88,.82],[.08,.78],[.55,.88]].forEach(function(dp){
+      parts.push('<circle cx="'+(px+pw*dp[0])+'" cy="'+(py+ph*dp[1])+'" r="0.8" fill="rgba(255,255,255,.12)"/>');
+    });
+  }
+
+  // ── GLOSS / SILK SHINE OVERLAY ──
+  if (opts.isGloss || opts.isSilkMatte) {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+ph+'" rx="'+rx+'" fill="url(#pvg)"/>');
+    var streakW = opts.isGloss ? pw*0.55 : pw*0.35;
+    var streakA = opts.isGloss ? '.32' : '.16';
+    parts.push('<line x1="'+(px+pw*0.06)+'" y1="'+(py+4)+'" x2="'+(px+pw*0.06+streakW)+'" y2="'+(py+4)+'" stroke="rgba(255,255,255,'+streakA+')" stroke-width="2.5" stroke-linecap="round"/>');
+    if (opts.isGloss) {
+      // Secondary thin streak
+      parts.push('<line x1="'+(px+pw*0.08)+'" y1="'+(py+8)+'" x2="'+(px+pw*0.38)+'" y2="'+(py+8)+'" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-linecap="round"/>');
+    }
+  }
+
+  // ── METALLIC SHIMMER ──
+  if (opts.isMetallic) {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+ph+'" rx="'+rx+'" fill="url(#pvmet)" opacity="0.85"/>');
+    parts.push('<line x1="'+px+'" y1="'+py+'" x2="'+(px+pw*0.6)+'" y2="'+(py+ph*0.4)+'" stroke="rgba(255,255,220,.45)" stroke-width="3" stroke-linecap="round"/>');
+    parts.push('<line x1="'+(px+pw*0.3)+'" y1="'+py+'" x2="'+(px+pw)+'" y2="'+(py+ph*0.55)+'" stroke="rgba(255,255,200,.22)" stroke-width="1.5" stroke-linecap="round"/>');
+  }
+
+  // ── PLASTIC / PVC ──
+  if (opts.isPlastic) {
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+ph+'" rx="'+rx+'" fill="url(#pvpvc)"/>');
+    parts.push('<line x1="'+(px+pw*0.05)+'" y1="'+(py+3)+'" x2="'+(px+pw*0.45)+'" y2="'+(py+3)+'" stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round"/>');
+    parts.push('<line x1="'+(px+pw*0.05)+'" y1="'+(py+8)+'" x2="'+(px+pw*0.25)+'" y2="'+(py+8)+'" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round"/>');
+    // Subtle edge transparency indicator
+    parts.push('<rect x="'+px+'" y="'+py+'" width="'+pw+'" height="'+ph+'" rx="'+rx+'" fill="none" stroke="rgba(180,220,255,.5)" stroke-width="2"/>');
+  }
+
+  // ── SPOT UV COATING ──
+  if (opts.isSpotUV) {
+    // Shine patch over header area
+    parts.push('<rect x="'+(px+pw*0.05)+'" y="'+(py+ph*0.02)+'" width="'+(pw*0.5)+'" height="'+(ph*0.25)+'" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="0.5"/>');
+    parts.push('<line x1="'+(px+pw*0.07)+'" y1="'+(py+ph*0.04)+'" x2="'+(px+pw*0.45)+'" y2="'+(py+ph*0.04)+'" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-linecap="round"/>');
+  }
+
+  var defsStr = defs.length ? '<defs>'+defs.join('')+'</defs>' : '';
+  return '<svg viewBox="0 0 '+VW+' '+VH+'" width="320" height="320" xmlns="http://www.w3.org/2000/svg">'+defsStr+parts.join('')+'</svg>';
+}
+
+// State
+const qState = {
+  product: '',
+  size: '',
+  paper: '',
+  coating: '',
+  color: 'Full Color (4/4)',
+  sides: 'Double-Sided',
+  fold: 'No Fold',
+  bundle: 'No Bundle',
+  qty: '',
+  turnaround: ''
+};
+
+// ─── BUSINESS DAY CALCULATOR ───
+function addBusinessDays(date, n) {
+  var d = new Date(date);
+  var added = 0;
+  while (added < n) {
+    d.setDate(d.getDate() + 1);
+    var day = d.getDay();
+    if (day !== 0 && day !== 6) added++;
+  }
+  return d;
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function checkBuyoutTurnaround(cfg) {
+  var paper = document.getElementById('q-paper').value;
+  var coating = document.getElementById('q-coating').value;
+  var isBuyout = (cfg.buyoutPapers && cfg.buyoutPapers.includes(paper))
+              || (cfg.buyoutCoatings && cfg.buyoutCoatings.includes(coating));
+  buildTurnaroundPills(isBuyout ? TURNAROUND_BUYOUT : null);
+}
+
+var TURNAROUND_STANDARD = [
+  { label: 'Same Day', days: 0 },
+  { label: 'Next Day', days: 1 },
+  { label: '2 Days',   days: 2 },
+  { label: '3–5 Days', days: 5 },
+  { label: '7–10 Days', days: 10 },
+];
+// Needs assembly/fold in-house — no same day
+var TURNAROUND_ASSEMBLY = [
+  { label: '2 Days',    days: 2 },
+  { label: '3–5 Days',  days: 5 },
+  { label: '7–10 Days', days: 10 },
+];
+// Glue padding + 24h dry — minimum 2 days
+var TURNAROUND_NOTEPAD = [
+  { label: '2 Days',    days: 2 },
+  { label: '3–5 Days',  days: 5 },
+  { label: '7–10 Days', days: 10 },
+];
+// Outsourced — minimum 5–6 days
+var TURNAROUND_BUYOUT = [
+  { label: '5–6 Days',  days: 6 },
+  { label: '7–10 Days', days: 10 },
+];
+
+function buildTurnaroundPills(customOptions) {
+  var today = new Date();
+  var options = customOptions || TURNAROUND_STANDARD;
+  var defaultIdx = customOptions ? 0 : 2;
+  var wrap = document.getElementById('turn-pills');
+  wrap.innerHTML = '';
+  var hasSameDay = options.some(function(o) { return o.days === 0; });
+  var rushNote = document.querySelector('.turn-rush-note');
+  if (rushNote) rushNote.style.display = hasSameDay ? '' : 'none';
+  options.forEach(function(opt, i) {
+    var targetDate = opt.days === 0 ? today : addBusinessDays(today, opt.days);
+    var dateStr = formatDate(targetDate);
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'q-turn-pill' + (i === defaultIdx ? ' selected' : '');
+    btn.dataset.val = opt.label + ' (' + dateStr + ')';
+    btn.innerHTML = '<span class="turn-label">' + opt.label + '</span><span class="turn-date">' + dateStr + '</span>';
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.q-turn-pill').forEach(p => p.classList.remove('selected'));
+      btn.classList.add('selected');
+      qState.turnaround = btn.dataset.val;
+      document.getElementById('hid-turnaround').value = qState.turnaround;
+    });
+    wrap.appendChild(btn);
+    if (i === defaultIdx) {
+      qState.turnaround = btn.dataset.val;
+      document.getElementById('hid-turnaround').value = qState.turnaround;
+    }
+  });
+}
+
+// ─── CUSTOM DROPDOWN HELPERS ───
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function splitSize(s) {
+  // "W × H (Name)" → dim layout
+  var m = s.match(/^([\d."]+")\s*×\s*([\d."]+")\s*(?:\((.+)\))?$/);
+  if (m) return {w: m[1], h: m[2], name: m[3] || ''};
+  return null;
+}
+function splitPaper(s) {
+  var m = s.match(/^(\S+)\s+(.+)$/);
+  return m ? {code: m[1], desc: m[2]} : null;
+}
+function splitPages(s) {
+  var m = s.match(/^(\d+)\s+(.+)$/);
+  return m ? {code: m[1], desc: m[2]} : null;
+}
+function populateCustomDropdown(ddId, hiddenId, items, splitFn, meta) {
+  var dd = document.getElementById(ddId);
+  var menu = dd.querySelector('.pm-menu');
+  var triggerText = dd.querySelector('.pm-trigger-text');
+  menu.innerHTML = '';
+  triggerText.textContent = '— Select —';
+  document.getElementById(hiddenId).value = '';
+  items.forEach(function(item) {
+    var parts = splitFn ? splitFn(item) : null;
+    var m = (meta && meta[item]) || {};
+    var badgeHtml = m.badge ? '<span class="pm-badge">' + escHtml(m.badge) + '</span>' : '';
+    var noteHtml = m.note ? '<span class="pm-note">' + escHtml(m.note) + '</span>' : '';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.dataset.val = item;
+    if (parts && parts.w !== undefined) {
+      btn.className = 'pm-option pm-option-dim';
+      btn.innerHTML = '<span class="pm-dim-w">' + escHtml(parts.w) + '</span>'
+        + '<span class="pm-dim-x">×</span>'
+        + '<span class="pm-dim-h">' + escHtml(parts.h) + '</span>'
+        + '<span class="pm-dim-name">' + escHtml(parts.name) + badgeHtml + '</span>'
+        + (noteHtml ? '<span style="grid-column:1/-1">' + noteHtml + '</span>' : '');
+    } else if (parts && parts.code) {
+      btn.className = 'pm-option';
+      btn.innerHTML = '<span class="pm-code">' + escHtml(parts.code) + '</span>'
+        + '<span class="pm-desc">' + escHtml(parts.desc) + badgeHtml + noteHtml + '</span>';
+    } else {
+      btn.className = 'pm-option pm-option-single';
+      btn.innerHTML = '<span class="pm-desc-full">' + escHtml(item) + badgeHtml + noteHtml + '</span>';
+    }
+    btn.onclick = (function(val) { return function() {
+      menu.querySelectorAll('.pm-option').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      document.getElementById(hiddenId).value = val;
+      triggerText.textContent = val;
+      closePmDropdowns();
+      updatePreviewTags();
+    }; })(item);
+    menu.appendChild(btn);
+  });
+}
+
+// ─── POPULATE SELECTS ───
+function populateSelect(id, options) {
+  var sel = document.getElementById(id);
+  var cur = sel.value;
+  while (sel.options.length > 1) sel.remove(1);
+  options.forEach(function(o) {
+    var opt = document.createElement('option');
+    opt.value = o; opt.textContent = o;
+    sel.appendChild(opt);
+  });
+  if (options.includes(cur)) sel.value = cur;
+}
+
+// ─── PRODUCT CHANGE ───
+function onProductChange(product) {
+  qState.product = product;
+  document.getElementById('hid-products').value = product;
+
+  var cfg = PRODUCT_CONFIGS[product] || PRODUCT_CONFIGS['default'];
+
+  // Size
+  var szRow = document.getElementById('qr-size');
+  if (cfg.sizes && cfg.sizes.length) {
+    populateCustomDropdown('dd-size', 'q-size', cfg.sizes, splitSize, cfg.sizeMeta);
+    // Re-wire options to also handle Custom Size row
+    document.getElementById('dd-size').querySelectorAll('.pm-option').forEach(function(btn) {
+      var origClick = btn.onclick;
+      btn.onclick = function() {
+        origClick.call(this);
+        var isCustom = document.getElementById('q-size').value === 'Custom Size';
+        document.getElementById('qr-custom-size').classList.toggle('hidden', !isCustom);
+      };
+    });
+    szRow.classList.remove('hidden');
+  } else {
+    szRow.classList.add('hidden');
+  }
+
+  // Paper
+  var pRow = document.getElementById('qr-paper');
+  if (cfg.paper && cfg.paper.length) {
+    populateCustomDropdown('dd-paper', 'q-paper', cfg.paper, splitPaper, cfg.paperMeta);
+    if (cfg.buyoutPapers) {
+      document.querySelectorAll('#dd-paper .pm-option').forEach(function(btn) {
+        var orig = btn.onclick;
+        btn.onclick = function() {
+          orig && orig.call(this);
+          checkBuyoutTurnaround(cfg);
+        };
+      });
+    }
+    pRow.classList.remove('hidden');
+  } else {
+    pRow.classList.add('hidden');
+  }
+
+  // Coating (hide for banners/stickers which use material dropdown)
+  document.getElementById('qr-coating').classList.toggle('hidden', cfg.showBanner || product === 'Stickers & Labels');
+  if (cfg.buyoutCoatings) {
+    document.querySelectorAll('#dd-coating .pm-option').forEach(function(btn) {
+      var orig = btn.onclick;
+      btn.onclick = function() {
+        orig && orig.call(this);
+        checkBuyoutTurnaround(cfg);
+      };
+    });
+  }
+
+  // Conditional rows
+  document.getElementById('qr-print-mode').classList.toggle('hidden', !cfg.showPrintMode);
+  document.getElementById('qr-print-mode-2sided').classList.toggle('hidden', !cfg.showPrintMode2Sided);
+  document.getElementById('qr-fold').classList.toggle('hidden', !cfg.showFold);
+  document.getElementById('qr-score').classList.toggle('hidden', !cfg.showScore);
+  document.getElementById('qr-bundle').classList.toggle('hidden', !cfg.showBundle);
+  document.getElementById('qr-banner-size').classList.toggle('hidden', !cfg.showBanner);
+  document.getElementById('qr-corners').classList.toggle('hidden', !cfg.showCorners);
+  document.getElementById('qr-shape').classList.toggle('hidden', !cfg.showShape);
+  document.getElementById('qr-binding').classList.toggle('hidden', !cfg.showBinding);
+  document.getElementById('qr-pages').classList.toggle('hidden', !cfg.showPages);
+  document.getElementById('qr-finishing').classList.toggle('hidden', !cfg.showFinishing);
+
+  // Booklet cover/inside paper
+  var showCoverPaper = cfg.showCoverPaper || false;
+  document.getElementById('qr-cover-paper').classList.toggle('hidden', !showCoverPaper);
+  document.getElementById('qr-inside-paper').classList.toggle('hidden', !showCoverPaper);
+  // For booklets, hide standard paper row since we use cover/inside instead
+  if (showCoverPaper) {
+    document.getElementById('qr-paper').classList.add('hidden');
+    populateCustomDropdown('dd-cover-paper', 'q-cover-paper', cfg.coverPaper || [], splitPaper);
+    populateCustomDropdown('dd-inside-paper', 'q-inside-paper', cfg.insidePaper || [], splitPaper);
+  }
+
+  // Quantity
+  buildQtyPills(cfg.qty || PRODUCT_CONFIGS['default'].qty, cfg.qtyMeta);
+  var baseTurnaround = cfg.buyout ? TURNAROUND_BUYOUT
+    : cfg.turnaroundSet === 'assembly' ? TURNAROUND_ASSEMBLY
+    : cfg.turnaroundSet === 'notepad'  ? TURNAROUND_NOTEPAD
+    : null;
+  buildTurnaroundPills(baseTurnaround);
+  if (cfg.buyoutBindings) {
+    document.querySelectorAll('#qr-binding .q-pill').forEach(function(btn) {
+      var orig = btn.onclick;
+      btn.onclick = function() {
+        orig && orig.call(this);
+        var isBuyout = cfg.buyoutBindings.includes(btn.dataset.val);
+        buildTurnaroundPills(isBuyout ? TURNAROUND_BUYOUT : TURNAROUND_ASSEMBLY);
+      };
+    });
+  }
+
+  // Update preview
+  updatePreviewImage(product, cfg);
+  updatePreviewTags();
+}
+
+// ─── PREVIEW ───
+function renderDynamicPreview() {
+  var labelEl = document.getElementById('preview-label');
+  var product = labelEl ? labelEl.textContent : '';
+  var cfg = PRODUCT_CONFIGS[product] || {};
+
+  var sizeVal   = document.getElementById('q-size').value;
+  var paperVal  = document.getElementById('q-paper').value;
+  var coatingVal= document.getElementById('q-coating') ? document.getElementById('q-coating').value : '';
+  var bnW       = document.getElementById('q-bn-w').value;
+  var bnH       = document.getElementById('q-bn-h').value;
+  var foldRow   = document.getElementById('qr-fold');
+  var bindRow   = document.getElementById('qr-binding');
+  var shapeRow  = document.getElementById('qr-shape');
+  var cornerRow = document.getElementById('qr-corners');
+  var foldPill  = (foldRow  && !foldRow.classList.contains('hidden'))   ? document.querySelector('.q-pill[data-field="fold"].selected')    : null;
+  var bindPill  = (bindRow  && !bindRow.classList.contains('hidden'))   ? document.querySelector('.q-pill[data-field="binding"].selected')  : null;
+  var shapePill = (shapeRow && !shapeRow.classList.contains('hidden'))  ? document.querySelector('.q-pill[data-field="shape"].selected')   : null;
+  var cornerPill= (cornerRow && !cornerRow.classList.contains('hidden'))? document.querySelector('.q-pill[data-field="corners"].selected') : null;
+
+  var dims = parseSizeInches(sizeVal);
+  if (!dims && bnW && bnH) dims = [parseFloat(bnW), parseFloat(bnH)];
+  var customW = document.getElementById('q-custom-w').value;
+  var customH = document.getElementById('q-custom-h').value;
+  if (!dims && customW && customH) dims = [parseFloat(customW), parseFloat(customH)];
+
+  // Paper & coating material detection
+  var paperLow   = (paperVal   + ' ').toLowerCase();
+  var coatLow    = (coatingVal + ' ').toLowerCase();
+  var combined   = paperLow + coatLow;
+  var isGloss     = /gloss|uv\b|aq\b/.test(combined) && !/matte|soft touch|linen|metallic|plastic/i.test(paperLow);
+  var isSilkMatte = /silk matte/.test(paperLow);
+  var isSoftTouch = /soft touch/.test(paperLow) || /soft touch/.test(coatLow);
+  var isLinen     = /linen/.test(paperLow);
+  var isMetallic  = /metallic|foil/.test(paperLow);
+  var isPlastic   = /plastic|pvc/.test(paperLow);
+  var isMatte     = /matte/.test(combined) && !isSilkMatte;
+  var isSpotUV    = /spot uv/.test(coatLow);
+  var isRounded   = cornerPill && /round/i.test(cornerPill.dataset.val || cornerPill.textContent);
+
+  // Quantity → stack layers
+  var qtyEl  = document.getElementById('hid-qty');
+  var qtyVal = qtyEl ? parseInt((qtyEl.value || '').replace(/,/g, ''), 10) || 0 : 0;
+
+  // Real paper thickness → actual stack height in SVG units
+  var PAPER_THICK = {
+    '14PT Gloss': 0.014, '14PT Matte': 0.014,
+    '16PT Soft Touch': 0.016, '16PT Silk Matte': 0.016, '16PT Linen': 0.016,
+    '100lb Cover (Slim)': 0.010,
+    'Metallic / Foil Board': 0.016,
+    'Plastic / PVC': 0.030
+  };
+  var thickness = PAPER_THICK[paperVal] || 0.014;
+  // Scale: 2500 cards × 0.014" = 35" → 100px (max visual depth)
+  var stackPx = Math.min(100, qtyVal * thickness * (100 / 35));
+  // Legacy shadow layers for non-biz-card products
+  var stackLayers = 0;
+  if      (qtyVal >=  5000) stackLayers = 7;
+  else if (qtyVal >=  2500) stackLayers = 6;
+  else if (qtyVal >=  1000) stackLayers = 5;
+  else if (qtyVal >=   500) stackLayers = 4;
+  else if (qtyVal >=   250) stackLayers = 3;
+  else if (qtyVal >=   100) stackLayers = 2;
+  else if (qtyVal >=    50) stackLayers = 1;
+
+  // Per-product scale: largest size fills the box (biz-card excludes folded to keep standard size visible)
+  var MAXS = 220;
+  var productScale = null;
+  var sizes = cfg.sizes || [];
+  if (sizes.length > 0) {
+    var maxW = 0, maxH = 0;
+    sizes.forEach(function(s) {
+      if (cfg.svgKey === 'biz-card' && /fold/i.test(s)) return;
+      var d = parseSizeInches(s);
+      if (d) { maxW = Math.max(maxW, d[0]); maxH = Math.max(maxH, d[1]); }
+    });
+    if (maxW > 0 && maxH > 0) productScale = Math.min(MAXS / maxW, MAXS / maxH);
+  }
+
+  var svg = buildPreviewSVG({
+    svgKey:       cfg.svgKey || 'generic',
+    dims:         dims,
+    isGloss:      isGloss,
+    isMatte:      isMatte,
+    isSilkMatte:  isSilkMatte,
+    isSoftTouch:  isSoftTouch,
+    isLinen:      isLinen,
+    isMetallic:   isMetallic,
+    isPlastic:    isPlastic,
+    isSpotUV:     isSpotUV,
+    isRounded:    isRounded,
+    stackLayers:  stackLayers,
+    stackPx:      stackPx,
+    qtyVal:       qtyVal,
+    fold:         foldPill  ? foldPill.dataset.val  : 'No Fold',
+    binding:      bindPill  ? bindPill.dataset.val  : '',
+    shape:        shapePill ? shapePill.dataset.val : '',
+    productScale: productScale
+  });
+
+  var wrap = document.getElementById('preview-svg-wrap');
+  if (wrap) wrap.innerHTML = svg;
+}
+
+function updatePreviewImage(product, cfg) {
+  document.getElementById('preview-label').textContent = product || 'Select a product';
+  renderDynamicPreview();
+}
+
+function updatePreviewTags() {
+  var tags = [];
+  var size = document.getElementById('q-size').value;
+  var paper = document.getElementById('q-paper').value;
+  var coating = document.getElementById('q-coating').value;
+  var qty = document.getElementById('hid-qty').value;
+  var foldPill = document.querySelector('.q-pill[data-field="fold"].selected');
+  var scorePill = document.querySelector('.q-pill[data-field="score"].selected');
+  var bundlePill = document.querySelector('.q-pill[data-field="bundle"].selected');
+  var bnW = document.getElementById('q-bn-w').value;
+  var bnH = document.getElementById('q-bn-h').value;
+
+  if (size) tags.push(size);
+  var cw = document.getElementById('q-custom-w').value;
+  var ch = document.getElementById('q-custom-h').value;
+  if (cw && ch && !document.getElementById('qr-custom-size').classList.contains('hidden')) tags.push(cw + '" × ' + ch + '"');
+  if (bnW && bnH) tags.push(bnW + '" × ' + bnH + '"');
+  if (paper) tags.push(paper);
+  if (coating && coating !== 'None') tags.push(coating);
+  var coverPaperEl = document.getElementById('q-cover-paper');
+  if (coverPaperEl && !document.getElementById('qr-cover-paper').classList.contains('hidden') && coverPaperEl.value) tags.push(coverPaperEl.value);
+  var insidePaperEl = document.getElementById('q-inside-paper');
+  if (insidePaperEl && !document.getElementById('qr-inside-paper').classList.contains('hidden') && insidePaperEl.value) tags.push(insidePaperEl.value);
+  var coverOptPill = document.querySelector('.q-pill[data-field="cover-opt"].selected');
+  if (coverOptPill && !document.getElementById('qr-cover-paper').classList.contains('hidden')) tags.push(coverOptPill.dataset.val);
+  var pmEl = document.getElementById('q-print-mode');
+  if (pmEl && !document.getElementById('qr-print-mode').classList.contains('hidden') && pmEl.value) tags.push(pmEl.value);
+  var pm2El = document.getElementById('q-print-mode-2sided');
+  if (pm2El && !document.getElementById('qr-print-mode-2sided').classList.contains('hidden') && pm2El.value) tags.push(pm2El.value);
+  if (foldPill && foldPill.dataset.val !== 'No Fold' && !document.getElementById('qr-fold').classList.contains('hidden')) tags.push(foldPill.dataset.val);
+  if (scorePill && scorePill.dataset.val !== 'No Score' && !document.getElementById('qr-score').classList.contains('hidden')) tags.push(scorePill.dataset.val);
+  if (bundlePill && bundlePill.dataset.val !== 'No Bundle' && !document.getElementById('qr-bundle').classList.contains('hidden')) tags.push(bundlePill.dataset.val);
+  if (qty) tags.push('Qty: ' + qty);
+
+  var wrap = document.getElementById('preview-tags');
+  wrap.innerHTML = tags.map(t => '<span class="preview-tag">' + t + '</span>').join('');
+
+  renderDynamicPreview();
+
+  // Update hidden spec field
+  document.getElementById('hid-specs').value = tags.join(' · ');
+  document.getElementById('hid-quantities').value = qty;
+}
+
+// ─── PILL TOGGLE ───
+function selectPill(btn) {
+  var field = btn.dataset.field;
+  document.querySelectorAll('.q-pill[data-field="' + field + '"]').forEach(p => p.classList.remove('selected'));
+  btn.classList.add('selected');
+  updatePreviewTags();
+}
+
+function syncQtyHidden() {
+  var selected = Array.from(document.querySelectorAll('.q-pill[data-field="qty"].selected')).map(b => b.dataset.val);
+  var custom = document.getElementById('q-qty-custom').value.trim();
+  // custom input only used when no pill is selected (user typed a custom qty)
+  if (custom && selected.length === 0) selected.push(custom);
+  document.getElementById('hid-qty').value = selected.join(', ');
+  updatePreviewTags();
+}
+
+function buildQtyPills(quantities, meta) {
+  var wrap = document.getElementById('qty-pills');
+  wrap.innerHTML = '';
+  quantities.forEach(function(q) {
+    var m = (meta && meta[q]) || {};
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.dataset.field = 'qty';
+    btn.dataset.val = q;
+    if (m.badge) {
+      btn.className = 'q-pill q-pill-has-badge';
+      btn.innerHTML = '<span class="q-pill-wrap"><span>' + escHtml(q) + '</span><span class="q-pill-label">' + escHtml(m.badge) + '</span></span>';
+    } else {
+      btn.className = 'q-pill';
+      btn.textContent = q;
+    }
+    btn.onclick = function() {
+      var wasSelected = btn.classList.contains('selected');
+      document.querySelectorAll('.q-pill[data-field="qty"]').forEach(function(b) { b.classList.remove('selected'); });
+      if (!wasSelected) {
+        btn.classList.add('selected');
+        document.getElementById('q-qty-custom').value = btn.dataset.val;
+      } else {
+        document.getElementById('q-qty-custom').value = '';
+      }
+      syncQtyHidden();
+      renderDynamicPreview();
+    };
+    wrap.appendChild(btn);
+  });
+  document.getElementById('hid-qty').value = '';
+}
+
+function onQtyCustomInput(el) {
+  var raw = el.value.replace(/[^\d]/g, '');
+  var cursor = el.selectionStart;
+  var prevCommas = (el.value.slice(0, cursor).match(/,/g) || []).length;
+  el.value = raw ? Number(raw).toLocaleString('en-US') : '';
+  var newCommas = (el.value.slice(0, cursor).match(/,/g) || []).length;
+  el.setSelectionRange(cursor + (newCommas - prevCommas), cursor + (newCommas - prevCommas));
+  if (raw) document.querySelectorAll('.q-pill[data-field="qty"]').forEach(function(b) { b.classList.remove('selected'); });
+  syncQtyHidden();
+}
+
+// ─── PRINT MODE CUSTOM DROPDOWN ───
+function togglePmDropdown(id) {
+  var dd = document.getElementById(id);
+  var trigger = dd.querySelector('.pm-trigger');
+  var menu = dd.querySelector('.pm-menu');
+  var isOpen = menu.classList.contains('open');
+  closePmDropdowns();
+  if (!isOpen) {
+    var r = trigger.getBoundingClientRect();
+    menu.style.top = (r.bottom + 4) + 'px';
+    menu.style.left = r.left + 'px';
+    menu.style.width = r.width + 'px';
+    trigger.classList.add('open');
+    menu.classList.add('open');
+  }
+}
+function closePmDropdowns() {
+  document.querySelectorAll('.pm-menu.open').forEach(function(m) { m.classList.remove('open'); });
+  document.querySelectorAll('.pm-trigger.open').forEach(function(t) { t.classList.remove('open'); });
+}
+function selectPmOption(dropdownId, hiddenId, btn) {
+  var dd = document.getElementById(dropdownId);
+  dd.querySelectorAll('.pm-option').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  document.getElementById(hiddenId).value = btn.dataset.val;
+  dd.querySelector('.pm-trigger-text').textContent = btn.dataset.val;
+  closePmDropdowns();
+  updatePreviewTags();
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.pm-dropdown')) closePmDropdowns();
+});
+
+// ─── FORM SUBMIT ───
+document.getElementById('quote-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Collect banner size
+  var bnW = document.getElementById('q-bn-w').value.trim();
+  var bnH = document.getElementById('q-bn-h').value.trim();
+  if (bnW || bnH) {
+    var bannerSpec = (bnW || '?') + ' × ' + (bnH || '?') + ' inches';
+    var cur = document.getElementById('hid-specs').value;
+    if (!cur.includes(bannerSpec)) {
+      document.getElementById('hid-specs').value = (cur ? cur + ' · ' : '') + 'Size: ' + bannerSpec;
+    }
+  }
+
+  var emailVal = document.getElementById('q-email').value;
+  var fd = new FormData(this);
+
+  var btn = document.getElementById('q-submit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  fetch(this.action, {
+    method: 'POST',
+    body: fd,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(resp) {
+    if (resp.ok) {
+      showConfirmation(emailVal);
+    } else {
+      alert('There was a problem. Please call us at (949) 851-9710.');
+      btn.disabled = false;
+      btn.textContent = 'Send Quote Request →';
+    }
+  })
+  .catch(function() {
+    alert('There was a problem. Please call us at (949) 851-9710.');
+    btn.disabled = false;
+    btn.textContent = 'Send Quote Request →';
+  });
+});
+
+function showConfirmation(email) {
+  document.getElementById('confirm-email').textContent = email;
+  document.getElementById('main-form-wrap').style.display = 'none';
+  document.getElementById('confirm-panel').style.display = 'block';
+}
+
+// ─── FILE INPUT DISPLAY ───
+document.getElementById('q-file').addEventListener('change', function() {
+  var file = this.files[0];
+  var label = document.getElementById('q-file-name');
+  var note  = document.getElementById('q-file-note');
+  var link  = document.getElementById('q-file-large-link');
+  var zone  = document.getElementById('q-file-zone');
+  var MAX   = 25 * 1024 * 1024; // 25 MB
+
+  if (!file) {
+    label.textContent = 'Choose file';
+    note.textContent  = 'PDF, AI, EPS, PNG, JPG, ZIP · Max 25 MB';
+    note.classList.remove('warn');
+    zone.classList.remove('oversized');
+    link.style.display = '';
+    this.value = '';
+    return;
+  }
+
+  label.textContent = file.name;
+
+  if (file.size > MAX) {
+    note.textContent = '⚠ File exceeds 25 MB — use the uploader instead';
+    note.classList.add('warn');
+    zone.classList.add('oversized');
+    link.style.display = 'none'; // already highlighted in note
+    this.value = ''; // clear the oversized file
+  } else {
+    var mb = (file.size / 1024 / 1024).toFixed(1);
+    note.textContent = mb + ' MB · ready to attach';
+    note.classList.remove('warn');
+    zone.classList.remove('oversized');
+    link.style.display = '';
+  }
+});
+
+// ─── INIT ───
+buildTurnaroundPills();
+
+// Initialize static custom dropdowns
+populateCustomDropdown('dd-coating', 'q-coating',
+  ['No Coating', 'Gloss UV', 'Matte Laminate', 'Soft Touch', 'Aqueous Gloss', 'Spot UV'],
+  null,
+  {
+    'No Coating':     { badge: 'popular', note: 'Natural paper feel, easy to write on' },
+    'Gloss UV':       { note: 'High-shine UV cure — vivid, glossy finish' },
+    'Matte Laminate': { note: 'Smooth matte film — premium, non-glare feel' },
+    'Soft Touch':     { note: 'Velvety tactile finish — luxurious feel' },
+    'Aqueous Gloss':  { note: 'Light water-based gloss — subtle sheen' },
+    'Spot UV':        { note: 'Selective high-gloss accents on matte base' },
+  }
+);
+populateCustomDropdown('dd-pages', 'q-pages',
+  ['8 pages','12 pages','16 pages','20 pages','24 pages','28 pages','32 pages','40 pages','48 pages'],
+  splitPages
+);
+
+// Hide form until product selected (show placeholder instead)
+document.getElementById('main-form-wrap').style.display = 'none';
+
+// Pre-select from URL: quote.html?product=Flyers
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var raw = params.get('product');
+  if (!raw) return;
+  var decoded = decodeURIComponent(raw.replace(/\+/g, ' ')).trim();
+  var sel = document.getElementById('q-product');
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value.toLowerCase() === decoded.toLowerCase()) {
+      sel.value = sel.options[i].value;
+      onProductChange(sel.options[i].value);
+      // Show form, hide placeholder
+      document.getElementById('quote-no-product').style.display = 'none';
+      document.getElementById('main-form-wrap').style.display = '';
+      // Highlight matching sidebar button
+      document.querySelectorAll('.sidebar-product-btn').forEach(function(btn) {
+        if (btn.getAttribute('data-product').toLowerCase() === decoded.toLowerCase()) {
+          btn.classList.add('active');
+        }
+      });
+      break;
+    }
+  }
+})();
+  </script>
+<footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

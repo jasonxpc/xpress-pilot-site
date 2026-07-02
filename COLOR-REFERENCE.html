@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xpress Printing — Color Reference</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, 'Helvetica Neue', sans-serif; background: #F8FAFC; color: #1E2D3D; padding: 48px 40px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: #6B7280; margin-bottom: 48px; }
+  h2 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0891B2; margin-bottom: 16px; margin-top: 40px; }
+  h2:first-of-type { margin-top: 0; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+  .swatch { width: 160px; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); background: #fff; }
+  .swatch-color { height: 72px; }
+  .swatch-info { padding: 10px 12px; }
+  .swatch-name { font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+  .swatch-hex { font-size: 11px; color: #6B7280; font-family: 'SF Mono', 'Menlo', monospace; }
+  .swatch-var { font-size: 10px; color: #9CA3AF; font-family: 'SF Mono', 'Menlo', monospace; margin-top: 1px; }
+  .swatch-note { font-size: 10px; color: #9CA3AF; margin-top: 3px; font-style: italic; }
+  .rule-box { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 20px 24px; margin-top: 8px; }
+  .rule { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #F1F5F9; font-size: 13px; }
+  .rule:last-child { border-bottom: none; padding-bottom: 0; }
+  .rule-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .rule-text strong { font-weight: 600; }
+  .nav-swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+  .nav-pill { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  hr { border: none; border-top: 1px solid #E2E8F0; margin: 40px 0; }
+</style>
+</head>
+<body>
+
+<h1>Xpress Printing — Color Reference</h1>
+<p class="subtitle">사이트 전체 색상 규칙 · 2026년 6월 기준</p>
+
+<!-- BRAND CORE -->
+<h2>브랜드 핵심 색상 (CSS 변수)</h2>
+<div class="swatches">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#0891B2"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cyan</div>
+      <div class="swatch-hex">#0891B2</div>
+      <div class="swatch-var">var(--cyan)</div>
+      <div class="swatch-note">주 브랜드 색 · 버튼 hover · 소제목</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#38BDF8"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Sky</div>
+      <div class="swatch-hex">#38BDF8</div>
+      <div class="swatch-var">var(--sky)</div>
+      <div class="swatch-note">어두운 배경 위 소제목</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#E0F2FE"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cyan Tint</div>
+      <div class="swatch-hex">#E0F2FE</div>
+      <div class="swatch-var">var(--cyan-tint)</div>
+      <div class="swatch-note">step 번호 배경 · 배지 배경</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#1E2D3D"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Slate</div>
+      <div class="swatch-hex">#1E2D3D</div>
+      <div class="swatch-var">var(--slate)</div>
+      <div class="swatch-note">Hero 배경 · 모든 h2 제목</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#DC2626"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Crimson</div>
+      <div class="swatch-hex">#DC2626</div>
+      <div class="swatch-var">var(--crimson)</div>
+      <div class="swatch-note">CTA 버튼 · "Get a Quote"</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEXT & UI -->
+<h2>텍스트 · UI 색상</h2>
+<div class="swatches">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#111827"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Text</div>
+      <div class="swatch-hex">#111827</div>
+      <div class="swatch-var">var(--text)</div>
+      <div class="swatch-note">본문 기본 텍스트</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#6B7280"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Text Muted</div>
+      <div class="swatch-hex">#6B7280</div>
+      <div class="swatch-var">var(--text-muted)</div>
+      <div class="swatch-note">보조 텍스트 · 설명문</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#E2E8F0; border: 1px solid #d0d8e4;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Border</div>
+      <div class="swatch-hex">#E2E8F0</div>
+      <div class="swatch-var">var(--border)</div>
+      <div class="swatch-note">구분선 · 카드 테두리</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#F8FAFC; border: 1px solid #e8eef4;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cool White</div>
+      <div class="swatch-hex">#F8FAFC</div>
+      <div class="swatch-var">var(--cool-white)</div>
+      <div class="swatch-note">페이지 배경</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO / FOOTER ONLY -->
+<h2>Hero · Footer 전용 — 슬로건 강조색</h2>
+<p style="font-size:12px;color:#6B7280;margin-bottom:12px">⚠ 이 두 색상은 "Print <strong>Fast.</strong> Look <strong>Sharp.</strong> Stay <strong>Local.</strong>" 슬로건에만 사용. 다른 곳에 절대 사용하지 말 것.</p>
+<div class="swatches">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#F59E0B"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Warm (Amber)</div>
+      <div class="swatch-hex">#F59E0B</div>
+      <div class="swatch-note">"Fast." 강조 · Hero & Footer만</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#8DC63F"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Lime (Green)</div>
+      <div class="swatch-hex">#8DC63F</div>
+      <div class="swatch-note">"Local." 강조 · Hero & Footer만</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- NAV DROPDOWN -->
+<h2>Nav 드롭다운 카테고리 배지</h2>
+<div class="nav-swatches" style="margin-bottom:12px">
+  <span class="nav-pill" style="color:#F59E0B;background:#FEF3C7;">Marketing Prints</span>
+  <span class="nav-pill" style="color:#6366F1;background:#EEF2FF;">Cards &amp; Stationery</span>
+  <span class="nav-pill" style="color:#65A30D;background:#ECFCCB;">Large Format &amp; Signs</span>
+  <span class="nav-pill" style="color:#7C3AED;background:#F3E8FF;">Booklets &amp; Folders</span>
+  <span class="nav-pill" style="color:#DC2626;background:#FEE2E2;">Events &amp; Retail</span>
+  <span class="nav-pill" style="color:#4B5563;background:#F1F5F9;">Office &amp; Business</span>
+</div>
+<div style="font-size:11px;color:#9CA3AF;font-family:monospace;line-height:2">
+  Marketing Prints &nbsp;· color: #F59E0B / bg: #FEF3C7<br>
+  Cards &amp; Stationery · color: #6366F1 / bg: #EEF2FF<br>
+  Large Format &amp; Signs · color: #65A30D / bg: #ECFCCB<br>
+  Booklets &amp; Folders · color: #7C3AED / bg: #F3E8FF<br>
+  Events &amp; Retail &nbsp;· color: #DC2626 / bg: #FEE2E2<br>
+  Office &amp; Business · color: #4B5563 / bg: #F1F5F9
+</div>
+
+<hr>
+
+<!-- USAGE RULES -->
+<h2>색상 사용 규칙 요약</h2>
+<div class="rule-box">
+  <div class="rule">
+    <div class="rule-dot" style="background:#0891B2"></div>
+    <div class="rule-text"><strong>소제목 (eyebrow label)</strong> — 모든 페이지, 모든 섹션 → var(--cyan) #0891B2 · 12px · uppercase · letter-spacing .1em</div>
+  </div>
+  <div class="rule">
+    <div class="rule-dot" style="background:#1E2D3D"></div>
+    <div class="rule-text"><strong>섹션 h2 제목</strong> — 전체 사이트 → var(--slate) #1E2D3D (검정에 가까운 네이비)</div>
+  </div>
+  <div class="rule">
+    <div class="rule-dot" style="background:#38BDF8"></div>
+    <div class="rule-text"><strong>Hero 내 소제목</strong> — 어두운 배경 위 → var(--sky) #38BDF8 (밝은 파랑)</div>
+  </div>
+  <div class="rule">
+    <div class="rule-dot" style="background:#DC2626"></div>
+    <div class="rule-text"><strong>CTA 버튼</strong> — "Get a Quote" 등 → var(--crimson) #DC2626</div>
+  </div>
+  <div class="rule">
+    <div class="rule-dot" style="background:#0891B2"></div>
+    <div class="rule-text"><strong>Hover / 활성 버튼</strong> — Filter, Tab 등 활성 상태 → var(--cyan) · 배경 var(--cyan-tint)</div>
+  </div>
+  <div class="rule">
+    <div class="rule-dot" style="background:#F59E0B"></div>
+    <div class="rule-text"><strong>Warm / Lime 색상</strong> — Hero 슬로건 + Footer 슬로건 외 사용 금지</div>
+  </div>
+  <div class="rule">
+    <div class="rule-dot" style="background:#6B7280"></div>
+    <div class="rule-text"><strong>Nav 드롭다운 배지</strong> — 카테고리별 고유 색상 (위 표 참고) · 사이언 금지 (hover와 혼동)</div>
+  </div>
+</div>
+
+<p style="font-size:11px;color:#9CA3AF;margin-top:32px">Xpress Printing Pilot Site · COLOR-REFERENCE.html</p>
+
+</body>
+</html>

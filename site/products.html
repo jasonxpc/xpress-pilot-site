@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — Business Cards, Flyers, Banners &amp; More | Xpress Printing Irvine</title>
+  <meta name="description" content="Browse all print products at Xpress Printing in Irvine, CA — business cards, flyers, brochures, banners, stickers, booklets, and specialty printing. Get a quote in minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --slate: #1E2D3D; --cyan: #0891B2; --sky: #38BDF8; --crimson: #DC2626;
+      --cyan-tint: #E0F2FE; --cool-white: #F8FAFC; --white: #FFFFFF;
+      --text: #111827; --text-muted: #6B7280; --border: #E2E8F0;
+      --font: 'DM Sans', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--cool-white); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV placeholders — replaced by rebuild.py */
+    .nav { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid #E2E8F0; height: 64px; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 4px; flex-shrink: 0; text-decoration: none; }
+    .nav-logo-symbol-wrap {
+      height: 32px;
+      overflow: hidden;
+      flex-shrink: 0;
+    transform: translate(1px, -2px);
+  }
+    .nav-logo-symbol {
+      height: 52px;
+      width: auto;
+      display: block;
+      position: relative;
+      top: -8px;
+    }
+    .nav-logo-text { height: 22px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--slate); transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
+    .nav-links a.active { font-weight: 600; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { font-size: 14px; font-weight: 500; color: var(--slate); transition: color .15s; cursor: default; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: var(--cyan); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-upload { font-family: var(--font); font-size: 13px; font-weight: 600; color: var(--cyan); border: 1.5px solid var(--cyan); background: transparent; padding: 8px 18px; border-radius: 8px; cursor: pointer; transition: background .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
+    .btn-upload:hover { background: var(--cyan-tint); }
+    .btn-quote-nav { font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--white); background: var(--crimson); border: none; padding: 9px 20px; border-radius: 8px; cursor: pointer; transition: opacity .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
+    .btn-quote-nav:hover { opacity: .88; }
+
+    /* HERO */
+    .hero { background: var(--slate); padding: 56px 64px 48px; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero-label { font-size: 12px; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; }
+    .hero-h1 { font-size: 44px; font-weight: 800; color: var(--white); letter-spacing: -.03em; line-height: 1.1; margin-bottom: 16px; }
+    .h1-warm { color: #F59E0B; }
+    .h1-cyan  { color: #38BDF8; }
+    .h1-lime  { color: #8DC63F; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,.6); max-width: 520px; }
+
+    /* MAIN */
+    .products-main { max-width: 1100px; margin: 0 auto; padding: 48px 64px 80px; }
+
+    /* CATEGORY SECTION */
+    .cat-section { margin-bottom: 56px; }
+    .cat-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+    .cat-title { font-size: 20px; font-weight: 800; color: var(--slate); letter-spacing: -.02em; }
+    .cat-count { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    /* PRODUCT GRID */
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+
+    /* PRODUCT CARD */
+    .prod-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+    }
+    .prod-card:hover {
+      box-shadow: 0 8px 24px rgba(8,145,178,.12);
+      transform: translateY(-2px);
+      border-color: var(--sky);
+    }
+    .prod-card-img {
+      background: var(--cool-white);
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .prod-card-img svg {
+      width: 44px;
+      height: 44px;
+      color: #94a3b8;
+      transition: color .2s;
+    }
+    .prod-card:hover .prod-card-img svg { color: var(--cyan); }
+    .prod-card-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, var(--cyan-tint) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .prod-card:hover .prod-card-img::before { opacity: 1; }
+    .prod-card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+    .prod-card-name { font-size: 14px; font-weight: 700; color: var(--slate); margin-bottom: 4px; line-height: 1.3; }
+    .prod-card-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; flex: 1; }
+    .prod-card-cta {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; font-weight: 700; color: var(--cyan);
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .prod-card:hover .prod-card-cta { opacity: 1; }
+
+    /* FOOTER placeholders */
+    .footer { background: var(--slate); color: #cbd5e1; padding: 56px 64px 32px; }
+    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand-logo-img { height: 22px; width: auto; display: block; margin-bottom: 16px; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 13px; color: #94a3b8; line-height: 1.7; margin-bottom: 20px; }
+    .footer-contact-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-contact-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; transition: color .15s; text-decoration: none; }
+    .footer-contact-link:hover { color: var(--sky); }
+    .footer-slogan { font-size: 13px; color: #64748b; margin-top: 4px; }
+    .footer-slogan strong { color: var(--sky); }
+    .footer-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin-bottom: 14px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 13px; color: #94a3b8; transition: color .15s; text-decoration: none; }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-hours { display: flex; flex-direction: column; gap: 6px; }
+    .footer-hour-row { font-size: 13px; color: #94a3b8; }
+    .footer-same-day { font-size: 12px; font-weight: 600; color: var(--sky); margin-top: 4px; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #334155; display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 12px; color: #64748b; }
+    .footer-badge { font-size: 11px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: .06em; }
+    .copy-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(12px); background: var(--slate); color: #fff; font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 9999; white-space: nowrap; }
+    .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  /* Section color theming */
+  </style>
+</head>
+<body>
+
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
+      <div class="nav-logo-symbol-wrap">
+        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Events &amp; Retail</span>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=NCR+Forms" class="nav-prod-item">NCR Forms</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+    </div>
+  </nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">All Products</p>
+    <h1 class="hero-h1">Print <span class="h1-lime">everything</span><br><span class="h1-cyan">you</span> need, <span class="h1-warm">fast.</span></h1>
+    <p class="hero-sub">From business cards to banners — same-day options available on most products. Pick a product to get a quote in minutes.</p>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<main class="products-main">
+
+  <!-- Marketing Prints -->
+  <section class="cat-section cat-warm">
+    <div class="cat-header">
+      <h2 class="cat-title">Marketing Prints</h2>
+      <span class="cat-count">6 products</span>
+    </div>
+    <div class="prod-grid">
+
+      <a href="quote.html?product=Flyers" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Flyers</div>
+          <div class="prod-card-desc">Promotions, events, and announcements in full color.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Brochures" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Brochures</div>
+          <div class="prod-card-desc">Tri-fold or bi-fold — great for detailed product or service info.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Postcards" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M12 10v9"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Postcards</div>
+          <div class="prod-card-desc">Direct mail–ready or handout. Multiple sizes available.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Rack+Cards" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Rack Cards</div>
+          <div class="prod-card-desc">Slim 4"×9" format, perfect for hotel and retail displays.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Door+Hangers" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="5" width="10" height="17" rx="2"/><path d="M12 5a2 2 0 0 0-2-2h0a2 2 0 0 0 0 4h2"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Door Hangers</div>
+          <div class="prod-card-desc">Stand out at the front door — great for local outreach.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Posters" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Posters</div>
+          <div class="prod-card-desc">Large-format prints for walls, windows, and displays.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Cards & Stationery -->
+  <section class="cat-section cat-lime">
+    <div class="cat-header">
+      <h2 class="cat-title">Cards &amp; Stationery</h2>
+      <span class="cat-count">4 products</span>
+    </div>
+    <div class="prod-grid">
+
+      <a href="quote.html?product=Business+Cards" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M6 10h4M6 13h2"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Business Cards</div>
+          <div class="prod-card-desc">Your first impression. 14PT, soft touch, foil, and more.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Hang+Tags" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Hang Tags</div>
+          <div class="prod-card-desc">Retail and apparel tags — custom sizes with hole punching.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Stickers+%26+Labels" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Stickers &amp; Labels</div>
+          <div class="prod-card-desc">Die-cut, kiss-cut, round, or sheet — any shape, any size.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Certificates" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Certificates</div>
+          <div class="prod-card-desc">Awards, recognition, and appreciation — premium paper stock.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Large Format & Signs -->
+  <section class="cat-section cat-warm">
+    <div class="cat-header">
+      <h2 class="cat-title">Large Format &amp; Signs</h2>
+      <span class="cat-count">3 products</span>
+    </div>
+    <div class="prod-grid">
+
+      <a href="quote.html?product=Banners+%26+Signs" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><circle cx="5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="19" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="5" cy="18" r="1.2" fill="currentColor" stroke="none"/><circle cx="19" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Banners &amp; Signs</div>
+          <div class="prod-card-desc">Vinyl banners, retractable banners, foam boards, and more.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Yard+Signs" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="12" rx="2"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Yard Signs</div>
+          <div class="prod-card-desc">Corrugated plastic signs for outdoors — durable and vivid.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Window+Clings" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Window Clings</div>
+          <div class="prod-card-desc">Removable, reusable window graphics — no adhesive needed.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Booklets & Folders -->
+  <section class="cat-section cat-lime">
+    <div class="cat-header">
+      <h2 class="cat-title">Booklets &amp; Folders</h2>
+      <span class="cat-count">3 products</span>
+    </div>
+    <div class="prod-grid">
+
+      <a href="quote.html?product=Booklets" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Booklets</div>
+          <div class="prod-card-desc">Saddle-stitch, perfect-bound, or spiral. Catalogs, programs, and more.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Presentation+Folders" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Presentation Folders</div>
+          <div class="prod-card-desc">Professional document folders for proposals and packets.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Menus" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Menus</div>
+          <div class="prod-card-desc">Restaurant and hospitality menus — laminated or flat.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Events & Retail -->
+  <section class="cat-section cat-warm">
+    <div class="cat-header">
+      <h2 class="cat-title">Events &amp; Retail</h2>
+      <span class="cat-count">2 products</span>
+    </div>
+    <div class="prod-grid">
+
+      <a href="quote.html?product=Table+Tents" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20L12 4l7 16"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Table Tents</div>
+          <div class="prod-card-desc">Tabletop tent displays for restaurants, events, and retail.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Calendars" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Calendars</div>
+          <div class="prod-card-desc">Custom wall or desk calendars — year-round brand exposure.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Office & Business -->
+  <section class="cat-section cat-lime">
+    <div class="cat-header">
+      <h2 class="cat-title">Office &amp; Business</h2>
+      <span class="cat-count">5 products</span>
+    </div>
+    <div class="prod-grid">
+
+      <a href="quote.html?product=Letterhead+%26+Envelopes" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Letterhead &amp; Envelopes</div>
+          <div class="prod-card-desc">Professional stationery sets for a polished brand image.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Envelopes" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="2,5 12,13 22,5"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Envelopes</div>
+          <div class="prod-card-desc">#10, A2, A6, and custom sizes — printed or plain.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Notepads" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Notepads</div>
+          <div class="prod-card-desc">Custom glue-pad notepads — 25, 50, or 100 sheets.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=NCR+Forms" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 9v10"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">NCR Forms</div>
+          <div class="prod-card-desc">Carbonless duplicate or triplicate forms — no carbon paper needed.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+      <a href="quote.html?product=Invoice+Books" class="prod-card">
+        <div class="prod-card-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 9v6"/></svg>
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-name">Invoice Books</div>
+          <div class="prod-card-desc">Bound invoice and receipt books for on-the-go businesses.</div>
+          <span class="prod-card-cta">Get a Quote →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+<footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

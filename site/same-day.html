@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Same-Day Printing in Irvine, CA — Xpress Printing</title>
+  <meta name="description" content="Same-day printing in Irvine, CA. Order before 10 AM and pick up your prints today. No rush fees on most products. Business cards, flyers, postcards, posters and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:      #1E2D3D;
+      --cyan:       #0891B2;
+      --sky:        #38BDF8;
+      --crimson:    #DC2626;
+      --cyan-tint:  #E0F2FE;
+      --cool-white: #F8FAFC;
+      --white:      #FFFFFF;
+      --text:       #111827;
+      --text-muted: #6B7280;
+      --border:     #E2E8F0;
+      --font: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cool-white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid #E2E8F0;
+      height: 64px;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-logo-symbol-wrap {
+      height: 32px;
+      overflow: hidden;
+      flex-shrink: 0;
+    transform: translate(1px, -2px);
+  }
+    .nav-logo-symbol {
+      height: 52px;
+      width: auto;
+      display: block;
+      position: relative;
+      top: -8px;
+    }
+    .nav-logo-text   { height: 22px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    /* Mega-menu dropdown */
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+      cursor: default;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-trigger { color: var(--cyan); }
+
+    .mega-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid #E2E8F0;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.12);
+      padding: 32px 48px;
+      width: 860px;
+      z-index: 300;
+    }
+
+    .nav-dropdown:hover .mega-menu { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+
+    .mega-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 12px;
+    }
+
+    .mega-col ul { list-style: none; }
+
+    .mega-col ul li { margin-bottom: 6px; }
+
+    .mega-col ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color .15s;
+    }
+
+    .mega-col ul li a:hover { color: var(--cyan); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-upload {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      border: 1.5px solid var(--cyan);
+      background: transparent;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-upload:hover { background: var(--cyan-tint); }
+
+    .btn-quote-nav {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-quote-nav:hover { opacity: .88; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--slate);
+      padding: 80px 64px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--sky);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-h1 .accent { color: var(--cyan); }
+    .h1-warm { color: #F59E0B !important; }
+    .h1-cyan  { color: #38BDF8; }
+    .h1-lime  { color: #8DC63F !important; }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+
+    .cutoff-badge {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(220,38,38,.12);
+      border: 1.5px solid rgba(220,38,38,.45);
+      border-left: 4px solid var(--crimson);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 18px 28px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    .cutoff-badge-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      margin-bottom: 4px;
+    }
+
+    .cutoff-badge-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+
+    .btn-primary:hover { opacity: .88; }
+
+    .btn-ghost {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.3);
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: background .15s, border-color .15s;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.5);
+    }
+
+    .hero-surcharge-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-item {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-trust-item svg {
+      flex-shrink: 0;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .how {
+      background: var(--white);
+      padding: 72px 64px;
+    }
+
+    .how-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 10px;
+    }
+
+    .section-h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 48px;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    .step-arrow {
+      font-size: 20px;
+      color: var(--border);
+      padding-top: 36px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .step-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--cyan-tint);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+    }
+
+    .step-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+
+    .step-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── PRODUCTS GRID ─── */
+    .products {
+      background: var(--cool-white);
+      padding: 72px 64px;
+    }
+
+    .products-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .prod-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .prod-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .prod-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .prod-card-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1.3;
+    }
+
+    .prod-card-badge {
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--crimson);
+      color: var(--white);
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    .prod-card-specs {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .prod-card-qty {
+      font-size: 13px;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .prod-card-link {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      transition: color .15s;
+    }
+
+    .prod-card-link:hover { color: var(--slate); }
+
+    /* ─── URGENCY / CUTOFF ─── */
+    .urgency {
+      background: var(--slate);
+      padding: 64px;
+      text-align: center;
+    }
+
+    .urgency-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .urgency-h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+
+    .urgency-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 48px;
+    }
+
+    .urgency-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .urgency-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: left;
+    }
+
+    .urgency-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--sky);
+      margin-bottom: 8px;
+    }
+
+    .urgency-card-body {
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.65;
+    }
+
+    .urgency-call-label {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 8px;
+    }
+
+    .urgency-phone {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--sky);
+      letter-spacing: -.02em;
+      display: block;
+      margin-bottom: 8px;
+      transition: opacity .15s;
+    }
+
+    .urgency-phone:hover { opacity: .8; }
+
+    .urgency-hours {
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+    }
+
+    /* ─── FAQ ─── */
+    .faq {
+      background: var(--white);
+      padding: 72px 64px;
+    }
+
+    .faq-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--slate);
+      text-align: left;
+      padding: 22px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color .15s;
+    }
+
+    .faq-question:hover { color: var(--cyan); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      transition: transform .25s;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+
+    .faq-answer-inner {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding-bottom: 22px;
+    }
+
+    /* ─── CTA STRIP ─── */
+    .cta-strip {
+      background: var(--slate);
+      padding: 72px 64px;
+      text-align: center;
+    }
+
+    .cta-strip-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-strip-h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+
+    .cta-strip-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 32px;
+    }
+
+    .cta-strip-surcharge {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+    }
+
+    .cta-strip-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+
+    .btn-cta-primary:hover { opacity: .88; }
+
+    .btn-cta-ghost {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.3);
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: background .15s, border-color .15s;
+    }
+
+    .btn-cta-ghost:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.5);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .prod-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .btn-upload { display: none; }
+
+      .hero { padding: 56px 24px; }
+      .hero-h1 { font-size: 44px; }
+
+      .how { padding: 56px 24px; }
+      .steps-row { grid-template-columns: 1fr; gap: 32px; }
+      .step-arrow { display: none; }
+
+      .products { padding: 56px 24px; }
+      .prod-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .urgency { padding: 48px 24px; }
+      .urgency-cards { grid-template-columns: 1fr; }
+      .urgency-h2 { font-size: 28px; }
+
+      .faq { padding: 56px 24px; }
+
+      .cta-strip { padding: 56px 24px; }
+      .cta-strip-h2 { font-size: 28px; }
+
+      
+      
+      
+    }
+
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 36px; }
+      .prod-grid { grid-template-columns: 1fr; }
+      
+    }
+  
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--slate);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 56px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand-logo {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-brand-logo-img {
+      height: 26px;
+      width: auto;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .footer-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .footer-contact-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+      text-decoration: none;
+    }
+    .footer-contact-link svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: rgba(255,255,255,.35);
+    }
+    .footer-contact-link:hover { color: var(--cyan); }
+    .footer-contact-link:hover svg { color: var(--cyan); }
+    .footer-slogan {
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-hour-row {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+    }
+    .footer-same-day {
+      font-size: 13px;
+      color: var(--cyan);
+      margin-top: 4px;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(8,145,178,.12);
+      border: 1px solid rgba(8,145,178,.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+    }
+    @media (max-width: 960px) {
+      .footer { padding: 48px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ─── COPY TOAST ─── */
+    .copy-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--slate);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  /* Section color theming */
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
+      <div class="nav-logo-symbol-wrap">
+        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Events &amp; Retail</span>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=NCR+Forms" class="nav-prod-item">NCR Forms</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="same-day.html" data-nav="same-day" class="active">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- ─── SECTION 1: HERO ─── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Same-Day Printing</p>
+      <h1 class="hero-h1">
+        Need it <span class="h1-warm">today?</span><br>
+        We&#8217;ve <span class="h1-cyan">got</span> <span class="h1-lime">you.</span>
+      </h1>
+      <p class="hero-sub">Order before 10 AM. Pick up your prints the same day. No rush fees for most products.</p>
+
+      <div class="cutoff-badge">
+        <div class="cutoff-badge-title">
+          <svg style="display:inline-block;vertical-align:middle;margin-right:8px;" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          TODAY&#8217;S SAME-DAY CUTOFF: 10 AM
+        </div>
+        <div class="cutoff-badge-sub">Mon&ndash;Fri only &middot; Call to confirm availability</div>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="quote.html" class="btn-primary">Get a Quote Now &rarr;</a>
+        <a href="mailto:info@xpressprinting.com" class="btn-ghost">info@xpressprinting.com</a>
+      </div>
+      <p class="hero-surcharge-note">&#9888; A same-day rush surcharge may apply depending on product and quantity.</p>
+
+      <div class="hero-trust">
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--sky)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          No rush fee on most products
+        </span>
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--sky)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Free file review
+        </span>
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--sky)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Irvine pickup
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2: HOW SAME-DAY WORKS ─── -->
+  <section class="how">
+    <div class="how-inner">
+      <span class="section-label" style="color:var(--cyan)">The Process</span>
+      <h2 class="section-h2">Same-day in 4 steps</h2>
+
+      <div class="steps-row">
+
+        <div class="step">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <p class="step-num">Step 1</p>
+          <p class="step-title">Submit by 10 AM</p>
+          <p class="step-body">Send us your quote request online or call (949)&nbsp;851-9710. Include your files if ready.</p>
+        </div>
+
+        <div class="step-arrow">&rarr;</div>
+
+        <div class="step">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <p class="step-num">Step 2</p>
+          <p class="step-title">Approve Your Quote</p>
+          <p class="step-body">We send back an exact price within 30 minutes. Approve it and we start immediately.</p>
+        </div>
+
+        <div class="step-arrow">&rarr;</div>
+
+        <div class="step">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          </div>
+          <p class="step-num">Step 3</p>
+          <p class="step-title">We Print</p>
+          <p class="step-body">Your job goes straight to press. We monitor quality at every stage.</p>
+        </div>
+
+        <div class="step-arrow">&rarr;</div>
+
+        <div class="step">
+          <div class="step-icon-wrap">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="step-num">Step 4</p>
+          <p class="step-title">Pick Up Same Day</p>
+          <p class="step-body">Your prints are ready for pickup at our Irvine location. Email us when you&#8217;re heading over.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3: SAME-DAY PRODUCTS GRID ─── -->
+  <section class="products">
+    <div class="products-inner">
+      <span class="section-label" style="color:var(--cyan)">What&#8217;s Available Same-Day</span>
+      <h2 class="section-h2">Products ready when you are</h2>
+      <p class="section-sub">Most products available same-day when ordered before 10 AM. Quantities and specs may affect availability &mdash; call to confirm.</p>
+
+      <div class="prod-grid">
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Business Cards</span>
+            <span class="prod-card-badge">Most Requested</span>
+          </div>
+          <p class="prod-card-specs">Standard 3.5&times;2&Prime; &middot; 14PT Gloss UV</p>
+          <p class="prod-card-qty">Up to 1,000</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Flyers (8.5&times;11&Prime;)</span>
+          </div>
+          <p class="prod-card-specs">Single or double-sided &middot; 80 or 100lb gloss</p>
+          <p class="prod-card-qty">Up to 500</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Postcards</span>
+          </div>
+          <p class="prod-card-specs">4&times;6&Prime; &middot; 16PT &middot; Full color</p>
+          <p class="prod-card-qty">Up to 500</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Posters</span>
+          </div>
+          <p class="prod-card-specs">18&times;24&Prime; or 24&times;36&Prime; &middot; Gloss or matte</p>
+          <p class="prod-card-qty">Up to 50</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Rack Cards</span>
+          </div>
+          <p class="prod-card-specs">4&times;9&Prime; &middot; 14PT Gloss</p>
+          <p class="prod-card-qty">Up to 500</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Door Hangers</span>
+          </div>
+          <p class="prod-card-specs">3.5&times;8.5&Prime; &middot; 14PT</p>
+          <p class="prod-card-qty">Up to 250</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Rounded Corner Cards</span>
+          </div>
+          <p class="prod-card-specs">14PT &middot; Any coating</p>
+          <p class="prod-card-qty">Up to 500</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Stickers (Round/Square)</span>
+          </div>
+          <p class="prod-card-specs">Vinyl &middot; Gloss laminate</p>
+          <p class="prod-card-qty">Up to 100</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-header">
+            <span class="prod-card-name">Foam Board Signs</span>
+          </div>
+          <p class="prod-card-specs">18&times;24&Prime; or 24&times;36&Prime; &middot; 3/16&Prime;</p>
+          <p class="prod-card-qty">Up to 10</p>
+          <a href="contact.html" class="prod-card-link">Get a Quote &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4: CUTOFF / URGENCY ─── -->
+  <section class="urgency">
+    <div class="urgency-inner">
+      <h2 class="urgency-h2">Every minute counts.</h2>
+      <p class="urgency-sub">Same-day orders must be submitted AND approved before 10 AM Monday&ndash;Friday.</p>
+
+      <div class="urgency-cards">
+
+        <div class="urgency-card">
+          <p class="urgency-card-title">Submit by 10 AM</p>
+          <p class="urgency-card-body">Your quote request plus file approval must be complete by 10 AM. We cannot hold the press for late approvals.</p>
+        </div>
+
+        <div class="urgency-card">
+          <p class="urgency-card-title">Ready by 5 PM</p>
+          <p class="urgency-card-body">Most same-day jobs are ready for pickup by 5 PM. We will notify you when your order is done.</p>
+        </div>
+
+        <div class="urgency-card">
+          <p class="urgency-card-title">Mon&ndash;Fri Only</p>
+          <p class="urgency-card-body">Same-day is available Monday through Friday. Saturday orders are typically ready by Monday.</p>
+        </div>
+
+      </div>
+
+      <p class="urgency-call-label">Email us &mdash; we reply within 30 minutes:</p>
+      <a href="mailto:info@xpressprinting.com" class="urgency-phone">info@xpressprinting.com</a>
+      <p class="urgency-hours">Mon&ndash;Fri 9 AM &ndash; 5 PM</p>
+      <p class="urgency-surcharge">&#9888; A same-day rush surcharge may apply depending on product and quantity.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5: FAQ ACCORDION ─── -->
+  <section class="faq">
+    <div class="faq-inner">
+      <span class="section-label" style="color:var(--cyan)">FAQ</span>
+      <h2 class="section-h2">Same-day questions answered</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is there an extra charge for same-day printing?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-answer-inner">No rush fee on most standard products. Some specialty items or very large quantities may carry a premium &mdash; we will tell you upfront in your quote.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What&#8217;s the actual deadline?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-answer-inner">Your order must be submitted and your file must be approved before 10 AM. If we are waiting on your file approval at 10:01 AM, the job rolls to next-day. We cannot hold the press for late approvals.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What if my file isn&#8217;t print-ready?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-answer-inner">Upload your file as early as possible. We do a free file review on every order. If there are issues, we will alert you immediately so you have time to fix it before the 10 AM cutoff.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can I call to check if my product qualifies?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-answer-inner">Yes. Call (949) 851-9710 and we will confirm in 2 minutes. Same-day availability depends on the product, quantity, and how busy we are that morning.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do you offer same-day delivery?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-answer-inner">We do not offer delivery at this time. Same-day orders are pickup only at 18195 E McDurmott, Ste H, Irvine, CA 92614.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What if I place a same-day order but it&#8217;s not ready on time?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <p class="faq-answer-inner">It does not happen often, but if we cannot meet the same-day commitment, we will call you immediately and make it right. We do not print surprises.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 6: CTA STRIP ─── -->
+  <section class="cta-strip">
+    <div class="cta-strip-inner">
+      <h2 class="cta-strip-h2">Don&#8217;t wait &mdash; order before 10 AM</h2>
+      <p class="cta-strip-sub">Submit your request now and we&#8217;ll have it ready for pickup today.</p>
+      <div class="cta-strip-buttons">
+        <a href="quote.html" class="btn-cta-primary">Get a Same-Day Quote &rarr;</a>
+        <a href="mailto:info@xpressprinting.com" class="btn-cta-ghost">info@xpressprinting.com</a>
+      </div>
+      <p class="cta-strip-surcharge">&#9888; A same-day rush surcharge may apply depending on product and quantity.</p>
+    </div>
+  </section>
+
+  
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle clicked
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+
+  <!-- Copy to clipboard -->
+<footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

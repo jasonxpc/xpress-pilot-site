@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xpress Printing — 웹사이트 개편 보고서 v6</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans','Pretendard',sans-serif;background:#F7F5F0;color:#2A2E25;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:16px}
+.page{max-width:980px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:60px}
+
+.cover{background:#2A2E25;border-radius:16px;padding:52px 48px;margin-bottom:52px}
+.cover-eye{font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#A8D870;margin-bottom:14px}
+.cover-title{font-size:48px;font-weight:700;color:#fff;line-height:1.12;margin-bottom:10px;letter-spacing:-.02em}
+.cover-sub{font-size:21px;color:#A8D870;font-weight:400}
+.cover-meta{font-size:15px;color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:24px}
+
+.toc{background:#fff;border:1px solid #EEEAE2;border-radius:12px;padding:22px 26px;margin-bottom:48px}
+.toc-t{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A8A84;margin-bottom:12px}
+.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.toc-item{display:flex;align-items:center;gap:9px;font-size:16px;color:#2A2E25;text-decoration:none;padding:5px 0}
+.toc-item:hover{color:#48A020}
+.toc-n{font-size:14px;font-weight:700;color:#48A020;width:18px;flex-shrink:0}
+
+.sec-num{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#48A020;margin-bottom:5px}
+.sec-title{font-size:29px;font-weight:700;letter-spacing:-.02em;color:#2A2E25;margin-bottom:7px}
+.sec-sub{font-size:16px;color:#8A8A84;line-height:1.65}
+.divider{height:2px;background:linear-gradient(90deg,#48A020 0%,#A8D870 60%,transparent 100%);margin:14px 0 26px;border:none}
+
+/* ── COMPETITOR TABLE ── */
+.comp-wrap{overflow-x:auto}
+.comp-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid #EEEAE2;min-width:800px}
+.comp-table th{background:#2A2E25;color:#fff;font-size:14px;font-weight:600;padding:12px 14px;text-align:center;letter-spacing:.04em}
+.comp-table th:first-child{text-align:left;width:22%}
+.comp-table td{padding:13px 14px;font-size:15px;border-bottom:1px solid #EEEAE2;vertical-align:middle;text-align:center}
+.comp-table td:first-child{text-align:left;font-weight:600;font-size:16px}
+.comp-table tr.xpress td{background:#EAF5D8}
+.comp-table tr.xpress td:first-child{background:#D4F0A8;color:#1A5C08}
+.comp-table tr.highlight td{background:#FFF8E0}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:hover td{opacity:.92}
+.yes{color:#48A020;font-size:16px;font-weight:700}
+.no{color:#FF8B6B;font-size:16px}
+.part{color:#C87000;font-size:15px;font-weight:600}
+.tag-local{font-size:12px;padding:2px 7px;border-radius:10px;background:#EAF5D8;color:#2E7010;font-weight:600;margin-left:4px}
+.tag-online{font-size:12px;padding:2px 7px;border-radius:10px;background:#EEF4FF;color:#1A3F88;font-weight:600;margin-left:4px}
+.comp-note{font-size:14px;color:#8A8A84;margin-top:10px;font-style:italic}
+
+.gap-box{background:#FFE8DF;border-left:4px solid #FF8B6B;border-radius:0 10px 10px 0;padding:16px 20px;margin-top:18px}
+.gap-box strong{color:#C04828;font-size:16px;display:block;margin-bottom:6px}
+.gap-box p{font-size:16px;color:#444;line-height:1.65}
+
+.info-box{background:#EAF5D8;border-left:4px solid #48A020;border-radius:0 10px 10px 0;padding:14px 18px;margin-top:14px}
+.info-box p{font-size:15px;color:#2E4010;line-height:1.65}
+
+/* ── STRENGTH ── */
+.str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.str-card{border-radius:10px;padding:17px 18px;border:1px solid #EEEAE2}
+.str-card.xp{background:#EAF5D8;border-color:#A8D870}
+.str-card.comp{background:#FFF5F2;border-color:#FFCAB8}
+.str-card.opp{background:#FFF8E0;border-color:#FFD080}
+.str-lbl{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.str-card.xp .str-lbl{color:#2E7010}
+.str-card.comp .str-lbl{color:#C04828}
+.str-card.opp .str-lbl{color:#A06000}
+.str-card h4{font-size:16px;font-weight:700;margin-bottom:5px}
+.str-card p{font-size:15px;line-height:1.6;color:#555}
+
+/* ── JOURNEY ── */
+.journey-wrap{margin-bottom:20px}
+.j-label{font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:9px 16px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:10px}
+.j-flow{display:flex;border:1px solid #EEEAE2;border-radius:0 10px 10px 10px;overflow:hidden;background:#fff}
+.j-step{flex:1;padding:14px 13px;border-right:1px solid #EEEAE2}
+.j-step:last-child{border-right:none}
+.j-step.dim{background:#FAFAF8;opacity:.6}
+.j-step.lit{background:#EAF5D8}
+.j-num{font-size:12px;font-weight:700;color:#AAAAAA;margin-bottom:4px}
+.j-title{font-size:15px;font-weight:700;color:#2A2E25;margin-bottom:3px}
+.j-desc{font-size:14px;color:#777;line-height:1.5}
+.j-tag{font-size:12px;font-weight:600;padding:2px 7px;border-radius:8px;display:inline-block;margin-top:5px}
+.t-ok{background:#EAF5D8;color:#2E7010}
+.t-no{background:#FFE8DF;color:#C04828}
+.t-new{background:#FFF8E0;color:#A06000}
+.j-arrow{padding:0 3px;color:#DDD;font-size:16px;display:flex;align-items:center;background:#fff;border-right:1px solid #EEEAE2;flex-shrink:0}
+.j-diff{border-radius:10px;padding:14px 18px;margin-top:8px;display:flex;align-items:flex-start;gap:12px}
+.j-diff.dark{background:#2A2E25}
+.j-diff.green{background:#EAF5D8}
+.jd-ico{font-size:20px;flex-shrink:0;margin-top:1px}
+.jd-title{font-size:15px;font-weight:700;margin-bottom:3px}
+.j-diff.dark .jd-title{color:#A8D870}
+.j-diff.green .jd-title{color:#2E7010}
+.jd-desc{font-size:15px;line-height:1.6}
+.j-diff.dark .jd-desc{color:rgba(255,255,255,.7)}
+.j-diff.green .jd-desc{color:#3A5010}
+
+/* ── ROADMAP STAGES ── */
+.stage-card{border-radius:12px;overflow:hidden;margin-bottom:12px;border:1px solid transparent}
+.stage-head{padding:16px 22px;display:flex;align-items:center;gap:12px}
+.s-badge{width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0}
+.s-tw{flex:1}
+.s-title{font-size:16px;font-weight:700;margin-bottom:2px}
+.s-meta{font-size:15px;opacity:.85;display:flex;gap:14px;flex-wrap:wrap}
+.stage-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.s-col{padding:16px 22px}
+.s-col h4{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.s-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.s-col li{font-size:16px;line-height:1.5;display:flex;gap:7px}
+.s-col li.ok::before{content:'✓';color:#48A020;font-weight:700;flex-shrink:0}
+.s-col li.dim{color:#999}
+.s-col li.dim::before{content:'△';flex-shrink:0;color:#C87000}
+.s1{border-color:#C2E89A}.s1 .stage-head{background:#1A5C08}.s1 .s-title,.s1 .s-meta{color:#fff}.s1 .s-col:first-child{background:#EAF5D8}.s1 .s-col:last-child{background:#F5FAF0}.s1 .s-col h4{color:#2E7010}
+.s2a{border-color:#FFD080}.s2a .stage-head{background:#A06000}.s2a .s-title,.s2a .s-meta{color:#fff}.s2a .s-col:first-child{background:#FFF8E0}.s2a .s-col:last-child{background:#FFFBF0}.s2a .s-col h4{color:#A06000}
+.s2b{border-color:#FFCAB8}.s2b .stage-head{background:#B03A22}.s2b .s-title,.s2b .s-meta{color:#fff}.s2b .s-col:first-child{background:#FFE8DF}.s2b .s-col:last-child{background:#FFF5F2}.s2b .s-col h4{color:#C04828}
+.s3{border-color:#B0C4E8}.s3 .stage-head{background:#1A3F88}.s3 .s-title,.s3 .s-meta{color:#fff}.s3 .s-col:first-child{background:#EEF4FF}.s3 .s-col:last-child{background:#F5F8FF}.s3 .s-col h4{color:#1A3F88}
+
+/* ── PLATFORM PATH COMPARE ── */
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.path-card{border-radius:12px;overflow:hidden;border:2px solid #EEEAE2}
+.path-card.winner{border-color:#48A020}
+.path-header{padding:18px 22px}
+.path-badge{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px}
+.pb-green{background:#EAF5D8;color:#2E7010}
+.pb-gray{background:#EEE;color:#666}
+.path-title{font-size:19px;font-weight:700;margin-bottom:3px}
+.path-cost{font-size:15px;color:#8A8A84}
+.path-timeline{padding:0 22px 18px}
+.pt-row{display:flex;gap:0;margin-bottom:0}
+.pt-stage{padding:12px 14px;border-top:1px solid #EEEAE2;flex:1}
+.pt-stage:not(:last-child){border-right:1px solid #EEEAE2}
+.pt-num{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.pt-title{font-size:15px;font-weight:600;margin-bottom:3px}
+.pt-cost{font-size:14px;font-weight:600;margin-bottom:2px}
+.pt-desc{font-size:14px;color:#777;line-height:1.5}
+.pt-when{font-size:13px;margin-top:5px;font-style:italic}
+
+/* color shims per path */
+.path-card.winner .pt-stage:nth-child(1){background:#EAF5D8}
+.path-card.winner .pt-stage:nth-child(2){background:#FFF8E0}
+.path-card.winner .pt-stage:nth-child(3){background:#FFE8DF}
+.path-card.winner .pt-stage:nth-child(4){background:#EEF4FF}
+.path-card:not(.winner) .pt-stage:nth-child(1){background:#F5FAF0}
+.path-card:not(.winner) .pt-stage:nth-child(2){background:#FFFBF0}
+.path-card:not(.winner) .pt-stage:nth-child(3){background:#FFF5F2}
+.path-card:not(.winner) .pt-stage:nth-child(4){background:#F5F8FF}
+
+.verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.verdict-card{border-radius:10px;padding:16px 18px;border:1px solid #EEEAE2}
+.vc-title{font-size:15px;font-weight:700;margin-bottom:8px}
+.vc-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.vc-list li{font-size:15px;color:#444;line-height:1.55;display:flex;gap:7px}
+.vc-ok::before{content:'✓';color:#48A020;font-weight:700;flex-shrink:0}
+.vc-no::before{content:'✗';color:#FF8B6B;font-weight:700;flex-shrink:0}
+.vc-warn::before{content:'△';color:#C87000;flex-shrink:0}
+
+/* ── DECISION ── */
+.dec-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid #EEEAE2}
+.dec-table th{background:#2A2E25;color:#fff;font-size:14px;font-weight:600;padding:12px 15px;text-align:left}
+.dec-table td{padding:12px 15px;font-size:16px;border-bottom:1px solid #EEEAE2;vertical-align:top}
+.dec-table tr:last-child td{border-bottom:none}
+.dec-table td:first-child{width:30px;text-align:center;font-weight:700;color:#48A020;background:#EAF5D8}
+.dec-table td:nth-child(3){width:85px;text-align:center;white-space:nowrap}
+.dec-table td:last-child{width:85px;text-align:center;color:#8A8A84;font-size:16px}
+.ur{color:#C04828;font-weight:700}
+.uy{color:#C87000;font-weight:600}
+.ug{color:#2E7010}
+
+.principle{background:#FFE8DF;border-left:5px solid #FF8B6B;border-radius:0 12px 12px 0;padding:18px 22px;margin-top:18px}
+.principle h4{font-size:16px;font-weight:700;color:#C04828;margin-bottom:10px}
+.principle ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.principle li{font-size:16px;color:#444;line-height:1.6;display:flex;gap:8px}
+.principle li::before{content:'•';color:#FF8B6B;font-weight:700;flex-shrink:0}
+
+.note{font-size:14px;color:#8A8A84;margin-top:8px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eye">Xpress Printing Inc. · 사장님 검토용 · 내부 보고서</div>
+  <div class="cover-title">웹사이트 개편 및<br>온라인 주문 시스템 구축</div>
+  <div class="cover-sub">로컬 경쟁사 비교 · 단계별 고객 경험 · 플랫폼 경로 비교</div>
+  <div class="cover-meta">2026년 6월 &nbsp;|&nbsp; 작성: Jason &nbsp;|&nbsp; xpressprinting.com &nbsp;|&nbsp; info@xpressprinting.com</div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-t">목차</div>
+  <div class="toc-grid">
+    <a href="#s1" class="toc-item"><span class="toc-n">1</span>로컬 경쟁사 실태 비교</a>
+    <a href="#s2" class="toc-item"><span class="toc-n">2</span>우리 강점 vs 경쟁사 강점</a>
+    <a href="#s2b" class="toc-item"><span class="toc-n">2+</span>로컬 vs 온라인 대형 — 근본적 차이</a>
+    <a href="#s3" class="toc-item"><span class="toc-n">3</span>단계별 고객 경험 (명함 주문 시나리오)</a>
+    <a href="#s4" class="toc-item"><span class="toc-n">4</span>단계별 개발 로드맵</a>
+    <a href="#s5" class="toc-item"><span class="toc-n">5</span>플랫폼 경로 비교 — Shopify vs Squarespace</a>
+    <a href="#scost" class="toc-item"><span class="toc-n">7</span>개발 비용 — 단계별 총 비용</a>
+    <a href="#sconcern" class="toc-item"><span class="toc-n">9</span>사장님 우려사항 및 대응 방안</a>
+    <a href="#s6" class="toc-item"><span class="toc-n">10</span>사장님 확인 사항</a>
+  </div>
+</div>
+
+<!-- ══ S1. 로컬 경쟁사 ══ -->
+<section id="s1">
+  <div class="sec-num">Section 1</div>
+  <div class="sec-title">로컬 경쟁사 실태 비교</div>
+  <div class="sec-sub">Irvine·OC 지역 인쇄소를 직접 확인했습니다. 온라인 전국 업체는 별도 참고용으로만 제시합니다.</div>
+  <hr class="divider">
+
+  <!-- 목표 레벨 박스 -->
+  <div style="background:#2A2E25;border-radius:12px;padding:20px 24px;margin-bottom:22px;display:flex;align-items:flex-start;gap:16px">
+    <div style="font-size:28px;flex-shrink:0">🎯</div>
+    <div>
+      <div style="font-size:16px;font-weight:700;color:#A8D870;margin-bottom:5px">우리의 목표 벤치마크 — Irvine Printing &amp; Displays</div>
+      <div style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.65">옵션 선택 → 즉시 가격 → 파일 업로드 → 결제 → 고객 계정(재주문) 수준을 목표로 합니다. 기능은 동등하게, 디자인·브랜드 신뢰감은 더 높게. <strong style="color:#A8D870">Shopify로만 구현 가능 — Squarespace는 고객 계정·재주문 기능 없음.</strong><br><small style="color:rgba(255,255,255,.5);font-size:12px">* 파일 업로드: 1단계는 FilesAnywhere 유지, 2b단계에서 Shopify 앱($9.99~39.99/월, 파일 크기에 따라)으로 전환하여 주문·결제와 자동 연결</small></div>
+    </div>
+  </div>
+
+  <div class="comp-wrap">
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th style="text-align:left">업체 · 웹사이트</th>
+        <th>온라인 견적</th>
+        <th>가격<br>자동계산</th>
+        <th>온라인<br>결제</th>
+        <th>파일<br>업로드</th>
+        <th>고객 계정<br>재주문</th>
+        <th>온라인<br>디자인</th>
+        <th>모바일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="xpress">
+        <td>⭐ <strong>Xpress Printing</strong><span class="tag-local">로컬 · Irvine</span><br>
+          <a href="https://xpressprinting.com" target="_blank" style="font-size:14px;color:#48A020;text-decoration:none">xpressprinting.com ↗</a><br>
+          <small style="font-weight:400;color:#555;font-size:13px">1989년 창업 · 현재 상태</small></td>
+        <td><span class="no">✗</span><br><small>폼 문의 가능<br>수동 회신</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="part">△</span><br><small>FilesAnywhere<br>(외부 연동)</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="part">△</span><br><small>구버전</small></td>
+      </tr>
+      <tr class="highlight">
+        <td>🎯 <strong>Irvine Printing &amp; Displays</strong><span class="tag-local">로컬 · Irvine</span><br>
+          <a href="https://irvineprinting.com" target="_blank" style="font-size:14px;color:#C87000;text-decoration:none;font-weight:600">irvineprinting.com ↗</a><br>
+          <small style="font-weight:400;color:#555;font-size:13px"><strong>우리의 목표 레벨</strong></small></td>
+        <td><span class="yes">✓</span><br><small>상품 페이지</small></td>
+        <td><span class="yes">✓</span><br><small>옵션 선택 즉시</small></td>
+        <td><span class="yes">✓</span><br><small>Cart 결제</small></td>
+        <td><span class="yes">✓</span><br><small>Submit Job</small></td>
+        <td><span class="yes">✓</span><br><small>계정·디자인 저장</small></td>
+        <td><span class="part">△</span><br><small>디자인 저장만</small></td>
+        <td><span class="yes">✓</span></td>
+      </tr>
+      <tr>
+        <td><strong>Main Graphics</strong><span class="tag-local">로컬 · Irvine</span><br>
+          <a href="https://maingraphics.net" target="_blank" style="font-size:14px;color:#8A8A84;text-decoration:none">maingraphics.net ↗</a><br>
+          <small style="font-weight:400;color:#555;font-size:13px">1988년 창업 · Toyota·UCI 고객</small></td>
+        <td><span class="yes">✓</span><br><small>즉시 응답</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="part">△</span><br><small>기업 전용 B2B</small></td>
+        <td><span class="yes">✓</span><br><small>FTP 업로드</small></td>
+        <td><span class="part">△</span><br><small>기업 전용</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="yes">✓</span></td>
+      </tr>
+      <tr>
+        <td><strong>Avanti Printing</strong><span class="tag-local">로컬 · OC</span><br>
+          <a href="https://avantiprinting.com" target="_blank" style="font-size:14px;color:#8A8A84;text-decoration:none">avantiprinting.com ↗</a><br>
+          <small style="font-weight:400;color:#555;font-size:13px">OC 로컬 · 견적 24h 회신</small></td>
+        <td><span class="part">△</span><br><small>폼 24h 회신</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="yes">✓</span><br><small>Send Files</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="yes">✓</span></td>
+      </tr>
+      <tr>
+        <td><strong>The Printery</strong><span class="tag-local">로컬 · Irvine</span><br>
+          <a href="https://theprintery.com" target="_blank" style="font-size:14px;color:#8A8A84;text-decoration:none">theprintery.com ↗</a><br>
+          <small style="font-weight:400;color:#555;font-size:13px">1989년 창업 · HP Indigo 보유</small></td>
+        <td><span class="part">△</span><br><small>연락처 문의</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="part">△</span><br><small>이메일 전송</small></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="no">✗</span></td>
+        <td><span class="yes">✓</span></td>
+      </tr>
+      <tr style="background:#F5F5F3">
+        <td><strong>UPrinting</strong><span class="tag-online">온라인 전국</span><br>
+          <a href="https://uprinting.com" target="_blank" style="font-size:14px;color:#1A3F88;text-decoration:none">uprinting.com ↗</a><br>
+          <small style="font-weight:400;color:#777;font-size:13px">참고용 — 로컬 직접 경쟁 아님</small></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+      </tr>
+      <tr style="background:#F5F5F3">
+        <td><strong>Printivity</strong><span class="tag-online">온라인 전국</span><br>
+          <a href="https://printivity.com" target="_blank" style="font-size:14px;color:#1A3F88;text-decoration:none">printivity.com ↗</a><br>
+          <small style="font-weight:400;color:#777;font-size:13px">참고용 — 로컬 직접 경쟁 아님</small></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+        <td><span class="yes">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="comp-note">* 2026년 6월 각 사이트 직접 확인. △ = 부분 지원 또는 제한적. 링크는 새 탭에서 열립니다.</p>
+
+  <div class="gap-box">
+    <strong>핵심 관찰</strong>
+    <p><strong>Irvine Printing &amp; Displays</strong>가 이미 온라인 주문·결제까지 완비한 로컬 경쟁사입니다. Main Graphics는 기업 고객 전용 B2B 스토어프론트를 운영합니다. Avanti와 The Printery는 디자인은 현대적이지만 온라인 주문·결제는 없습니다. Xpress Printing은 이 중 온라인 기능이 가장 뒤처져 있습니다.</p>
+  </div>
+  <div class="info-box">
+    <p>🎯 <strong>기회:</strong> Irvine Printing &amp; Displays가 온라인 주문을 선점했지만, Xpress Printing의 강점인 Owner QC·35년 신뢰·당일 납기는 웹사이트에서 전혀 전달되지 않고 있습니다. 온라인 편의성 + 로컬 신뢰감을 동시에 전달하면 차별화가 가능합니다.</p>
+  </div>
+</section>
+
+<!-- ══ S2. 강점 비교 ══ -->
+<section id="s2">
+  <div class="sec-num">Section 2</div>
+  <div class="sec-title">우리 강점 vs 경쟁사 강점</div>
+  <div class="sec-sub">실제 경쟁력과 웹사이트에서 전달되지 못하고 있는 부분을 정리합니다.</div>
+  <hr class="divider">
+  <div class="str-grid">
+    <div class="str-card xp">
+      <div class="str-lbl">Xpress Printing 강점</div>
+      <h4>Owner 직접 검수</h4>
+      <p>모든 작업을 오너가 직접 확인. 35년 경력. 실수를 먼저 잡아준다는 후기. 어떤 로컬 경쟁사도 이걸 명시적으로 강조하지 않음.</p>
+    </div>
+    <div class="str-card xp">
+      <div class="str-lbl">Xpress Printing 강점</div>
+      <h4>속도 + 로컬 배송</h4>
+      <p>당일 납기(10AM 오더 기준). 무료 로컬 배송. Irvine 기반으로 OC 기업 고객에게 빠른 대응 가능.</p>
+    </div>
+    <div class="str-card opp">
+      <div class="str-lbl">웹사이트에서 전달 안 됨</div>
+      <h4>이 강점들이 보이지 않음</h4>
+      <p>지금 사이트에서는 Owner QC, 납기, 특수 인쇄 역량이 전혀 드러나지 않습니다. 방문자는 경쟁사와 구분을 못 합니다.</p>
+    </div>
+    <div class="str-card comp">
+      <div class="str-lbl">Irvine Printing 강점</div>
+      <h4>완전한 온라인 주문</h4>
+      <p>Shop·Cart·결제까지 이미 완비. 로컬 업체 중 유일하게 셀프 주문 가능. 24시간 접수.</p>
+    </div>
+    <div class="str-card comp">
+      <div class="str-lbl">Main Graphics 강점</div>
+      <h4>기업 고객 포털</h4>
+      <p>Toyota·UCI 등 대기업 고객 전용 B2B 스토어프론트. 브랜드 자산 관리. 규모 있는 기업 고객 락인.</p>
+    </div>
+    <div class="str-card xp">
+      <div class="str-lbl">우리의 기회</div>
+      <h4>로컬 신뢰 + 온라인 편의</h4>
+      <p>온라인 주문 편의성을 갖추면서 Owner QC와 로컬 서비스를 차별점으로 명확히 전달 — Irvine Printing이 흉내 낼 수 없는 포지션.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ S2b. 로컬 vs 온라인 대형 차이 ══ -->
+<section id="s2b">
+  <div class="sec-num">Section 2 — 보충</div>
+  <div class="sec-title">로컬 인쇄소 vs 온라인 대형 업체 — 근본적 차이</div>
+  <div class="sec-sub">Irvine Printing(로컬)과 Printivity·Vistaprint(온라인 대형)는 기능 수준이 비슷해 보이지만 비즈니스 모델이 완전히 다릅니다.</div>
+  <hr class="divider">
+
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid #EEEAE2;min-width:680px">
+    <thead>
+      <tr>
+        <th style="background:#2A2E25;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:left;width:22%">비교 항목</th>
+        <th style="background:#1A5C08;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">Irvine Printing<br><small style="font-weight:400;opacity:.8">로컬 · 우리의 목표 레벨</small></th>
+        <th style="background:#1A3F88;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">Printivity · Vistaprint<br><small style="font-weight:400;opacity:.8">온라인 대형 · 참고용</small></th>
+        <th style="background:#48A020;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">⭐ Xpress Printing 목표<br><small style="font-weight:400;opacity:.8">로컬 강점 + 온라인 편의</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">비즈니스 모델</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">로컬 관계 기반<br>반복 고객 중심</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">불특정 다수<br>대량 자동 처리</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><strong>로컬 관계 기반<br>온라인 편의 추가</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">품질 관리</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">담당자 직접 확인</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">자동화 · 표준 공정<br>수작업 QC 없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><strong>Owner 직접 검수<br>차별화 핵심 강점</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">납기</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">당일~2일<br>픽업 또는 로컬 배송</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">3~7일 + 배송<br>급하면 추가 요금</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><strong>당일 가능<br>OC 무료 로컬 배송</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">온라인 디자인 툴</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">없음<br>(파일 업로드 방식)</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">완전한 브라우저 편집<br>템플릿 수천 개</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8">없음 (1~2b단계)<br><small style="color:#8A8A84">필요 시 3단계 검토</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">가격대</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">로컬 프리미엄<br>품질·속도 가치 반영</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">대량 생산 저가<br>단순 규모의 경제</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><strong>로컬 합리적 가격<br>Owner QC 포함</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">소통 방식</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">전화·이메일·직접 방문</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">채팅·이메일만<br>담당자 없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><strong>웹 폼 + 30분 내 이메일 회신<br>전화·방문 모두 가능</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3">특수 인쇄</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-left:1px solid #EEEAE2">제한적</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-left:1px solid #EEEAE2">표준화된 옵션만<br>커스텀 어려움</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-left:1px solid #EEEAE2;background:#EAF5D8"><strong>메탈릭·클리어 토너 등<br>고급 특수 인쇄 가능</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="background:#EAF5D8;border-left:4px solid #48A020;border-radius:0 10px 10px 0;padding:16px 20px;margin-top:16px">
+    <p style="font-size:15px;color:#2E4010;line-height:1.7"><strong>핵심 포지션:</strong> Printivity·Vistaprint의 온라인 편의성을 흉내 낼 필요가 없습니다. 그쪽은 "저렴하게 빠르게 자동으로" 시장입니다. Xpress Printing의 포지션은 <strong>"로컬 인쇄소의 신뢰·속도·QC + 온라인 주문의 편의성"</strong>입니다. Irvine Printing 수준의 온라인 기능에 Owner QC와 35년 신뢰를 더하면 OC 지역에서 대체 불가능한 포지션이 됩니다.</p>
+  </div>
+</section>
+
+<!-- ══ S3. 고객 여정 ══ -->
+<section id="s3">
+  <div class="sec-num">Section 3</div>
+  <div class="sec-title">단계별 고객 경험 비교</div>
+  <div class="sec-sub">"명함 500장을 주문하고 싶은 고객"이 각 단계에서 어떤 경험을 하는지 비교합니다.</div>
+  <hr class="divider">
+
+  <!-- 현재 -->
+  <div class="journey-wrap">
+    <div class="j-label" style="background:#2A2E25;color:#888">현재 — xpressprinting.com</div>
+    <div class="j-flow">
+      <div class="j-step"><div class="j-num">01</div><div class="j-title">사이트 방문</div><div class="j-desc">구글 검색 → 방문. 텍스트 나열.</div><span class="j-tag t-ok">가능</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step dim"><div class="j-num">02</div><div class="j-title">가격 확인</div><div class="j-desc">가격 정보 없음. 폼 문의 후 수동 회신 대기.</div><span class="j-tag t-no">막힘</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step dim"><div class="j-num">03</div><div class="j-title">파일 업로드</div><div class="j-desc">FilesAnywhere 외부 이동. 주문과 별도 관리.</div><span class="j-tag t-no">분리</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step dim"><div class="j-num">04</div><div class="j-title">결제</div><div class="j-desc">온라인 결제 없음. 인보이스·계좌이체.</div><span class="j-tag t-no">불가</span></div>
+    </div>
+    <div class="j-diff dark"><div class="jd-ico">⚠️</div><div><div class="jd-title">고객 이탈 포인트</div><div class="jd-desc">폼 문의는 가능하지만 가격을 즉시 확인할 수 없습니다. 회신을 기다리는 동안 상당수 고객이 경쟁사로 이동합니다. Irvine Printing은 이 과정이 모두 사이트 안에서 즉시 완결됩니다.</div></div></div>
+  </div>
+
+  <!-- 1단계 -->
+  <div class="journey-wrap">
+    <div class="j-label" style="background:#1A5C08;color:#fff">1단계 — 스마트 견적 폼 + FilesAnywhere 업로드 유지</div>
+    <div class="j-flow">
+      <div class="j-step lit"><div class="j-num">01</div><div class="j-title">사이트 방문</div><div class="j-desc">신규 사이트. 명함 → 옵션 선택.</div><span class="j-tag t-ok">개선</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">02</div><div class="j-title">견적 요청</div><div class="j-desc">폼 제출 → Jason 30분 내 회신.</div><span class="j-tag t-new">30분 대기</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">03</div><div class="j-title">파일 업로드</div><div class="j-desc">FilesAnywhere 연동 유지. 주문 폼에서 링크 제공.</div><span class="j-tag t-ok">개선</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step dim"><div class="j-num">04</div><div class="j-title">결제</div><div class="j-desc">견적 후 별도 결제. 수동.</div><span class="j-tag t-no">수동</span></div>
+    </div>
+    <div class="j-diff green"><div class="jd-ico">✅</div><div><div class="jd-title">현재 대비 개선 · Avanti·The Printery 수준 확보</div><div class="jd-desc">전화 없이 웹에서 문의 가능. 파일 업로드는 FilesAnywhere 연동으로 유지 — 현재와 동일한 방식. 단, 가격 확인에 30분 대기는 여전히 존재. Irvine Printing 대비 온라인 결제는 여전히 격차.</div></div></div>
+  </div>
+
+  <!-- 2a -->
+  <div class="journey-wrap">
+    <div class="j-label" style="background:#A06000;color:#fff">2a단계 — 실시간 가격 자동 계산 추가</div>
+    <div class="j-flow">
+      <div class="j-step lit"><div class="j-num">01</div><div class="j-title">사이트 방문</div><div class="j-desc">옵션 선택.</div><span class="j-tag t-ok">동일</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">02</div><div class="j-title">즉시 가격 확인</div><div class="j-desc">클릭 즉시 "$45 + tax" 표시. 대기 없음.</div><span class="j-tag t-ok">즉시</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">03</div><div class="j-title">파일 업로드</div><div class="j-desc">FilesAnywhere 연동 유지.</div><span class="j-tag t-ok">동일</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step dim"><div class="j-num">04</div><div class="j-title">결제</div><div class="j-desc">가격 확인 후 별도 결제.</div><span class="j-tag t-no">수동</span></div>
+    </div>
+    <div class="j-diff green"><div class="jd-ico">⚡</div><div><div class="jd-title">1단계 대비 개선 · Avanti·The Printery·Main Graphics 수준 초과</div><div class="jd-desc">30분 대기 완전 제거. 고객이 옵션을 선택하면 즉시 가격이 화면에 표시됩니다. 단, 주문 완결은 되지 않음 — 고객이 가격을 확인한 후 Jason이 인보이스를 별도 발송하거나 결제 링크를 보내는 방식. Irvine Printing과의 마지막 차이는 결제의 즉시 완결.</div></div></div>
+  </div>
+
+  <!-- 2b -->
+  <div class="journey-wrap">
+    <div class="j-label" style="background:#B03A22;color:#fff">2b단계 — 온라인 결제 연동</div>
+    <div class="j-flow">
+      <div class="j-step lit"><div class="j-num">01</div><div class="j-title">사이트 방문</div><div class="j-desc">옵션 선택.</div><span class="j-tag t-ok">동일</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">02</div><div class="j-title">즉시 가격 확인</div><div class="j-desc">실시간 자동 계산.</div><span class="j-tag t-ok">동일</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">03</div><div class="j-title">업로드 + 결제</div><div class="j-desc">Shopify 앱으로 파일 업로드 → 주문·결제 자동 연결 완결.</div><span class="j-tag t-ok">완결</span></div>
+      <div class="j-arrow">›</div>
+      <div class="j-step lit"><div class="j-num">04</div><div class="j-title">자동 확인 이메일</div><div class="j-desc">양측 자동 발송. Jason 개입 없음.</div><span class="j-tag t-ok">자동화</span></div>
+    </div>
+    <div class="j-diff green"><div class="jd-ico">🎯</div><div><div class="jd-title">Irvine Printing 수준 도달 + Owner QC 차별화로 추월</div><div class="jd-desc">파일 업로드를 Shopify 앱($9.99~19.99/월)으로 전환하여 업로드·주문·결제가 한 흐름으로 완결됩니다. 온라인 주문 24시간 가능. Irvine Printing과 기능은 동등해지지만, Owner QC·35년 신뢰·당일 납기 차별점이 더 강한 포지션을 만들어줍니다.</div></div></div>
+  </div>
+</section>
+
+<!-- ══ S4. 로드맵 ══ -->
+<section id="s4">
+  <div class="sec-num">Section 4</div>
+  <div class="sec-title">단계별 개발 로드맵 (Shopify 기반)</div>
+  <div class="sec-sub">각 단계는 독립 실행 가능합니다. 완료 후 데이터를 보고 다음 단계 진입을 결정합니다.</div>
+  <hr class="divider">
+
+  <div class="stage-card s1">
+    <div class="stage-head">
+      <div class="s-badge" style="background:#0F4A00">1</div>
+      <div class="s-tw"><div class="s-title">Shopify 구축 + 디자인 + 스마트 견적 폼</div>
+      <div class="s-meta"><span>⏱ 지금 · 2~3주</span><span>💰 $29/월 (연결제) · $39/월 (월결제)</span><span>🔧 Claude가 테마 직접 코딩</span></div></div>
+    </div>
+    <div class="stage-body">
+      <div class="s-col"><h4>구현</h4><ul>
+        <li class="ok">현재 HTML 시안 5종 → Shopify 테마 변환</li>
+        <li class="ok">제품별 스마트 폼 (종이·코팅·수량 선택)</li>
+        <li class="ok">파일 업로드 — FilesAnywhere 연동 유지 (추가 비용 없음)</li>
+        <li class="ok">현대적 디자인 · Owner QC 강점 전달</li>
+      </ul></div>
+      <div class="s-col"><h4>경쟁사 대비</h4><ul>
+        <li class="ok">Avanti · The Printery 수준 확보</li>
+        <li class="ok">Owner QC·35년 강점 처음으로 웹에서 전달</li>
+        <li class="dim">Irvine Printing 대비 온라인 결제 격차 잔존</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="stage-card s2a">
+    <div class="stage-head">
+      <div class="s-badge" style="background:#805000">2a</div>
+      <div class="s-tw"><div class="s-title">실시간 가격 계산기</div>
+      <div class="s-meta"><span>⏱ 8~9월 (1단계 직후)</span><span>💰 $29/월 유지 (추가 비용 없음)</span><span>🔧 Claude가 테마에 JS 계산기 추가 코딩</span></div></div>
+    </div>
+    <div class="stage-body">
+      <div class="s-col"><h4>구현</h4><ul>
+        <li class="ok">Claude가 테마에 JS 계산기 직접 코딩</li>
+        <li class="ok">옵션 클릭 즉시 가격 자동 표시</li>
+        <li class="ok">Shopify 플랜 업그레이드 불필요</li>
+      </ul></div>
+      <div class="s-col"><h4>경쟁사 대비</h4><ul>
+        <li class="ok">로컬 경쟁사 중 가장 앞선 수준</li>
+        <li class="ok">30분 대기 완전 제거</li>
+        <li class="dim">온라인 결제는 2b에서 추가</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="stage-card s2b">
+    <div class="stage-head">
+      <div class="s-badge" style="background:#8A2A15">2b</div>
+      <div class="s-tw"><div class="s-title">온라인 결제 연동</div>
+      <div class="s-meta"><span>⏱ 10~11월</span><span>💰 $29/월 + Shopify Payments 2.9%+$0.30/건</span><span>📋 2a 완료 후 이어서 진행</span></div></div>
+    </div>
+    <div class="stage-body">
+      <div class="s-col"><h4>구현</h4><ul>
+        <li class="ok">Shopify Payments 활성화 (기본 내장)</li>
+        <li class="ok">결제 완료 → 양측 자동 이메일</li>
+        <li class="ok">Zapier 등 추가 자동화 도구 불필요</li>
+          <li class="ok">파일 업로드 앱 전환 ($9.99~39.99/월, 파일 크기에 따라) → 주문·결제 자동 연결</li>
+      </ul></div>
+      <div class="s-col"><h4>경쟁사 대비</h4><ul>
+        <li class="ok">Irvine Printing 기능 동등 도달</li>
+        <li class="ok">Owner QC 차별화로 포지션 우위</li>
+        <li class="ok">24시간 주문 접수 가능</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="stage-card s3">
+    <div class="stage-head">
+      <div class="s-badge" style="background:#122A70">3</div>
+      <div class="s-tw"><div class="s-title">완전 Web-to-Print 자동화</div>
+      <div class="s-meta"><span>⏱ 온라인 매출 30% 달성 시 진입 검토</span><span>💰 W2P 앱 $50~200/월</span><span>📋 온라인 매출이 전체 매출의 30% 달성 시</span></div></div>
+    </div>
+    <div class="stage-body">
+      <div class="s-col"><h4>구현</h4><ul>
+        <li class="ok">온라인 디자인 툴 + 실시간 프루프</li>
+        <li class="ok">승인 즉시 자동 인쇄 지시서</li>
+        <li class="ok">고객 포털 (주문이력·재주문)</li>
+      </ul></div>
+      <div class="s-col"><h4>경쟁사 대비</h4><ul>
+        <li class="ok">OC 로컬 중 압도적 선두</li>
+        <li class="ok">UPrinting·Printivity 수준 + 로컬 서비스</li>
+        <li class="dim">진입 비용·운영 복잡도 가장 높음</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S5. 플랫폼 비교 ══ -->
+<section id="s5">
+  <div class="sec-num">Section 5</div>
+  <div class="sec-title">플랫폼 비교 — Squarespace vs Shopify</div>
+  <div class="sec-sub">사장님 우려사항(가격 비공개·표준 품목 우선)을 반영한 현실적인 플랫폼 결정 기준입니다.</div>
+  <hr class="divider">
+
+  <!-- 핵심 판단 기준 -->
+  <div style="background:#2A2E25;border-radius:14px;padding:24px 28px;margin-bottom:24px">
+    <div style="font-size:15px;font-weight:700;color:#A8D870;margin-bottom:14px">플랫폼 결정 기준 — 핵심 질문 하나</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:18px 20px;border:1px solid rgba(168,216,112,.2)">
+        <div style="font-size:22px;margin-bottom:8px">🟢</div>
+        <div style="font-size:15px;font-weight:700;color:#A8D870;margin-bottom:6px">가격 계산기·복잡한 커스텀 기능이 필요 없다면</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.65">→ <strong style="color:#fff">Squarespace 유지</strong><br>현행 플랜 그대로. 추가 비용 없음. 결제도 Squarespace Commerce에서 가능.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:18px 20px;border:1px solid rgba(255,208,128,.2)">
+        <div style="font-size:22px;margin-bottom:8px">🟡</div>
+        <div style="font-size:15px;font-weight:700;color:#FFD080;margin-bottom:6px">가격 계산기·복잡한 커스텀 기능이 필요하다면</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.65">→ <strong style="color:#fff">Shopify 이전</strong><br>테마 직접 코딩. Claude 코딩 개입 자유로움. 커스텀 기능 제한 없음.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 기능 비교표 -->
+  <div style="overflow-x:auto;margin-bottom:20px">
+  <table style="width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid #EEEAE2;min-width:620px">
+    <thead>
+      <tr>
+        <th style="background:#2A2E25;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:left">기능</th>
+        <th style="background:#2A2E25;color:#A8D870;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">Squarespace<br><small style="font-weight:400;opacity:.7">Business $23/월</small></th>
+        <th style="background:#2A2E25;color:#FFD080;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">Shopify Basic<br><small style="font-weight:400;opacity:.7">$29/월 (연결제)</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">스마트 견적 폼</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">가능</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">가능</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">파일 업로드</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">가능</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">가능</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">온라인 결제</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">Stripe·PayPal 내장<br>플랫폼 수수료 0%</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">Shopify Payments 내장<br>플랫폼 수수료 0%</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">결제 수수료<br><small style="font-weight:400;color:#8A8A84">Stripe·PayPal 기준</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2"><small style="color:#555">2.9%+$0.30/건<br>(Stripe 자체 수수료)</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2"><small style="color:#555">2.9%+$0.30/건<br>(동일)</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">가격 계산기<br>(2a단계)</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2"><span style="color:#C87000;font-weight:700">△</span><br><small style="color:#555">Code Block 수준<br>구현 범위 제한적</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">테마 직접 코딩<br>제한 없음</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">커스텀 기능 구현<br>(Claude 코딩 개입)</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2"><span style="color:#C87000;font-weight:700">△</span><br><small style="color:#555">제한적</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">Liquid 테마 직접 편집<br>자유로움</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">고객 계정·재주문</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2"><span style="color:#C87000;font-weight:700">△</span><br><small style="color:#555">기본적 수준</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">완성도 높음</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">이전 비용</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8"><span style="color:#48A020;font-weight:700;font-size:16px">✓</span><br><small style="color:#555">없음 (현행 유지)</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2"><span style="color:#C87000;font-weight:700">△</span><br><small style="color:#555">테마 변환 1~2일</small></td>
+      </tr>
+      <tr style="background:#F7F5F0">
+        <td style="padding:13px 16px;font-size:15px;font-weight:700;background:#F0F5EA;border-left:3px solid #48A020">월 비용</td>
+        <td style="padding:13px 16px;font-size:17px;font-weight:700;text-align:center;border-left:1px solid #EEEAE2;color:#1A5C08">$23/월<br><small style="font-size:12px;font-weight:400;color:#555">Business 플랜</small></td>
+        <td style="padding:13px 16px;font-size:17px;font-weight:700;text-align:center;border-left:1px solid #EEEAE2;color:#A06000">$29/월<br><small style="font-size:12px;font-weight:400;color:#555">연결제 기준</small></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- 단계별 플랫폼 -->
+  <h3 style="font-size:17px;font-weight:700;margin:0 0 14px">단계별 현실적인 플랫폼 선택</h3>
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid #EEEAE2;min-width:620px">
+    <thead>
+      <tr>
+        <th style="background:#2A2E25;color:#fff;font-size:13px;font-weight:600;padding:12px 16px;text-align:left;width:18%">단계</th>
+        <th style="background:#2A2E25;color:#fff;font-size:13px;font-weight:600;padding:12px 16px;text-align:left">내용</th>
+        <th style="background:#2A2E25;color:#fff;font-size:13px;font-weight:600;padding:12px 16px;text-align:center;width:20%">플랫폼</th>
+        <th style="background:#2A2E25;color:#fff;font-size:13px;font-weight:600;padding:12px 16px;text-align:center;width:15%">월 비용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:13px 16px;font-size:14px;font-weight:700;background:#EAF5D8;border-bottom:1px solid #EEEAE2;color:#1A5C08">1단계</td>
+        <td style="padding:13px 16px;font-size:14px;border-bottom:1px solid #EEEAE2">디자인 리뉴얼 + 스마트 견적 폼 + 파일 업로드</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#1A5C08">Squarespace<br>현행 유지</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:700;color:#1A5C08">현행</td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:14px;font-weight:700;background:#FFF8E0;border-bottom:1px solid #EEEAE2;color:#A06000">2a단계</td>
+        <td style="padding:13px 16px;font-size:14px;border-bottom:1px solid #EEEAE2">온라인 결제 추가 (사장님 결정 시)</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#A06000">Squarespace<br>Commerce</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:700;color:#A06000">$23/월</td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:14px;font-weight:700;background:#FFE8DF;border-bottom:1px solid #EEEAE2;color:#C04828">2b단계</td>
+        <td style="padding:13px 16px;font-size:14px;border-bottom:1px solid #EEEAE2">가격 자동 계산기 (사장님 결정 시)</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#C04828">Squarespace<br>또는 Shopify<br><small style="font-weight:400">그때 결정</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:700;color:#C04828">그때 결정</td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:14px;font-weight:700;background:#EEF4FF;border-bottom:1px solid #EEEAE2;color:#1A3F88">3단계</td>
+        <td style="padding:13px 16px;font-size:14px;border-bottom:1px solid #EEEAE2">완전 Web-to-Print 자동화</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#1A3F88">Shopify<br>또는 W2P</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:700;color:#1A3F88">온라인 매출<br>30%+ 시</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="background:#EAF5D8;border-left:4px solid #48A020;border-radius:0 10px 10px 0;padding:16px 20px;margin-top:16px">
+    <p style="font-size:15px;color:#2E4010;line-height:1.7"><strong>결론:</strong> 1단계는 Squarespace 현행 유지로 시작합니다. 온라인 결제가 필요해지는 시점에 Squarespace Commerce($23/월)로 업그레이드하면 됩니다. 가격 계산기처럼 복잡한 커스텀 기능이 필요해지는 시점에 Shopify 이전 여부를 재검토합니다. 결제 수수료는 Stripe·PayPal 기준으로 두 플랫폼이 동일합니다.</p>
+  </div>
+
+</section>
+
+
+
+<!-- ══ S_COST. 개발 비용 ══ -->
+<section id="scost">
+  <div class="sec-num">Section 7</div>
+  <div class="sec-title">개발 비용 — 단계별 총 비용</div>
+  <div class="sec-sub">외부 개발자 없이 진행하는 구조입니다. 초기 비용이 매우 낮습니다.</div>
+  <hr class="divider">
+
+  <!-- 초기 비용 박스 -->
+  <div style="background:#2A2E25;border-radius:14px;padding:28px 32px;margin-bottom:22px">
+    <div style="font-size:14px;font-weight:700;color:#A8D870;margin-bottom:18px;letter-spacing:.05em;text-transform:uppercase">초기 구축 비용 (1단계 · 첫 3개월)</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px 18px">
+        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:6px">Shopify 플랫폼</div>
+        <div style="font-size:26px;font-weight:700;color:#A8D870">$3</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:4px;line-height:1.5">$1/월 × 3개월<br>신규 가입 프로모션</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px 18px">
+        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:6px">Claude Max</div>
+        <div style="font-size:26px;font-weight:700;color:#A8D870">$200</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:4px;line-height:1.5">$100/월 × 2개월<br>집중 개발 기간</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px 18px">
+        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:6px">도메인 갱신</div>
+        <div style="font-size:26px;font-weight:700;color:#A8D870">~$15</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:4px;line-height:1.5">연 $12~16<br>현 등록처 유지</div>
+      </div>
+      <div style="background:rgba(72,160,32,.2);border-radius:10px;padding:16px 18px;border:1px solid rgba(168,216,112,.3)">
+        <div style="font-size:13px;color:#A8D870;margin-bottom:6px">초기 3개월 총합</div>
+        <div style="font-size:26px;font-weight:700;color:#fff">~$218</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px;line-height:1.5">외부 개발자 비용<br>없음</div>
+      </div>
+    </div>
+    <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)">
+      💡 일반 웹 개발사에 의뢰할 경우 동급 사이트 구축 비용은 통상 <strong style="color:rgba(255,255,255,.8)">$3,000~$8,000+</strong>입니다. Claude가 직접 Shopify 테마를 코딩하는 구조로 이 비용을 대체합니다.
+    </div>
+  </div>
+
+  <!-- 단계별 월 운영 비용 -->
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid #EEEAE2;min-width:700px">
+    <thead>
+      <tr>
+        <th style="background:#2A2E25;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:left">항목</th>
+        <th style="background:#1A5C08;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">1단계<br><small style="font-weight:400;opacity:.8">구축 후</small></th>
+        <th style="background:#A06000;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">2a단계<br><small style="font-weight:400;opacity:.8">8~9월~</small></th>
+        <th style="background:#B03A22;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">2b단계<br><small style="font-weight:400;opacity:.8">10~11월~</small></th>
+        <th style="background:#1A3F88;color:#fff;font-size:14px;font-weight:600;padding:13px 16px;text-align:center">3단계<br><small style="font-weight:400;opacity:.8">매출 30%+ 시</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">Shopify Basic</td>
+        <td style="padding:13px 16px;font-size:15px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;background:#EAF5D8;font-weight:600;color:#1A5C08">$29/월<br><small style="font-weight:400;color:#555;font-size:12px">연 결제 기준</small></td>
+        <td style="padding:13px 16px;font-size:15px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#A06000">$29/월<br><small style="font-weight:400;color:#555;font-size:12px">동일 유지</small></td>
+        <td style="padding:13px 16px;font-size:15px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#B03A22">$29/월<br><small style="font-weight:400;color:#555;font-size:12px">동일 유지</small></td>
+        <td style="padding:13px 16px;font-size:15px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;font-weight:600;color:#1A3F88">$29/월<br><small style="font-weight:400;color:#555;font-size:12px">동일 유지</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">결제 수수료</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;color:#8A8A84">없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;color:#8A8A84">없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">2.9% + $0.30/건<br><small style="color:#8A8A84;font-size:12px">Shopify Payments<br>매출 발생 시에만</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">2.9% + $0.30/건<br><small style="color:#8A8A84;font-size:12px">동일</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">W2P 앱</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;color:#8A8A84">없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;color:#8A8A84">없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;color:#8A8A84">없음</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">$50~200/월<br><small style="color:#8A8A84;font-size:12px">진입 시 결정</small></td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">Claude (개발·유지)</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">Max $100/월<br><small style="color:#8A8A84;font-size:12px">집중 개발 2개월<br>이후 Pro $20/월</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">Pro $20/월<br><small style="color:#8A8A84;font-size:12px">추가 기능 코딩</small></td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">Pro $20/월</td>
+        <td style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2">Pro $20/월</td>
+      </tr>
+      <tr>
+        <td style="padding:13px 16px;font-size:15px;font-weight:600;background:#F5F5F3;border-bottom:1px solid #EEEAE2">도메인</td>
+        <td colspan="4" style="padding:13px 16px;font-size:14px;text-align:center;border-bottom:1px solid #EEEAE2;border-left:1px solid #EEEAE2;color:#8A8A84">~$15/년 (모든 단계 동일)</td>
+      </tr>
+      <tr style="background:#F7F5F0">
+        <td style="padding:13px 16px;font-size:15px;font-weight:700;background:#F0F5EA;border-left:3px solid #48A020">월 총 비용 (고정)</td>
+        <td style="padding:13px 16px;font-size:17px;font-weight:700;text-align:center;border-left:1px solid #EEEAE2;color:#1A5C08">$49~149<br><small style="font-size:12px;font-weight:400;color:#555">개발 집중기 $129</small></td>
+        <td style="padding:13px 16px;font-size:17px;font-weight:700;text-align:center;border-left:1px solid #EEEAE2;color:#A06000">$49<br><small style="font-size:12px;font-weight:400;color:#555">+ 수수료 없음</small></td>
+        <td style="padding:13px 16px;font-size:17px;font-weight:700;text-align:center;border-left:1px solid #EEEAE2;color:#B03A22">$59~89<br><small style="font-size:12px;font-weight:400;color:#555">+ 결제 수수료<br>(업로드 앱 포함)</small></td>
+        <td style="padding:13px 16px;font-size:17px;font-weight:700;text-align:center;border-left:1px solid #EEEAE2;color:#1A3F88">$109~269<br><small style="font-size:12px;font-weight:400;color:#555">+ 결제 수수료<br>(업로드 앱 포함)</small></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="background:#EAF5D8;border-left:4px solid #48A020;border-radius:0 10px 10px 0;padding:16px 20px;margin-top:16px">
+    <p style="font-size:15px;color:#2E4010;line-height:1.7">
+      <strong>참고:</strong> 결제 수수료(2.9%+$0.30/건)는 온라인 결제가 발생할 때만 청구됩니다. 월 온라인 매출 $3,000 기준 약 $87 — 이는 추가 지출이 아니라 매출에서 발생하는 비용입니다. Squarespace 경로를 선택했을 경우 필요한 Zapier 등 외부 자동화 도구($20~50/월)가 Shopify에서는 불필요하므로 실제 비용 차이는 크지 않습니다.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ S_CONCERN. 사장님 우려사항 ══ -->
+<section id="sconcern">
+  <div class="sec-num">Section 9</div>
+  <div class="sec-title">사장님 우려사항 및 대응 방안</div>
+  <div class="sec-sub">보고 후 제기된 두 가지 우려에 대한 구체적인 대응 방안입니다.</div>
+  <hr class="divider">
+
+  <!-- 우려 1 -->
+  <div style="margin-bottom:28px">
+    <div style="display:flex;align-items:flex-start;gap:16px;background:#2A2E25;border-radius:14px;padding:22px 26px;margin-bottom:16px">
+      <div style="font-size:28px;flex-shrink:0">⚠️</div>
+      <div>
+        <div style="font-size:17px;font-weight:700;color:#FFD080;margin-bottom:6px">우려 1 — 가격 공개가 꺼려짐</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.7">지난 십 수년간 고객별로 다른 가격으로 공급해왔는데, 웹사이트에 가격을 공개하면 기존 고객과의 관계에서 문제가 생길 수 있다.</div>
+      </div>
+    </div>
+
+    <div style="background:#F5FAF0;border:1px solid #C2E89A;border-radius:12px;padding:20px 24px;margin-bottom:12px">
+      <div style="font-size:15px;font-weight:700;color:#1A5C08;margin-bottom:10px">✓ 가격을 공개하지 않아도 온라인 주문은 가능합니다</div>
+      <div style="font-size:14px;color:#333;line-height:1.7;margin-bottom:16px">온라인 주문 시스템과 가격 공개는 별개입니다. 옵션만 선택하고 견적을 요청하는 방식으로 운영하면 가격 노출 없이 온라인 편의성을 제공할 수 있습니다.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:#fff;border-radius:10px;padding:16px 18px;border:1px solid #EEEAE2">
+          <div style="font-size:12px;font-weight:700;color:#A06000;margin-bottom:8px">모델 A — 표준가 공개 (선택적)</div>
+          <div style="font-size:13px;color:#444;line-height:1.65">웹에는 표준 소비자가만 표시. 기존 특별 고객은 전화·이메일로 별도 관리. 신규 고객 유입 창구로 활용하고 기존 고객 관계는 현행 유지.</div>
+        </div>
+        <div style="background:#EAF5D8;border-radius:10px;padding:16px 18px;border:1px solid #A8D870">
+          <div style="font-size:12px;font-weight:700;color:#1A5C08;margin-bottom:8px">모델 B — 가격 비공개 + 견적 요청 ← 권고</div>
+          <div style="font-size:13px;color:#2E4010;line-height:1.65">옵션만 선택하고 "견적 요청" 제출 → Jason이 해당 고객에 맞는 가격으로 회신. 가격 노출 없이 온라인 편의성 확보. 고객별 맞춤 가격 완전 유지.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FFF8E0;border-left:4px solid #C87000;border-radius:0 10px 10px 0;padding:14px 18px">
+      <p style="font-size:14px;color:#5A3800;line-height:1.7"><strong>결론:</strong> 현재 만들어진 Contact 페이지 스마트 폼이 이미 모델 B 방식입니다. 1단계는 가격 없이 시작합니다. 2a단계(가격 자동 표시)는 사장님이 원하실 때 추가하면 되고, 영원히 안 해도 됩니다.</p>
+    </div>
+  </div>
+
+  <!-- 우려 2 -->
+  <div>
+    <div style="display:flex;align-items:flex-start;gap:16px;background:#2A2E25;border-radius:14px;padding:22px 26px;margin-bottom:16px">
+      <div style="font-size:28px;flex-shrink:0">⚠️</div>
+      <div>
+        <div style="font-size:17px;font-weight:700;color:#FFD080;margin-bottom:6px">우려 2 — 수십 가지 품목, 수천 가지 옵션 조합을 모두 가격화할 수 있나</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.7">품목이 수십 가지이고 종이·코팅·사이즈·수량 등 조합하면 수천 가지가 되는데, 이걸 모두 온라인 시스템으로 구현하는 게 현실적인가.</div>
+      </div>
+    </div>
+
+    <div style="background:#F5FAF0;border:1px solid #C2E89A;border-radius:12px;padding:20px 24px;margin-bottom:12px">
+      <div style="font-size:15px;font-weight:700;color:#1A5C08;margin-bottom:10px">✓ 모든 조합을 가격화할 필요가 없습니다</div>
+      <div style="font-size:14px;color:#333;line-height:1.7;margin-bottom:18px">Printivity·UPrinting이 자동 가격 계산을 하는 건 수년간 데이터를 쌓고 전산화한 결과입니다. 처음부터 그 수준을 목표로 하지 않아도 됩니다. 온라인은 <strong>표준 주문 전용 창구</strong>로만 활용하면 됩니다.</div>
+
+      <div style="background:#fff;border-radius:10px;padding:18px 20px;border:1px solid #EEEAE2;margin-bottom:14px">
+        <div style="font-size:13px;font-weight:700;color:#2A2E25;margin-bottom:12px">현실적인 접근 — 단계적 온라인화</div>
+        <div style="display:flex;align-items:center;gap:0;font-size:13px">
+          <div style="background:#EAF5D8;border-radius:8px;padding:12px 14px;flex:1;text-align:center;border:1px solid #A8D870">
+            <div style="font-weight:700;color:#1A5C08;margin-bottom:4px">전체 품목</div>
+            <div style="color:#555;font-size:12px">수십 가지</div>
+          </div>
+          <div style="color:#AAAAAA;padding:0 10px;font-size:18px">→</div>
+          <div style="background:#FFF8E0;border-radius:8px;padding:12px 14px;flex:1;text-align:center;border:1px solid #FFD080">
+            <div style="font-weight:700;color:#A06000;margin-bottom:4px">온라인 대상 선별</div>
+            <div style="color:#555;font-size:12px">상위 5~7개 품목<br>(명함·플라이어·브로셔·엽서·배너)</div>
+          </div>
+          <div style="color:#AAAAAA;padding:0 10px;font-size:18px">→</div>
+          <div style="background:#FFE8DF;border-radius:8px;padding:12px 14px;flex:1;text-align:center;border:1px solid #FFCAB8">
+            <div style="font-weight:700;color:#C04828;margin-bottom:4px">핵심 옵션만</div>
+            <div style="color:#555;font-size:12px">종이·수량·코팅<br>3~4개 선택지</div>
+          </div>
+          <div style="color:#AAAAAA;padding:0 10px;font-size:18px">→</div>
+          <div style="background:#EEF4FF;border-radius:8px;padding:12px 14px;flex:1;text-align:center;border:1px solid #B0C4E8">
+            <div style="font-weight:700;color:#1A3F88;margin-bottom:4px">나머지</div>
+            <div style="color:#555;font-size:12px">"Custom Quote" 버튼으로 유도</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #EEEAE2">
+          <div style="font-size:12px;font-weight:700;color:#1A5C08;margin-bottom:6px">온라인으로 처리 (표준 주문)</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#48A020;font-weight:700">✓</span>명함 — 표준 사이즈·종이·수량</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#48A020;font-weight:700">✓</span>플라이어 — 표준 사이즈별</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#48A020;font-weight:700">✓</span>브로셔 — tri-fold·bi-fold</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#48A020;font-weight:700">✓</span>엽서 — 표준 사이즈</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#48A020;font-weight:700">✓</span>배너 — 표준 사이즈</li>
+          </ul>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #EEEAE2">
+          <div style="font-size:12px;font-weight:700;color:#C04828;margin-bottom:6px">기존 방식 유지 (복잡한 주문)</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#FF8B6B;font-weight:700">→</span>커스텀 사이즈·특수 용지</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#FF8B6B;font-weight:700">→</span>북클릿·카탈로그 (페이지 수 다양)</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#FF8B6B;font-weight:700">→</span>메탈릭·클리어 토너 특수 인쇄</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#FF8B6B;font-weight:700">→</span>대량 주문 (별도 단가 협의)</li>
+            <li style="font-size:13px;color:#444;display:flex;gap:7px"><span style="color:#FF8B6B;font-weight:700">→</span>기존 특별 고객 전용 주문</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FFF8E0;border-left:4px solid #C87000;border-radius:0 10px 10px 0;padding:14px 18px">
+      <p style="font-size:14px;color:#5A3800;line-height:1.7"><strong>결론:</strong> Irvine Printing도 모든 옵션을 자동화하지 않습니다. 자주 주문되는 표준 품목만 온라인으로 처리하고 복잡한 주문은 별도 견적으로 운영합니다. 온라인 시스템은 <strong>전화·이메일 문의를 줄이는 도구</strong>이지, 모든 주문을 자동화하는 도구가 아닙니다.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══ S6. 확인 사항 ══ -->
+<section id="s6">
+  <div class="sec-num">Section 10</div>
+  <div class="sec-title">사장님 확인 필요 사항</div>
+  <div class="sec-sub">1단계 공개 전 확인이 필요한 항목입니다.</div>
+  <hr class="divider">
+
+  <table class="dec-table">
+    <thead>
+      <tr><th>#</th><th>확인 사항</th><th>긴급도</th><th>시기</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Pricing 페이지 방향 — 가격 공개 vs Quote 요청 중심</td><td><span class="ur">🔴 즉시</span></td><td>이번 주</td></tr>
+      <tr><td>2</td><td>주요 제품 기준가 확정 (브로셔·플라이어·엽서·북클릿·배너)</td><td><span class="ur">🔴 즉시</span></td><td>이번 주</td></tr>
+      <tr><td>3</td><td>About 페이지용 오너 이름 및 회사 소개</td><td><span class="uy">🟡 중요</span></td><td>6월 4주</td></tr>
+      <tr><td>4</td><td>기존 후기 실명 공개 동의 (Ed Rendl · Jeff Wilkins · Michael)</td><td><span class="uy">🟡 중요</span></td><td>7월 1주</td></tr>
+      <tr><td>5</td><td>설립연도(1989) · "35+ years" 사실 확인</td><td><span class="uy">🟡 중요</span></td><td>7월 1주</td></tr>
+      <tr>
+  <td>6</td>
+  <td>
+    <strong>무료 배송 서비스 제공 여부 결정 — 제공 시 가능 지역 및 조건 확정</strong>
+    <div style="margin-top:10px;padding:14px 16px;background:#F7F5F0;border-radius:8px;border-left:3px solid #48A020">
+      <div style="font-size:14px;font-weight:600;color:#2A2E25;margin-bottom:8px">배경</div>
+      <div style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px">Avanti Printing, Jenson Printing, Main Graphics 등 OC 로컬 경쟁사 대부분이 이미 무료 로컬 배송을 제공하고 있습니다. 온라인 주문 시스템 구축 시 배송 정책이 없으면 경쟁에서 불리합니다.</div>
+      <div style="font-size:14px;font-weight:600;color:#2A2E25;margin-bottom:10px">운영 방안 검토 (3가지)</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+        <div style="background:#fff;border-radius:8px;padding:13px 14px;border:1px solid #EEEAE2">
+          <div style="font-size:12px;font-weight:700;color:#48A020;margin-bottom:5px">A — 조건부 무료 배송 (권고)</div>
+          <div style="font-size:13px;color:#444;line-height:1.6">일정 금액 이상 주문 시 무료.<br>예: $100 이상 Irvine·인접 도시 무료.<br>소액 주문 배송 비용 손실 방지.<br>대부분의 B2B 주문에 혜택 적용.</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:13px 14px;border:1px solid #EEEAE2">
+          <div style="font-size:12px;font-weight:700;color:#A06000;margin-bottom:5px">B — 지역 한정 무료 배송</div>
+          <div style="font-size:13px;color:#444;line-height:1.6">Irvine·Tustin·Anaheim·Santa Ana 등 차량 20~30분 이내 한정.<br>직접 배송으로 운영.<br>배송 거리·빈도 통제 가능.</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:13px 14px;border:1px solid #EEEAE2">
+          <div style="font-size:12px;font-weight:700;color:#555;margin-bottom:5px">C — 픽업 무료 + 배송 유료</div>
+          <div style="font-size:13px;color:#444;line-height:1.6">픽업은 항상 무료.<br>배송은 실비 청구.<br>비용 리스크 최소.<br>단, 경쟁사 대비 약점.</div>
+        </div>
+      </div>
+    </div>
+  </td>
+  <td><span class="uy">🟡 중요</span></td>
+  <td>7월 1주</td>
+</tr>
+      <tr><td>7</td><td>새 사이트 최종 검토 및 공개 승인</td><td><span class="ur">🔴 필수</span></td><td>7월 3주</td></tr>
+      <tr><td>8</td><td>2a단계 진입 결정 — 1단계 완료 후 문의 데이터 기반</td><td><span class="ug">🟢 여유</span></td><td>8~9월</td></tr>
+    </tbody>
+  </table>
+
+  <div class="principle">
+    <h4>⚠️ 운영 원칙</h4>
+    <ul>
+      <li>기존 xpressprinting.com은 새 사이트 공개 직전까지 절대 수정하지 않습니다.</li>
+      <li>새 Shopify 사이트는 사장님 최종 OK 전까지 비공개 상태를 유지합니다.</li>
+      <li>2a·2b·3단계 투자는 1단계 완료 후 실제 데이터를 보고 결정합니다.</li>
+    </ul>
+  </div>
+</section>
+
+<div style="text-align:center;font-size:15px;color:#AAAAAA;padding:24px 0;border-top:1px solid #EEEAE2;margin-top:8px">
+  Xpress Printing Inc. &nbsp;|&nbsp; 18195 E. McDurmott, Ste H, Irvine, CA 92614 &nbsp;|&nbsp; info@xpressprinting.com &nbsp;|&nbsp; 949-851-9710
+</div>
+</div>
+</body>
+</html>
