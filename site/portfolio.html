@@ -192,6 +192,84 @@ button { cursor: pointer; font-family: var(--font); }
 }
 .btn-outline-white:hover { border-color: rgba(255,255,255,.85); }
 
+/* ── HERO ── */
+.hero {
+  background: var(--slate);
+  padding: 72px 64px 48px;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 24px;
+  max-width: 640px;
+}
+.note-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 14px 18px;
+  max-width: 640px;
+  font-size: 14px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.5;
+}
+.note-bar-icon { flex-shrink: 0; }
+
+/* ── PORTFOLIO SECTION ── */
+.portfolio-section {
+  padding: 64px 64px;
+}
+.portfolio-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.filter-tab {
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate);
+  background: var(--white);
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.filter-tab:hover { border-color: var(--cyan); color: var(--cyan); }
+.filter-tab.active {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--white);
+}
+
 /* ── PORTFOLIO GRID ── */
 .port-grid {
   column-count: 4;
@@ -243,6 +321,112 @@ button { cursor: pointer; font-family: var(--font); }
   line-height: 1.4;
 }
 .port-item[style*="display: none"] { display: none !important; }
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  background: var(--cool-white);
+  padding: 64px 64px;
+}
+.testimonials-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.testimonials h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--slate);
+  margin-bottom: 32px;
+  letter-spacing: -.02em;
+}
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
+  padding: 24px;
+}
+.testi-stars {
+  color: #F59E0B;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.testi-headline {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.testi-body {
+  font-size: 14px;
+  color: var(--text-muted, #64748B);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.testi-attribution {
+  font-size: 13px;
+  color: var(--text-muted, #64748B);
+}
+.testi-attribution strong { color: var(--slate); }
+
+/* ── SAMPLES CTA ── */
+.samples-cta {
+  background: var(--slate);
+  padding: 64px 64px;
+  text-align: center;
+}
+.samples-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.samples-cta h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -.02em;
+}
+.samples-cta-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.samples-address, .samples-hours {
+  font-size: 14px;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 4px;
+}
+.samples-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.btn-crimson {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--crimson);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: opacity .15s;
+}
+.btn-crimson:hover { opacity: .88; }
 
 /* ── RESPONSIVE ── */
 .port-img-wrap { background: #F1F5F9; overflow: hidden; position: relative; }
@@ -853,7 +1037,7 @@ button { cursor: pointer; font-family: var(--font); }
 <!-- ════════════ HERO ════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="label">Print Samples</div>
+    <p class="hero-eyebrow" style="color:var(--cyan)">Print Samples</p>
     <h1>Print that gets noticed.</h1>
     <p class="hero-sub">35 years of experience, right here in Irvine — browse samples of the finishes and techniques we offer.</p>
     <div class="note-bar">
