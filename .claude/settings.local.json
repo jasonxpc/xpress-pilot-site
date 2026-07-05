@@ -38,7 +38,8 @@
       "Read(//tmp/**)",
       "Bash(git stash *)",
       "Bash(git add *)",
-      "Bash(git commit -m 'Add favicon, unify logo gap to 4px *)"
+      "Bash(git commit -m 'Add favicon, unify logo gap to 4px *)",
+      "Bash(mkdir -p \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/images/portfolio\")"
     ]
   }
 }
