@@ -245,90 +245,68 @@ button { cursor: pointer; font-family: var(--font); }
   max-width: 1200px;
   margin: 0 auto;
 }
-.filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 32px;
+/* ── BRAND SUITES ── */
+.suite-block {
+  margin-bottom: 56px;
 }
-.filter-tab {
-  font-family: var(--font);
-  font-size: 13px;
-  font-weight: 600;
+.suite-block:last-child { margin-bottom: 0; }
+.suite-header { margin-bottom: 20px; }
+.suite-title {
+  font-size: 24px;
+  font-weight: 800;
   color: var(--slate);
-  background: var(--white);
-  border: 1px solid var(--border, #E2E8F0);
-  border-radius: 20px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background .15s, color .15s, border-color .15s;
+  margin-bottom: 6px;
+  letter-spacing: -.01em;
 }
-.filter-tab:hover { border-color: var(--cyan); color: var(--cyan); }
-.filter-tab.active {
-  background: var(--cyan);
-  border-color: var(--cyan);
-  color: var(--white);
+.suite-concept {
+  font-size: 15px;
+  color: var(--text-muted, #64748B);
+  max-width: 640px;
+  line-height: 1.5;
 }
-
-/* ── PORTFOLIO GRID ── */
-.port-grid {
-  column-count: 4;
-  column-gap: 20px;
+.suite-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
-.port-item {
-  display: inline-block;
-  width: 100%;
-  break-inside: avoid;
-  margin-bottom: 20px;
+.suite-item {
   background: var(--white);
   border: 1px solid var(--border, #E2E8F0);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,.04);
   transition: box-shadow .2s, transform .2s;
 }
-.port-item:hover {
+.suite-item:hover {
   box-shadow: 0 12px 28px rgba(0,0,0,.10);
   transform: translateY(-2px);
 }
-.port-overlay {
-  position: absolute;
-  top: 12px;
-  left: 12px;
+.suite-img-wrap {
+  background: #F1F5F9;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
-.port-cat-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--slate);
-  background: rgba(255,255,255,.92);
-  padding: 4px 10px;
-  border-radius: 20px;
-  letter-spacing: .02em;
+.suite-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.92) brightness(1.02) contrast(.97);
 }
-.port-caption {
-  padding: 14px 16px 16px;
-}
-.port-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-.port-detail {
+.suite-format-label {
+  padding: 10px 14px;
   font-size: 13px;
-  color: var(--text-muted, #64748B);
-  line-height: 1.4;
+  font-weight: 600;
+  color: var(--slate);
 }
-.port-rationale {
+.suite-technique {
+  margin-top: 16px;
   font-size: 13px;
   color: var(--slate);
+  background: var(--cool-white);
+  border-left: 3px solid var(--cyan);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
   line-height: 1.5;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border, #E2E8F0);
 }
-.port-item[style*="display: none"] { display: none !important; }
 
 /* ── TESTIMONIALS ── */
 .testimonials {
@@ -445,14 +423,14 @@ button { cursor: pointer; font-family: var(--font); }
   .testimonials { padding: 56px 32px; }
   .samples-cta { padding: 48px 32px; }
   
-  .port-grid { column-count: 2; }
+  .suite-row { grid-template-columns: repeat(2, 1fr); }
   .testi-grid { grid-template-columns: 1fr; gap: 16px; }
   
 }
 @media (max-width: 768px) {
   .hero h1 { font-size: 34px; }
   .nav-links, .btn-upload { display: none; }
-  .port-grid { column-count: 1; }
+  .suite-row { grid-template-columns: 1fr; }
   .mega-panel { display: none !important; }
   .samples-cta h2 { font-size: 26px; }
   
@@ -1089,12 +1067,12 @@ button { cursor: pointer; font-family: var(--font); }
 <!-- ════════════ HERO ════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow" style="color:var(--cyan)">Finishes &amp; Techniques</p>
-    <h1>Your brand, in the details.</h1>
-    <p class="hero-sub">Metallic foil, clear toner enhancement, specialty stock — see what each finish looks like and why it fits your brand.</p>
+    <p class="hero-eyebrow" style="color:var(--cyan)">Brand Suites</p>
+    <h1>One identity, every format.</h1>
+    <p class="hero-sub">A cohesive brand doesn't stop at the business card. See how the same concept — colors, type, finish — carries across everything you hand a customer.</p>
     <div class="note-bar">
       <span class="note-bar-icon">📸</span>
-      <span>These are representative samples of our finishing capabilities, not specific client projects. Contact us to see physical samples in person — we'd love to show you.</span>
+      <span>These are representative concepts, not specific client projects. Contact us to see physical samples in person — we'd love to show you.</span>
     </div>
   </div>
 </section>
@@ -1103,95 +1081,74 @@ button { cursor: pointer; font-family: var(--font); }
 <section class="portfolio-section">
   <div class="portfolio-inner">
 
-    <!-- Filter tabs -->
-    <div class="filter-row">
-      <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="foil">Metallic Foil</button>
-      <button class="filter-tab" data-filter="clear-toner">Clear Toner</button>
+    <!-- Suite 1 -->
+    <div class="suite-block">
+      <div class="suite-header">
+        <div class="suite-title">Café &amp; Restaurant Suite</div>
+        <p class="suite-concept">Warm, hand-drawn accents carried from the menu to the table to the front door.</p>
+      </div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-cafe-card.jpg" alt="Café business card" loading="lazy"></div>
+          <div class="suite-format-label">Business Card</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-cafe-menu.jpg" alt="Café menu" loading="lazy"></div>
+          <div class="suite-format-label">Menu</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-cafe-tabletent.jpg" alt="Café table tent" loading="lazy"></div>
+          <div class="suite-format-label">Table Tent</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 Menu covers use clear-toner spot-gloss on the logo — a shine that survives daily handling.</div>
     </div>
 
-    <!-- Grid -->
-    <div class="port-grid" id="portGrid">
-
-      <!-- 1 -->
-      <div class="port-item" data-cat="foil">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/foil-business-cards.jpg" alt="Metallic foil business cards" loading="lazy" height="380">
-          <div class="port-overlay"><span class="port-cat-badge">Metallic Foil</span></div>
+    <!-- Suite 2 -->
+    <div class="suite-block">
+      <div class="suite-header">
+        <div class="suite-title">Real Estate Suite</div>
+        <p class="suite-concept">A confident, consistent look from the first handshake to the yard sign down the street.</p>
+      </div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-realestate-card.jpg" alt="Real estate business card" loading="lazy"></div>
+          <div class="suite-format-label">Business Card</div>
         </div>
-        <div class="port-caption">
-          <div class="port-title">Metallic Foil Business Cards</div>
-          <div class="port-detail">Silver or Gold Foil, 10PT · Rich Black Masking · CMYK</div>
-          <div class="port-rationale">💡 Signals premium quality before anyone reads a word — a favorite for boutiques, real estate, and luxury retail.</div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-realestate-postcard.jpg" alt="Real estate postcard" loading="lazy"></div>
+          <div class="suite-format-label">Postcard</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-realestate-yardsign.jpg" alt="Real estate yard sign" loading="lazy"></div>
+          <div class="suite-format-label">Yard Sign</div>
         </div>
       </div>
+      <div class="suite-technique">💡 Business cards use a soft-touch matte finish — professional, and easy to write a note on.</div>
+    </div>
 
-      <!-- 2 -->
-      <div class="port-item" data-cat="foil">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/foil-wedding-suite.jpg" alt="Foil wedding invitation suite" loading="lazy" height="420">
-          <div class="port-overlay"><span class="port-cat-badge">Metallic Foil</span></div>
+    <!-- Suite 3 -->
+    <div class="suite-block">
+      <div class="suite-header">
+        <div class="suite-title">Boutique &amp; Retail Suite</div>
+        <p class="suite-concept">A premium unboxing feel that customers photograph and share.</p>
+      </div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-boutique-card.jpg" alt="Boutique business card" loading="lazy"></div>
+          <div class="suite-format-label">Business Card</div>
         </div>
-        <div class="port-caption">
-          <div class="port-title">Foil Wedding Invitations</div>
-          <div class="port-detail">Vanity Pearl Super Smooth 130lb Cover+ · Fine-Line Foil Detail</div>
-          <div class="port-rationale">💡 An heirloom-quality finish for the moments people keep forever.</div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-boutique-tag.jpg" alt="Boutique hang tag" loading="lazy"></div>
+          <div class="suite-format-label">Hang Tag</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/portfolio/suite-boutique-bag.jpg" alt="Boutique shopping bag insert" loading="lazy"></div>
+          <div class="suite-format-label">Bag Insert</div>
         </div>
       </div>
-
-      <!-- 3 -->
-      <div class="port-item" data-cat="foil">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/foil-packaging-insert.jpg" alt="Foil packaging insert" loading="lazy" height="350">
-          <div class="port-overlay"><span class="port-cat-badge">Metallic Foil</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Foil Packaging Inserts</div>
-          <div class="port-detail">Silver or Gold Foil, 10PT · White Toner Base + CMYK (2-Pass)</div>
-          <div class="port-rationale">💡 Turns everyday packaging into an unboxing moment worth photographing.</div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="port-item" data-cat="clear-toner">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/clear-toner-event-poster.jpg" alt="Clear toner spot-gloss event poster" loading="lazy" height="450">
-          <div class="port-overlay"><span class="port-cat-badge">Clear Toner</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Spot-Gloss Event Posters &amp; Passes</div>
-          <div class="port-detail">Glossy 80lb Text or 11 Mil Synthetic Poly · Clear Toner over CMYK</div>
-          <div class="port-rationale">💡 A tactile highlight that draws the eye to key details — built for events and passes people hold onto.</div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="port-item" data-cat="clear-toner">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/clear-toner-linen-invitations.jpg" alt="Clear toner on linen invitation stock" loading="lazy" height="300">
-          <div class="port-overlay"><span class="port-cat-badge">Clear Toner</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Clear Toner on Linen Stock</div>
-          <div class="port-detail">Linen White Pearl 115lb Cover+ · Clear Toner over CMYK</div>
-          <div class="port-rationale">💡 Subtle shine on a textured stock — refined without shouting.</div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="port-item" data-cat="clear-toner">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/clear-toner-magnetic-mailer.jpg" alt="Clear toner magnetic mailer postcard" loading="lazy" height="400">
-          <div class="port-overlay"><span class="port-cat-badge">Clear Toner</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Clear Toner Magnetic Mailers</div>
-          <div class="port-detail">Mohawk Embedded Magnetic Postcard, Silk 100lb Cover · Clear Toner over CMYK</div>
-          <div class="port-rationale">💡 Turns a mailer into something that gets kept — literally, on the fridge.</div>
-        </div>
-      </div>
-
-    </div><!-- /port-grid -->
+      <div class="suite-technique">💡 Metallic foil on cards and tags signals quality before anyone reads a word.</div>
+    </div>
   </div><!-- /portfolio-inner -->
 </section>
 
@@ -1211,32 +1168,6 @@ button { cursor: pointer; font-family: var(--font); }
 
 <!-- ════════════ FOOTER ════════════ -->
 
-<!-- ════════════ JS: FILTER ════════════ -->
-<script>
-(function () {
-  const tabs = document.querySelectorAll('.filter-tab');
-  const items = document.querySelectorAll('.port-item');
-
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      const filter = tab.getAttribute('data-filter');
-
-      // Update active tab
-      tabs.forEach(function (t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-
-      // Show / hide items
-      items.forEach(function (item) {
-        if (filter === 'all' || item.getAttribute('data-cat') === filter) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-    });
-  });
-}());
-</script>
 
 
   <!-- Copy to clipboard -->
