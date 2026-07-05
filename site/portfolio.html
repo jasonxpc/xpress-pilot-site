@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="XP26-Symbol-Tr.png">
-  <title>Our Work — Brand Suites by Xpress Printing Irvine, CA</title>
-<meta name="description" content="See how one brand identity carries across every format we print — café, real estate, and boutique brand suites from Xpress Printing.">
+  <title>By Industry — Brand Suites for Every Business | Xpress Printing Irvine, CA</title>
+<meta name="description" content="See how one brand identity carries across every format we print — restaurant, real estate, retail, corporate, events, schools, non-profits, healthcare, and creative brand suites from Xpress Printing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
@@ -244,6 +244,26 @@ button { cursor: pointer; font-family: var(--font); }
 .portfolio-inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+.jump-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.jump-pill {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate);
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 20px;
+  padding: 7px 18px;
+  transition: background .15s, border-color .15s;
+}
+.jump-pill:hover {
+  background: var(--cyan-tint);
+  border-color: var(--cyan);
+  color: var(--cyan);
 }
 /* ── BRAND SUITES ── */
 .suite-block {
@@ -1046,6 +1066,50 @@ button { cursor: pointer; font-family: var(--font); }
   }
   .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
 </style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
       <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
@@ -1109,7 +1173,7 @@ button { cursor: pointer; font-family: var(--font); }
 
         </div>
       </li>
-      <li><a href="portfolio.html" data-nav="portfolio" class="active">Our Work</a></li>
+      <li><a href="portfolio.html" data-nav="portfolio" class="active">By Industry</a></li>
       <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
       <li><a href="resources.html" data-nav="resources">Resources</a></li>
       <li><a href="about.html" data-nav="about">About</a></li>
@@ -1125,9 +1189,9 @@ button { cursor: pointer; font-family: var(--font); }
 <!-- ════════════ HERO ════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow" style="color:var(--cyan)">Brand Suites</p>
+    <p class="hero-eyebrow" style="color:var(--cyan)">Brand Suites by Industry</p>
     <h1>One identity, every format.</h1>
-    <p class="hero-sub">A cohesive brand doesn't stop at the business card. See how the same concept — colors, type, finish — carries across everything you hand a customer.</p>
+    <p class="hero-sub">A cohesive brand doesn't stop at the business card. See how the same concept — colors, type, finish — carries across everything you hand a customer, for every industry we print for.</p>
     <div class="note-bar">
       <span class="note-bar-icon">📸</span>
       <span>These are representative concepts, not specific client projects. Contact us to see physical samples in person — we'd love to show you.</span>
@@ -1139,10 +1203,22 @@ button { cursor: pointer; font-family: var(--font); }
 <section class="portfolio-section">
   <div class="portfolio-inner">
 
+    <div class="jump-row" style="margin-bottom: 40px;">
+      <a href="#restaurant-food" class="jump-pill">Restaurant &amp; Food Service</a>
+      <a href="#real-estate" class="jump-pill">Real Estate</a>
+      <a href="#retail-boutique" class="jump-pill">Retail &amp; Boutique</a>
+      <a href="#corporate-professional" class="jump-pill">Corporate &amp; Professional</a>
+      <a href="#event-wedding" class="jump-pill">Event &amp; Wedding</a>
+      <a href="#school-education" class="jump-pill">School &amp; Education</a>
+      <a href="#nonprofit-church" class="jump-pill">Non-Profit &amp; Church</a>
+      <a href="#healthcare-wellness" class="jump-pill">Healthcare &amp; Wellness</a>
+      <a href="#personal-creative" class="jump-pill">Personal &amp; Creative</a>
+    </div>
+
     <!-- Suite 1 -->
-    <div class="suite-block">
+    <div class="suite-block" id="restaurant-food">
       <div class="suite-header">
-        <div class="suite-title">Café &amp; Restaurant Suite</div>
+        <div class="suite-title">Restaurant &amp; Food Service</div>
         <p class="suite-concept">Warm, hand-drawn accents carried from the menu to the table to the front door.</p>
       </div>
       <div class="suite-hero-img"><img src="images/products/suite-cafe-group.jpg" alt="Café brand suite — menu, table tent, and loyalty card together" loading="lazy"></div>
@@ -1164,9 +1240,9 @@ button { cursor: pointer; font-family: var(--font); }
     </div>
 
     <!-- Suite 2 -->
-    <div class="suite-block">
+    <div class="suite-block" id="real-estate">
       <div class="suite-header">
-        <div class="suite-title">Real Estate Suite</div>
+        <div class="suite-title">Real Estate</div>
         <p class="suite-concept">A confident, consistent look from the first handshake to the yard sign down the street.</p>
       </div>
       <div class="suite-hero-img"><img src="images/products/suite-realestate-group.jpg" alt="Real estate brand suite — card, postcard, and yard sign together" loading="lazy"></div>
@@ -1188,9 +1264,9 @@ button { cursor: pointer; font-family: var(--font); }
     </div>
 
     <!-- Suite 3 -->
-    <div class="suite-block">
+    <div class="suite-block" id="retail-boutique">
       <div class="suite-header">
-        <div class="suite-title">Boutique &amp; Retail Suite</div>
+        <div class="suite-title">Retail &amp; Boutique</div>
         <p class="suite-concept">A premium unboxing feel that customers photograph and share.</p>
       </div>
       <div class="suite-hero-img"><img src="images/products/suite-boutique-group.jpg" alt="Boutique brand suite — card, hang tag, and bag insert together" loading="lazy"></div>
@@ -1209,6 +1285,150 @@ button { cursor: pointer; font-family: var(--font); }
         </div>
       </div>
       <div class="suite-technique">💡 Metallic foil on cards and tags signals quality before anyone reads a word.</div>
+    </div>
+
+    <!-- Suite 4 -->
+    <div class="suite-block" id="corporate-professional">
+      <div class="suite-header">
+        <div class="suite-title">Corporate &amp; Professional</div>
+        <p class="suite-concept">A polished, consistent identity across every document a client sees.</p>
+      </div>
+      <div class="suite-hero-img"><img src="images/products/suite-corporate-group.jpg" alt="Corporate brand suite — business card, letterhead, and folder together" loading="lazy"></div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-corporate-card.jpg" alt="Corporate business card" loading="lazy"></div>
+          <div class="suite-format-label">Business Card</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-corporate-letterhead.jpg" alt="Corporate letterhead" loading="lazy"></div>
+          <div class="suite-format-label">Letterhead</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-corporate-folder.jpg" alt="Corporate presentation folder" loading="lazy"></div>
+          <div class="suite-format-label">Presentation Folder</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 A soft-touch matte finish across every piece reads as understated, established credibility.</div>
+    </div>
+
+    <!-- Suite 5 -->
+    <div class="suite-block" id="event-wedding">
+      <div class="suite-header">
+        <div class="suite-title">Event &amp; Wedding</div>
+        <p class="suite-concept">A single design thread from the invitation to the table you sit at.</p>
+      </div>
+      <div class="suite-hero-img"><img src="images/products/suite-event-group.jpg" alt="Event and wedding brand suite — invitation, program, and table card together" loading="lazy"></div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-event-invitation.jpg" alt="Wedding invitation" loading="lazy"></div>
+          <div class="suite-format-label">Invitation</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-event-program.jpg" alt="Event program" loading="lazy"></div>
+          <div class="suite-format-label">Program</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-event-tablecard.jpg" alt="Event table card" loading="lazy"></div>
+          <div class="suite-format-label">Table Card</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 Fine-line metallic foil on the invitation sets the tone before the envelope's even opened.</div>
+    </div>
+
+    <!-- Suite 6 -->
+    <div class="suite-block" id="school-education">
+      <div class="suite-header">
+        <div class="suite-title">School &amp; Education</div>
+        <p class="suite-concept">School spirit that looks the same on the wall, in the program, and in every hand it passes through.</p>
+      </div>
+      <div class="suite-hero-img"><img src="images/products/suite-school-group.jpg" alt="School brand suite — banner, program, and certificate together" loading="lazy"></div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-school-banner.jpg" alt="School banner" loading="lazy"></div>
+          <div class="suite-format-label">Banner</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-school-program.jpg" alt="School event program" loading="lazy"></div>
+          <div class="suite-format-label">Program</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-school-certificate.jpg" alt="School recognition certificate" loading="lazy"></div>
+          <div class="suite-format-label">Certificate</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 Bulk-friendly stocks keep quality consistent whether you're printing 10 or 1,000.</div>
+    </div>
+
+    <!-- Suite 7 -->
+    <div class="suite-block" id="nonprofit-church">
+      <div class="suite-header">
+        <div class="suite-title">Non-Profit &amp; Church</div>
+        <p class="suite-concept">A warm, trustworthy identity that carries the same weight on a flyer or a donation card.</p>
+      </div>
+      <div class="suite-hero-img"><img src="images/products/suite-nonprofit-group.jpg" alt="Non-profit brand suite — flyer, banner, and donation card together" loading="lazy"></div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-flyer.jpg" alt="Non-profit event flyer" loading="lazy"></div>
+          <div class="suite-format-label">Flyer</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-banner.jpg" alt="Non-profit banner" loading="lazy"></div>
+          <div class="suite-format-label">Banner</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-donationcard.jpg" alt="Non-profit donation card" loading="lazy"></div>
+          <div class="suite-format-label">Donation Card</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 Warm, uncoated stocks keep the feel approachable rather than corporate.</div>
+    </div>
+
+    <!-- Suite 8 -->
+    <div class="suite-block" id="healthcare-wellness">
+      <div class="suite-header">
+        <div class="suite-title">Healthcare &amp; Wellness</div>
+        <p class="suite-concept">A calm, clean identity from the waiting room to the appointment card in a patient's wallet.</p>
+      </div>
+      <div class="suite-hero-img"><img src="images/products/suite-healthcare-group.jpg" alt="Healthcare brand suite — appointment card, brochure, and signage together" loading="lazy"></div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-healthcare-appointmentcard.jpg" alt="Healthcare appointment card" loading="lazy"></div>
+          <div class="suite-format-label">Appointment Card</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-healthcare-brochure.jpg" alt="Healthcare brochure" loading="lazy"></div>
+          <div class="suite-format-label">Brochure</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-healthcare-signage.jpg" alt="Healthcare office signage" loading="lazy"></div>
+          <div class="suite-format-label">Signage</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 Matte finishes and soft, muted colors read as calm and trustworthy, not clinical.</div>
+    </div>
+
+    <!-- Suite 9 -->
+    <div class="suite-block" id="personal-creative">
+      <div class="suite-header">
+        <div class="suite-title">Personal &amp; Creative</div>
+        <p class="suite-concept">A distinct visual voice that carries from a single art print to a full zine.</p>
+      </div>
+      <div class="suite-hero-img"><img src="images/products/suite-creative-group.jpg" alt="Personal and creative brand suite — art print, sticker sheet, and zine together" loading="lazy"></div>
+      <div class="suite-row">
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-creative-artprint.jpg" alt="Art print" loading="lazy"></div>
+          <div class="suite-format-label">Art Print</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-creative-stickersheet.jpg" alt="Sticker sheet" loading="lazy"></div>
+          <div class="suite-format-label">Sticker Sheet</div>
+        </div>
+        <div class="suite-item">
+          <div class="suite-img-wrap"><img src="images/products/suite-creative-zine.jpg" alt="Zine" loading="lazy"></div>
+          <div class="suite-format-label">Zine</div>
+        </div>
+      </div>
+      <div class="suite-technique">💡 Vivid CMYK and a variety of paper stocks let each project's personality come through.</div>
     </div>
   </div><!-- /portfolio-inner -->
 </section>
@@ -1267,7 +1487,7 @@ button { cursor: pointer; font-family: var(--font); }
         <p class="footer-col-title">Company</p>
         <ul class="footer-links">
           <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="portfolio.html">By Industry</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
