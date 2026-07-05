@@ -267,29 +267,35 @@ button { cursor: pointer; font-family: var(--font); }
 }
 /* ── BRAND SUITES ── */
 .suite-block {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border, #E2E8F0);
   margin-bottom: 56px;
 }
-.suite-block:last-child { margin-bottom: 0; }
-.suite-header { margin-bottom: 20px; }
+.suite-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.suite-info { position: sticky; top: 88px; }
 .suite-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--slate);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -.01em;
 }
 .suite-concept {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-muted, #64748B);
-  max-width: 640px;
   line-height: 1.5;
+  margin-bottom: 16px;
 }
 .suite-hero-img {
   background: #F1F5F9;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   overflow: hidden;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 .suite-hero-img img {
   width: 100%;
@@ -300,7 +306,7 @@ button { cursor: pointer; font-family: var(--font); }
 .suite-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 .suite-item {
   background: var(--white);
@@ -456,6 +462,8 @@ button { cursor: pointer; font-family: var(--font); }
   .testimonials { padding: 56px 32px; }
   .samples-cta { padding: 48px 32px; }
   
+  .suite-block { grid-template-columns: 1fr; gap: 20px; }
+  .suite-info { position: static; }
   .suite-row { grid-template-columns: repeat(2, 1fr); }
   .testi-grid { grid-template-columns: 1fr; gap: 16px; }
   
@@ -1217,218 +1225,236 @@ button { cursor: pointer; font-family: var(--font); }
 
     <!-- Suite 1 -->
     <div class="suite-block" id="restaurant-food">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Restaurant &amp; Food Service</div>
         <p class="suite-concept">Warm, hand-drawn accents carried from the menu to the table to the front door.</p>
+        <div class="suite-technique">💡 Menu covers use clear-toner spot-gloss on the logo — a shine that survives daily handling.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-cafe-group.jpg" alt="Café brand suite — menu, table tent, and loyalty card together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-cafe-menu.jpg" alt="Café menu" loading="lazy"></div>
-          <div class="suite-format-label">Menu</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-cafe-tabletent.jpg" alt="Café table tent" loading="lazy"></div>
-          <div class="suite-format-label">Table Tent</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-cafe-loyaltycard.jpg" alt="Café loyalty punch card" loading="lazy"></div>
-          <div class="suite-format-label">Loyalty Card</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-cafe-group.jpg" alt="Café brand suite — menu, table tent, and loyalty card together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-cafe-menu.jpg" alt="Café menu" loading="lazy"></div>
+            <div class="suite-format-label">Menu</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-cafe-tabletent.jpg" alt="Café table tent" loading="lazy"></div>
+            <div class="suite-format-label">Table Tent</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-cafe-loyaltycard.jpg" alt="Café loyalty punch card" loading="lazy"></div>
+            <div class="suite-format-label">Loyalty Card</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Menu covers use clear-toner spot-gloss on the logo — a shine that survives daily handling.</div>
     </div>
 
     <!-- Suite 2 -->
     <div class="suite-block" id="real-estate">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Real Estate</div>
         <p class="suite-concept">A confident, consistent look from the first handshake to the yard sign down the street.</p>
+        <div class="suite-technique">💡 Business cards use a soft-touch matte finish — professional, and easy to write a note on.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-realestate-group.jpg" alt="Real estate brand suite — card, postcard, and yard sign together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-realestate-card.jpg" alt="Real estate business card" loading="lazy"></div>
-          <div class="suite-format-label">Business Card</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-realestate-postcard.jpg" alt="Real estate postcard" loading="lazy"></div>
-          <div class="suite-format-label">Postcard</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-realestate-yardsign.jpg" alt="Real estate yard sign" loading="lazy"></div>
-          <div class="suite-format-label">Yard Sign</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-realestate-group.jpg" alt="Real estate brand suite — card, postcard, and yard sign together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-realestate-card.jpg" alt="Real estate business card" loading="lazy"></div>
+            <div class="suite-format-label">Business Card</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-realestate-postcard.jpg" alt="Real estate postcard" loading="lazy"></div>
+            <div class="suite-format-label">Postcard</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-realestate-yardsign.jpg" alt="Real estate yard sign" loading="lazy"></div>
+            <div class="suite-format-label">Yard Sign</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Business cards use a soft-touch matte finish — professional, and easy to write a note on.</div>
     </div>
 
     <!-- Suite 3 -->
     <div class="suite-block" id="retail-boutique">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Retail &amp; Boutique</div>
         <p class="suite-concept">A premium unboxing feel that customers photograph and share.</p>
+        <div class="suite-technique">💡 Metallic foil on cards and tags signals quality before anyone reads a word.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-boutique-group.jpg" alt="Boutique brand suite — card, hang tag, and bag insert together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-boutique-card.jpg" alt="Boutique business card" loading="lazy"></div>
-          <div class="suite-format-label">Business Card</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-boutique-tag.jpg" alt="Boutique hang tag" loading="lazy"></div>
-          <div class="suite-format-label">Hang Tag</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-boutique-bag.jpg" alt="Boutique shopping bag insert" loading="lazy"></div>
-          <div class="suite-format-label">Bag Insert</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-boutique-group.jpg" alt="Boutique brand suite — card, hang tag, and bag insert together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-boutique-card.jpg" alt="Boutique business card" loading="lazy"></div>
+            <div class="suite-format-label">Business Card</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-boutique-tag.jpg" alt="Boutique hang tag" loading="lazy"></div>
+            <div class="suite-format-label">Hang Tag</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-boutique-bag.jpg" alt="Boutique shopping bag insert" loading="lazy"></div>
+            <div class="suite-format-label">Bag Insert</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Metallic foil on cards and tags signals quality before anyone reads a word.</div>
     </div>
 
     <!-- Suite 4 -->
     <div class="suite-block" id="corporate-professional">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Corporate &amp; Professional</div>
         <p class="suite-concept">A polished, consistent identity across every document a client sees.</p>
+        <div class="suite-technique">💡 A soft-touch matte finish across every piece reads as understated, established credibility.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-corporate-group.jpg" alt="Corporate brand suite — business card, letterhead, and folder together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-corporate-card.jpg" alt="Corporate business card" loading="lazy"></div>
-          <div class="suite-format-label">Business Card</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-corporate-letterhead.jpg" alt="Corporate letterhead" loading="lazy"></div>
-          <div class="suite-format-label">Letterhead</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-corporate-folder.jpg" alt="Corporate presentation folder" loading="lazy"></div>
-          <div class="suite-format-label">Presentation Folder</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-corporate-group.jpg" alt="Corporate brand suite — business card, letterhead, and folder together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-corporate-card.jpg" alt="Corporate business card" loading="lazy"></div>
+            <div class="suite-format-label">Business Card</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-corporate-letterhead.jpg" alt="Corporate letterhead" loading="lazy"></div>
+            <div class="suite-format-label">Letterhead</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-corporate-folder.jpg" alt="Corporate presentation folder" loading="lazy"></div>
+            <div class="suite-format-label">Presentation Folder</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 A soft-touch matte finish across every piece reads as understated, established credibility.</div>
     </div>
 
     <!-- Suite 5 -->
     <div class="suite-block" id="event-wedding">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Event &amp; Wedding</div>
         <p class="suite-concept">A single design thread from the invitation to the table you sit at.</p>
+        <div class="suite-technique">💡 Fine-line metallic foil on the invitation sets the tone before the envelope's even opened.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-event-group.jpg" alt="Event and wedding brand suite — invitation, program, and table card together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-event-invitation.jpg" alt="Wedding invitation" loading="lazy"></div>
-          <div class="suite-format-label">Invitation</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-event-program.jpg" alt="Event program" loading="lazy"></div>
-          <div class="suite-format-label">Program</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-event-tablecard.jpg" alt="Event table card" loading="lazy"></div>
-          <div class="suite-format-label">Table Card</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-event-group.jpg" alt="Event and wedding brand suite — invitation, program, and table card together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-event-invitation.jpg" alt="Wedding invitation" loading="lazy"></div>
+            <div class="suite-format-label">Invitation</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-event-program.jpg" alt="Event program" loading="lazy"></div>
+            <div class="suite-format-label">Program</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-event-tablecard.jpg" alt="Event table card" loading="lazy"></div>
+            <div class="suite-format-label">Table Card</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Fine-line metallic foil on the invitation sets the tone before the envelope's even opened.</div>
     </div>
 
     <!-- Suite 6 -->
     <div class="suite-block" id="school-education">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">School &amp; Education</div>
         <p class="suite-concept">School spirit that looks the same on the wall, in the program, and in every hand it passes through.</p>
+        <div class="suite-technique">💡 Bulk-friendly stocks keep quality consistent whether you're printing 10 or 1,000.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-school-group.jpg" alt="School brand suite — banner, program, and certificate together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-school-banner.jpg" alt="School banner" loading="lazy"></div>
-          <div class="suite-format-label">Banner</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-school-program.jpg" alt="School event program" loading="lazy"></div>
-          <div class="suite-format-label">Program</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-school-certificate.jpg" alt="School recognition certificate" loading="lazy"></div>
-          <div class="suite-format-label">Certificate</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-school-group.jpg" alt="School brand suite — banner, program, and certificate together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-school-banner.jpg" alt="School banner" loading="lazy"></div>
+            <div class="suite-format-label">Banner</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-school-program.jpg" alt="School event program" loading="lazy"></div>
+            <div class="suite-format-label">Program</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-school-certificate.jpg" alt="School recognition certificate" loading="lazy"></div>
+            <div class="suite-format-label">Certificate</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Bulk-friendly stocks keep quality consistent whether you're printing 10 or 1,000.</div>
     </div>
 
     <!-- Suite 7 -->
     <div class="suite-block" id="nonprofit-church">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Non-Profit &amp; Church</div>
         <p class="suite-concept">A warm, trustworthy identity that carries the same weight on a flyer or a donation card.</p>
+        <div class="suite-technique">💡 Warm, uncoated stocks keep the feel approachable rather than corporate.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-nonprofit-group.jpg" alt="Non-profit brand suite — flyer, banner, and donation card together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-flyer.jpg" alt="Non-profit event flyer" loading="lazy"></div>
-          <div class="suite-format-label">Flyer</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-banner.jpg" alt="Non-profit banner" loading="lazy"></div>
-          <div class="suite-format-label">Banner</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-donationcard.jpg" alt="Non-profit donation card" loading="lazy"></div>
-          <div class="suite-format-label">Donation Card</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-nonprofit-group.jpg" alt="Non-profit brand suite — flyer, banner, and donation card together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-flyer.jpg" alt="Non-profit event flyer" loading="lazy"></div>
+            <div class="suite-format-label">Flyer</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-banner.jpg" alt="Non-profit banner" loading="lazy"></div>
+            <div class="suite-format-label">Banner</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-nonprofit-donationcard.jpg" alt="Non-profit donation card" loading="lazy"></div>
+            <div class="suite-format-label">Donation Card</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Warm, uncoated stocks keep the feel approachable rather than corporate.</div>
     </div>
 
     <!-- Suite 8 -->
     <div class="suite-block" id="healthcare-wellness">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Healthcare &amp; Wellness</div>
         <p class="suite-concept">A calm, clean identity from the waiting room to the appointment card in a patient's wallet.</p>
+        <div class="suite-technique">💡 Matte finishes and soft, muted colors read as calm and trustworthy, not clinical.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-healthcare-group.jpg" alt="Healthcare brand suite — appointment card, brochure, and signage together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-healthcare-appointmentcard.jpg" alt="Healthcare appointment card" loading="lazy"></div>
-          <div class="suite-format-label">Appointment Card</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-healthcare-brochure.jpg" alt="Healthcare brochure" loading="lazy"></div>
-          <div class="suite-format-label">Brochure</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-healthcare-signage.jpg" alt="Healthcare office signage" loading="lazy"></div>
-          <div class="suite-format-label">Signage</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-healthcare-group.jpg" alt="Healthcare brand suite — appointment card, brochure, and signage together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-healthcare-appointmentcard.jpg" alt="Healthcare appointment card" loading="lazy"></div>
+            <div class="suite-format-label">Appointment Card</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-healthcare-brochure.jpg" alt="Healthcare brochure" loading="lazy"></div>
+            <div class="suite-format-label">Brochure</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-healthcare-signage.jpg" alt="Healthcare office signage" loading="lazy"></div>
+            <div class="suite-format-label">Signage</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Matte finishes and soft, muted colors read as calm and trustworthy, not clinical.</div>
     </div>
 
     <!-- Suite 9 -->
     <div class="suite-block" id="personal-creative">
-      <div class="suite-header">
+      <div class="suite-info">
         <div class="suite-title">Personal &amp; Creative</div>
         <p class="suite-concept">A distinct visual voice that carries from a single art print to a full zine.</p>
+        <div class="suite-technique">💡 Vivid CMYK and a variety of paper stocks let each project's personality come through.</div>
       </div>
-      <div class="suite-hero-img"><img src="images/products/suite-creative-group.jpg" alt="Personal and creative brand suite — art print, sticker sheet, and zine together" loading="lazy"></div>
-      <div class="suite-row">
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-creative-artprint.jpg" alt="Art print" loading="lazy"></div>
-          <div class="suite-format-label">Art Print</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-creative-stickersheet.jpg" alt="Sticker sheet" loading="lazy"></div>
-          <div class="suite-format-label">Sticker Sheet</div>
-        </div>
-        <div class="suite-item">
-          <div class="suite-img-wrap"><img src="images/products/suite-creative-zine.jpg" alt="Zine" loading="lazy"></div>
-          <div class="suite-format-label">Zine</div>
+      <div class="suite-visuals">
+        <div class="suite-hero-img"><img src="images/products/suite-creative-group.jpg" alt="Personal and creative brand suite — art print, sticker sheet, and zine together" loading="lazy"></div>
+        <div class="suite-row">
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-creative-artprint.jpg" alt="Art print" loading="lazy"></div>
+            <div class="suite-format-label">Art Print</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-creative-stickersheet.jpg" alt="Sticker sheet" loading="lazy"></div>
+            <div class="suite-format-label">Sticker Sheet</div>
+          </div>
+          <div class="suite-item">
+            <div class="suite-img-wrap"><img src="images/products/suite-creative-zine.jpg" alt="Zine" loading="lazy"></div>
+            <div class="suite-format-label">Zine</div>
+          </div>
         </div>
       </div>
-      <div class="suite-technique">💡 Vivid CMYK and a variety of paper stocks let each project's personality come through.</div>
     </div>
   </div><!-- /portfolio-inner -->
 </section>
