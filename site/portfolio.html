@@ -192,6 +192,58 @@ button { cursor: pointer; font-family: var(--font); }
 }
 .btn-outline-white:hover { border-color: rgba(255,255,255,.85); }
 
+/* ── PORTFOLIO GRID ── */
+.port-grid {
+  column-count: 4;
+  column-gap: 20px;
+}
+.port-item {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 20px;
+  background: var(--white);
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  transition: box-shadow .2s, transform .2s;
+}
+.port-item:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  transform: translateY(-2px);
+}
+.port-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+.port-cat-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate);
+  background: rgba(255,255,255,.92);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: .02em;
+}
+.port-caption {
+  padding: 14px 16px 16px;
+}
+.port-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+.port-detail {
+  font-size: 13px;
+  color: var(--text-muted, #64748B);
+  line-height: 1.4;
+}
+.port-item[style*="display: none"] { display: none !important; }
+
 /* ── RESPONSIVE ── */
 .port-img-wrap { background: #F1F5F9; overflow: hidden; position: relative; }
 .port-img-wrap img { width: 100%; height: auto; object-fit: cover; filter: saturate(.92) brightness(1.02) contrast(.97); }
