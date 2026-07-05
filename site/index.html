@@ -491,6 +491,25 @@
 
     .product-card.hidden { display: none; }
 
+    .load-more-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .btn-load-more {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: var(--white);
+      border: 1.5px solid var(--cyan);
+      border-radius: 8px;
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .btn-load-more:hover { background: var(--cyan); color: var(--white); }
+
     /* Product photos */
     .prod-illus {
       height: 160px;
@@ -1768,6 +1787,9 @@
         </div>
 
       </div><!-- /product-grid -->
+      <div class="load-more-row">
+        <button class="btn-load-more" id="load-more-btn">Show More Products</button>
+      </div>
     </div><!-- /products-inner -->
   </section>
 
@@ -1997,6 +2019,8 @@
     // Product filter tabs
     const tabs = document.querySelectorAll('.filter-tab');
     const cards = document.querySelectorAll('.product-card');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    let allRevealed = false;
 
     // Initially show only 8 cards (Best Sellers first, then fill)
     function showInitial() {
@@ -2017,6 +2041,8 @@
           shown++;
         }
       });
+      allRevealed = false;
+      loadMoreBtn.style.display = '';
     }
 
     function filterCards(filterVal) {
@@ -2027,6 +2053,7 @@
           card.classList.add('hidden');
         }
       });
+      loadMoreBtn.style.display = 'none';
     }
 
     tabs.forEach(tab => {
@@ -2035,11 +2062,22 @@
         this.classList.add('active');
         const f = this.dataset.filter;
         if (f === 'all') {
-          showInitial();
+          if (allRevealed) {
+            filterCards('all');
+            loadMoreBtn.style.display = 'none';
+          } else {
+            showInitial();
+          }
         } else {
           filterCards(f);
         }
       });
+    });
+
+    loadMoreBtn.addEventListener('click', function() {
+      cards.forEach(card => card.classList.remove('hidden'));
+      allRevealed = true;
+      loadMoreBtn.style.display = 'none';
     });
 
     // On load, show initial 8
