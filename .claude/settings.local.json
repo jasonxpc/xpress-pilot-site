@@ -39,7 +39,8 @@
       "Bash(git stash *)",
       "Bash(git add *)",
       "Bash(git commit -m 'Add favicon, unify logo gap to 4px *)",
-      "Bash(mkdir -p \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/images/portfolio\")"
+      "Bash(mkdir -p \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/images/portfolio\")",
+      "Bash(curl -s -o /dev/null -w \"%{url_effective} %{http_code}\\\\n\" -L \"http://localhost:8787/quote.html?product=Rack+Cards\")"
     ]
   }
 }

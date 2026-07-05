@@ -3073,20 +3073,10 @@ document.getElementById('main-form-wrap').style.display = 'none';
   var raw = params.get('product');
   if (!raw) return;
   var decoded = decodeURIComponent(raw.replace(/\+/g, ' ')).trim();
-  var sel = document.getElementById('q-product');
-  for (var i = 0; i < sel.options.length; i++) {
-    if (sel.options[i].value.toLowerCase() === decoded.toLowerCase()) {
-      sel.value = sel.options[i].value;
-      onProductChange(sel.options[i].value);
-      // Show form, hide placeholder
-      document.getElementById('quote-no-product').style.display = 'none';
-      document.getElementById('main-form-wrap').style.display = '';
-      // Highlight matching sidebar button
-      document.querySelectorAll('.sidebar-product-btn').forEach(function(btn) {
-        if (btn.getAttribute('data-product').toLowerCase() === decoded.toLowerCase()) {
-          btn.classList.add('active');
-        }
-      });
+  var btns = document.querySelectorAll('.sidebar-product-btn');
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].getAttribute('data-product').toLowerCase() === decoded.toLowerCase()) {
+      selectSidebarProduct(btns[i]);
       break;
     }
   }
