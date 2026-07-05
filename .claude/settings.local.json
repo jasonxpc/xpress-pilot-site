@@ -48,7 +48,12 @@
       "Skill(update-config:*)",
       "Bash(git commit -m 'Fix portfolio grid: add missing card/masonry CSS, remove broken hero cutout image *)",
       "WebFetch(domain:www.xpressprinting.com)",
-      "Bash(rg -ln \"Portfolio\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)"
+      "Bash(rg -ln \"Portfolio\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
+      "Bash(rg -na \"note-bar\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
+      "Bash(git commit -m 'Fix portfolio.html: restore missing base CSS for hero, filter tabs, testimonials, CTA *)",
+      "WebSearch",
+      "Bash(rg -l \"Best local printer in Irvine\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
+      "Bash(git commit -m 'Remove fabricated testimonials from portfolio.html *)"
     ]
   }
 }

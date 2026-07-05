@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="XP26-Symbol-Tr.png">
-  <title>Print Samples — Xpress Printing Irvine, CA</title>
-<meta name="description" content="Browse print samples by category — business cards, banners, brochures, stickers, and more — to see the finishes and techniques Xpress Printing offers.">
+  <title>Finishes &amp; Techniques — Xpress Printing Irvine, CA</title>
+<meta name="description" content="Metallic foil, clear toner enhancement, and specialty stocks — the finishing techniques that give your brand a premium, tangible presence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
@@ -319,6 +319,14 @@ button { cursor: pointer; font-family: var(--font); }
   font-size: 13px;
   color: var(--text-muted, #64748B);
   line-height: 1.4;
+}
+.port-rationale {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.5;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border, #E2E8F0);
 }
 .port-item[style*="display: none"] { display: none !important; }
 
@@ -959,6 +967,50 @@ button { cursor: pointer; font-family: var(--font); }
   }
   .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
 </style>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
       <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
@@ -1037,12 +1089,12 @@ button { cursor: pointer; font-family: var(--font); }
 <!-- ════════════ HERO ════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow" style="color:var(--cyan)">Print Samples</p>
-    <h1>Print that gets noticed.</h1>
-    <p class="hero-sub">35 years of experience, right here in Irvine — browse samples of the finishes and techniques we offer.</p>
+    <p class="hero-eyebrow" style="color:var(--cyan)">Finishes &amp; Techniques</p>
+    <h1>Your brand, in the details.</h1>
+    <p class="hero-sub">Anyone can generate a branding concept with AI today. What makes it real is the physical finish — metallic foil, clear toner, specialty stock. Here's the logic behind each technique, paired with what it actually looks like.</p>
     <div class="note-bar">
       <span class="note-bar-icon">📸</span>
-      <span>These are representative samples, not specific client projects. Contact us to see physical samples in person — we'd love to show you.</span>
+      <span>These are representative samples of our finishing capabilities, not specific client projects. Contact us to see physical samples in person — we'd love to show you.</span>
     </div>
   </div>
 </section>
@@ -1054,254 +1106,88 @@ button { cursor: pointer; font-family: var(--font); }
     <!-- Filter tabs -->
     <div class="filter-row">
       <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="business-cards">Business Cards</button>
-      <button class="filter-tab" data-filter="marketing">Marketing Print</button>
-      <button class="filter-tab" data-filter="large-format">Large Format</button>
-      <button class="filter-tab" data-filter="stickers">Stickers</button>
-      <button class="filter-tab" data-filter="bound">Bound &amp; Folded</button>
-      <button class="filter-tab" data-filter="specialty">Specialty</button>
+      <button class="filter-tab" data-filter="foil">Metallic Foil</button>
+      <button class="filter-tab" data-filter="clear-toner">Clear Toner</button>
     </div>
 
     <!-- Grid -->
     <div class="port-grid" id="portGrid">
 
       <!-- 1 -->
-      <div class="port-item" data-cat="business-cards">
+      <div class="port-item" data-cat="foil">
         <div class="port-img-wrap">
-          <img src="images/portfolio/premium-business-cards.jpg" alt="Premium business cards — 16PT Soft Touch" loading="lazy" height="300">
-          <div class="port-overlay"><span class="port-cat-badge">Business Cards</span></div>
+          <img src="images/portfolio/foil-business-cards.jpg" alt="Metallic foil business cards" loading="lazy" height="380">
+          <div class="port-overlay"><span class="port-cat-badge">Metallic Foil</span></div>
         </div>
         <div class="port-caption">
-          <div class="port-title">Premium Business Cards</div>
-          <div class="port-detail">16PT Soft Touch · Real Estate Agency</div>
+          <div class="port-title">Metallic Foil Business Cards</div>
+          <div class="port-detail">Silver or Gold Foil, 10PT · Rich Black Masking · CMYK</div>
+          <div class="port-rationale">💡 Signals premium quality before anyone reads a word — a favorite for boutiques, real estate, and luxury retail.</div>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="port-item" data-cat="business-cards">
+      <div class="port-item" data-cat="foil">
         <div class="port-img-wrap">
-          <img src="images/portfolio/rounded-corner-cards.jpg" alt="Rounded corner cards — 14PT Gloss UV" loading="lazy" height="380">
-          <div class="port-overlay"><span class="port-cat-badge">Business Cards</span></div>
+          <img src="images/portfolio/foil-wedding-suite.jpg" alt="Foil wedding invitation suite" loading="lazy" height="420">
+          <div class="port-overlay"><span class="port-cat-badge">Metallic Foil</span></div>
         </div>
         <div class="port-caption">
-          <div class="port-title">Rounded Corner Cards</div>
-          <div class="port-detail">14PT Gloss UV · Restaurant Group</div>
+          <div class="port-title">Foil Wedding Invitations</div>
+          <div class="port-detail">Vanity Pearl Super Smooth 130lb Cover+ · Fine-Line Foil Detail</div>
+          <div class="port-rationale">💡 An heirloom-quality finish for the moments people keep forever.</div>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="port-item" data-cat="marketing">
+      <div class="port-item" data-cat="foil">
         <div class="port-img-wrap">
-          <img src="images/portfolio/event-flyers.jpg" alt="Event flyers — 8.5x11 100lb Gloss" loading="lazy" height="420">
-          <div class="port-overlay"><span class="port-cat-badge">Marketing Print</span></div>
+          <img src="images/portfolio/foil-packaging-insert.jpg" alt="Foil packaging insert" loading="lazy" height="350">
+          <div class="port-overlay"><span class="port-cat-badge">Metallic Foil</span></div>
         </div>
         <div class="port-caption">
-          <div class="port-title">Event Flyers</div>
-          <div class="port-detail">8.5×11" · 100lb Gloss · Full Color</div>
+          <div class="port-title">Foil Packaging Inserts</div>
+          <div class="port-detail">Silver or Gold Foil, 10PT · White Toner Base + CMYK (2-Pass)</div>
+          <div class="port-rationale">💡 Turns everyday packaging into an unboxing moment worth photographing.</div>
         </div>
       </div>
 
       <!-- 4 -->
-      <div class="port-item" data-cat="marketing">
+      <div class="port-item" data-cat="clear-toner">
         <div class="port-img-wrap">
-          <img src="images/portfolio/tri-fold-brochures.jpg" alt="Tri-fold brochures — 8.5x11 100lb Gloss" loading="lazy" height="350">
-          <div class="port-overlay"><span class="port-cat-badge">Marketing Print</span></div>
+          <img src="images/portfolio/clear-toner-event-poster.jpg" alt="Clear toner spot-gloss event poster" loading="lazy" height="450">
+          <div class="port-overlay"><span class="port-cat-badge">Clear Toner</span></div>
         </div>
         <div class="port-caption">
-          <div class="port-title">Tri-Fold Brochures</div>
-          <div class="port-detail">8.5×11" · 100lb Gloss · Standard Tri-Fold</div>
+          <div class="port-title">Spot-Gloss Event Posters &amp; Passes</div>
+          <div class="port-detail">Glossy 80lb Text or 11 Mil Synthetic Poly · Clear Toner over CMYK</div>
+          <div class="port-rationale">💡 A tactile highlight that draws the eye to key details — built for events and passes people hold onto.</div>
         </div>
       </div>
 
       <!-- 5 -->
-      <div class="port-item" data-cat="large-format">
+      <div class="port-item" data-cat="clear-toner">
         <div class="port-img-wrap">
-          <img src="images/portfolio/vinyl-banner.jpg" alt="Vinyl banner — 3x8ft outdoor" loading="lazy" height="300">
-          <div class="port-overlay"><span class="port-cat-badge">Large Format</span></div>
+          <img src="images/portfolio/clear-toner-linen-invitations.jpg" alt="Clear toner on linen invitation stock" loading="lazy" height="300">
+          <div class="port-overlay"><span class="port-cat-badge">Clear Toner</span></div>
         </div>
         <div class="port-caption">
-          <div class="port-title">Vinyl Banner</div>
-          <div class="port-detail">3×8ft · 13oz Outdoor Vinyl · Hemmed &amp; Grommeted</div>
+          <div class="port-title">Clear Toner on Linen Stock</div>
+          <div class="port-detail">Linen White Pearl 115lb Cover+ · Clear Toner over CMYK</div>
+          <div class="port-rationale">💡 Subtle shine on a textured stock — refined without shouting.</div>
         </div>
       </div>
 
       <!-- 6 -->
-      <div class="port-item" data-cat="business-cards">
+      <div class="port-item" data-cat="clear-toner">
         <div class="port-img-wrap">
-          <img src="images/portfolio/luxury-matte-cards.jpg" alt="Luxury matte cards — 16PT Soft Touch, law firm" loading="lazy" height="400">
-          <div class="port-overlay"><span class="port-cat-badge">Business Cards</span></div>
+          <img src="images/portfolio/clear-toner-magnetic-mailer.jpg" alt="Clear toner magnetic mailer postcard" loading="lazy" height="400">
+          <div class="port-overlay"><span class="port-cat-badge">Clear Toner</span></div>
         </div>
         <div class="port-caption">
-          <div class="port-title">Luxury Matte Cards</div>
-          <div class="port-detail">16PT Soft Touch · Law Firm</div>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div class="port-item" data-cat="stickers">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/custom-die-cut-stickers.jpg" alt="Custom die-cut stickers — white vinyl gloss laminate" loading="lazy" height="350">
-          <div class="port-overlay"><span class="port-cat-badge">Stickers</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Custom Die-Cut Stickers</div>
-          <div class="port-detail">White Vinyl · Gloss Laminate · Any Shape</div>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="port-item" data-cat="bound">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/saddle-stitch-booklets.jpg" alt="Saddle stitch booklets — 8.5x11 32 pages" loading="lazy" height="420">
-          <div class="port-overlay"><span class="port-cat-badge">Bound &amp; Folded</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Saddle Stitch Booklets</div>
-          <div class="port-detail">8.5×11" · 32 Pages · 100lb Gloss Text</div>
-        </div>
-      </div>
-
-      <!-- 9 -->
-      <div class="port-item" data-cat="marketing">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/postcard-campaign.jpg" alt="Postcard campaign — 4x6 16PT Gloss" loading="lazy" height="300">
-          <div class="port-overlay"><span class="port-cat-badge">Marketing Print</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Postcard Campaign</div>
-          <div class="port-detail">4×6" · 16PT Gloss UV · Direct Mail Ready</div>
-        </div>
-      </div>
-
-      <!-- 10 -->
-      <div class="port-item" data-cat="large-format">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/retractable-banner.jpg" alt="Retractable banner — 33x80 trade show display" loading="lazy" height="500">
-          <div class="port-overlay"><span class="port-cat-badge">Large Format</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Retractable Banner</div>
-          <div class="port-detail">33×80" · Trade Show Display · Hardware Included</div>
-        </div>
-      </div>
-
-      <!-- 11 -->
-      <div class="port-item" data-cat="specialty">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/presentation-folders.jpg" alt="Presentation folders — 9x12 Gloss UV" loading="lazy" height="380">
-          <div class="port-overlay"><span class="port-cat-badge">Specialty</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Presentation Folders</div>
-          <div class="port-detail">9×12" · Gloss UV · Business Card Slits</div>
-        </div>
-      </div>
-
-      <!-- 12 -->
-      <div class="port-item" data-cat="marketing">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/door-hangers.jpg" alt="Door hangers — 3.5x8.5 14PT restaurant" loading="lazy" height="350">
-          <div class="port-overlay"><span class="port-cat-badge">Marketing Print</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Door Hangers</div>
-          <div class="port-detail">3.5×8.5" · 14PT · Restaurant Promotion</div>
-        </div>
-      </div>
-
-      <!-- 13 -->
-      <div class="port-item" data-cat="stickers">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/kiss-cut-label-sheets.jpg" alt="Kiss-cut label sheets — 8.5x11 sheet format" loading="lazy" height="300">
-          <div class="port-overlay"><span class="port-cat-badge">Stickers</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Kiss-Cut Label Sheets</div>
-          <div class="port-detail">8.5×11" Sheet Format · Multiple Per Sheet</div>
-        </div>
-      </div>
-
-      <!-- 14 -->
-      <div class="port-item" data-cat="large-format">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/foam-board-signs.jpg" alt="Foam board signs — 24x36 3/16 inch thick" loading="lazy" height="400">
-          <div class="port-overlay"><span class="port-cat-badge">Large Format</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Foam Board Signs</div>
-          <div class="port-detail">24×36" · 3⁄16" Thick · Indoor Display</div>
-        </div>
-      </div>
-
-      <!-- 15 -->
-      <div class="port-item" data-cat="business-cards">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/square-business-cards.jpg" alt="Square business cards — 2.5x2.5 14PT Matte, creative agency" loading="lazy" height="350">
-          <div class="port-overlay"><span class="port-cat-badge">Business Cards</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Square Cards</div>
-          <div class="port-detail">2.5×2.5" · 14PT Matte · Creative Agency</div>
-        </div>
-      </div>
-
-      <!-- 16 -->
-      <div class="port-item" data-cat="bound">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/perfect-bound-catalog.jpg" alt="Perfect bound catalog — 8.5x11 48 pages" loading="lazy" height="450">
-          <div class="port-overlay"><span class="port-cat-badge">Bound &amp; Folded</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Perfect Bound Catalog</div>
-          <div class="port-detail">8.5×11" · 48 Pages · Gloss Cover</div>
-        </div>
-      </div>
-
-      <!-- 17 -->
-      <div class="port-item" data-cat="specialty">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/ncr-forms.jpg" alt="NCR forms — 3-part carbonless service business" loading="lazy" height="300">
-          <div class="port-overlay"><span class="port-cat-badge">Specialty</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">NCR Forms</div>
-          <div class="port-detail">3-Part Carbonless · Service Businesses · Custom Layout</div>
-        </div>
-      </div>
-
-      <!-- 18 -->
-      <div class="port-item" data-cat="marketing">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/rack-cards.jpg" alt="Rack cards — 4x9 14PT Gloss hotel tourism" loading="lazy" height="420">
-          <div class="port-overlay"><span class="port-cat-badge">Marketing Print</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Rack Cards</div>
-          <div class="port-detail">4×9" · 14PT Gloss · Hotel &amp; Tourism</div>
-        </div>
-      </div>
-
-      <!-- 19 -->
-      <div class="port-item" data-cat="stickers">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/circle-stickers.jpg" alt="Circle stickers — 2 inch round product labels" loading="lazy" height="350">
-          <div class="port-overlay"><span class="port-cat-badge">Stickers</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Circle Stickers</div>
-          <div class="port-detail">2" Round · Product Labels · Gloss Finish</div>
-        </div>
-      </div>
-
-      <!-- 20 -->
-      <div class="port-item" data-cat="bound">
-        <div class="port-img-wrap">
-          <img src="images/portfolio/spiral-bound-reports.jpg" alt="Spiral bound reports — 8.5x11 24lb bond" loading="lazy" height="400">
-          <div class="port-overlay"><span class="port-cat-badge">Bound &amp; Folded</span></div>
-        </div>
-        <div class="port-caption">
-          <div class="port-title">Spiral Bound Reports</div>
-          <div class="port-detail">8.5×11" · 24lb Bond · Plastic Coil Binding</div>
+          <div class="port-title">Clear Toner Magnetic Mailers</div>
+          <div class="port-detail">Mohawk Embedded Magnetic Postcard, Silk 100lb Cover · Clear Toner over CMYK</div>
+          <div class="port-rationale">💡 Turns a mailer into something that gets kept — literally, on the fridge.</div>
         </div>
       </div>
 
@@ -1389,7 +1275,7 @@ button { cursor: pointer; font-family: var(--font); }
         <p class="footer-col-title">Company</p>
         <ul class="footer-links">
           <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">Print Samples</a></li>
+          <li><a href="portfolio.html">Finishes &amp; Techniques</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
