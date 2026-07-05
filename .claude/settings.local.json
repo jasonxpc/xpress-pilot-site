@@ -59,7 +59,8 @@
       "Bash(git commit -m 'Fix Shop by Product images on homepage *)",
       "Bash(rg -l \"images/portfolio/\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
       "Bash(rg -l \"hero-flyer-cutout\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
-      "Bash(git commit -m 'Split homepage images into their own directory *)"
+      "Bash(git commit -m 'Split homepage images into their own directory *)",
+      "Bash(git commit -m 'Give every homepage product card its own unique image slot *)"
     ]
   }
 }
