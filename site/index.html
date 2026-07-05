@@ -491,7 +491,7 @@
 
     .product-card.hidden { display: none; }
 
-    /* CSS product illustrations */
+    /* Product photos */
     .prod-illus {
       height: 160px;
       display: flex;
@@ -499,30 +499,13 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
+      background: #F1F5F9;
     }
-
-    .illus-bizcard {
-      background: #F1F5F9 url('images/home/shop-bizcards.jpg') center/cover no-repeat;
-    }
-
-    .illus-marketing {
-      background: #F1F5F9 url('images/home/shop-marketing.jpg') center/cover no-repeat;
-    }
-
-    .illus-large-format {
-      background: #F1F5F9 url('images/home/shop-largeformat.jpg') center/cover no-repeat;
-    }
-
-    .illus-stickers {
-      background: #F1F5F9 url('images/home/shop-stickers.jpg') center/cover no-repeat;
-    }
-
-    .illus-bound {
-      background: #F1F5F9 url('images/home/shop-bound.jpg') center/cover no-repeat;
-    }
-
-    .illus-specialty {
-      background: #F1F5F9 url('images/home/shop-specialty.jpg') center/cover no-repeat;
+    .prod-illus img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.92) brightness(1.02) contrast(.97);
     }
 
     .prod-body {
@@ -1444,7 +1427,7 @@
 
         <!-- BUSINESS CARDS -->
         <div class="product-card" data-category="business-cards" data-bestseller="1">
-          <div class="prod-illus illus-bizcard"></div>
+          <div class="prod-illus"><img src="images/home/standard-business-cards.jpg" alt="Standard Business Cards" loading="lazy"></div>
           <div class="prod-body">
             <span class="prod-badge">&#11088; Best Seller</span>
             <div class="prod-name">Standard Business Cards</div>
@@ -1455,7 +1438,7 @@
         </div>
 
         <div class="product-card" data-category="business-cards" data-bestseller="0">
-          <div class="prod-illus illus-bizcard"></div>
+          <div class="prod-illus"><img src="images/home/premium-business-cards.jpg" alt="Premium Business Cards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Premium Business Cards</div>
             <div class="prod-specs">Premium &middot; 16PT &middot; Soft Touch</div>
@@ -1465,7 +1448,7 @@
         </div>
 
         <div class="product-card" data-category="business-cards" data-bestseller="0">
-          <div class="prod-illus illus-bizcard"></div>
+          <div class="prod-illus"><img src="images/home/rounded-corner-cards.jpg" alt="Rounded Corner Cards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Rounded Corner Cards</div>
             <div class="prod-specs">14PT or 16PT &middot; Rounded edges</div>
@@ -1475,7 +1458,7 @@
         </div>
 
         <div class="product-card" data-category="business-cards" data-bestseller="0">
-          <div class="prod-illus illus-bizcard"></div>
+          <div class="prod-illus"><img src="images/home/folded-business-cards.jpg" alt="Folded Business Cards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Folded Business Cards</div>
             <div class="prod-specs">Bi-fold &middot; 17PT</div>
@@ -1485,7 +1468,7 @@
         </div>
 
         <div class="product-card" data-category="business-cards" data-bestseller="0">
-          <div class="prod-illus illus-bizcard"></div>
+          <div class="prod-illus"><img src="images/home/mini-business-cards.jpg" alt="Mini Business Cards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Mini Business Cards</div>
             <div class="prod-specs">3.5&times;1.5" &middot; 14PT</div>
@@ -1495,7 +1478,7 @@
         </div>
 
         <div class="product-card" data-category="business-cards" data-bestseller="0">
-          <div class="prod-illus illus-bizcard"></div>
+          <div class="prod-illus"><img src="images/home/square-business-cards.jpg" alt="Square Business Cards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Square Business Cards</div>
             <div class="prod-specs">2.5&times;2.5" &middot; 16PT</div>
@@ -1506,7 +1489,7 @@
 
         <!-- MARKETING PRINT -->
         <div class="product-card" data-category="marketing" data-bestseller="1">
-          <div class="prod-illus illus-marketing"></div>
+          <div class="prod-illus"><img src="images/home/flyers.jpg" alt="Flyers" loading="lazy"></div>
           <div class="prod-body">
             <span class="prod-badge">&#11088; Best Seller</span>
             <div class="prod-name">Flyers</div>
@@ -1517,7 +1500,7 @@
         </div>
 
         <div class="product-card" data-category="marketing" data-bestseller="0">
-          <div class="prod-illus illus-marketing"></div>
+          <div class="prod-illus"><img src="images/home/bifold-brochures.jpg" alt="Bi-Fold Brochures" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Bi-Fold Brochures</div>
             <div class="prod-specs">8.5&times;11" folded &middot; 100lb Gloss</div>
@@ -1527,7 +1510,7 @@
         </div>
 
         <div class="product-card" data-category="marketing" data-bestseller="1">
-          <div class="prod-illus illus-marketing"></div>
+          <div class="prod-illus"><img src="images/home/trifold-brochures.jpg" alt="Tri-Fold Brochures" loading="lazy"></div>
           <div class="prod-body">
             <span class="prod-badge">&#11088; Best Seller</span>
             <div class="prod-name">Tri-Fold Brochures</div>
@@ -1538,7 +1521,7 @@
         </div>
 
         <div class="product-card" data-category="marketing" data-bestseller="0">
-          <div class="prod-illus illus-marketing"></div>
+          <div class="prod-illus"><img src="images/home/postcards.jpg" alt="Postcards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Postcards</div>
             <div class="prod-specs">4&times;6" to 6&times;9" &middot; 16PT</div>
@@ -1548,7 +1531,7 @@
         </div>
 
         <div class="product-card" data-category="marketing" data-bestseller="0">
-          <div class="prod-illus illus-marketing"></div>
+          <div class="prod-illus"><img src="images/home/door-hangers.jpg" alt="Door Hangers" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Door Hangers</div>
             <div class="prod-specs">3.5&times;8.5" &middot; 14PT</div>
@@ -1558,7 +1541,7 @@
         </div>
 
         <div class="product-card" data-category="marketing" data-bestseller="0">
-          <div class="prod-illus illus-marketing"></div>
+          <div class="prod-illus"><img src="images/home/rack-cards.jpg" alt="Rack Cards" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Rack Cards</div>
             <div class="prod-specs">4&times;9" &middot; 14PT Gloss</div>
@@ -1569,7 +1552,7 @@
 
         <!-- LARGE FORMAT -->
         <div class="product-card" data-category="large-format" data-bestseller="1">
-          <div class="prod-illus illus-large-format"></div>
+          <div class="prod-illus"><img src="images/home/vinyl-banners.jpg" alt="Vinyl Banners" loading="lazy"></div>
           <div class="prod-body">
             <span class="prod-badge">&#11088; Best Seller</span>
             <div class="prod-name">Vinyl Banners</div>
@@ -1580,7 +1563,7 @@
         </div>
 
         <div class="product-card" data-category="large-format" data-bestseller="0">
-          <div class="prod-illus illus-large-format"></div>
+          <div class="prod-illus"><img src="images/home/retractable-banners.jpg" alt="Retractable Banners" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Retractable Banners</div>
             <div class="prod-specs">33"&times;80" &middot; Hardware included</div>
@@ -1590,7 +1573,7 @@
         </div>
 
         <div class="product-card" data-category="large-format" data-bestseller="0">
-          <div class="prod-illus illus-large-format"></div>
+          <div class="prod-illus"><img src="images/home/posters.jpg" alt="Posters" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Posters</div>
             <div class="prod-specs">18&times;24" to 24&times;36" &middot; Gloss or Matte</div>
@@ -1600,7 +1583,7 @@
         </div>
 
         <div class="product-card" data-category="large-format" data-bestseller="0">
-          <div class="prod-illus illus-large-format"></div>
+          <div class="prod-illus"><img src="images/home/yard-signs.jpg" alt="Yard Signs" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Yard Signs</div>
             <div class="prod-specs">18&times;24" &middot; Corrugated plastic</div>
@@ -1610,7 +1593,7 @@
         </div>
 
         <div class="product-card" data-category="large-format" data-bestseller="0">
-          <div class="prod-illus illus-large-format"></div>
+          <div class="prod-illus"><img src="images/home/foam-board-signs.jpg" alt="Foam Board Signs" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Foam Board Signs</div>
             <div class="prod-specs">3/16" foam &middot; Full color</div>
@@ -1620,7 +1603,7 @@
         </div>
 
         <div class="product-card" data-category="large-format" data-bestseller="0">
-          <div class="prod-illus illus-large-format"></div>
+          <div class="prod-illus"><img src="images/home/step-repeat-banners.jpg" alt="Step &amp; Repeat Banners" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Step &amp; Repeat Banners</div>
             <div class="prod-specs">Custom sizes &middot; Event ready</div>
@@ -1631,7 +1614,7 @@
 
         <!-- STICKERS & LABELS -->
         <div class="product-card" data-category="stickers" data-bestseller="1">
-          <div class="prod-illus illus-stickers"></div>
+          <div class="prod-illus"><img src="images/home/die-cut-stickers.jpg" alt="Die-Cut Stickers" loading="lazy"></div>
           <div class="prod-body">
             <span class="prod-badge">&#11088; Best Seller</span>
             <div class="prod-name">Die-Cut Stickers</div>
@@ -1642,7 +1625,7 @@
         </div>
 
         <div class="product-card" data-category="stickers" data-bestseller="0">
-          <div class="prod-illus illus-stickers"></div>
+          <div class="prod-illus"><img src="images/home/kiss-cut-stickers.jpg" alt="Kiss-Cut Stickers" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Kiss-Cut Stickers</div>
             <div class="prod-specs">Sheet format &middot; Easy peel</div>
@@ -1652,7 +1635,7 @@
         </div>
 
         <div class="product-card" data-category="stickers" data-bestseller="0">
-          <div class="prod-illus illus-stickers"></div>
+          <div class="prod-illus"><img src="images/home/circle-oval-stickers.jpg" alt="Circle &amp; Oval Stickers" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Circle &amp; Oval Stickers</div>
             <div class="prod-specs">1"&ndash;4" &middot; Waterproof</div>
@@ -1662,7 +1645,7 @@
         </div>
 
         <div class="product-card" data-category="stickers" data-bestseller="0">
-          <div class="prod-illus illus-stickers"></div>
+          <div class="prod-illus"><img src="images/home/label-sheets.jpg" alt="Label Sheets" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Label Sheets</div>
             <div class="prod-specs">8.5&times;11" &middot; Custom layouts</div>
@@ -1672,7 +1655,7 @@
         </div>
 
         <div class="product-card" data-category="stickers" data-bestseller="0">
-          <div class="prod-illus illus-stickers"></div>
+          <div class="prod-illus"><img src="images/home/bumper-stickers.jpg" alt="Bumper Stickers" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Bumper Stickers</div>
             <div class="prod-specs">3&times;10" &middot; UV resistant</div>
@@ -1683,7 +1666,7 @@
 
         <!-- BOUND & FOLDED -->
         <div class="product-card" data-category="bound" data-bestseller="1">
-          <div class="prod-illus illus-bound"></div>
+          <div class="prod-illus"><img src="images/home/saddle-stitch-booklets.jpg" alt="Saddle Stitch Booklets" loading="lazy"></div>
           <div class="prod-body">
             <span class="prod-badge">&#11088; Best Seller</span>
             <div class="prod-name">Saddle Stitch Booklets</div>
@@ -1694,7 +1677,7 @@
         </div>
 
         <div class="product-card" data-category="bound" data-bestseller="0">
-          <div class="prod-illus illus-bound"></div>
+          <div class="prod-illus"><img src="images/home/perfect-bind-books.jpg" alt="Perfect Bind Books" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Perfect Bind Books</div>
             <div class="prod-specs">Square spine &middot; Professional look</div>
@@ -1704,7 +1687,7 @@
         </div>
 
         <div class="product-card" data-category="bound" data-bestseller="0">
-          <div class="prod-illus illus-bound"></div>
+          <div class="prod-illus"><img src="images/home/spiral-coil-bound.jpg" alt="Spiral/Coil Bound" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Spiral/Coil Bound</div>
             <div class="prod-specs">Lies flat &middot; Any size</div>
@@ -1714,7 +1697,7 @@
         </div>
 
         <div class="product-card" data-category="bound" data-bestseller="0">
-          <div class="prod-illus illus-bound"></div>
+          <div class="prod-illus"><img src="images/home/notepads.jpg" alt="Notepads" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Notepads</div>
             <div class="prod-specs">25&ndash;100 sheets &middot; Custom header</div>
@@ -1724,7 +1707,7 @@
         </div>
 
         <div class="product-card" data-category="bound" data-bestseller="0">
-          <div class="prod-illus illus-bound"></div>
+          <div class="prod-illus"><img src="images/home/presentation-folders.jpg" alt="Presentation Folders" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Presentation Folders</div>
             <div class="prod-specs">9&times;12" &middot; Full color &middot; Pockets</div>
@@ -1735,7 +1718,7 @@
 
         <!-- SPECIALTY -->
         <div class="product-card" data-category="specialty" data-bestseller="0">
-          <div class="prod-illus illus-specialty"></div>
+          <div class="prod-illus"><img src="images/home/letterhead-envelopes.jpg" alt="Letterhead &amp; Envelopes" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Letterhead &amp; Envelopes</div>
             <div class="prod-specs">24lb bond &middot; Full color</div>
@@ -1745,7 +1728,7 @@
         </div>
 
         <div class="product-card" data-category="specialty" data-bestseller="0">
-          <div class="prod-illus illus-specialty"></div>
+          <div class="prod-illus"><img src="images/home/ncr-forms.jpg" alt="NCR Forms" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">NCR Forms (Carbonless)</div>
             <div class="prod-specs">2&ndash;3 part &middot; Custom</div>
@@ -1755,7 +1738,7 @@
         </div>
 
         <div class="product-card" data-category="specialty" data-bestseller="0">
-          <div class="prod-illus illus-specialty"></div>
+          <div class="prod-illus"><img src="images/home/table-tents.jpg" alt="Table Tents" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Table Tents</div>
             <div class="prod-specs">4&times;6" &middot; Gloss card stock</div>
@@ -1765,7 +1748,7 @@
         </div>
 
         <div class="product-card" data-category="specialty" data-bestseller="0">
-          <div class="prod-illus illus-specialty"></div>
+          <div class="prod-illus"><img src="images/home/hang-tags.jpg" alt="Hang Tags" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Hang Tags</div>
             <div class="prod-specs">Custom shapes &middot; String included</div>
@@ -1775,7 +1758,7 @@
         </div>
 
         <div class="product-card" data-category="specialty" data-bestseller="0">
-          <div class="prod-illus illus-specialty"></div>
+          <div class="prod-illus"><img src="images/home/calendars.jpg" alt="Calendars" loading="lazy"></div>
           <div class="prod-body">
             <div class="prod-name">Calendars</div>
             <div class="prod-specs">12-month &middot; Wall or desk</div>
