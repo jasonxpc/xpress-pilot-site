@@ -40,7 +40,15 @@
       "Bash(git add *)",
       "Bash(git commit -m 'Add favicon, unify logo gap to 4px *)",
       "Bash(mkdir -p \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/images/portfolio\")",
-      "Bash(curl -s -o /dev/null -w \"%{url_effective} %{http_code}\\\\n\" -L \"http://localhost:8787/quote.html?product=Rack+Cards\")"
+      "Bash(curl -s -o /dev/null -w \"%{url_effective} %{http_code}\\\\n\" -L \"http://localhost:8787/quote.html?product=Rack+Cards\")",
+      "Skill(fewer-permission-prompts)",
+      "Skill(fewer-permission-prompts:*)",
+      "Bash(ls -t ~/.claude/projects/*/*.jsonl 2>/dev/null | head -50 | wc -l)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(git commit -m 'Fix portfolio grid: add missing card/masonry CSS, remove broken hero cutout image *)",
+      "WebFetch(domain:www.xpressprinting.com)",
+      "Bash(rg -ln \"Portfolio\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)"
     ]
   }
 }
