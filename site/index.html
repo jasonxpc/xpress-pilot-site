@@ -534,6 +534,13 @@
       flex: 1;
     }
 
+    .prod-name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
     .prod-badge {
       font-size: 10px;
       font-weight: 700;
@@ -542,14 +549,14 @@
       padding: 3px 8px;
       border-radius: 4px;
       display: inline-block;
-      margin-bottom: 8px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .prod-name {
       font-size: 15px;
       font-weight: 700;
       color: var(--slate);
-      margin-bottom: 4px;
       line-height: 1.3;
     }
 
@@ -1557,8 +1564,10 @@
         <div class="product-card" data-category="business-cards" data-bestseller="1">
           <div class="prod-illus"><img src="images/home/standard-business-cards.jpg" alt="Standard Business Cards" loading="lazy"></div>
           <div class="prod-body">
-            <span class="prod-badge">&#11088; Best Seller</span>
-            <div class="prod-name">Standard Business Cards</div>
+            <div class="prod-name-row">
+              <div class="prod-name">Standard Business Cards</div>
+              <span class="prod-badge">&#11088; Best Seller</span>
+            </div>
             <div class="prod-specs">Standard &middot; 14PT &middot; Gloss UV</div>
             <div class="prod-avail">&#10003; Same-Day</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
@@ -1595,15 +1604,6 @@
           </div>
         </div>
 
-        <div class="product-card" data-category="business-cards" data-bestseller="0">
-          <div class="prod-illus"><img src="images/home/mini-business-cards.jpg" alt="Mini Business Cards" loading="lazy"></div>
-          <div class="prod-body">
-            <div class="prod-name">Mini Business Cards</div>
-            <div class="prod-specs">3.5&times;1.5" &middot; 14PT</div>
-            <div class="prod-avail std">1&ndash;2 Days</div>
-            <a href="quote.html" class="prod-cta">Get a Quote</a>
-          </div>
-        </div>
 
         <div class="product-card" data-category="business-cards" data-bestseller="0">
           <div class="prod-illus"><img src="images/home/square-business-cards.jpg" alt="Square Business Cards" loading="lazy"></div>
@@ -1619,8 +1619,10 @@
         <div class="product-card" data-category="marketing" data-bestseller="1">
           <div class="prod-illus"><img src="images/home/flyers.jpg" alt="Flyers" loading="lazy"></div>
           <div class="prod-body">
-            <span class="prod-badge">&#11088; Best Seller</span>
-            <div class="prod-name">Flyers</div>
+            <div class="prod-name-row">
+              <div class="prod-name">Flyers</div>
+              <span class="prod-badge">&#11088; Best Seller</span>
+            </div>
             <div class="prod-specs">8.5&times;11" &middot; Full Color &middot; 100lb</div>
             <div class="prod-avail">&#10003; Same-Day</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
@@ -1640,8 +1642,10 @@
         <div class="product-card" data-category="marketing" data-bestseller="1">
           <div class="prod-illus"><img src="images/home/trifold-brochures.jpg" alt="Tri-Fold Brochures" loading="lazy"></div>
           <div class="prod-body">
-            <span class="prod-badge">&#11088; Best Seller</span>
-            <div class="prod-name">Tri-Fold Brochures</div>
+            <div class="prod-name-row">
+              <div class="prod-name">Tri-Fold Brochures</div>
+              <span class="prod-badge">&#11088; Best Seller</span>
+            </div>
             <div class="prod-specs">8.5&times;11" folded &middot; 100lb Gloss</div>
             <div class="prod-avail std">1&ndash;2 Days</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
@@ -1682,8 +1686,10 @@
         <div class="product-card" data-category="large-format" data-bestseller="1">
           <div class="prod-illus"><img src="images/home/vinyl-banners.jpg" alt="Vinyl Banners" loading="lazy"></div>
           <div class="prod-body">
-            <span class="prod-badge">&#11088; Best Seller</span>
-            <div class="prod-name">Vinyl Banners</div>
+            <div class="prod-name-row">
+              <div class="prod-name">Vinyl Banners</div>
+              <span class="prod-badge">&#11088; Best Seller</span>
+            </div>
             <div class="prod-specs">13oz vinyl &middot; Grommets included</div>
             <div class="prod-avail std">1&ndash;2 Days</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
@@ -1730,22 +1736,14 @@
           </div>
         </div>
 
-        <div class="product-card" data-category="large-format" data-bestseller="0">
-          <div class="prod-illus"><img src="images/home/step-repeat-banners.jpg" alt="Step &amp; Repeat Banners" loading="lazy"></div>
-          <div class="prod-body">
-            <div class="prod-name">Step &amp; Repeat Banners</div>
-            <div class="prod-specs">Custom sizes &middot; Event ready</div>
-            <div class="prod-avail std">3&ndash;5 Days</div>
-            <a href="quote.html" class="prod-cta">Get a Quote</a>
-          </div>
-        </div>
-
         <!-- STICKERS & LABELS -->
         <div class="product-card" data-category="stickers" data-bestseller="1">
           <div class="prod-illus"><img src="images/home/die-cut-stickers.jpg" alt="Die-Cut Stickers" loading="lazy"></div>
           <div class="prod-body">
-            <span class="prod-badge">&#11088; Best Seller</span>
-            <div class="prod-name">Die-Cut Stickers</div>
+            <div class="prod-name-row">
+              <div class="prod-name">Die-Cut Stickers</div>
+              <span class="prod-badge">&#11088; Best Seller</span>
+            </div>
             <div class="prod-specs">Custom shapes &middot; Vinyl</div>
             <div class="prod-avail std">2&ndash;3 Days</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
@@ -1757,16 +1755,6 @@
           <div class="prod-body">
             <div class="prod-name">Kiss-Cut Stickers</div>
             <div class="prod-specs">Sheet format &middot; Easy peel</div>
-            <div class="prod-avail std">2&ndash;3 Days</div>
-            <a href="quote.html" class="prod-cta">Get a Quote</a>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="stickers" data-bestseller="0">
-          <div class="prod-illus"><img src="images/home/circle-oval-stickers.jpg" alt="Circle &amp; Oval Stickers" loading="lazy"></div>
-          <div class="prod-body">
-            <div class="prod-name">Circle &amp; Oval Stickers</div>
-            <div class="prod-specs">1"&ndash;4" &middot; Waterproof</div>
             <div class="prod-avail std">2&ndash;3 Days</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
           </div>
@@ -1796,8 +1784,10 @@
         <div class="product-card" data-category="bound" data-bestseller="1">
           <div class="prod-illus"><img src="images/home/saddle-stitch-booklets.jpg" alt="Saddle Stitch Booklets" loading="lazy"></div>
           <div class="prod-body">
-            <span class="prod-badge">&#11088; Best Seller</span>
-            <div class="prod-name">Saddle Stitch Booklets</div>
+            <div class="prod-name-row">
+              <div class="prod-name">Saddle Stitch Booklets</div>
+              <span class="prod-badge">&#11088; Best Seller</span>
+            </div>
             <div class="prod-specs">8&ndash;80 pages &middot; Staple bound</div>
             <div class="prod-avail std">3&ndash;5 Days</div>
             <a href="quote.html" class="prod-cta">Get a Quote</a>
