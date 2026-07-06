@@ -60,7 +60,8 @@
       "Bash(rg -l \"images/portfolio/\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
       "Bash(rg -l \"hero-flyer-cutout\" \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site\"/*.html)",
       "Bash(git commit -m 'Split homepage images into their own directory *)",
-      "Bash(git commit -m 'Give every homepage product card its own unique image slot *)"
+      "Bash(git commit -m 'Give every homepage product card its own unique image slot *)",
+      "Bash(git commit -m 'Restructure each brand suite into a two-column layout *)"
     ]
   }
 }
