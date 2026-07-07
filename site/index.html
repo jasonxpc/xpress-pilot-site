@@ -648,7 +648,7 @@
   transition: border-color .2s, transform .2s, box-shadow .2s;
   text-decoration: none;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   background: var(--white);
 }
@@ -661,34 +661,25 @@
   flex: 1;
   min-width: 0;
 }
-.ind-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--cyan-tint);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  color: var(--cyan);
-}
-.ind-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.5; }
 .ind-name { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .ind-products { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 .ind-tag { display: inline-block; font-size: 11px; font-weight: 600; color: var(--cyan); background: var(--cyan-tint); border-radius: 4px; padding: 2px 8px; margin-top: 10px; }
 .ind-img-wrap {
-  width: 88px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
   flex-shrink: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #F1F5F9;
+  border-radius: 50%;
+  background: var(--cyan-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.ind-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(.92) brightness(1.02) contrast(.97);
+.ind-img-wrap svg {
+  width: 34px;
+  height: 34px;
+  stroke: var(--cyan);
+  fill: none;
+  stroke-width: 1.5;
 }
 
     /* ─── HOW IT WORKS ─── */
@@ -2079,105 +2070,78 @@
 
         <a href="portfolio.html#real-estate" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
             <div class="ind-name">Real Estate</div>
             <div class="ind-products">Flyers &middot; Postcards &middot; Yard Signs &middot; Brochures &middot; Business Cards</div>
             <span class="ind-tag">Most Popular</span>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-real-estate.jpg" alt="Real Estate" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         </a>
 
         <a href="portfolio.html#restaurant-food" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-            </div>
             <div class="ind-name">Restaurant &amp; Food Service</div>
             <div class="ind-products">Menus &middot; Table Tents &middot; Flyers &middot; Business Cards &middot; Rack Cards</div>
             <span class="ind-tag">Same-Day Available</span>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-restaurant.jpg" alt="Restaurant &amp; Food Service" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
         </a>
 
         <a href="portfolio.html#corporate-professional" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-            </div>
             <div class="ind-name">Corporate &amp; Professional</div>
             <div class="ind-products">Business Cards &middot; Letterhead &middot; Folders &middot; Notepads &middot; Brochures</div>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-corporate.jpg" alt="Corporate &amp; Professional" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
         </a>
 
         <a href="portfolio.html#event-wedding" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
             <div class="ind-name">Event &amp; Wedding</div>
             <div class="ind-products">Invitations &middot; Programs &middot; Signage &middot; Banners &middot; Table Cards</div>
             <span class="ind-tag">Rush Available</span>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-event-wedding.jpg" alt="Event &amp; Wedding" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         </a>
 
         <a href="portfolio.html#retail-boutique" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            </div>
             <div class="ind-name">Retail &amp; Boutique</div>
             <div class="ind-products">Hang Tags &middot; Labels &middot; Stickers &middot; Bags &middot; Promotional Flyers</div>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-retail-boutique.jpg" alt="Retail &amp; Boutique" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
         </a>
 
         <a href="portfolio.html#school-education" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
             <div class="ind-name">School &amp; Education</div>
             <div class="ind-products">Yearbooks &middot; Programs &middot; Banners &middot; Flyers &middot; Recognition Certificates</div>
             <span class="ind-tag">Bulk Pricing</span>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-school.jpg" alt="School &amp; Education" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
         </a>
 
         <a href="portfolio.html#nonprofit-church" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-            </div>
             <div class="ind-name">Non-Profit &amp; Church</div>
             <div class="ind-products">Event Programs &middot; Flyers &middot; Banners &middot; Booklets &middot; Donation Cards</div>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-nonprofit.jpg" alt="Non-Profit &amp; Church" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
         </a>
 
         <a href="portfolio.html#healthcare-wellness" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
             <div class="ind-name">Healthcare &amp; Wellness</div>
             <div class="ind-products">Appointment Cards &middot; Brochures &middot; NCR Forms &middot; Notepads &middot; Signage</div>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-healthcare.jpg" alt="Healthcare &amp; Wellness" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
         </a>
 
         <a href="portfolio.html#personal-creative" class="ind-card">
           <div class="ind-content">
-            <div class="ind-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-            </div>
             <div class="ind-name">Personal &amp; Creative</div>
             <div class="ind-products">Art Prints &middot; Stickers &middot; Custom Cards &middot; Portfolios &middot; Zines</div>
           </div>
-          <div class="ind-img-wrap"><img src="images/home/industry-personal-creative.jpg" alt="Personal &amp; Creative" loading="lazy"></div>
+          <div class="ind-img-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div>
         </a>
 
       </div>
