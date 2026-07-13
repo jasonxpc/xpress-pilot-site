@@ -286,12 +286,16 @@ a { text-decoration: none; color: inherit; }
 .equipment .section-eyebrow { color: var(--sky); }
 .equipment .section-title { color: var(--white); }
 .equipment .section-sub { color: rgba(255,255,255,.55); }
-.equip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; }
+.equip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-top: 48px; }
+.equip-category-title {
+  grid-column: 1 / -1; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--sky); margin-top: 28px; margin-bottom: 4px;
+}
+.equip-category-title:first-child { margin-top: 0; }
 .equip-item {
-  padding: 24px 32px 24px 0; border-bottom: 1px solid rgba(255,255,255,.1);
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1);
   display: flex; gap: 16px; align-items: flex-start;
 }
-.equip-item:nth-child(even) { padding-left: 32px; padding-right: 0; border-left: 1px solid rgba(255,255,255,.1); }
 .equip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); margin-top: 7px; flex-shrink: 0; }
 .equip-name { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
 .equip-desc { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6; }
@@ -714,10 +718,9 @@ a { text-decoration: none; color: inherit; }
     </div>
     <div>
       <div class="story-eyebrow">How It Started</div>
-      <!-- [PLACEHOLDER: verify founding story and owner's last name] -->
       <h2>Built from the ground up in Irvine</h2>
       <p>
-        Robert [Last Name] founded Xpress Printing in 1989 with a single press and a simple belief: local businesses deserve professional-quality printing without the big-city wait times or pricing. Starting from a small shop in Irvine, the business grew through word of mouth &mdash; one satisfied client at a time.
+        Robert Lee founded Xpress Printing in 1989 with a single press and a simple belief: local businesses deserve professional-quality printing without the big-city wait times or pricing. Starting from a small shop in Irvine, the business grew through word of mouth &mdash; one satisfied client at a time.
       </p>
     </div>
   </div>
@@ -844,47 +847,109 @@ a { text-decoration: none; color: inherit; }
     <img src="images/about/about-shop-overview.jpg" alt="Xpress Printing production floor" style="width:100%; height:340px; object-fit:cover; display:block;">
   </div>
 
-  <!-- [PLACEHOLDER: Replace placeholder equipment list below with actual press makes/models] -->
   <div class="equip-grid">
-    <div class="equip-item">
-      <div class="equip-dot"></div>
-      <div>
-        <div class="equip-name">HP Indigo Digital Press</div>
-        <div class="equip-desc">High-fidelity digital offset for short-run color accuracy</div>
-      </div>
-    </div>
-    <div class="equip-item">
-      <div class="equip-dot"></div>
-      <div>
-        <div class="equip-name">Roland Wide-Format Printer</div>
-        <div class="equip-desc">Up to 60&quot; wide for banners, signs, and large-format display</div>
-      </div>
-    </div>
-    <div class="equip-item">
-      <div class="equip-dot"></div>
-      <div>
-        <div class="equip-name">Heidelberg Cutting System</div>
-        <div class="equip-desc">Precision die-cutting and trimming for clean, consistent edges</div>
-      </div>
-    </div>
-    <div class="equip-item">
-      <div class="equip-dot"></div>
-      <div>
-        <div class="equip-name">Binding &amp; Finishing Station</div>
-        <div class="equip-desc">In-house saddle stitch, perfect bind, spiral, and coil binding</div>
-      </div>
-    </div>
-    <div class="equip-item">
-      <div class="equip-dot"></div>
-      <div>
-        <div class="equip-name">Lamination &amp; Coating</div>
-        <div class="equip-desc">Gloss UV, matte, and soft-touch lamination &mdash; applied in-house</div>
-      </div>
-    </div>
-  </div>
-  <!-- [PLACEHOLDER: Replace with actual press makes/models — verify with owner] -->
 
-  <p class="equip-note">Equipment list is representative. Contact us for current capabilities.</p>
+    <div class="equip-category-title">Digital Color Press</div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Canon imagePRESS C810</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Canon imagePRESS V800</div>
+      </div>
+    </div>
+
+    <div class="equip-category-title">Offset Press</div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">6-Color Komori</div>
+        <div class="equip-desc">Offset press</div>
+      </div>
+    </div>
+
+    <div class="equip-category-title">Large Format (Banner &amp; Poster)</div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Canon iPF-9400</div>
+        <div class="equip-desc">60&quot; width</div>
+      </div>
+    </div>
+
+    <div class="equip-category-title">Prepress</div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Accento IIS CTP</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Epson 7600</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">HP DesignJet 2500CP</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Teaneck Frame</div>
+      </div>
+    </div>
+
+    <div class="equip-category-title">Lamination &amp; Coating</div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Tec Lighting TRUVF-21D</div>
+        <div class="equip-desc">UV coater</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Fuji Laminator</div>
+        <div class="equip-desc">12.5&quot; &times; 19&quot;</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">DuPont Laminator &amp; Processor</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">SEAL Laminator</div>
+      </div>
+    </div>
+
+    <div class="equip-category-title">Finishing</div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Score / Perforation</div>
+      </div>
+    </div>
+    <div class="equip-item">
+      <div class="equip-dot"></div>
+      <div>
+        <div class="equip-name">Round Cornering Machine</div>
+      </div>
+    </div>
+
+  </div>
  </div>
 </section>
 

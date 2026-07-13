@@ -46,7 +46,8 @@
       "Bash(curl -sI \"http://localhost:8787/images/products/business-cards-sq.jpg\")",
       "Bash(awk '/^  .Business Cards.: \\\\{/,/^  \\\\},$/' \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot/site/quote.html\")",
       "Bash(git add *)",
-      "Bash(cd \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot\" && rm .git/index.lock && git add -A && git status)"
+      "Bash(cd \"/Users/esmac/pCloud Drive/Xpress Printing/Marketing/Website/Xpress Pilot\" && rm .git/index.lock && git add -A && git status)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
