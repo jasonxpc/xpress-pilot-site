@@ -24,6 +24,7 @@ PAGE_NAV = {
     'services.html':  'services',
     'pricing.html':   'pricing',
     'portfolio.html': 'portfolio',
+    'login.html':     'login',
 }
 
 pages = glob.glob(os.path.join(BASE, '*.html'))
@@ -43,14 +44,31 @@ for path in pages:
             r'\1 class="active"',
             NAV_HTML
         )
+        # If the element already had a class attribute (e.g. class="btn-account"),
+        # the substitution above creates a second class="..." on the same tag.
+        # Merge them into one instead of leaving invalid duplicate attributes.
+        nav = re.sub(
+            r'class="([^"]*)"( data-nav="' + re.escape(nav_key) + r'") class="active"',
+            r'class="\1 active"\2',
+            nav
+        )
     else:
         nav = NAV_HTML
 
-    # Replace site-nav placeholder OR existing <nav ...>...</nav>
+    # Replace site-nav placeholder OR existing <style>...</style>* + <nav ...>...</nav>
     if '<div id="site-nav"></div>' in c:
         c = c.replace('<div id="site-nav"></div>', nav)
     else:
-        c = re.sub(r'<nav\b[^>]*>.*?</nav>', nav, c, flags=re.DOTALL)
+        # NAV_HTML ships its own <style> block(s) (nav-prod-panel dropdown CSS)
+        # right before <nav>. Earlier versions of this script only replaced the
+        # <nav> tag itself, leaving stale style blocks behind on every rerun —
+        # strip any of those duplicates too, or they silently pile up forever.
+        c = re.sub(
+            r'(?:<style>(?:(?!</style>).)*?nav-prod-panel(?:(?!</style>).)*?</style>\s*)*<nav\b[^>]*>.*?</nav>',
+            nav,
+            c,
+            flags=re.DOTALL
+        )
 
     # Replace site-footer placeholder OR existing <footer ...>...</footer> + toast/clipboard
     if '<div id="site-footer"></div>' in c:

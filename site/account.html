@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="XP26-Symbol-Tr.png">
+  <title>Sign Up — Xpress Printing | Irvine, CA</title>
+  <meta name="description" content="Create a free Xpress Printing account to save your info, track quotes, and reorder in a click." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:      #1E2D3D;
+      --cyan:       #0891B2;
+      --sky:        #38BDF8;
+      --crimson:    #DC2626;
+      --cyan-tint:  #E0F2FE;
+      --cool-white: #F8FAFC;
+      --white:      #FFFFFF;
+      --text:       #111827;
+      --text-muted: #6B7280;
+      --border:     #E2E8F0;
+      --font: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--cool-white); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ─── */
+    .nav { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid #E2E8F0; height: 64px; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+    .nav-logo-symbol-wrap { height: 32px; overflow: hidden; flex-shrink: 0; transform: translate(1px, -2px); }
+    .nav-logo-symbol { height: 52px; width: auto; display: block; position: relative; top: -8px; }
+    .nav-logo-text   { height: 22px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--slate); transition: color .15s; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { font-size: 14px; font-weight: 500; color: var(--slate); transition: color .15s; cursor: default; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: var(--cyan); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-upload { font-family: var(--font); font-size: 13px; font-weight: 600; color: var(--cyan); border: 1.5px solid var(--cyan); background: transparent; padding: 8px 18px; border-radius: 8px; cursor: pointer; transition: background .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
+    .btn-upload:hover { background: var(--cyan-tint); } .btn-account { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--cyan); background: var(--cyan-tint); border: none; padding: 7px 14px 7px 7px; border-radius: 20px; text-decoration: none; white-space: nowrap; transition: opacity .15s; } .btn-account:hover { opacity: .8; } .btn-account-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--white); color: var(--cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .btn-quote-nav { font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--white); background: var(--crimson); border: none; padding: 9px 20px; border-radius: 8px; cursor: pointer; transition: opacity .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
+    .btn-quote-nav:hover { opacity: .88; }
+
+    /* ─── HERO ─── */
+    .account-hero { background: var(--slate); padding: 64px 64px 88px; }
+    .account-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .account-hero-eyebrow { font-size: 12px; font-weight: 700; color: var(--sky); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
+    .account-hero-h1 { font-size: 44px; font-weight: 800; color: var(--white); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 18px; }
+    .account-hero-sub { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.6; max-width: 420px; margin-bottom: 28px; }
+
+    .account-benefits { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .account-benefit { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.75); }
+    .account-benefit-icon { width: 28px; height: 28px; border-radius: 8px; background: rgba(56,189,248,.14); color: var(--sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .account-benefit-icon svg { width: 15px; height: 15px; }
+
+    /* ─── FORM CARD ─── */
+    .account-form-card { background: var(--white); border-radius: 16px; padding: 36px 36px 40px; box-shadow: 0 12px 48px rgba(0,0,0,.22); }
+    .cfc-title { font-size: 18px; font-weight: 800; color: var(--slate); margin-bottom: 4px; }
+    .cfc-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+    .cfc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .cfc-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .cfc-label { font-size: 11px; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: .06em; }
+    .cfc-input { font-family: var(--font); font-size: 14px; color: var(--slate); background: var(--cool-white); border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 14px; width: 100%; outline: none; transition: border-color .15s; }
+    .cfc-input:focus { border-color: var(--cyan); background: var(--white); }
+    .cfc-submit { font-family: var(--font); font-size: 15px; font-weight: 700; color: var(--white); background: var(--crimson); border: none; border-radius: 9px; padding: 13px 28px; width: 100%; cursor: pointer; transition: opacity .15s; margin-top: 6px; }
+    .cfc-submit:hover { opacity: .88; }
+    .cfc-submit:disabled { opacity: .4; cursor: not-allowed; }
+    .cfc-micro { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 14px; }
+    .cfc-micro a { color: var(--cyan); font-weight: 600; }
+
+    /* Account type toggle */
+    .cfc-type-row { display: flex; gap: 8px; margin-bottom: 18px; }
+    .cfc-type-btn { flex: 1; font-family: var(--font); font-size: 13px; font-weight: 600; color: var(--slate); background: var(--cool-white); border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 12px; cursor: pointer; text-align: center; transition: border-color .15s, background .15s, color .15s; }
+    .cfc-type-btn.selected { border-color: var(--cyan); background: var(--cyan-tint); color: var(--cyan); }
+    .cfc-reseller-note { font-size: 12px; color: var(--text-muted); background: var(--cyan-tint); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; display: none; }
+    .cfc-reseller-note.visible { display: block; }
+
+    /* Confirmation */
+    .cfc-confirm { display: none; text-align: center; padding: 24px 0; }
+    .cfc-confirm.visible { display: block; }
+    .cfc-confirm-icon { font-size: 40px; color: var(--cyan); margin-bottom: 12px; }
+    .cfc-confirm-h { font-size: 20px; font-weight: 800; color: var(--slate); margin-bottom: 6px; }
+    .cfc-confirm-sub { font-size: 14px; color: var(--text-muted); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .btn-upload { display: none; }
+      .account-hero { padding: 40px 24px 64px; }
+      .account-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .account-hero-h1 { font-size: 32px; }
+    }
+    @media (max-width: 480px) {
+      .cfc-row { grid-template-columns: 1fr; }
+    }
+
+    /* ─── FOOTER ─── */
+    .footer { background: var(--slate); border-top: 1px solid rgba(255,255,255,.08); padding: 56px 64px 32px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-brand-logo-img { height: 26px; width: auto; display: block; margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.6; margin-bottom: 18px; }
+    .footer-contact-links { display: flex; flex-direction: column; gap: 9px; }
+    .footer-contact-link { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(255,255,255,.6); transition: color .15s; text-decoration: none; }
+    .footer-contact-link svg { flex-shrink: 0; margin-top: 1px; color: rgba(255,255,255,.35); }
+    .footer-contact-link:hover { color: var(--cyan); }
+    .footer-contact-link:hover svg { color: var(--cyan); }
+    .footer-slogan { margin-top: 16px; font-size: 13px; font-weight: 400; color: rgba(255,255,255,.9); line-height: 1.5; }
+    .footer-slogan strong { font-weight: 700; }
+    .footer-col-title { font-size: 12px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,.6); transition: color .15s; }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-hours { display: flex; flex-direction: column; gap: 8px; }
+    .footer-hour-row { font-size: 13px; color: rgba(255,255,255,.6); }
+    .footer-same-day { font-size: 13px; color: var(--cyan); margin-top: 4px; }
+    .footer-bottom { max-width: 1200px; margin: 28px auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,.3); }
+    .footer-badge { font-size: 12px; font-weight: 600; color: var(--cyan); background: rgba(8,145,178,.12); border: 1px solid rgba(8,145,178,.25); border-radius: 20px; padding: 4px 14px; }
+    @media (max-width: 960px) {
+      .footer { padding: 48px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── COPY TOAST ─── */
+    .copy-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(12px); background: var(--slate); color: var(--white); font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 8px 24px rgba(0,0,0,.3); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 9999; white-space: nowrap; }
+    .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
+      <div class="nav-logo-symbol-wrap">
+        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+            <a href="quote.html?product=Placemats" class="nav-prod-item">Placemats</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DB2777; background:#FCE7F3;">Stickers &amp; Labels</span>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Remittance+Envelopes" class="nav-prod-item">Remittance Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books / NCR Forms</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Direct Mail Services</span>
+            <a href="quote.html?product=Postcards&mailing=1" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Flyers&mailing=1" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures&mailing=1" class="nav-prod-item">Half-Fold Brochures</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="portfolio.html" data-nav="portfolio">By Industry</a></li>
+      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn-account" data-nav="login">
+        <span class="btn-account-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
+        Log In
+      </a>
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+    </div>
+  </nav>
+
+<!-- ─── HERO + SIGNUP FORM ─── -->
+<section class="account-hero">
+  <div class="account-hero-inner">
+    <div>
+      <p class="account-hero-eyebrow">Free Account &middot; 30-Second Signup</p>
+      <h1 class="account-hero-h1"><span style="color:#F59E0B">Save</span> <span style="color:#38BDF8">time</span> on<br>every <span style="color:#8DC63F">reorder</span>.</h1>
+      <p class="account-hero-sub">Create a free account and we'll keep your business info, past quotes, and order specs on file — so reordering is just a click, not a whole new quote.</p>
+      <ul class="account-benefits">
+        <li class="account-benefit">
+          <span class="account-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Reorder past jobs in one click — no re-entering specs
+        </li>
+        <li class="account-benefit">
+          <span class="account-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Track quote status and order history in one place
+        </li>
+        <li class="account-benefit">
+          <span class="account-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Faster checkout — your business info is already saved
+        </li>
+      </ul>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div class="account-form-card">
+      <p class="cfc-title">Create your account</p>
+      <p class="cfc-sub" id="cfc-sub">Takes about 30 seconds. We'll email you to confirm.</p>
+
+      <!-- Confirmation -->
+      <div class="cfc-confirm" id="cfc-confirm">
+        <div class="cfc-confirm-icon">&#10003;</div>
+        <div class="cfc-confirm-h" id="cfc-confirm-h">Request received!</div>
+        <p class="cfc-confirm-sub" id="cfc-confirm-sub">We'll email you shortly to finish setting up your account.</p>
+      </div>
+
+      <form id="signup-form" action="https://formspree.io/f/REPLACE_WITH_ID" method="POST">
+        <input type="hidden" name="_subject" id="s-subject" value="New Account Signup — Xpress Printing">
+        <input type="hidden" name="account_type" id="s-account-type" value="Customer">
+
+        <div class="cfc-type-row">
+          <button type="button" class="cfc-type-btn selected" id="s-type-customer" onclick="setAccountType('Customer')">Customer</button>
+          <button type="button" class="cfc-type-btn" id="s-type-reseller" onclick="setAccountType('Reseller')">Reseller / Wholesale</button>
+        </div>
+        <p class="cfc-reseller-note" id="cfc-reseller-note">Reseller accounts are manually reviewed before activation — we'll verify your resale certificate and follow up with wholesale pricing.</p>
+
+        <div class="cfc-field">
+          <label class="cfc-label" for="s-name">Full Name</label>
+          <input class="cfc-input" type="text" id="s-name" name="name" placeholder="Jane Smith" required>
+        </div>
+
+        <div class="cfc-row">
+          <div class="cfc-field">
+            <label class="cfc-label" for="s-email">Email</label>
+            <input class="cfc-input" type="email" id="s-email" name="email" placeholder="jane@company.com" required>
+          </div>
+          <div class="cfc-field">
+            <label class="cfc-label" for="s-phone">Phone</label>
+            <input class="cfc-input" type="tel" id="s-phone" name="phone" placeholder="(949) 555-0100" required>
+          </div>
+        </div>
+
+        <div class="cfc-field">
+          <label class="cfc-label" for="s-company">Company <span style="font-weight:400;color:var(--text-muted)" id="s-company-optional-tag">(optional)</span></label>
+          <input class="cfc-input" type="text" id="s-company" name="company" placeholder="Acme Corp">
+        </div>
+
+        <div class="cfc-field" id="s-resale-field" style="display:none">
+          <label class="cfc-label" for="s-resale">Resale Certificate / Seller's Permit Number</label>
+          <input class="cfc-input" type="text" id="s-resale" name="resale_certificate" placeholder="e.g. CA Seller's Permit #">
+        </div>
+
+        <div class="cfc-field">
+          <label class="cfc-label" for="s-address">Business Address <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+          <input class="cfc-input" type="text" id="s-address" name="address" placeholder="123 Main St, Irvine, CA 92614">
+        </div>
+
+        <div class="cfc-field">
+          <label class="cfc-label" for="s-source">How did you hear about us? <span style="font-weight:400;color:var(--text-muted)">(optional)</span></label>
+          <select class="cfc-input" id="s-source" name="source">
+            <option value="">— Select —</option>
+            <option value="Google Search">Google Search</option>
+            <option value="Referral / Friend">Referral / Friend</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Walked By / Local Signage">Walked By / Local Signage</option>
+            <option value="Returning Customer">Returning Customer</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="cfc-submit" id="s-submit">Create Account &rarr;</button>
+        <p class="cfc-micro">Already have an account? <a href="login.html">Log In</a> &middot; Already ordered with us? <a href="contact.html">Contact us</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+function setAccountType(type) {
+  document.getElementById('s-account-type').value = type;
+  document.getElementById('s-type-customer').classList.toggle('selected', type === 'Customer');
+  document.getElementById('s-type-reseller').classList.toggle('selected', type === 'Reseller');
+  var isReseller = type === 'Reseller';
+  document.getElementById('cfc-reseller-note').classList.toggle('visible', isReseller);
+  document.getElementById('s-resale-field').style.display = isReseller ? '' : 'none';
+  document.getElementById('s-resale').required = isReseller;
+  // Reseller accounts need a business identity — company stops being optional.
+  document.getElementById('s-company').required = isReseller;
+  document.getElementById('s-company-optional-tag').style.display = isReseller ? 'none' : '';
+  document.getElementById('cfc-sub').textContent = isReseller
+    ? 'Reseller applications are reviewed before activation — usually within 1 business day.'
+    : "Takes about 30 seconds. We'll email you to confirm.";
+  document.getElementById('s-subject').value = isReseller
+    ? 'New Reseller Account Application — Xpress Printing'
+    : 'New Account Signup — Xpress Printing';
+  document.getElementById('cfc-confirm-h').textContent = isReseller ? 'Application received!' : 'Request received!';
+  document.getElementById('cfc-confirm-sub').textContent = isReseller
+    ? "We'll review your resale certificate and follow up within 1 business day with wholesale pricing."
+    : "We'll email you shortly to finish setting up your account.";
+}
+
+document.getElementById('signup-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('s-submit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  var fd = new FormData(this);
+  fetch(this.action, {
+    method: 'POST',
+    body: fd,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(resp) {
+    if (resp.ok) {
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('cfc-confirm').classList.add('visible');
+    } else {
+      alert('Something went wrong. Please call us at (949) 851-9710.');
+      btn.disabled = false;
+      btn.textContent = 'Create Account →';
+    }
+  })
+  .catch(function() {
+    alert('Something went wrong. Please call us at (949) 851-9710.');
+    btn.disabled = false;
+    btn.textContent = 'Create Account →';
+  });
+});
+</script>
+<footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">By Industry</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

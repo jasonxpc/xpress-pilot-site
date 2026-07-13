@@ -156,7 +156,7 @@ a { text-decoration: none; color: inherit; }
       display: inline-block;
     }
 
-    .btn-upload:hover { background: var(--cyan-tint); }
+    .btn-upload:hover { background: var(--cyan-tint); } .btn-account { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--cyan); background: var(--cyan-tint); border: none; padding: 7px 14px 7px 7px; border-radius: 20px; text-decoration: none; white-space: nowrap; transition: opacity .15s; } .btn-account:hover { opacity: .8; } .btn-account-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--white); color: var(--cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
     .btn-quote-nav {
       font-family: var(--font);
@@ -183,6 +183,9 @@ a { text-decoration: none; color: inherit; }
 /* ── HERO ─────────────────────────────────────────── */
 .hero {
   background: var(--slate); padding: 72px 64px;
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
   display: grid; grid-template-columns: 60fr 40fr; gap: 64px; align-items: center;
 }
 .hero-eyebrow {
@@ -219,6 +222,7 @@ a { text-decoration: none; color: inherit; }
 /* ── NUMBERS ──────────────────────────────────────── */
 .numbers { background: var(--white); padding: 64px; }
 .numbers-inner {
+  max-width: 1200px; margin: 0 auto;
   display: grid; grid-template-columns: repeat(4, 1fr);
   border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
 }
@@ -233,6 +237,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── STORY ────────────────────────────────────────── */
 .story { background: var(--white); padding: 72px 64px; }
+.story-inner { max-width: 1200px; margin: 0 auto; }
 .story-block {
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
   align-items: center; margin-bottom: 72px;
@@ -254,6 +259,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── CAPABILITIES ─────────────────────────────────── */
 .capabilities { background: var(--cool-white); padding: 72px 64px; }
+.capabilities-inner { max-width: 1200px; margin: 0 auto; }
 .section-eyebrow {
   font-size: 12px !important; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--cyan) !important; margin-bottom: 14px;
@@ -276,6 +282,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── EQUIPMENT ────────────────────────────────────── */
 .equipment { background: var(--slate); padding: 72px 64px; }
+.equipment-inner { max-width: 1200px; margin: 0 auto; }
 .equipment .section-eyebrow { color: var(--sky); }
 .equipment .section-title { color: var(--white); }
 .equipment .section-sub { color: rgba(255,255,255,.55); }
@@ -292,6 +299,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── TEAM ─────────────────────────────────────────── */
 .team { background: var(--white); padding: 72px 64px; }
+.team-inner { max-width: 1200px; margin: 0 auto; }
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
 .team-card {
   background: var(--cool-white); border: 1px solid var(--border); border-radius: 12px;
@@ -310,6 +318,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── COMMUNITY / VALUES ───────────────────────────── */
 .values { background: var(--cool-white); padding: 72px 64px; }
+.values-inner { max-width: 1200px; margin: 0 auto; }
 .values-intro { max-width: 660px; margin-bottom: 48px; }
 .values-intro p { font-size: 16px; color: var(--text-muted); line-height: 1.75; margin-top: 16px; }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -322,6 +331,9 @@ a { text-decoration: none; color: inherit; }
 /* ── CTA STRIP ────────────────────────────────────── */
 .cta-strip {
   background: var(--slate); padding: 72px 64px;
+}
+.cta-strip-inner {
+  max-width: 1200px; margin: 0 auto;
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;
 }
 .cta-strip h2 { font-size: 36px; font-weight: 800; color: var(--white); letter-spacing: -.01em; }
@@ -535,490 +547,6 @@ a { text-decoration: none; color: inherit; }
   }
   .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
 </style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
-<style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-</style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
       <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
@@ -1040,14 +568,22 @@ a { text-decoration: none; color: inherit; }
             <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
             <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
             <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+            <a href="quote.html?product=Placemats" class="nav-prod-item">Placemats</a>
           </div>
 
           <div class="nav-prod-group">
             <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
             <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
             <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
-            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
             <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DB2777; background:#FCE7F3;">Stickers &amp; Labels</span>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
           </div>
 
           <div class="nav-prod-group">
@@ -1062,22 +598,22 @@ a { text-decoration: none; color: inherit; }
             <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
             <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
             <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
-            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Events &amp; Retail</span>
-            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
-            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
           </div>
 
           <div class="nav-prod-group">
             <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
             <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
             <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Remittance+Envelopes" class="nav-prod-item">Remittance Envelopes</a>
             <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
-            <a href="quote.html?product=NCR+Forms" class="nav-prod-item">NCR Forms</a>
-            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books / NCR Forms</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Direct Mail Services</span>
+            <a href="quote.html?product=Postcards&mailing=1" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Flyers&mailing=1" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures&mailing=1" class="nav-prod-item">Half-Fold Brochures</a>
           </div>
 
         </div>
@@ -1090,6 +626,10 @@ a { text-decoration: none; color: inherit; }
     </ul>
 
     <div class="nav-actions">
+      <a href="login.html" class="btn-account" data-nav="login">
+        <span class="btn-account-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>
+        Log In
+      </a>
       <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
       <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
     </div>
@@ -1097,13 +637,14 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
 <section class="hero">
+ <div class="hero-inner">
   <div>
     <p class="hero-eyebrow" style="color:var(--cyan)">Our Story</p>
     <h1>35 years of <span class="h1-cyan">getting</span> <span class="h1-warm">it</span> <span class="h1-lime">right.</span></h1>
     <p class="hero-body">
       Xpress Printing has been serving Irvine businesses since 1989. We've printed business cards for startups that became Fortune 500 companies, banners for grand openings that turned into 20-year clients, and everything in between. We're not a chain. We're your neighbor.
     </p>
-    <a href="#team" class="btn btn-outline-white btn-lg">Meet the Team &rarr;</a>
+    <a href="quote.html" class="btn btn-outline-white btn-lg">Get a Quote &rarr;</a>
   </div>
 
   <div class="info-card">
@@ -1133,6 +674,7 @@ a { text-decoration: none; color: inherit; }
       <span>1989</span>
     </div>
   </div>
+ </div>
 </section>
 
 <!-- ══ BY THE NUMBERS ════════════════════════════════════════════════ -->
@@ -1163,20 +705,19 @@ a { text-decoration: none; color: inherit; }
 
 <!-- ══ OUR STORY ═════════════════════════════════════════════════════ -->
 <section class="story">
+ <div class="story-inner">
 
   <!-- Block 1: image left, text right -->
   <div class="story-block">
-    <div class="placeholder-img" style="background: var(--cyan-tint);">
-      <!-- [PLACEHOLDER: Add shop exterior or interior photo here] -->
-      <span style="font-size:28px;">&#128247;</span>
-      <span>Shop Photo &mdash; [PLACEHOLDER]</span>
+    <div class="placeholder-img" style="padding:0; overflow:hidden;">
+      <img src="images/about/about-press-digital.jpg" alt="Digital press at Xpress Printing" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
     <div>
       <div class="story-eyebrow">How It Started</div>
       <!-- [PLACEHOLDER: verify founding story and owner's last name] -->
       <h2>Built from the ground up in Irvine</h2>
       <p>
-        Jason [Last Name] founded Xpress Printing in 1989 with a single press and a simple belief: local businesses deserve professional-quality printing without the big-city wait times or pricing. Starting from a small shop in Irvine, the business grew through word of mouth &mdash; one satisfied client at a time.
+        Robert [Last Name] founded Xpress Printing in 1989 with a single press and a simple belief: local businesses deserve professional-quality printing without the big-city wait times or pricing. Starting from a small shop in Irvine, the business grew through word of mouth &mdash; one satisfied client at a time.
       </p>
     </div>
   </div>
@@ -1190,17 +731,17 @@ a { text-decoration: none; color: inherit; }
         We've grown our capabilities and our team, but our commitment hasn't changed. Every job that comes through our door is reviewed by an experienced printer &mdash; not a bot, not an algorithm. We catch file problems before they become print problems. We answer the phone. We know your name.
       </p>
     </div>
-    <div class="placeholder-img" style="background: #F1F5F9;">
-      <!-- [PLACEHOLDER: Add press room or production floor photo here] -->
-      <span style="font-size:28px;">&#128247;</span>
-      <span>Press Room Photo &mdash; [PLACEHOLDER]</span>
+    <div class="placeholder-img" style="padding:0; overflow:hidden;">
+      <img src="images/about/about-press-offset-komori.jpg" alt="Komori offset press line at Xpress Printing" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
   </div>
 
+ </div>
 </section>
 
 <!-- ══ CAPABILITIES ══════════════════════════════════════════════════ -->
 <section class="capabilities">
+ <div class="capabilities-inner">
   <p class="section-eyebrow" style="color:var(--cyan)">What We Do</p>
   <h2 class="section-title">Full-service commercial printing</h2>
   <p class="section-sub">From a single business card to a 10,000-piece campaign &mdash; we handle it in-house.</p>
@@ -1289,13 +830,19 @@ a { text-decoration: none; color: inherit; }
     </div>
 
   </div>
+ </div>
 </section>
 
 <!-- ══ EQUIPMENT ═════════════════════════════════════════════════════ -->
 <section class="equipment">
+ <div class="equipment-inner">
   <p class="section-eyebrow" style="color:var(--cyan)">Our Equipment</p>
   <h2 class="section-title">Professional-grade press. Every time.</h2>
   <p class="section-sub">We invest in the equipment that delivers consistent, accurate color and sharp detail &mdash; job after job.</p>
+
+  <div style="border-radius:12px; overflow:hidden; margin-bottom:8px;">
+    <img src="images/about/about-shop-overview.jpg" alt="Xpress Printing production floor" style="width:100%; height:340px; object-fit:cover; display:block;">
+  </div>
 
   <!-- [PLACEHOLDER: Replace placeholder equipment list below with actual press makes/models] -->
   <div class="equip-grid">
@@ -1338,56 +885,12 @@ a { text-decoration: none; color: inherit; }
   <!-- [PLACEHOLDER: Replace with actual press makes/models — verify with owner] -->
 
   <p class="equip-note">Equipment list is representative. Contact us for current capabilities.</p>
-</section>
-
-<!-- ══ TEAM ══════════════════════════════════════════════════════════ -->
-<section class="team" id="team">
-  <p class="section-eyebrow">The Team</p>
-  <h2 class="section-title">The people behind your prints</h2>
-
-  <!-- [PLACEHOLDER: Team photos and bios — owner to provide names, photos, and bios for all team members] -->
-  <div class="team-grid">
-
-    <!-- [PLACEHOLDER: Owner last name, verify bio details] -->
-    <div class="team-card">
-      <div class="team-photo">&#128247; [PLACEHOLDER]</div>
-      <div class="team-info">
-        <div class="team-name">Jason [Last Name]</div>
-        <div class="team-title">Owner &amp; Founder</div>
-        <!-- [PLACEHOLDER: Add real bio from owner] -->
-        <p class="team-bio">Jason founded Xpress Printing in 1989 and has been at the press ever since. He personally reviews every job that comes through the door.</p>
-      </div>
-    </div>
-
-    <!-- [PLACEHOLDER: Production Manager name, years of experience, and bio] -->
-    <div class="team-card">
-      <div class="team-photo">&#128247; [PLACEHOLDER]</div>
-      <div class="team-info">
-        <div class="team-name">[Name]</div>
-        <div class="team-title">Production Manager</div>
-        <!-- [PLACEHOLDER: Add name, years experience, and real bio] -->
-        <p class="team-bio">With [X] years in commercial printing, [Name] oversees every press run from file check to final trim.</p>
-      </div>
-    </div>
-
-    <!-- [PLACEHOLDER: Customer Relations name and bio] -->
-    <div class="team-card">
-      <div class="team-photo">&#128247; [PLACEHOLDER]</div>
-      <div class="team-info">
-        <div class="team-name">[Name]</div>
-        <div class="team-title">Customer Relations</div>
-        <!-- [PLACEHOLDER: Add name and real bio] -->
-        <p class="team-bio">[Name] is your first point of contact &mdash; handling quotes, timelines, and making sure your job comes out exactly right.</p>
-      </div>
-    </div>
-
-  </div>
-  <!-- [PLACEHOLDER: Team photos and bios — owner to provide names, photos, and bios] -->
-
+ </div>
 </section>
 
 <!-- ══ COMMUNITY & VALUES ════════════════════════════════════════════ -->
 <section class="values">
+ <div class="values-inner">
   <div class="values-intro">
     <p class="section-eyebrow" style="color:var(--cyan)">Why Local Matters</p>
     <h2 class="section-title">We're part of this community</h2>
@@ -1410,16 +913,19 @@ a { text-decoration: none; color: inherit; }
       <p>We answer the phone. We know your name. We remember your last order. That&rsquo;s what 35 years of local printing looks like.</p>
     </div>
   </div>
+ </div>
 </section>
 
 <!-- ══ CTA STRIP ═════════════════════════════════════════════════════ -->
 <section class="cta-strip">
+ <div class="cta-strip-inner">
   <h2>Ready to work with us?</h2>
   <p>Get a quote in 30 minutes. No commitment, no hidden fees.</p>
   <div class="cta-btns">
     <a href="quote.html" class="btn-primary">Get a Quote &rarr;</a>
     <a href="mailto:info@xpressprinting.com" class="btn-ghost">info@xpressprinting.com</a>
   </div>
+ </div>
 </section>
 
 <!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
@@ -1499,4 +1005,3 @@ a { text-decoration: none; color: inherit; }
   </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
