@@ -657,7 +657,7 @@ button { cursor: pointer; font-family: var(--font); }
 </style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
-      <img src="XP26-Full-SymbolLeft-Bk.png" alt="Xpress Printing" class="nav-logo-full">
+      <img src="XP26-Full-Bk.png" alt="Xpress Printing" class="nav-logo-full">
     </a>
 
     <ul class="nav-links">
@@ -1015,6 +1015,25 @@ button { cursor: pointer; font-family: var(--font); }
 
 
   <!-- Copy to clipboard -->
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
 <footer class="footer">
     <div class="footer-grid">
       <div>
@@ -1070,22 +1089,6 @@ button { cursor: pointer; font-family: var(--font); }
     </div>
   </footer>
   <div class="copy-toast" id="copy-toast"></div>
-  <script>
-    (function() {
-      // Jump pills: center the target suite in the viewport instead of the
-      // browser's default top-align, which puts it right under the sticky nav.
-      document.addEventListener('click', function(e) {
-        var pill = e.target.closest('.jump-pill');
-        if (!pill) return;
-        var id = pill.getAttribute('href').slice(1);
-        var target = document.getElementById(id);
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        history.pushState(null, '', '#' + id);
-      });
-    })();
-  </script>
   <script>
     (function() {
       var toast = document.getElementById('copy-toast');
