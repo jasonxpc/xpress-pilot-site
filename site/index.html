@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xpress Printing — Fast Commercial Printing in Irvine, CA</title>
-  <meta name="description" content="Professional commercial printing in Irvine, CA since 1989. Business cards, flyers, banners, brochures and more. Same-day pickup available. Get a free quote in 30 minutes." />
+  <meta name="description" content="Professional commercial printing in Irvine, CA since 1984. Business cards, flyers, banners, brochures and more. Same-day pickup available. Get a free quote in 30 minutes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -55,25 +55,12 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 2.6px;
       flex-shrink: 0;
       text-decoration: none;
     }
 
-    .nav-logo-symbol-wrap {
-      height: 32px;
-      overflow: hidden;
-      flex-shrink: 0;
-    transform: translate(1px, -2px);
-  }
-    .nav-logo-symbol {
-      height: 52px;
-      width: auto;
-      display: block;
-      position: relative;
-      top: -8px;
-    }
-    .nav-logo-text   { height: 22px; width: auto; display: block; }
+    .nav-logo-full { height: 36px; width: auto; display: block; }
 
     .nav-links {
       display: flex;
@@ -87,6 +74,7 @@
       font-weight: 500;
       color: var(--slate);
       transition: color .15s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--cyan); }
@@ -228,8 +216,8 @@
 
     .hero-eyebrow {
       font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,.5);
+      font-weight: 700;
+      color: var(--cyan);
       letter-spacing: .1em;
       text-transform: uppercase;
       margin-bottom: 22px;
@@ -257,7 +245,7 @@
       max-width: 480px;
     }
 
-    .hero-search-wrap { max-width: 480px; margin-bottom: 20px; position: relative; }
+    .hero-search-wrap { max-width: 368px; margin-bottom: 20px; position: relative; }
     .hero-divider {
       display: flex;
       align-items: center;
@@ -681,19 +669,20 @@
     .prod-avail.std { color: var(--text-muted); }
 
     .prod-cta {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       font-size: 12px;
       font-weight: 700;
-      color: var(--white);
-      background: var(--crimson);
-      padding: 7px 14px;
-      border-radius: 6px;
-      transition: opacity .15s;
+      color: var(--crimson);
       margin-top: auto;
       align-self: flex-start;
+      opacity: 0;
+      transition: opacity .2s;
     }
+    .prod-cta::after { content: '\2192'; }
 
-    .prod-cta:hover { opacity: .88; }
+    .product-card:hover .prod-cta { opacity: 1; }
 
     /* ─── SMALL QUANTITY SECTION ─── */
 .smallqty {
@@ -1249,10 +1238,7 @@
 </style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
-      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
-      <div class="nav-logo-symbol-wrap">
-        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
-      </div>
+      <img src="XP26-Full-SymbolLeft-Bk.png" alt="Xpress Printing" class="nav-logo-full">
     </a>
 
     <ul class="nav-links">
@@ -1344,7 +1330,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-left">
-        <p class="hero-eyebrow">Irvine's Local Print Shop &middot; Since 1989</p>
+        <p class="hero-eyebrow">Irvine's Local Print Shop &middot; Since 1984</p>
         <h1 class="hero-h1">
           Print <span class="h1-warm">Fast.</span><br>
           Look <span class="h1-cyan">Sharp.</span><br>
@@ -1379,7 +1365,7 @@
         <p class="hero-card-title">Your Quote at a Glance</p>
         <div class="hero-stats-grid">
           <div>
-            <div class="hero-stat-num">35</div>
+            <div class="hero-stat-num">40+</div>
             <div class="hero-stat-label">Years<br>In Business</div>
           </div>
           <div>
@@ -1816,9 +1802,9 @@
   <section class="stats">
     <div class="stats-inner">
       <div class="stat-item">
-        <div class="stat-num">35</div>
+        <div class="stat-num">40+</div>
         <div class="stat-label">Years in Business</div>
-        <div class="stat-sub">Serving Irvine since 1989</div>
+        <div class="stat-sub">Serving Irvine since 1984</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">30 min</div>
@@ -1889,7 +1875,7 @@
         <a href="portfolio.html#real-estate" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Real Estate</div>
-            <div class="ind-products">Flyers &middot; Postcards &middot; Yard Signs &middot; Brochures &middot; Business Cards</div>
+            <div class="ind-products">Flyers &middot; Postcards &middot; Yard Signs</div>
             <span class="ind-tag">Most Popular</span>
           </div>
           <div class="ind-img-wrap">
@@ -1901,7 +1887,7 @@
         <a href="portfolio.html#restaurant-food" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Restaurant &amp; Food Service</div>
-            <div class="ind-products">Menus &middot; Table Tents &middot; Flyers &middot; Business Cards &middot; Rack Cards</div>
+            <div class="ind-products">Menus &middot; Table Tents &middot; Placemats</div>
             <span class="ind-tag">Same-Day Available</span>
           </div>
           <div class="ind-img-wrap">
@@ -1913,7 +1899,7 @@
         <a href="portfolio.html#corporate-professional" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Corporate &amp; Professional</div>
-            <div class="ind-products">Business Cards &middot; Letterhead &middot; Folders &middot; Notepads &middot; Brochures</div>
+            <div class="ind-products">Door Hangers &middot; Letterhead &middot; Presentation Folders</div>
           </div>
           <div class="ind-img-wrap">
             <img src="images/products/industry-corporate.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1924,7 +1910,7 @@
         <a href="portfolio.html#event-wedding" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Event &amp; Wedding</div>
-            <div class="ind-products">Invitations &middot; Programs &middot; Signage &middot; Banners &middot; Table Cards</div>
+            <div class="ind-products">Invitations &middot; Table Cards &middot; Welcome Signs</div>
             <span class="ind-tag">Rush Available</span>
           </div>
           <div class="ind-img-wrap">
@@ -1936,7 +1922,7 @@
         <a href="portfolio.html#retail-boutique" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Retail &amp; Boutique</div>
-            <div class="ind-products">Hang Tags &middot; Labels &middot; Stickers &middot; Bags &middot; Promotional Flyers</div>
+            <div class="ind-products">Stickers &middot; Hang Tags &middot; Bag Inserts</div>
           </div>
           <div class="ind-img-wrap">
             <img src="images/products/industry-retail.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1947,7 +1933,7 @@
         <a href="portfolio.html#school-education" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">School &amp; Education</div>
-            <div class="ind-products">Yearbooks &middot; Programs &middot; Banners &middot; Flyers &middot; Recognition Certificates</div>
+            <div class="ind-products">Bookmarks &middot; Yearbooks &middot; Certificates</div>
             <span class="ind-tag">Bulk Pricing</span>
           </div>
           <div class="ind-img-wrap">
@@ -1959,7 +1945,7 @@
         <a href="portfolio.html#nonprofit-church" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Non-Profit &amp; Church</div>
-            <div class="ind-products">Event Programs &middot; Flyers &middot; Banners &middot; Booklets &middot; Donation Cards</div>
+            <div class="ind-products">Remittance Envelopes &middot; Banners &middot; Donation Cards</div>
           </div>
           <div class="ind-img-wrap">
             <img src="images/products/industry-nonprofit.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1970,7 +1956,7 @@
         <a href="portfolio.html#healthcare-wellness" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Healthcare &amp; Wellness</div>
-            <div class="ind-products">Appointment Cards &middot; Brochures &middot; NCR Forms &middot; Notepads &middot; Signage</div>
+            <div class="ind-products">Patient Forms &middot; Brochures &middot; Signage</div>
           </div>
           <div class="ind-img-wrap">
             <img src="images/products/industry-healthcare.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -1981,7 +1967,7 @@
         <a href="portfolio.html#personal-creative" class="ind-card">
           <div class="ind-content">
             <div class="ind-name">Personal &amp; Creative</div>
-            <div class="ind-products">Art Prints &middot; Stickers &middot; Custom Cards &middot; Portfolios &middot; Zines</div>
+            <div class="ind-products">Art Prints &middot; Sticker Sheets &middot; Zines</div>
           </div>
           <div class="ind-img-wrap">
             <img src="images/products/industry-creative.jpg" alt="" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -2011,8 +1997,8 @@
         </div>
         <div class="why-card">
           <div class="why-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
-          <p class="why-title">35 Years Local</p>
-          <p class="why-body">We've served Irvine businesses since 1989. Your neighbors trust us &mdash; so can you.</p>
+          <p class="why-title">40+ Years Local</p>
+          <p class="why-body">We've served Irvine businesses since 1984. Your neighbors trust us &mdash; so can you.</p>
         </div>
         <div class="why-card">
           <div class="why-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
@@ -2267,7 +2253,7 @@
     <div class="footer-grid">
       <div>
         <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
-        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
         <div class="footer-contact-links">
           <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>

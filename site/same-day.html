@@ -56,25 +56,12 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 2.6px;
       flex-shrink: 0;
       text-decoration: none;
     }
 
-    .nav-logo-symbol-wrap {
-      height: 32px;
-      overflow: hidden;
-      flex-shrink: 0;
-    transform: translate(1px, -2px);
-  }
-    .nav-logo-symbol {
-      height: 52px;
-      width: auto;
-      display: block;
-      position: relative;
-      top: -8px;
-    }
-    .nav-logo-text   { height: 22px; width: auto; display: block; }
+    .nav-logo-full { height: 36px; width: auto; display: block; }
 
     .nav-links {
       display: flex;
@@ -88,6 +75,7 @@
       font-weight: 500;
       color: var(--slate);
       transition: color .15s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--cyan); }
@@ -200,18 +188,18 @@
 
     .hero-eyebrow {
       font-size: 12px;
-      font-weight: 600;
-      color: var(--sky);
+      font-weight: 700;
+      color: var(--cyan);
       letter-spacing: .1em;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
 
     .hero-h1 {
-      font-size: 64px;
+      font-size: 52px;
       font-weight: 800;
       line-height: 1.05;
-      letter-spacing: -.03em;
+      letter-spacing: -.02em;
       color: var(--white);
       margin-bottom: 24px;
     }
@@ -222,7 +210,7 @@
     .h1-lime  { color: #8DC63F !important; }
 
     .hero-sub {
-      font-size: 18px;
+      font-size: 17px;
       color: rgba(255,255,255,.65);
       line-height: 1.6;
       max-width: 560px;
@@ -950,10 +938,7 @@
 </style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
-      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
-      <div class="nav-logo-symbol-wrap">
-        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
-      </div>
+      <img src="XP26-Full-SymbolLeft-Bk.png" alt="Xpress Printing" class="nav-logo-full">
     </a>
 
     <ul class="nav-links">
@@ -1371,7 +1356,7 @@
     <div class="footer-grid">
       <div>
         <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
-        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
         <div class="footer-contact-links">
           <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>

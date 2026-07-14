@@ -56,25 +56,12 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 2.6px;
       flex-shrink: 0;
       text-decoration: none;
     }
 
-    .nav-logo-symbol-wrap {
-      height: 32px;
-      overflow: hidden;
-      flex-shrink: 0;
-    transform: translate(1px, -2px);
-  }
-    .nav-logo-symbol {
-      height: 52px;
-      width: auto;
-      display: block;
-      position: relative;
-      top: -8px;
-    }
-    .nav-logo-text   { height: 22px; width: auto; display: block; }
+    .nav-logo-full { height: 36px; width: auto; display: block; }
 
     .nav-links {
       display: flex;
@@ -88,6 +75,7 @@
       font-weight: 500;
       color: var(--slate);
       transition: color .15s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--cyan); }
@@ -202,7 +190,7 @@
     .quote-hero-eyebrow {
       font-size: 12px;
       font-weight: 700;
-      color: rgba(255,255,255,.5);
+      color: var(--cyan);
       letter-spacing: .08em;
       text-transform: uppercase;
       margin-right: 8px;
@@ -646,7 +634,7 @@
     .q-card {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 10px;
       text-align: left;
       width: 100%;
       font-family: var(--font);
@@ -805,6 +793,14 @@
       margin: 24px 0;
     }
 
+    .q-contact-card {
+      background: var(--cool-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
     /* Contact fields */
     .q-input {
       font-family: var(--font);
@@ -864,6 +860,67 @@
 
     .q-submit:hover { opacity: .88; }
     .q-submit:disabled { opacity: .4; cursor: not-allowed; }
+
+    .q-product-info {
+      grid-column: 1 / -1;
+      position: relative;
+      z-index: 5;
+      padding: 32px 40px 40px;
+      background: var(--cool-white);
+      border-top: 1px solid var(--border);
+    }
+    .q-product-info.hidden { display: none; }
+    .q-product-info-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+    .q-product-info-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+    .q-product-info-desc.hidden { display: none; }
+    .q-product-info-specs {
+      column-count: 2;
+      column-gap: 16px;
+    }
+    .q-spec-group {
+      break-inside: avoid;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .q-spec-group:last-child { margin-bottom: 0; }
+    .q-spec-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+    .q-spec-item {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+    .q-spec-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+    .q-spec-item .q-spec-note { color: var(--text-muted); }
 
     .q-terms {
       font-size: 12px;
@@ -984,6 +1041,8 @@
       .quote-split { grid-template-columns: 1fr; }
       .quote-preview { display: none; }
       .q-input-row { grid-template-columns: 1fr; }
+      .q-product-info { padding: 28px 24px 32px; }
+      .q-product-info-specs { column-count: 1; }
       .cta-section { padding: 56px 24px; }
       .cta-h2 { font-size: 36px; }
       
@@ -1200,10 +1259,7 @@
 </style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
-      <img src="XP26-Text-Bk.png" alt="Xpress Printing" class="nav-logo-text">
-      <div class="nav-logo-symbol-wrap">
-        <img src="XP26-Symbol-Tr.png" alt="" class="nav-logo-symbol">
-      </div>
+      <img src="XP26-Full-SymbolLeft-Bk.png" alt="Xpress Printing" class="nav-logo-full">
     </a>
 
     <ul class="nav-links">
@@ -1726,6 +1782,23 @@
           </div>
         </div>
 
+        <!-- PRINT MODE: envelope variant — full color only, front/back/both -->
+        <div class="q-row hidden" id="qr-print-mode-envelope" style="overflow:visible;">
+          <label class="q-label">Print Mode</label>
+          <input type="hidden" id="q-print-mode-envelope" name="print_mode">
+          <div class="pm-dropdown" id="pm-dropdown-envelope">
+            <button type="button" class="pm-trigger" onclick="togglePmDropdown('pm-dropdown-envelope')">
+              <span class="pm-trigger-text">— Select —</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pm-menu" id="pm-menu-envelope">
+              <button type="button" class="pm-option" data-val="4/4 — Full Color, Both Sides" onclick="selectPmOption('pm-dropdown-envelope','q-print-mode-envelope',this)"><span class="pm-code">4/4</span><span class="pm-desc">Full Color, Both Sides</span></button>
+              <button type="button" class="pm-option" data-val="4/0 — Full Color, Front Only" onclick="selectPmOption('pm-dropdown-envelope','q-print-mode-envelope',this)"><span class="pm-code">4/0</span><span class="pm-desc">Full Color, Front Only</span></button>
+              <button type="button" class="pm-option" data-val="0/4 — Full Color, Back Only" onclick="selectPmOption('pm-dropdown-envelope','q-print-mode-envelope',this)"><span class="pm-code">0/4</span><span class="pm-desc">Full Color, Back Only</span></button>
+            </div>
+          </div>
+        </div>
+
         <!-- PRINT MODE: large-format buyout — always full color, sides only -->
         <div class="q-row hidden" id="qr-print-mode-sides" style="overflow:visible;">
           <label class="q-label">Print Mode</label>
@@ -2030,6 +2103,7 @@
         <hr class="q-divider">
 
         <!-- TELL US WHERE TO SEND THE QUOTE -->
+        <div class="q-contact-card">
         <p class="q-section-title" style="font-size:16px;margin-bottom:16px;">Tell us where to send the quote</p>
 
         <!-- CONTACT INFO -->
@@ -2076,13 +2150,22 @@
           </div>
         </div>
 
+        </div><!-- /q-contact-card -->
+
         <button type="submit" class="q-submit" id="q-submit">Send Quote Request &rarr;</button>
         <p class="q-terms">We reply within 30 minutes &middot; No spam, ever &middot; info@xpressprinting.com</p>
 
       </form>
+
       </div><!-- /main-form-wrap -->
 
     </div><!-- /quote-form-panel -->
+
+    <div class="q-product-info hidden" id="q-product-info">
+      <h3 class="q-product-info-title" id="q-product-info-title"></h3>
+      <p class="q-product-info-desc hidden" id="q-product-info-desc"></p>
+      <div class="q-product-info-specs" id="q-product-info-specs"></div>
+    </div>
 
     <!-- HIDDEN: legacy IDs kept for compatibility -->
     <div style="display:none">
@@ -2201,6 +2284,17 @@ function selectDirectMailEntry(btn) {
   }, 0);
 }
 
+// ─── PRODUCT DESCRIPTIONS (short intro shown above the spec summary —
+// only written for a handful of popular products so far; products without
+// an entry here just skip straight to the spec summary). ───
+const PRODUCT_DESCRIPTIONS = {
+  'Business Cards': 'Your first impression in someone\'s hand. In-house printing means we can turn most orders around same-day or next-day, with no minimum order hassle.',
+  'Flyers': 'Single-sheet marketing pieces for promotions, events, or handouts. Full color, printed on your choice of weight and finish, ready for same-day pickup on standard orders.',
+  'Postcards': 'Compact, mail-ready pieces for promotions or announcements. Popular for direct mail campaigns — ask about EDDM (neighborhood-wide mailing with no list required) or list mailing.',
+  'Banners & Signs': 'Large-format printing for storefronts, events, and trade shows. Durable outdoor and indoor materials available, with grommets or finishing options to match how it\'ll be hung or displayed.',
+  'Brochures': 'Folded, multi-panel pieces for detailed product or service information. Choose your fold style and panel count based on how much content you need to fit.'
+};
+
 // ─── PRODUCT CONFIGS ───
 const PRODUCT_CONFIGS = {
   'Business Cards': {
@@ -2250,9 +2344,8 @@ const PRODUCT_CONFIGS = {
     },
     buyoutLaminates: ['Soft Touch Laminate', 'Matte Laminate', 'Gloss Laminate', 'Gloss UV', 'Aqueous Coating'],
     // Specialty ADD-ON treatments — partial post-processing applied on top
-    // of whichever paper/finish was chosen, sourced from 4over's premium
-    // business card line since we don't produce these in-house. Every
-    // option but "No Coating" is a buy-out.
+    // of whichever paper/finish was chosen. We don't produce these
+    // in-house, so every option but "No Coating" is a buy-out.
     coatingOptions: ['No Coating', 'Spot UV', 'Raised Spot UV', 'Foil Stamping', 'Raised Foil'],
     coatingMeta: {
       'No Coating':     { badge: 'popular', note: 'Standard finish — no additional treatment' },
@@ -2267,14 +2360,14 @@ const PRODUCT_CONFIGS = {
   'Flyers': {
     sizes: ['3.5" × 8.5" (Rack Card)', '4" × 6"', '4.25" × 5.5" (Half Letter)', '5.5" × 8.5" (Half Letter)', '8.5" × 11" (Letter)', '8.5" × 14" (Legal)', '11" × 17" (Tabloid)', 'Custom Size'],
     sizeMeta: { '8.5" × 11" (Letter)': { badge: 'popular' }, '5.5" × 8.5" (Half Letter)': { badge: 'popular' } },
-    paper: ['60lb Uncoated', '70lb Uncoated', '80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text'],
+    paper: ['60lb Uncoated', '70lb Uncoated', '80lb Gloss Text', '80lb Silk Text', '100lb Gloss Text', '100lb Silk Text'],
     paperMeta: {
       '60lb Uncoated':   { note: 'Lightweight, like notebook paper — most economical' },
       '70lb Uncoated':   { note: 'Slightly heavier than copy paper — good all-purpose weight' },
       '80lb Gloss Text': { note: 'Magazine-page weight with a shiny finish' },
-      '80lb Matte Text': { note: 'Magazine-page weight, no glare' },
+      '80lb Silk Text': { note: 'Magazine-page weight, no glare' },
       '100lb Gloss Text': { badge: 'popular', note: 'Our sturdiest flyer paper — glossy, premium feel' },
-      '100lb Matte Text': { badge: 'popular', note: 'Our sturdiest flyer paper — smooth, no glare' }
+      '100lb Silk Text': { badge: 'popular', note: 'Our sturdiest flyer paper — smooth, no glare' }
     },
     laminateOptions: ['No Finish', 'Soft Touch Laminate', 'Matte Laminate', 'Gloss Laminate', 'Gloss UV', 'Aqueous Coating'],
     laminateMeta: {
@@ -2304,14 +2397,14 @@ const PRODUCT_CONFIGS = {
   'Brochures': {
     sizes: ['8.5" × 11" (Letter flat)', '8.5" × 14" (Legal flat)', '11" × 17" (Tabloid flat)', '11" × 25.5" (Tabloid flat — trifold)', 'Custom Size'],
     sizeMeta: { '8.5" × 11" (Letter flat)': { badge: 'popular' } },
-    paper: ['80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text', '100lb Gloss Cover', '100lb Matte Cover'],
+    paper: ['80lb Gloss Text', '80lb Silk Text', '100lb Gloss Text', '100lb Silk Text', '100lb Gloss Cover', '100lb Silk Cover'],
     paperMeta: {
       '80lb Gloss Text':  { note: 'Magazine-page weight with a shiny finish' },
-      '80lb Matte Text':  { note: 'Magazine-page weight, no glare' },
+      '80lb Silk Text':  { note: 'Magazine-page weight, no glare' },
       '100lb Gloss Text': { badge: 'popular', note: 'Heavier, near-cardstock feel — glossy' },
-      '100lb Matte Text': { badge: 'popular', note: 'Heavier, near-cardstock feel — no glare' },
+      '100lb Silk Text': { badge: 'popular', note: 'Heavier, near-cardstock feel — no glare' },
       '100lb Gloss Cover': { note: 'Sturdy cardstock — like a magazine cover, glossy' },
-      '100lb Matte Cover': { note: 'Sturdy cardstock — like a magazine cover, no glare' }
+      '100lb Silk Cover': { note: 'Sturdy cardstock — like a magazine cover, no glare' }
     },
     laminateOptions: ['No Finish', 'Soft Touch Laminate', 'Matte Laminate', 'Gloss Laminate', 'Gloss UV', 'Aqueous Coating'],
     laminateMeta: {
@@ -2377,7 +2470,7 @@ const PRODUCT_CONFIGS = {
   },
   'Banners & Signs': {
     sizes: [],
-    paper: ['13oz Vinyl (Outdoor Gloss)', '13oz Vinyl (Matte)', '18oz Blockout Vinyl', '15oz Backlit Vinyl', 'Mesh Banner (Wind-Resistant)', 'Foam Board 3/16"', 'Foam Board 1/2"', 'Retractable Banner Stand', 'PVC Board', 'Aluminum Sign (.040)', 'Magnet Sheet (30mil)'],
+    paper: ['13oz Vinyl (Outdoor Gloss)', '13oz Vinyl (Silk)', '18oz Blockout Vinyl', '15oz Backlit Vinyl', 'Mesh Banner (Wind-Resistant)', 'Foam Board 3/16"', 'Foam Board 1/2"', 'Retractable Banner Stand', 'PVC Board', 'Aluminum Sign (.040)', 'Magnet Sheet (30mil)'],
     paperMeta: { '13oz Vinyl (Outdoor Gloss)': { badge: 'popular' } },
     showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: true,
     showCorners: false, showFinishing: true, showShape: false, showBinding: false, showPages: false, showLayout: true,
@@ -2388,7 +2481,7 @@ const PRODUCT_CONFIGS = {
   'Stickers & Labels': {
     sizes: ['2" × 2"', '2" × 3"', '3" × 3"', '3" × 4"', '4" × 4"', '4" × 6"', 'Custom Size'],
     sizeMeta: { '3" × 3"': { badge: 'popular' }, '3" × 4"': { badge: 'popular' } },
-    paper: ['White Gloss Vinyl', 'White Matte Vinyl', 'Clear Gloss Vinyl', 'Clear Matte Vinyl', 'Kraft / Recycled', 'Foil (Gold/Silver)', 'Holographic', 'Glitter', 'Reflective', 'Glow-in-the-Dark', 'Static Cling (Removable)', 'Polyester (Waterproof)'],
+    paper: ['White Gloss Vinyl', 'White Silk Vinyl', 'Clear Gloss Vinyl', 'Clear Silk Vinyl', 'Kraft / Recycled', 'Foil (Gold/Silver)', 'Holographic', 'Glitter', 'Reflective', 'Glow-in-the-Dark', 'Static Cling (Removable)', 'Polyester (Waterproof)'],
     paperMeta: { 'White Gloss Vinyl': { badge: 'popular' } },
     showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
     showCorners: false, showFinishing: false, showShape: true, showBinding: false, showPages: false,
@@ -2400,8 +2493,8 @@ const PRODUCT_CONFIGS = {
     sizes: ['4.25" × 5.5"', '5.5" × 8.5"', '8.5" × 11"', 'Custom Size'],
     sizeMeta: { '8.5" × 11"': { badge: 'popular' } },
     paper: [],
-    coverPaper: ['80lb Gloss Cover', '80lb Matte Cover', '100lb Gloss Cover', '100lb Matte Cover', '12PT Card Stock'],
-    insidePaper: ['60lb Offset Text', '70lb Text', '80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text'],
+    coverPaper: ['80lb Gloss Cover', '80lb Silk Cover', '100lb Gloss Cover', '100lb Silk Cover', '12PT Card Stock'],
+    insidePaper: ['60lb Offset Text', '70lb Text', '80lb Gloss Text', '80lb Silk Text', '100lb Gloss Text', '100lb Silk Text'],
     showPrintMode: false, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
     showCorners: false, showFinishing: false, showShape: false, showBinding: true, showPages: true, showLayout: true,
     showCoverPaper: true, showPrintModeCoverInside: true,
@@ -2470,12 +2563,12 @@ const PRODUCT_CONFIGS = {
   'Posters': {
     sizes: ['11" × 17" (Tabloid)', '12" × 18"', '18" × 24"', '24" × 36"', 'Custom Size'],
     sizeMeta: { '11" × 17" (Tabloid)': { badge: 'popular' }, '18" × 24"': { badge: 'popular' } },
-    paper: ['80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text'],
+    paper: ['80lb Gloss Text', '80lb Silk Text', '100lb Gloss Text', '100lb Silk Text'],
     paperMeta: {
       '80lb Gloss Text':  { note: 'Magazine-page weight with a shiny finish' },
-      '80lb Matte Text':  { note: 'Magazine-page weight, no glare' },
+      '80lb Silk Text':  { note: 'Magazine-page weight, no glare' },
       '100lb Gloss Text': { badge: 'popular', note: 'Our sturdiest poster paper — glossy, vivid colors' },
-      '100lb Matte Text': { note: 'Our sturdiest poster paper — no glare, easy to read from an angle' }
+      '100lb Silk Text': { note: 'Our sturdiest poster paper — no glare, easy to read from an angle' }
     },
     laminateOptions: ['No Finish', 'Soft Touch Laminate', 'Matte Laminate', 'Gloss Laminate', 'Gloss UV', 'Aqueous Coating'],
     laminateMeta: {
@@ -2583,10 +2676,10 @@ const PRODUCT_CONFIGS = {
   'Calendars': {
     sizes: ['8.5" × 11" (Wall)', '11" × 17" (Wall)', '12" × 12" (Photo)', '4" × 9" (Desk Tent)', 'Custom Size'],
     sizeMeta: { '8.5" × 11" (Wall)': { badge: 'popular' } },
-    paper: ['100lb Gloss Text', '100lb Matte Text', '14PT Gloss Cover'],
+    paper: ['100lb Gloss Text', '100lb Silk Text', '14PT Gloss Cover'],
     paperMeta: {
       '100lb Gloss Text': { badge: 'popular', note: 'Sturdy, magazine-cover weight — glossy' },
-      '100lb Matte Text': { note: 'Sturdy, magazine-cover weight — no glare' },
+      '100lb Silk Text': { note: 'Sturdy, magazine-cover weight — no glare' },
       '14PT Gloss Cover': { note: 'Thicker card stock — extra durable for daily flipping' }
     },
     laminateOptions: ['No Finish', 'Soft Touch Laminate', 'Matte Laminate', 'Gloss Laminate', 'Gloss UV', 'Aqueous Coating'],
@@ -2692,14 +2785,14 @@ const PRODUCT_CONFIGS = {
   'Menus': {
     sizes: ['4.25" × 11" (Single fold)', '8.5" × 11" (Letter)', '8.5" × 14" (Legal)', '11" × 17" (Tabloid)', 'Custom Size'],
     sizeMeta: { '8.5" × 11" (Letter)': { badge: 'popular' }, '8.5" × 14" (Legal)': { badge: 'popular' } },
-    paper: ['80lb Gloss Text', '80lb Matte Text', '100lb Gloss Text', '100lb Matte Text', '100lb Gloss Cover', '100lb Matte Cover'],
+    paper: ['80lb Gloss Text', '80lb Silk Text', '100lb Gloss Text', '100lb Silk Text', '100lb Gloss Cover', '100lb Silk Cover'],
     paperMeta: {
       '80lb Gloss Text':  { note: 'Lighter, flyer-weight — budget option, glossy' },
-      '80lb Matte Text':  { note: 'Lighter, flyer-weight — budget option, no glare' },
+      '80lb Silk Text':  { note: 'Lighter, flyer-weight — budget option, no glare' },
       '100lb Gloss Text': { note: 'Sturdier text weight, glossy' },
-      '100lb Matte Text': { note: 'Sturdier text weight, no glare' },
+      '100lb Silk Text': { note: 'Sturdier text weight, no glare' },
       '100lb Gloss Cover': { badge: 'popular', note: 'Sturdy cardstock — holds up well to handling & spills, glossy' },
-      '100lb Matte Cover': { badge: 'popular', note: 'Sturdy cardstock — holds up well to handling & spills, no glare' }
+      '100lb Silk Cover': { badge: 'popular', note: 'Sturdy cardstock — holds up well to handling & spills, no glare' }
     },
     laminateOptions: ['No Finish', 'Soft Touch Laminate', 'Matte Laminate', 'Gloss Laminate', 'Gloss UV', 'Aqueous Coating'],
     laminateMeta: {
@@ -2785,12 +2878,12 @@ const PRODUCT_CONFIGS = {
   'Certificates': {
     sizes: ['8.5" × 11" (Letter)', '8.5" × 14" (Legal)', '11" × 8.5" (Landscape)', 'Custom Size'],
     sizeMeta: { '8.5" × 11" (Letter)': { badge: 'popular' } },
-    paper: ['80lb Gloss Cover', '80lb Uncoated Cover', '100lb Gloss Cover', '100lb Matte Cover', 'Parchment / Linen'],
+    paper: ['80lb Gloss Cover', '80lb Uncoated Cover', '100lb Gloss Cover', '100lb Silk Cover', 'Parchment / Linen'],
     paperMeta: {
       '80lb Gloss Cover':   { note: 'Solid cardstock feel, glossy' },
       '80lb Uncoated Cover': { note: 'Solid cardstock feel, natural non-shiny finish' },
       '100lb Gloss Cover':  { badge: 'popular', note: 'Our sturdiest option — premium glossy finish' },
-      '100lb Matte Cover':  { note: 'Our sturdiest option — premium, no glare' },
+      '100lb Silk Cover':  { note: 'Our sturdiest option — premium, no glare' },
       'Parchment / Linen':  { badge: 'popular', note: 'Textured, formal finish — traditional certificate look' }
     },
     // Certificates split into two real use cases: formal signed/notarized
@@ -2834,9 +2927,7 @@ const PRODUCT_CONFIGS = {
       '70lb Text White':       { note: 'Slightly heavier than standard bond' },
       '80lb Text White':       { note: 'Sturdiest text-weight option' }
     },
-    // Limited to what 4over's own letterhead line actually offers — no
-    // laminate (needs to accept ink/toner/pen for writing), but Aqueous
-    // Coating and Foil accents are real per 4over's letterhead product page.
+    // No laminate — letterhead needs to accept ink/toner/pen for writing.
     laminateOptions: ['No Finish', 'Aqueous Coating'],
     laminateMeta: {
       'No Finish':       { badge: 'popular', note: 'Standard — uncoated, easiest to write/print on' },
@@ -2857,55 +2948,40 @@ const PRODUCT_CONFIGS = {
     svgKey: 'generic'
   },
   'Envelopes': {
-    sizes: ['#10 (4.125" × 9.5")', '#9 (3.875" × 8.875")', 'A2 (4.375" × 5.75")', 'A7 (5.25" × 7.25")', '4" × 6"', '5" × 7"', '6" × 9"', '9" × 12"', 'Custom Size'],
-    sizeMeta: { '#10 (4.125" × 9.5")': { badge: 'popular' } },
+    sizes: ['#10 (9.5" × 4.125")', '#9 (8.875" × 3.875")', 'A2 (4.375" × 5.75")', 'A7 (5.25" × 7.25")', '4" × 6"', '5" × 7"', '6" × 9"', '9" × 12"', 'Custom Size'],
+    sizeMeta: { '#10 (9.5" × 4.125")': { badge: 'popular' } },
     paper: ['24lb Bond White', '60lb Offset White', '70lb Text White'],
     paperMeta: {
       '24lb Bond White':   { badge: 'popular', note: 'Standard envelope weight — everyday business mail' },
       '60lb Offset White': { note: 'Lightweight, economical option' },
       '70lb Text White':   { note: 'Slightly heavier — sturdier feel' }
     },
-    // Limited to what 4over's remittance envelope line actually offers —
-    // No Coating / Aqueous / Soft-Touch. No Gloss/Matte Laminate or Gloss
-    // UV listed there, and full-face rigid lamination isn't practical on
-    // an envelope that has to fold and go through mail equipment.
-    laminateOptions: ['No Finish', 'Soft Touch Laminate', 'Aqueous Coating'],
-    laminateMeta: {
-      'No Finish':           { badge: 'popular', note: 'Standard — no additional coating' },
-      'Soft Touch Laminate': { note: 'Velvety, suede-like laminate film — premium tactile feel' },
-      'Aqueous Coating':     { note: 'Thin water-based coating — light protective sheen, most economical' }
-    },
-    buyoutLaminates: ['Soft Touch Laminate', 'Aqueous Coating'],
-    coatingOptions: ['No Coating', 'Foil Stamping', 'Raised Foil'],
-    coatingMeta: {
-      'No Coating':    { badge: 'popular', note: 'Standard — no additional treatment' },
-      'Foil Stamping': { note: 'Hot-stamped metallic foil accents (logo/flap seal) — flat finish' },
-      'Raised Foil':   { note: 'Foil stamping with raised texture — most premium option' }
-    },
-    buyoutCoatings: ['Foil Stamping', 'Raised Foil'],
     showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
     showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
     showEnvStyle: true,
     qty: ['250','500','1,000','2,500','5,000'],
     qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
-    svgKey: 'generic'
+    svgKey: 'envelope'
   },
   'Remittance Envelopes': {
     // Separate from regular Envelopes — Flap Style/Shrink Wrapping only
     // make sense for this product, not for a standard #10 business
     // envelope, so it doesn't belong bolted onto the shared config.
-    sizes: ['3.625" × 6.5" (#6¾)', '3.875" × 8.875" (#9)', 'Custom Size'],
-    sizeMeta: { '3.625" × 6.5" (#6¾)': { badge: 'popular' } },
+    // Spec sourced from our buyout vendor's remittance envelope line —
+    // exactly these 2 sizes, 24lb White Wove Uncoated only, no coating,
+    // no custom size.
+    sizes: ['6.5" × 3.625" (#6¾)', '8.875" × 3.875" (#9)'],
+    sizeMeta: { '6.5" × 3.625" (#6¾)': { badge: 'popular' } },
     paper: ['24lb White Wove Uncoated'],
     paperMeta: {
       '24lb White Wove Uncoated': { badge: 'popular', note: 'Standard remittance envelope weight — smooth uncoated finish, easy to write on' }
     },
-    showPrintMode: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
+    showPrintMode: false, showPrintModeEnvelope: true, showPrintMode2Sided: false, showFold: false, showBundle: false, showBanner: false,
     showCorners: false, showFinishing: false, showShape: false, showBinding: false, showPages: false,
     showFlapStyle: true, showShrinkWrap: true,
     qty: ['250','500','1,000','2,500','5,000'],
     qtyMeta: { '500': { badge: 'popular' }, '1,000': { badge: 'popular' } },
-    svgKey: 'generic'
+    turnaroundSet: 'remittance', svgKey: 'envelope'
   },
   'Invoice Books': {
     sizes: ['4.25" × 5.5"', '5.5" × 8.5"', '8.5" × 11"', 'Custom Size'],
@@ -2947,7 +3023,7 @@ function buildPreviewSVG(opts) {
   if (!dims) {
     var DEF = {
       'biz-card':[3.5,2],'flyer':[8.5,11],'brochure':[8.5,11],
-      'postcard':[6,4],'banner':[36,24],'sticker':[3,3],'booklet':[8.5,11],'generic':[8.5,11]
+      'postcard':[6,4],'banner':[36,24],'sticker':[3,3],'booklet':[8.5,11],'envelope':[9.5,4.125],'generic':[8.5,11]
     };
     dims = DEF[key] || [8.5,11];
   }
@@ -3182,6 +3258,17 @@ function buildPreviewSVG(opts) {
     [0.32,0.42,0.51,0.6,0.69,0.78].forEach(function(fy){
       parts.push('<rect x="'+(spineX+9)+'" y="'+(py+ph*fy)+'" width="'+((px+pw-spineX-18)-fy*pw*0.1)+'" height="'+(ph*0.05)+'" rx="1.5" fill="rgba(30,45,61,.18)"/>');
     });
+
+  } else if (key === 'envelope') {
+    // Flap triangle (envelope back — the diamond seal), drawn as a
+    // subtly shaded overlay from each top corner down to a center point.
+    var flapDepth = ph * 0.42;
+    parts.push('<path d="M'+px+','+py+' L'+(px+pw/2)+','+(py+flapDepth)+' L'+(px+pw)+','+py+' Z" fill="rgba(120,148,168,.14)" stroke="rgba(30,45,61,.16)" stroke-width="1"/>');
+    // Return-address lines, upper-left
+    parts.push('<rect x="'+(px+pw*0.06)+'" y="'+(py+ph*0.62)+'" width="'+(pw*0.34)+'" height="'+(ph*0.05)+'" rx="1.5" fill="rgba(30,45,61,.32)"/>');
+    parts.push('<rect x="'+(px+pw*0.06)+'" y="'+(py+ph*0.72)+'" width="'+(pw*0.24)+'" height="'+(ph*0.04)+'" rx="1.5" fill="rgba(30,45,61,.18)"/>');
+    // Stamp box, upper-right
+    parts.push('<rect x="'+(px+pw*0.82)+'" y="'+(py+ph*0.14)+'" width="'+(pw*0.12)+'" height="'+(ph*0.24)+'" rx="1.5" fill="none" stroke="rgba(30,45,61,.28)" stroke-width="1" stroke-dasharray="2,1.5"/>');
 
   } else {
     // Photo block (solid fill — the one deliberate "면")
@@ -3439,6 +3526,7 @@ function getBaseTurnaround(cfg) {
     : cfg.turnaroundSet === 'notepad'  ? TURNAROUND_NOTEPAD
     : cfg.turnaroundSet === 'booklet'  ? TURNAROUND_BOOKLET
     : cfg.turnaroundSet === 'card'     ? TURNAROUND_CARD
+    : cfg.turnaroundSet === 'remittance' ? TURNAROUND_REMITTANCE
     : null;
 }
 
@@ -3515,6 +3603,14 @@ var TURNAROUND_BUYOUT = [
 var TURNAROUND_BOOKLET = [
   { label: '5–6 Days',  days: 6 },
   { label: '7–10 Days', days: 10 },
+];
+// Remittance Envelopes — buyout, ordered through a dedicated vendor whose
+// published turnaround options are exactly these three (not the generic
+// TURNAROUND_BUYOUT range).
+var TURNAROUND_REMITTANCE = [
+  { label: 'Next Business Day', days: 1 },
+  { label: '2 Business Days',   days: 2 },
+  { label: '4 Business Days',   days: 4 },
 ];
 
 function buildTurnaroundPills(customOptions) {
@@ -3624,11 +3720,52 @@ function populateSelect(id, options) {
 }
 
 // ─── PRODUCT CHANGE ───
+// Renders a read-only spec summary (sizes / paper / finish / coating /
+// quantities) from the product's own cfg data — no separate content to
+// maintain, since paperMeta/laminateMeta/coatingMeta notes already exist
+// for the option dropdowns. The intro paragraph is optional and only
+// shows for products with an entry in PRODUCT_DESCRIPTIONS.
+function renderProductInfo(product, cfg) {
+  var wrap = document.getElementById('q-product-info');
+  if (!cfg || product === '') { wrap.classList.add('hidden'); return; }
+
+  document.getElementById('q-product-info-title').textContent = 'About ' + product;
+
+  var descEl = document.getElementById('q-product-info-desc');
+  var desc = PRODUCT_DESCRIPTIONS[product];
+  if (desc) { descEl.textContent = desc; descEl.classList.remove('hidden'); }
+  else { descEl.textContent = ''; descEl.classList.add('hidden'); }
+
+  function specGroup(label, names, metaMap) {
+    if (!names || !names.length) return '';
+    var items = names.map(function(name) {
+      var note = metaMap && metaMap[name] && metaMap[name].note;
+      return '<div class="q-spec-item">' + escHtml(name) +
+        (note ? ' <span class="q-spec-note">— ' + escHtml(note) + '</span>' : '') + '</div>';
+    }).join('');
+    return '<div class="q-spec-group"><div class="q-spec-group-label">' + escHtml(label) + '</div>' + items + '</div>';
+  }
+
+  var html = '';
+  html += specGroup('Available Sizes', cfg.sizes, cfg.sizeMeta);
+  html += specGroup('Paper / Material', cfg.paper, cfg.paperMeta);
+  html += specGroup('Finish', cfg.laminateOptions, cfg.laminateMeta);
+  html += specGroup('Coating Accent', cfg.coatingOptions, cfg.coatingMeta);
+  if (cfg.qty && cfg.qty.length) {
+    html += '<div class="q-spec-group"><div class="q-spec-group-label">Quantities</div>' +
+      '<div class="q-spec-item">' + cfg.qty.map(escHtml).join(', ') + '</div></div>';
+  }
+
+  document.getElementById('q-product-info-specs').innerHTML = html;
+  wrap.classList.remove('hidden');
+}
+
 function onProductChange(product) {
   qState.product = product;
   document.getElementById('hid-products').value = product;
 
   var cfg = PRODUCT_CONFIGS[product] || PRODUCT_CONFIGS['default'];
+  renderProductInfo(product, cfg);
 
   // Reference price promo (ballpark price for a popular combo, if configured)
   var refPriceEl = document.getElementById('qr-ref-price');
@@ -3720,19 +3857,16 @@ function onProductChange(product) {
   // Coating (hide for banners/stickers which use material dropdown).
   // Invoice Books (NCR carbonless) is excluded on a real physical
   // constraint — coating the surface blocks the pressure-sensitive
-  // carbonless reaction — confirmed against 4over's own catalog (no
-  // coating options offered on NCR forms). Notepads excluded since a
-  // laminated/coated sheet can't be written on or torn cleanly off a pad.
-  // Letterhead/Envelopes were previously excluded too, but 4over's own
-  // catalog confirms both genuinely offer Aqueous/Soft-Touch/Foil options
-  // — reinstated with the narrower option lists their config defines.
+  // carbonless reaction, so no coating options are offered on NCR forms.
+  // Notepads excluded since a laminated/coated sheet can't be written on
+  // or torn cleanly off a pad.
   document.getElementById('qr-coating').classList.toggle('hidden', cfg.showBanner || product === 'Stickers & Labels' || product === 'Yard Signs' || product === 'Window Clings' || product === 'Notepads' || product === 'Invoice Books' || product === 'Other');
   // Business Cards' paper names already bake in the base finish
   // (Gloss/Silk/Soft Touch/Linen), so Coating here isn't the generic
   // Gloss UV/Matte Laminate list (that would collide with the paper
   // choice) — it's specialty ADD-ON treatments (foil, raised UV) that
-  // apply on top of whatever paper is chosen, sourced from 4over's
-  // premium business card line since we don't produce these in-house.
+  // apply on top of whatever paper is chosen. We don't produce these
+  // in-house.
   if (cfg.coatingOptions) {
     populateCustomDropdown('dd-coating', 'q-coating', cfg.coatingOptions, null, cfg.coatingMeta);
     var defaultCoatingBtnPC = document.querySelector('#dd-coating .pm-option[data-val="No Coating"]');
@@ -3770,6 +3904,7 @@ function onProductChange(product) {
 
   // Conditional rows
   document.getElementById('qr-print-mode').classList.toggle('hidden', !cfg.showPrintMode);
+  document.getElementById('qr-print-mode-envelope').classList.toggle('hidden', !cfg.showPrintModeEnvelope);
   document.getElementById('qr-print-mode-2sided').classList.toggle('hidden', !cfg.showPrintMode2Sided);
   document.getElementById('qr-print-mode-sides').classList.toggle('hidden', !cfg.showPrintModeSides);
   document.getElementById('qr-print-mode-cover').classList.toggle('hidden', !cfg.showPrintModeCoverInside);
@@ -3861,13 +3996,13 @@ function renderDynamicPreview() {
   // "color"; only mark it B&W when every visible print-mode field is 1/1
   // or 1/0. Products with no print-mode field at all stay full color
   // (isColor left undefined, which the B&W branch below ignores).
-  var pmFieldIds = ['q-print-mode', 'q-print-mode-2sided', 'q-print-mode-cover', 'q-print-mode-inside'];
-  var pmRowIds   = { 'q-print-mode': 'qr-print-mode', 'q-print-mode-2sided': 'qr-print-mode-2sided', 'q-print-mode-cover': 'qr-print-mode-cover', 'q-print-mode-inside': 'qr-print-mode-inside' };
+  var pmFieldIds = ['q-print-mode', 'q-print-mode-envelope', 'q-print-mode-2sided', 'q-print-mode-cover', 'q-print-mode-inside'];
+  var pmRowIds   = { 'q-print-mode': 'qr-print-mode', 'q-print-mode-envelope': 'qr-print-mode-envelope', 'q-print-mode-2sided': 'qr-print-mode-2sided', 'q-print-mode-cover': 'qr-print-mode-cover', 'q-print-mode-inside': 'qr-print-mode-inside' };
   var pmValues = pmFieldIds.filter(function(id) {
     var row = document.getElementById(pmRowIds[id]);
     return row && !row.classList.contains('hidden') && document.getElementById(id).value;
   }).map(function(id) { return document.getElementById(id).value; });
-  var isColor = pmValues.length ? pmValues.some(function(v) { return /^4\//.test(v); }) : undefined;
+  var isColor = pmValues.length ? pmValues.some(function(v) { return /^4\/|^0\/4/.test(v); }) : undefined;
 
   var dims = parseSizeInches(sizeVal);
   if (!dims && bnW && bnH) dims = [parseFloat(bnW), parseFloat(bnH)];
@@ -4105,6 +4240,8 @@ function updatePreviewTags() {
   if (coverOptPill && !document.getElementById('qr-cover-paper').classList.contains('hidden')) tags.push(coverOptPill.dataset.val);
   var pmEl = document.getElementById('q-print-mode');
   if (pmEl && !document.getElementById('qr-print-mode').classList.contains('hidden') && pmEl.value) tags.push(pmEl.value);
+  var pmEnvEl = document.getElementById('q-print-mode-envelope');
+  if (pmEnvEl && !document.getElementById('qr-print-mode-envelope').classList.contains('hidden') && pmEnvEl.value) tags.push(pmEnvEl.value);
   var pm2El = document.getElementById('q-print-mode-2sided');
   if (pm2El && !document.getElementById('qr-print-mode-2sided').classList.contains('hidden') && pm2El.value) tags.push(pm2El.value);
   var pmSidesEl = document.getElementById('q-print-mode-sides');
@@ -4491,7 +4628,7 @@ var DEFAULT_COATING_META = {
   'Matte Laminate': { note: 'Smooth matte film — premium, non-glare feel' },
   'Soft Touch':     { note: 'Velvety tactile finish — luxurious feel' },
   'Aqueous Gloss':  { note: 'Light water-based gloss — subtle sheen' },
-  'Spot UV':        { note: 'Selective high-gloss accents on matte base' },
+  'Spot UV':        { note: 'Selective high-gloss accents on a silk base' },
 };
 populateCustomDropdown('dd-coating', 'q-coating', DEFAULT_COATING_OPTIONS, null, DEFAULT_COATING_META);
 // Default to "No Coating" instead of an empty "— Select —" — it's the
@@ -4605,7 +4742,7 @@ document.getElementById('main-form-wrap').style.display = 'none';
     <div class="footer-grid">
       <div>
         <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
-        <p class="footer-tagline">Irvine's local commercial print shop since 1989.<br>Fast turnaround, fair prices, no surprises.</p>
+        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
         <div class="footer-contact-links">
           <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
