@@ -337,9 +337,10 @@
     .qv2-steps a { flex: 1 1 0; min-width: 86px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 10px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
     .qv2-steps b { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--border); color: var(--slate); font-size: 12px; }
     .qv2-steps a.done { color: var(--slate); }
-    .qv2-steps a.done b { background: var(--cyan); color: #fff; font-size: 0; }
+    .qv2-steps a.done b { background: var(--c); color: #fff; font-size: 0; }
     .qv2-steps a.done b::after { content: "\2713"; font-size: 13px; }
-    .qv2-steps a.now { background: var(--cyan-tint); color: var(--cyan); }
+    .qv2-steps a.now { background: rgba(var(--c-rgb),.12); color: var(--c); }
+    .qv2-steps a.now b { background: var(--c); color: #fff; }
 
     .qv2-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; }
     .qv2-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 26px 28px; margin-bottom: 18px; scroll-margin-top: 150px; }
@@ -426,11 +427,11 @@
     .qv2-card.collapsed .csum { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -6px 0 0 38px; }
     .qv2-card.collapsed .cbody { display: none; }
     .qv2-card.collapsed h2 { margin-bottom: 14px; }
-    .qv2-card.collapsed h2 b { background: var(--cyan); font-size: 0; }
+    .qv2-card.collapsed h2 b { background: var(--c); font-size: 0; }
     .qv2-card.collapsed h2 b::after { content: "\2713"; font-size: 14px; }
     .csum-text { font-size: 15px; font-weight: 600; color: var(--text); word-break: break-word; }
-    .csum-change { font: inherit; font-size: 14px; font-weight: 700; color: var(--cyan); background: none; border: 1.5px solid var(--cyan); border-radius: 8px; padding: 6px 14px; cursor: pointer; flex: none; }
-    .qv2-next { margin-top: 18px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; padding: 11px 24px; border: none; border-radius: 8px; background: var(--slate); color: #fff; }
+    .csum-change { font: inherit; font-size: 14px; font-weight: 700; color: var(--c); background: none; border: 1.5px solid var(--c); border-radius: 8px; padding: 6px 14px; cursor: pointer; flex: none; }
+    .qv2-next { margin-top: 18px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; padding: 11px 24px; border: none; border-radius: 8px; background: var(--c); color: #fff; }
     .qv2-next:disabled { background: var(--border); color: #9CA3AF; cursor: not-allowed; }
     @media (max-width: 600px) { .qv2-card.collapsed .csum { margin-left: 0; flex-wrap: wrap; } .qv2-next { width: 100%; } }
 
@@ -452,16 +453,49 @@
     .more-box { padding-top: 6px; border-top: 1px solid var(--border); }
 
     .qv2-card { transition: border-color .25s, box-shadow .25s; }
-    .qv2-card.active { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(8,145,178,.14), 0 8px 24px rgba(8,145,178,.08); }
-    .qv2-card.active h2 b { background: var(--cyan); }
+    .qv2-card.active { border-color: var(--c); box-shadow: 0 0 0 3px rgba(var(--c-rgb),.16), 0 8px 24px rgba(var(--c-rgb),.08); }
+    .qv2-card.active h2 b { background: var(--c); }
     .qv2-card:not(.active):not(.collapsed) h2 b { background: #94A3B8; }
     .qv2-card.pulse { animation: qv2pulse .9s ease-out 1; }
-    @keyframes qv2pulse { 0% { box-shadow: 0 0 0 0 rgba(8,145,178,.55); } 100% { box-shadow: 0 0 0 14px rgba(8,145,178,0); } }
+    @keyframes qv2pulse { 0% { box-shadow: 0 0 0 0 rgba(var(--c-rgb),.55); } 100% { box-shadow: 0 0 0 14px rgba(var(--c-rgb),0); } }
     .qv2-btn.ready { animation: qv2pulse 1.4s ease-out 2; }
     @media (prefers-reduced-motion: reduce) { .qv2-card.pulse, .qv2-btn.ready { animation: none; } }
 
     .tile.typed { border-style: dashed; }
     .tile.typed strong { color: var(--cyan); word-break: break-word; }
+
+    /* one color per step: it shows on the number, the highlight ring and the progress bar */
+    .qv2-card[data-step="1"], .qv2-steps a[data-step="1"] { --c: #0891B2; --c-rgb: 8,145,178; }
+    .qv2-card[data-step="2"], .qv2-steps a[data-step="2"] { --c: #2563EB; --c-rgb: 37,99,235; }
+    .qv2-card[data-step="3"], .qv2-steps a[data-step="3"] { --c: #7C3AED; --c-rgb: 124,58,237; }
+    .qv2-card[data-step="4"], .qv2-steps a[data-step="4"] { --c: #D97706; --c-rgb: 217,119,6; }
+    .qv2-card[data-step="5"], .qv2-steps a[data-step="5"] { --c: #16A34A; --c-rgb: 22,163,74; }
+    .qv2-card[data-step="6"], .qv2-steps a[data-step="6"] { --c: #DC2626; --c-rgb: 220,38,38; }
+    .qv2-send { --c: #DC2626; --c-rgb: 220,38,38; }
+    .qv2-card[data-step] .chip[aria-pressed="true"], .qv2-card[data-step] .tile[aria-pressed="true"] { border-color: var(--c); }
+    .qv2-card[data-step] .chip[aria-pressed="true"] { background: rgba(var(--c-rgb),.1); color: var(--c); }
+    .qv2-card[data-step] .tile[aria-pressed="true"] { background: rgba(var(--c-rgb),.08); box-shadow: 0 0 0 1px var(--c) inset; }
+    .qv2-card[data-step] .check input { accent-color: var(--c); }
+    .qv2-card[data-step] .qv2-field input:focus, .qv2-card[data-step] .qv2-field textarea:focus { border-color: var(--c); box-shadow: 0 0 0 3px rgba(var(--c-rgb),.15); }
+
+    /* ─── type hierarchy: titles vs. choices vs. examples ─── */
+    .qgroup > p { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #1E2D3D; margin-bottom: 10px; }
+    .qgroup > p em { font-size: 13px; font-weight: 400; text-transform: none; letter-spacing: 0; color: #6B7280; }
+    .qv2-field > span { font-size: 14px; font-weight: 700; color: #1E2D3D; }
+    .qv2-field > span em { font-weight: 400; color: #6B7280; font-size: 13px; }
+    .chip { font-size: 15px; font-weight: 500; color: #374151; }
+    .chip[aria-pressed="true"] { font-weight: 700; }
+    .chip.sm { font-weight: 500; }
+    .tile strong { font-weight: 600; color: #1F2937; }
+    .tile span { font-weight: 400; color: #6B7280; }
+    .qv2-field input, .qv2-field textarea { font-weight: 400; color: #111827; }
+    .qv2-field input::placeholder, .qv2-field textarea::placeholder, .qv2-search input::placeholder { color: #9CA3AF; font-style: italic; font-weight: 400; }
+    .qv2-hint { color: #6B7280; font-weight: 400; }
+    .feel > p { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 600; color: #6B7280; }
+
+    .qv2-steps b { flex: none; }
+    .qv2-steps a { flex: 0 0 auto; }
+    @media (min-width: 601px) { .qv2-steps a { flex: 1 1 0; } }
   </style>
 </head>
 <body>
@@ -3088,6 +3122,23 @@
   };
   var FEEL_FINISH = ['Gloss', 'Silk / satin', 'Matte', 'Uncoated'];
   var FEEL_WEIGHT = ['Text weight (lighter, like magazine pages)', 'Cover weight (heavier, like card stock)'];
+  // Usage notes for the large-format materials, taken from b2sign.com product pages (xpress buys these out from b2sign).
+  var LF_NOTES = {
+    '13oz Vinyl (Outdoor Gloss)': 'Indoor and outdoor; waterproof and UV safe.',
+    '13oz Vinyl (Silk)': 'Indoor and outdoor; waterproof and UV safe.',
+    '18oz Blockout Vinyl': 'Indoor and outdoor. Has a blockout layer, so it can be printed on both sides without show-through.',
+    '15oz Backlit Vinyl': 'Made for light boxes; best at night with the light box on.',
+    'Mesh Banner (Wind-Resistant)': 'Indoor and outdoor; lets wind pass through.',
+    'Foam Board 3/16"': 'Indoor only; not waterproof.',
+    'Foam Board 1/2"': 'Foam board is indoor only and not waterproof.',
+    'PVC Board': 'Water-resistant; indoor and outdoor.',
+    'Magnet Sheet (30mil)': 'Printed on one side only. Indoor and outdoor; waterproof and UV safe.'
+  };
+  var LF_FINISHING = ['Hems + grommets (standard)', 'Hems only', 'Pole pocket (2", 3" or 4")', 'Sewn-in rope', 'Windslits', 'Reinforced corners', 'Velcro (single-sided only)', 'Webbing and D-rings', 'No finishing'];
+  Object.keys(LF_NOTES).forEach(function (k) {
+    var c = CATALOG['Banners & Signs']; c.paperMeta = c.paperMeta || {};
+    c.paperMeta[k] = Object.assign({}, c.paperMeta[k], { note: LF_NOTES[k] });
+  });
   var DEFAULT_QTY = ['25', '50', '100', '250', '500', '1,000', '2,500'];
 
   var PRESETS = [
@@ -3152,6 +3203,10 @@
     else if (c.showPrintMode2Sided) { qs.push(mk('print', 'Color (double-sided)', 'one', plain(STATIC.pm2), false, { short: 'Print' })); }
     else if (c.showPrintModeSides) { qs.push(mk('print', 'Printed on', 'one', plain(STATIC.sides), false, { short: 'Printed on' })); }
     if (c.showPrintModeEnvelope) { qs.push(mk('print', 'Color and sides', 'one', plain(STATIC.env), false, { short: 'Print' })); }
+    if (name === 'Banners & Signs') {
+      qs.push(mk('print', 'Printed on', 'one', plain(['Single-sided', 'Double-sided']), false, { short: 'Printed on' }));
+      qs.push(mk('finishing', 'Finishing (banners)', 'multi', plain(LF_FINISHING), false, { short: 'Finishing' }));
+    }
     if (c.showPrintModeCoverInside) {
       qs.push(mk('printcover', 'Cover color and sides', 'one', plain(STATIC.cover), false, { short: 'Cover print' }));
       qs.push(mk('printinside', 'Inside pages color and sides', 'one', plain(STATIC.inside), false, { short: 'Inside print' }));
@@ -3164,7 +3219,7 @@
     if (c.coatingOptions) { qs.push(mk('accent', 'Special accents (coating, foil)', 'one', stockOpts(c.coatingOptions, c.coatingMeta).slice(0, -1), true)); }
     more('fold', 'Folding', STATIC.fold, c.showFold); more('score', 'Score / crease', STATIC.score, c.showScore);
     more('bundle', 'Shrink-wrap bundles', STATIC.bundle, c.showBundle); more('corners', 'Corners', STATIC.corners, c.showCorners);
-    more('shape', 'Cut style', STATIC.shape, c.showShape); more('finishing', 'Finishing', STATIC.finishing, c.showFinishing);
+    more('shape', 'Cut style', STATIC.shape, c.showShape); more('finishing', 'Finishing', STATIC.finishing, c.showFinishing && name !== 'Banners & Signs');
     more('mount', 'Mounting', STATIC.hstake, c.showHStake); more('hang', 'Hang method', STATIC.drill, c.showDrillHole);
     more('diecut', 'Die-cut shape', STATIC.diecut, c.showDieCut); more('pocket', 'Pocket configuration', STATIC.pocket, c.showPocket);
     more('numbering', 'Numbering', STATIC.numbering, c.showNumbering); more('envstyle', 'Envelope style', STATIC.envstyle, c.showEnvStyle);
@@ -3242,7 +3297,7 @@
       h += '<label class="qv2-field narrow" style="margin-top:0"><input type="number" min="4" max="500" step="1" data-pages value="' + esc(S.a.pages || '') + '"></label>' +
         '<p class="qv2-hint" id="pages-note">Pages are printed in multiples of 4 (8, 12, 16, 20&hellip;).</p>';
     } else {
-      h += '<div class="chips">' + q.opts.map(function (o) { return chip(q, o, q.type === 'paper' ? 'multi' : (q.type === 'size' ? 'size' : 'one')); }).join('') + '</div>';
+      h += '<div class="chips">' + q.opts.map(function (o) { return chip(q, o, (q.type === 'paper' || q.type === 'multi') ? 'multi' : (q.type === 'size' ? 'size' : 'one')); }).join('') + '</div>';
       if (q.type === 'size') {
         var cs = (q.opts.filter(function (o) { return /^Custom/.test(optVal(o)); })[0] || [])[0];
         if (cs) { h += '<label class="qv2-field narrow' + (S.a[q.k] === cs ? '' : ' hidden') + '" data-custom="' + q.k + '"><span>Width × height</span><input type="text" data-customtext="' + q.k + '" value="' + esc(S.a[q.k + '_custom'] || '') + '" placeholder="e.g. 5 × 7 in"></label>'; }
@@ -3273,6 +3328,9 @@
   function showHint(q) {
     var el = document.querySelector('[data-hint="' + q.k + '"]'); if (!el) { return; }
     var hs = selectedHints(q);
+    if (q.k === 'paper' && S.a.use === 'Outdoors' && (S.a.paper || []).some(function (v) { return /^Foam Board/.test(v); })) {
+      hs.push('Heads up: foam board is for indoor use only. For outdoors, consider vinyl, mesh or PVC board.');
+    }
     el.innerHTML = hs.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
   }
   function checkPages() {
