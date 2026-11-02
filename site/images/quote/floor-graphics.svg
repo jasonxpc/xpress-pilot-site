@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" width="240" height="170" role="img" aria-label="graphics: floor"><defs>
+<linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0891B2"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+<linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E2D3D"/><stop offset="1" stop-color="#3B5068"/></linearGradient>
+<linearGradient id="gs" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#FFF7C2"/><stop offset="1" stop-color="#FFE08A" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.4" fill="#fff" fill-opacity=".85"/></pattern>
+<pattern id="flute" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#F8FAFC"/><path d="M0 4h8" stroke="#CBD5E1" stroke-width="1.2"/></pattern>
+</defs><rect width="240" height="170" fill="#E8F1F6"/><path d="M0 70h240v100H0z" fill="#D8D2C8"/><path d="M40 70l-50 100M120 70v100M200 70l50 100" stroke="#C4BCAE" stroke-width="2"/><path d="M60 150l30-60h60l30 60z" fill="#F59E0B"/><path d="M120 100l-26 30h14v22h24v-22h14z" fill="#fff"/></svg>

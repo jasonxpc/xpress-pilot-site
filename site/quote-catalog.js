@@ -159,7 +159,8 @@ window.QV2_DATA = {
      "label": "Tell us what you need",
      "type": "text"
     }
-   ]
+   ],
+   "img": "images/quote/p-other"
   },
   "Reorder": {
    "label": "Repeat of a past order",
@@ -176,14 +177,23 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Exactly the same"
+       "Exactly the same",
+       "",
+       "",
+       "",
+       "images/quote/changes-exactly-the-same"
       ],
       [
-       "Same, with small changes"
+       "Same, with small changes",
+       "",
+       "",
+       "",
+       "images/quote/changes-same-with-small-changes"
       ]
      ]
     }
-   ]
+   ],
+   "img": "images/quote/p-reorder"
   }
  },
  "typedQuestions": [
@@ -211,19 +221,39 @@ window.QV2_DATA = {
    "type": "one",
    "opts": [
     [
-     "Full Color, Double-Sided"
+     "Full Color, Double-Sided",
+     "",
+     "",
+     "",
+     "images/quote/print-full-color-double-sided"
     ],
     [
-     "Full Color, Single-Sided"
+     "Full Color, Single-Sided",
+     "",
+     "",
+     "",
+     "images/quote/print-full-color-single-sided"
     ],
     [
-     "Color Front / B&W Back"
+     "Color Front / B&W Back",
+     "",
+     "",
+     "",
+     "images/quote/print-color-front-b-w-back"
     ],
     [
-     "B&W, Double-Sided"
+     "B&W, Double-Sided",
+     "",
+     "",
+     "",
+     "images/quote/print-b-w-double-sided"
     ],
     [
-     "B&W, Single-Sided"
+     "B&W, Single-Sided",
+     "",
+     "",
+     "",
+     "images/quote/print-b-w-single-sided"
     ]
    ],
    "short": "Print"
@@ -288,32 +318,60 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "3.5\" × 8.5\" (Rack Card)"
+       "3.5\" × 8.5\" (Rack Card)",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-8-5-rack-card"
       ],
       [
-       "4\" × 6\""
+       "4\" × 6\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-6"
       ],
       [
-       "4.25\" × 5.5\" (Half Letter)"
+       "4.25\" × 5.5\" (Half Letter)",
+       "",
+       "",
+       "",
+       "images/quote/size-4-25-5-5-half-letter"
       ],
       [
        "5.5\" × 8.5\" (Half Letter)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-5-5-8-5-half-letter"
       ],
       [
        "8.5\" × 11\" (Letter)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-11-letter"
       ],
       [
-       "8.5\" × 14\" (Legal)"
+       "8.5\" × 14\" (Legal)",
+       "",
+       "",
+       "",
+       "images/quote/size-8-5-14-legal"
       ],
       [
-       "11\" × 17\" (Tabloid)"
+       "11\" × 17\" (Tabloid)",
+       "",
+       "",
+       "",
+       "images/quote/size-11-17-tabloid"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -327,29 +385,45 @@ window.QV2_DATA = {
      "opts": [
       [
        "60lb Uncoated",
-       "Lightweight, like notebook paper — most economical"
+       "Lightweight, like notebook paper — most economical",
+       "",
+       "",
+       "images/quote/paper-60lb-uncoated"
       ],
       [
        "70lb Uncoated",
-       "Slightly heavier than copy paper — good all-purpose weight"
+       "Slightly heavier than copy paper — good all-purpose weight",
+       "",
+       "",
+       "images/quote/paper-70lb-uncoated"
       ],
       [
        "80lb Gloss Text",
-       "Magazine-page weight with a shiny finish"
+       "Magazine-page weight with a shiny finish",
+       "",
+       "",
+       "images/quote/paper-80lb-gloss-text"
       ],
       [
        "80lb Silk Text",
-       "Magazine-page weight, no glare"
+       "Magazine-page weight, no glare",
+       "",
+       "",
+       "images/quote/paper-80lb-silk-text"
       ],
       [
        "100lb Gloss Text",
        "Our sturdiest flyer paper — glossy, premium feel",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-gloss-text"
       ],
       [
        "100lb Silk Text",
        "Our sturdiest flyer paper — smooth, no glare",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-silk-text"
       ],
       [
        "Not sure — recommend for me"
@@ -364,19 +438,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -387,10 +481,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -403,27 +505,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -436,23 +555,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -463,28 +596,60 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Fold"
+       "No Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-no-fold"
       ],
       [
-       "Half Fold"
+       "Half Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-half-fold"
       ],
       [
-       "Tri-Fold"
+       "Tri-Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-tri-fold"
       ],
       [
-       "Z-Fold"
+       "Z-Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-z-fold"
       ],
       [
-       "Quarter Fold"
+       "Quarter Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-quarter-fold"
       ],
       [
-       "Gate Fold"
+       "Gate Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-gate-fold"
       ],
       [
-       "Accordion Fold"
+       "Accordion Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-accordion-fold"
       ],
       [
-       "Roll Fold"
+       "Roll Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-roll-fold"
       ]
      ],
      "more": true
@@ -495,13 +660,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Bundle"
+       "No Bundle",
+       "",
+       "",
+       "",
+       "images/quote/bundle-no-bundle"
       ],
       [
-       "25 per pack"
+       "25 per pack",
+       "",
+       "",
+       "",
+       "images/quote/bundle-25-per-pack"
       ],
       [
-       "50 per pack"
+       "50 per pack",
+       "",
+       "",
+       "",
+       "images/quote/bundle-50-per-pack"
       ]
      ],
      "more": true
@@ -512,10 +689,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Print only"
+       "Print only",
+       "",
+       "",
+       "",
+       "images/quote/mailing-print-only"
       ],
       [
-       "I also need mailing (EDDM or my own list)"
+       "I also need mailing (EDDM or my own list)",
+       "",
+       "",
+       "",
+       "images/quote/mailing-i-also-need-mailing-eddm-or-my-own-list"
       ]
      ],
      "more": true
@@ -542,19 +727,37 @@ window.QV2_DATA = {
       [
        "8.5\" × 11\" (Letter flat)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-11-letter-flat"
       ],
       [
-       "8.5\" × 14\" (Legal flat)"
+       "8.5\" × 14\" (Legal flat)",
+       "",
+       "",
+       "",
+       "images/quote/size-8-5-14-legal-flat"
       ],
       [
-       "11\" × 17\" (Tabloid flat)"
+       "11\" × 17\" (Tabloid flat)",
+       "",
+       "",
+       "",
+       "images/quote/size-11-17-tabloid-flat"
       ],
       [
-       "11\" × 25.5\" (Tabloid flat — trifold)"
+       "11\" × 25.5\" (Tabloid flat — trifold)",
+       "",
+       "",
+       "",
+       "images/quote/size-11-25-5-tabloid-flat-trifold"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -568,29 +771,45 @@ window.QV2_DATA = {
      "opts": [
       [
        "80lb Gloss Text",
-       "Magazine-page weight with a shiny finish"
+       "Magazine-page weight with a shiny finish",
+       "",
+       "",
+       "images/quote/paper-80lb-gloss-text"
       ],
       [
        "80lb Silk Text",
-       "Magazine-page weight, no glare"
+       "Magazine-page weight, no glare",
+       "",
+       "",
+       "images/quote/paper-80lb-silk-text"
       ],
       [
        "100lb Gloss Text",
        "Heavier, near-cardstock feel — glossy",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-gloss-text"
       ],
       [
        "100lb Silk Text",
        "Heavier, near-cardstock feel — no glare",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-silk-text"
       ],
       [
        "100lb Gloss Cover",
-       "Sturdy cardstock — like a magazine cover, glossy"
+       "Sturdy cardstock — like a magazine cover, glossy",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "100lb Silk Cover",
-       "Sturdy cardstock — like a magazine cover, no glare"
+       "Sturdy cardstock — like a magazine cover, no glare",
+       "",
+       "",
+       "images/quote/paper-100lb-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -605,19 +824,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -630,27 +869,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -663,23 +919,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -690,28 +960,60 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Fold"
+       "No Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-no-fold"
       ],
       [
-       "Half Fold"
+       "Half Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-half-fold"
       ],
       [
-       "Tri-Fold"
+       "Tri-Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-tri-fold"
       ],
       [
-       "Z-Fold"
+       "Z-Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-z-fold"
       ],
       [
-       "Quarter Fold"
+       "Quarter Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-quarter-fold"
       ],
       [
-       "Gate Fold"
+       "Gate Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-gate-fold"
       ],
       [
-       "Accordion Fold"
+       "Accordion Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-accordion-fold"
       ],
       [
-       "Roll Fold"
+       "Roll Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-roll-fold"
       ]
      ],
      "more": true
@@ -722,10 +1024,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Score"
+       "No Score",
+       "",
+       "",
+       "",
+       "images/quote/score-no-score"
       ],
       [
-       "Score Before Fold"
+       "Score Before Fold",
+       "",
+       "",
+       "",
+       "images/quote/score-score-before-fold"
       ]
      ],
      "more": true
@@ -736,13 +1046,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Bundle"
+       "No Bundle",
+       "",
+       "",
+       "",
+       "images/quote/bundle-no-bundle"
       ],
       [
-       "25 per pack"
+       "25 per pack",
+       "",
+       "",
+       "",
+       "images/quote/bundle-25-per-pack"
       ],
       [
-       "50 per pack"
+       "50 per pack",
+       "",
+       "",
+       "",
+       "images/quote/bundle-50-per-pack"
       ]
      ],
      "more": true
@@ -753,10 +1075,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Print only"
+       "Print only",
+       "",
+       "",
+       "",
+       "images/quote/mailing-print-only"
       ],
       [
-       "I also need mailing (EDDM or my own list)"
+       "I also need mailing (EDDM or my own list)",
+       "",
+       "",
+       "",
+       "images/quote/mailing-i-also-need-mailing-eddm-or-my-own-list"
       ]
      ],
      "more": true
@@ -783,26 +1113,44 @@ window.QV2_DATA = {
       [
        "4\" × 6\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-4-6"
       ],
       [
-       "4.25\" × 5.5\""
+       "4.25\" × 5.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-25-5-5"
       ],
       [
        "5\" × 7\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-5-7"
       ],
       [
        "5.5\" × 8.5\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-5-5-8-5"
       ],
       [
-       "6\" × 9\""
+       "6\" × 9\"",
+       "",
+       "",
+       "",
+       "images/quote/size-6-9"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -816,28 +1164,45 @@ window.QV2_DATA = {
      "opts": [
       [
        "100lb Gloss Cover",
-       "Thinner than 14PT — still sturdy, glossy"
+       "Thinner than 14PT — still sturdy, glossy",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "100lb Silk Cover",
-       "Thinner than 14PT — still sturdy, satin finish, no glare"
+       "Thinner than 14PT — still sturdy, satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-100lb-silk-cover"
       ],
       [
        "14PT Gloss",
-       "Standard postcard thickness — sturdy, glossy finish"
+       "Standard postcard thickness — sturdy, glossy finish",
+       "",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
        "Standard postcard thickness — smooth satin finish, no glare",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Gloss Cover",
-       "Extra-thick, glossy finish"
+       "Extra-thick, glossy finish",
+       "",
+       "",
+       "images/quote/paper-16pt-gloss-cover"
       ],
       [
        "16PT Silk Cover",
-       "Extra-thick, smooth satin finish, no glare"
+       "Extra-thick, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-16pt-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -852,19 +1217,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -875,10 +1260,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -891,27 +1284,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -924,23 +1334,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -951,13 +1375,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Square"
+       "Square",
+       "",
+       "",
+       "",
+       "images/quote/corners-square"
       ],
       [
-       "Rounded (1/8\")"
+       "Rounded (1/8\")",
+       "",
+       "",
+       "",
+       "images/quote/corners-rounded-1-8"
       ],
       [
-       "Rounded (1/4\")"
+       "Rounded (1/4\")",
+       "",
+       "",
+       "",
+       "images/quote/corners-rounded-1-4"
       ]
      ],
      "more": true
@@ -968,10 +1404,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Print only"
+       "Print only",
+       "",
+       "",
+       "",
+       "images/quote/mailing-print-only"
       ],
       [
-       "I also need mailing (EDDM or my own list)"
+       "I also need mailing (EDDM or my own list)",
+       "",
+       "",
+       "",
+       "images/quote/mailing-i-also-need-mailing-eddm-or-my-own-list"
       ]
      ],
      "more": true
@@ -994,15 +1438,25 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "3.5\" × 8.5\""
+       "3.5\" × 8.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-8-5"
       ],
       [
        "4\" × 9\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-4-9"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1016,24 +1470,38 @@ window.QV2_DATA = {
      "opts": [
       [
        "100lb Gloss Cover",
-       "Thinner than 14PT — still sturdy enough to stand in a rack"
+       "Thinner than 14PT — still sturdy enough to stand in a rack",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "14PT Gloss",
        "Sturdy card stock — stands up well in display racks",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
-       "Sturdy card stock, smooth satin finish, no glare"
+       "Sturdy card stock, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Gloss Cover",
-       "Extra-thick, glossy finish"
+       "Extra-thick, glossy finish",
+       "",
+       "",
+       "images/quote/paper-16pt-gloss-cover"
       ],
       [
        "16PT Silk Cover",
-       "Extra-thick, smooth satin finish, no glare"
+       "Extra-thick, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-16pt-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -1048,19 +1516,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -1073,27 +1561,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -1106,23 +1611,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -1145,24 +1664,46 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "3.5\" × 8.5\""
+       "3.5\" × 8.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-8-5"
       ],
       [
-       "3.5\" × 11\""
+       "3.5\" × 11\"",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-11"
       ],
       [
-       "4\" × 7\""
+       "4\" × 7\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-7"
       ],
       [
        "4.25\" × 11\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-4-25-11"
       ],
       [
-       "4.25\" × 14\""
+       "4.25\" × 14\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-25-14"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1176,32 +1717,52 @@ window.QV2_DATA = {
      "opts": [
       [
        "100lb Gloss Book",
-       "Lighter, flyer-weight paper — most economical"
+       "Lighter, flyer-weight paper — most economical",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-book"
       ],
       [
        "100lb Gloss Cover",
-       "Thinner than 14PT — still sturdy"
+       "Thinner than 14PT — still sturdy",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "10PT EnduraACE (Weatherproof Synthetic)",
-       "Thinner but tear- and weather-resistant — built for outdoor hanging"
+       "Thinner but tear- and weather-resistant — built for outdoor hanging",
+       "",
+       "",
+       "images/quote/paper-10pt-enduraace-weatherproof-synthetic"
       ],
       [
        "14PT Gloss",
        "Standard sturdy card stock, glossy finish",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
-       "Standard sturdy card stock, smooth satin finish, no glare"
+       "Standard sturdy card stock, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Gloss Cover",
-       "Extra-thick, glossy finish"
+       "Extra-thick, glossy finish",
+       "",
+       "",
+       "images/quote/paper-16pt-gloss-cover"
       ],
       [
        "16PT Silk Cover",
-       "Extra-thick, smooth satin finish, no glare"
+       "Extra-thick, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-16pt-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -1216,19 +1777,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -1241,27 +1822,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -1274,23 +1872,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -1301,13 +1913,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Standard"
+       "Standard",
+       "",
+       "",
+       "",
+       "images/quote/diecut-standard"
       ],
       [
-       "Arch"
+       "Arch",
+       "",
+       "",
+       "",
+       "images/quote/diecut-arch"
       ],
       [
-       "Starburst"
+       "Starburst",
+       "",
+       "",
+       "",
+       "images/quote/diecut-starburst"
       ]
      ],
      "more": true
@@ -1331,19 +1955,37 @@ window.QV2_DATA = {
       [
        "4\" × 6\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-4-6"
       ],
       [
-       "5\" × 5.5\""
+       "5\" × 5.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-5-5-5"
       ],
       [
-       "3.5\" × 8.5\" (Tall)"
+       "3.5\" × 8.5\" (Tall)",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-8-5-tall"
       ],
       [
-       "5\" × 7\""
+       "5\" × 7\"",
+       "",
+       "",
+       "",
+       "images/quote/size-5-7"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1357,24 +1999,38 @@ window.QV2_DATA = {
      "opts": [
       [
        "100lb Gloss Cover",
-       "Thinner than 14PT — still sturdy enough to stand"
+       "Thinner than 14PT — still sturdy enough to stand",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "14PT Gloss",
        "Sturdy card stock — stands up on its own",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
-       "Sturdy card stock, smooth satin finish, no glare"
+       "Sturdy card stock, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Gloss Cover",
-       "Extra-thick, glossy finish"
+       "Extra-thick, glossy finish",
+       "",
+       "",
+       "images/quote/paper-16pt-gloss-cover"
       ],
       [
        "16PT Silk Cover",
-       "Extra-thick, smooth satin finish, no glare"
+       "Extra-thick, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-16pt-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -1389,19 +2045,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -1414,27 +2090,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -1447,23 +2140,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -1485,13 +2192,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Saddle Stitch"
+       "Saddle Stitch",
+       "",
+       "",
+       "",
+       "images/quote/binding-saddle-stitch"
       ],
       [
-       "Spiral / Coil"
+       "Spiral / Coil",
+       "",
+       "",
+       "",
+       "images/quote/binding-spiral-coil"
       ],
       [
-       "Perfect Bind"
+       "Perfect Bind",
+       "",
+       "",
+       "",
+       "images/quote/binding-perfect-bind"
       ]
      ]
     },
@@ -1503,19 +2222,37 @@ window.QV2_DATA = {
       [
        "8.5\" × 11\" (Wall)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-11-wall"
       ],
       [
-       "11\" × 17\" (Wall)"
+       "11\" × 17\" (Wall)",
+       "",
+       "",
+       "",
+       "images/quote/size-11-17-wall"
       ],
       [
-       "12\" × 12\" (Photo)"
+       "12\" × 12\" (Photo)",
+       "",
+       "",
+       "",
+       "images/quote/size-12-12-photo"
       ],
       [
-       "4\" × 9\" (Desk Tent)"
+       "4\" × 9\" (Desk Tent)",
+       "",
+       "",
+       "",
+       "images/quote/size-4-9-desk-tent"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1530,15 +2267,23 @@ window.QV2_DATA = {
       [
        "100lb Gloss Text",
        "Sturdy, magazine-cover weight — glossy",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-gloss-text"
       ],
       [
        "100lb Silk Text",
-       "Sturdy, magazine-cover weight — no glare"
+       "Sturdy, magazine-cover weight — no glare",
+       "",
+       "",
+       "images/quote/paper-100lb-silk-text"
       ],
       [
        "14PT Gloss Cover",
-       "Thicker card stock — extra durable for daily flipping"
+       "Thicker card stock — extra durable for daily flipping",
+       "",
+       "",
+       "images/quote/paper-14pt-gloss-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -1553,19 +2298,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -1578,27 +2343,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant — good for daily-handled cover"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant — good for daily-handled cover",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -1611,23 +2393,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -1638,13 +2434,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "6-Month"
+       "6-Month",
+       "",
+       "",
+       "",
+       "images/quote/months-6-month"
       ],
       [
-       "12-Month"
+       "12-Month",
+       "",
+       "",
+       "",
+       "images/quote/months-12-month"
       ],
       [
-       "18-Month"
+       "18-Month",
+       "",
+       "",
+       "",
+       "images/quote/months-18-month"
       ]
      ],
      "more": true
@@ -1667,23 +2475,39 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "4.25\" × 11\" (Single fold)"
+       "4.25\" × 11\" (Single fold)",
+       "",
+       "",
+       "",
+       "images/quote/size-4-25-11-single-fold"
       ],
       [
        "8.5\" × 11\" (Letter)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-11-letter"
       ],
       [
        "8.5\" × 14\" (Legal)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-14-legal"
       ],
       [
-       "11\" × 17\" (Tabloid)"
+       "11\" × 17\" (Tabloid)",
+       "",
+       "",
+       "",
+       "images/quote/size-11-17-tabloid"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1697,29 +2521,45 @@ window.QV2_DATA = {
      "opts": [
       [
        "80lb Gloss Text",
-       "Lighter, flyer-weight — budget option, glossy"
+       "Lighter, flyer-weight — budget option, glossy",
+       "",
+       "",
+       "images/quote/paper-80lb-gloss-text"
       ],
       [
        "80lb Silk Text",
-       "Lighter, flyer-weight — budget option, no glare"
+       "Lighter, flyer-weight — budget option, no glare",
+       "",
+       "",
+       "images/quote/paper-80lb-silk-text"
       ],
       [
        "100lb Gloss Text",
-       "Sturdier text weight, glossy"
+       "Sturdier text weight, glossy",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-text"
       ],
       [
        "100lb Silk Text",
-       "Sturdier text weight, no glare"
+       "Sturdier text weight, no glare",
+       "",
+       "",
+       "images/quote/paper-100lb-silk-text"
       ],
       [
        "100lb Gloss Cover",
        "Sturdy cardstock — holds up well to handling & spills, glossy",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "100lb Silk Cover",
        "Sturdy cardstock — holds up well to handling & spills, no glare",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -1734,19 +2574,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -1757,10 +2617,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -1773,27 +2641,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant, best for wipeable menus"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant, best for wipeable menus",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -1806,23 +2691,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -1833,28 +2732,60 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Fold"
+       "No Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-no-fold"
       ],
       [
-       "Half Fold"
+       "Half Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-half-fold"
       ],
       [
-       "Tri-Fold"
+       "Tri-Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-tri-fold"
       ],
       [
-       "Z-Fold"
+       "Z-Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-z-fold"
       ],
       [
-       "Quarter Fold"
+       "Quarter Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-quarter-fold"
       ],
       [
-       "Gate Fold"
+       "Gate Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-gate-fold"
       ],
       [
-       "Accordion Fold"
+       "Accordion Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-accordion-fold"
       ],
       [
-       "Roll Fold"
+       "Roll Fold",
+       "",
+       "",
+       "",
+       "images/quote/fold-roll-fold"
       ]
      ],
      "more": true
@@ -1879,13 +2810,23 @@ window.QV2_DATA = {
       [
        "10\" × 14\" (Standard)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-10-14-standard"
       ],
       [
-       "12\" × 16\""
+       "12\" × 16\"",
+       "",
+       "",
+       "",
+       "images/quote/size-12-16"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1900,11 +2841,16 @@ window.QV2_DATA = {
       [
        "60lb Uncoated",
        "Lightweight, economical — standard disposable placemat weight",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-60lb-uncoated"
       ],
       [
        "70lb Uncoated",
-       "Slightly heavier — holds up a bit better under plates/utensils"
+       "Slightly heavier — holds up a bit better under plates/utensils",
+       "",
+       "",
+       "images/quote/paper-70lb-uncoated"
       ],
       [
        "Not sure — recommend for me"
@@ -1919,19 +2865,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -1956,16 +2922,30 @@ window.QV2_DATA = {
       [
        "3.5\" × 2\" (Standard)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-3-5-2-standard"
       ],
       [
-       "1.75\" × 3.5\" (Slim)"
+       "1.75\" × 3.5\" (Slim)",
+       "",
+       "",
+       "",
+       "images/quote/size-1-75-3-5-slim"
       ],
       [
-       "2\" × 2\" (Square)"
+       "2\" × 2\" (Square)",
+       "",
+       "",
+       "",
+       "images/quote/size-2-2-square"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -1979,33 +2959,52 @@ window.QV2_DATA = {
      "opts": [
       [
        "100lb Cover (Slim)",
-       "Noticeably thinner than 14PT — easy on the wallet!"
+       "Noticeably thinner than 14PT — easy on the wallet!",
+       "",
+       "",
+       "images/quote/paper-100lb-cover-slim"
       ],
       [
        "14PT Gloss",
-       "Sharp colors, glossy finish"
+       "Sharp colors, glossy finish",
+       "",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
        "Most common choice — smooth satin finish, no glare",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Silk",
        "Smooth satin finish, rich colors — one of our most-used weights (Veritiv Endurance)",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-16pt-silk"
       ],
       [
        "16PT Linen",
-       "Textured classic feel"
+       "Textured classic feel",
+       "",
+       "",
+       "images/quote/paper-16pt-linen"
       ],
       [
        "Metallic / Foil Board",
-       "Eye-catching shimmer — great for luxury brands"
+       "Eye-catching shimmer — great for luxury brands",
+       "",
+       "",
+       "images/quote/paper-metallic-foil-board"
       ],
       [
        "Plastic / PVC",
-       "Waterproof & durable — credit card feel"
+       "Waterproof & durable — credit card feel",
+       "",
+       "",
+       "images/quote/paper-plastic-pvc"
       ],
       [
        "Not sure — recommend for me"
@@ -2020,19 +3019,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -2043,10 +3062,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -2059,27 +3086,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional lamination",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -2092,23 +3136,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -2119,13 +3177,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Square"
+       "Square",
+       "",
+       "",
+       "",
+       "images/quote/corners-square"
       ],
       [
-       "Rounded (1/8\")"
+       "Rounded (1/8\")",
+       "",
+       "",
+       "",
+       "images/quote/corners-rounded-1-8"
       ],
       [
-       "Rounded (1/4\")"
+       "Rounded (1/4\")",
+       "",
+       "",
+       "",
+       "images/quote/corners-rounded-1-4"
       ]
      ],
      "more": true
@@ -2150,19 +3220,37 @@ window.QV2_DATA = {
       [
        "2\" × 3.5\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-2-3-5"
       ],
       [
-       "2\" × 4\""
+       "2\" × 4\"",
+       "",
+       "",
+       "",
+       "images/quote/size-2-4"
       ],
       [
-       "3\" × 3\""
+       "3\" × 3\"",
+       "",
+       "",
+       "",
+       "images/quote/size-3-3"
       ],
       [
-       "3.5\" × 5\""
+       "3.5\" × 5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-5"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -2176,20 +3264,31 @@ window.QV2_DATA = {
      "opts": [
       [
        "14PT Gloss",
-       "Standard sturdy card stock, glossy finish"
+       "Standard sturdy card stock, glossy finish",
+       "",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
        "Standard sturdy card stock, smooth satin finish, no glare",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Gloss Cover",
-       "Extra-thick, glossy finish"
+       "Extra-thick, glossy finish",
+       "",
+       "",
+       "images/quote/paper-16pt-gloss-cover"
       ],
       [
        "16PT Silk Cover",
-       "Extra-thick, smooth satin finish, no glare"
+       "Extra-thick, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-16pt-silk-cover"
       ],
       [
        "Not sure — recommend for me"
@@ -2204,19 +3303,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -2229,27 +3348,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -2262,23 +3398,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -2289,13 +3439,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Square"
+       "Square",
+       "",
+       "",
+       "",
+       "images/quote/corners-square"
       ],
       [
-       "Rounded (1/8\")"
+       "Rounded (1/8\")",
+       "",
+       "",
+       "",
+       "images/quote/corners-rounded-1-8"
       ],
       [
-       "Rounded (1/4\")"
+       "Rounded (1/4\")",
+       "",
+       "",
+       "",
+       "images/quote/corners-rounded-1-4"
       ]
      ],
      "more": true
@@ -2306,13 +3468,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Hole"
+       "No Hole",
+       "",
+       "",
+       "",
+       "images/quote/hang-no-hole"
       ],
       [
-       "Drill Hole (1/8\")"
+       "Drill Hole (1/8\")",
+       "",
+       "",
+       "",
+       "images/quote/hang-drill-hole-1-8"
       ],
       [
-       "Bottleneck Die-Cut"
+       "Bottleneck Die-Cut",
+       "",
+       "",
+       "",
+       "images/quote/hang-bottleneck-die-cut"
       ]
      ],
      "more": true
@@ -2337,16 +3511,30 @@ window.QV2_DATA = {
       [
        "8.5\" × 11\" (Letter)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-11-letter"
       ],
       [
-       "8.5\" × 14\" (Legal)"
+       "8.5\" × 14\" (Legal)",
+       "",
+       "",
+       "",
+       "images/quote/size-8-5-14-legal"
       ],
       [
-       "11\" × 8.5\" (Landscape)"
+       "11\" × 8.5\" (Landscape)",
+       "",
+       "",
+       "",
+       "images/quote/size-11-8-5-landscape"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -2360,25 +3548,38 @@ window.QV2_DATA = {
      "opts": [
       [
        "80lb Gloss Cover",
-       "Solid cardstock feel, glossy"
+       "Solid cardstock feel, glossy",
+       "",
+       "",
+       "images/quote/paper-80lb-gloss-cover"
       ],
       [
        "80lb Uncoated Cover",
-       "Solid cardstock feel, natural non-shiny finish"
+       "Solid cardstock feel, natural non-shiny finish",
+       "",
+       "",
+       "images/quote/paper-80lb-uncoated-cover"
       ],
       [
        "100lb Gloss Cover",
        "Our sturdiest option — premium glossy finish",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "100lb Silk Cover",
-       "Our sturdiest option — premium, no glare"
+       "Our sturdiest option — premium, no glare",
+       "",
+       "",
+       "images/quote/paper-100lb-silk-cover"
       ],
       [
        "Parchment / Linen",
        "Textured, formal finish — traditional certificate look",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-parchment-linen"
       ],
       [
        "Not sure — recommend for me"
@@ -2393,19 +3594,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -2418,27 +3639,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating (needed if the certificate will be signed after printing)",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, good for display/award certificates"
+       "Thick, high-gloss plastic film — most durable, good for display/award certificates",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -2451,19 +3689,30 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish, classic gold/silver seal look"
+       "Hot-stamped metallic foil accents — flat finish, classic gold/silver seal look",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -2487,29 +3736,53 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "2\" × 2\""
+       "2\" × 2\"",
+       "",
+       "",
+       "",
+       "images/quote/size-2-2"
       ],
       [
-       "2\" × 3\""
+       "2\" × 3\"",
+       "",
+       "",
+       "",
+       "images/quote/size-2-3"
       ],
       [
        "3\" × 3\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-3-3"
       ],
       [
        "3\" × 4\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-3-4"
       ],
       [
-       "4\" × 4\""
+       "4\" × 4\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-4"
       ],
       [
-       "4\" × 6\""
+       "4\" × 6\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-6"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -2524,40 +3797,86 @@ window.QV2_DATA = {
       [
        "White Gloss Vinyl",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-white-gloss-vinyl"
       ],
       [
-       "White Silk Vinyl"
+       "White Silk Vinyl",
+       "",
+       "",
+       "",
+       "images/quote/paper-white-silk-vinyl"
       ],
       [
-       "Clear Gloss Vinyl"
+       "Clear Gloss Vinyl",
+       "",
+       "",
+       "",
+       "images/quote/paper-clear-gloss-vinyl"
       ],
       [
-       "Clear Silk Vinyl"
+       "Clear Silk Vinyl",
+       "",
+       "",
+       "",
+       "images/quote/paper-clear-silk-vinyl"
       ],
       [
-       "Kraft / Recycled"
+       "Kraft / Recycled",
+       "",
+       "",
+       "",
+       "images/quote/paper-kraft-recycled"
       ],
       [
-       "Foil (Gold/Silver)"
+       "Foil (Gold/Silver)",
+       "",
+       "",
+       "",
+       "images/quote/paper-foil-gold-silver"
       ],
       [
-       "Holographic"
+       "Holographic",
+       "",
+       "",
+       "",
+       "images/quote/paper-holographic"
       ],
       [
-       "Glitter"
+       "Glitter",
+       "",
+       "",
+       "",
+       "images/quote/paper-glitter"
       ],
       [
-       "Reflective"
+       "Reflective",
+       "",
+       "",
+       "",
+       "images/quote/paper-reflective"
       ],
       [
-       "Glow-in-the-Dark"
+       "Glow-in-the-Dark",
+       "",
+       "",
+       "",
+       "images/quote/paper-glow-in-the-dark"
       ],
       [
-       "Static Cling (Removable)"
+       "Static Cling (Removable)",
+       "",
+       "",
+       "",
+       "images/quote/paper-static-cling-removable"
       ],
       [
-       "Polyester (Waterproof)"
+       "Polyester (Waterproof)",
+       "",
+       "",
+       "",
+       "images/quote/paper-polyester-waterproof"
       ],
       [
        "Not sure — recommend for me"
@@ -2572,19 +3891,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Die-Cut"
+       "Die-Cut",
+       "",
+       "",
+       "",
+       "images/quote/shape-die-cut"
       ],
       [
-       "Kiss-Cut"
+       "Kiss-Cut",
+       "",
+       "",
+       "",
+       "images/quote/shape-kiss-cut"
       ],
       [
-       "Circle"
+       "Circle",
+       "",
+       "",
+       "",
+       "images/quote/shape-circle"
       ],
       [
-       "Oval"
+       "Oval",
+       "",
+       "",
+       "",
+       "images/quote/shape-oval"
       ],
       [
-       "Square / Rect"
+       "Square / Rect",
+       "",
+       "",
+       "",
+       "images/quote/shape-square-rect"
       ]
      ],
      "more": true
@@ -2608,13 +3947,23 @@ window.QV2_DATA = {
       [
        "18\" × 24\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-18-24"
       ],
       [
-       "24\" × 36\""
+       "24\" × 36\"",
+       "",
+       "",
+       "",
+       "images/quote/size-24-36"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -2627,7 +3976,11 @@ window.QV2_DATA = {
      "type": "paper",
      "opts": [
       [
-       "4mm White Coroplast"
+       "4mm White Coroplast",
+       "",
+       "",
+       "",
+       "images/quote/paper-4mm-white-coroplast"
       ],
       [
        "Not sure — recommend for me"
@@ -2642,10 +3995,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Single-Sided"
+       "Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-single-sided"
       ],
       [
-       "Double-Sided"
+       "Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-double-sided"
       ]
      ],
      "short": "Printed on"
@@ -2656,10 +4017,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -2670,16 +4039,32 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "H-Stake"
+       "H-Stake",
+       "",
+       "",
+       "",
+       "images/quote/mount-h-stake"
       ],
       [
-       "A-Frame Stand"
+       "A-Frame Stand",
+       "",
+       "",
+       "",
+       "images/quote/mount-a-frame-stand"
       ],
       [
-       "Post & Frame"
+       "Post & Frame",
+       "",
+       "",
+       "",
+       "images/quote/mount-post-frame"
       ],
       [
-       "Sign Only"
+       "Sign Only",
+       "",
+       "",
+       "",
+       "images/quote/mount-sign-only"
       ]
      ],
      "more": true
@@ -2702,13 +4087,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Indoors"
+       "Indoors",
+       "",
+       "",
+       "",
+       "images/quote/use-indoors"
       ],
       [
-       "Outdoors"
+       "Outdoors",
+       "",
+       "",
+       "",
+       "images/quote/use-outdoors"
       ],
       [
-       "Event or trade show"
+       "Event or trade show",
+       "",
+       "",
+       "",
+       "images/quote/use-event-or-trade-show"
       ],
       [
        "Not sure — recommend for me"
@@ -2724,21 +4121,37 @@ window.QV2_DATA = {
       [
        "11\" × 17\" (Tabloid)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-11-17-tabloid"
       ],
       [
-       "12\" × 18\""
+       "12\" × 18\"",
+       "",
+       "",
+       "",
+       "images/quote/size-12-18"
       ],
       [
        "18\" × 24\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-18-24"
       ],
       [
-       "24\" × 36\""
+       "24\" × 36\"",
+       "",
+       "",
+       "",
+       "images/quote/size-24-36"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -2752,20 +4165,31 @@ window.QV2_DATA = {
      "opts": [
       [
        "80lb Gloss Text",
-       "Magazine-page weight with a shiny finish"
+       "Magazine-page weight with a shiny finish",
+       "",
+       "",
+       "images/quote/paper-80lb-gloss-text"
       ],
       [
        "80lb Silk Text",
-       "Magazine-page weight, no glare"
+       "Magazine-page weight, no glare",
+       "",
+       "",
+       "images/quote/paper-80lb-silk-text"
       ],
       [
        "100lb Gloss Text",
        "Our sturdiest poster paper — glossy, vivid colors",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-100lb-gloss-text"
       ],
       [
        "100lb Silk Text",
-       "Our sturdiest poster paper — no glare, easy to read from an angle"
+       "Our sturdiest poster paper — no glare, easy to read from an angle",
+       "",
+       "",
+       "images/quote/paper-100lb-silk-text"
       ],
       [
        "Not sure — recommend for me"
@@ -2780,10 +4204,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Single-Sided"
+       "Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-single-sided"
       ],
       [
-       "Double-Sided"
+       "Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-double-sided"
       ]
      ],
      "short": "Printed on"
@@ -2794,10 +4226,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -2810,27 +4250,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant, good for repeated handling/display"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant, good for repeated handling/display",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -2843,23 +4300,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -2882,13 +4353,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Saddle Stitch"
+       "Saddle Stitch",
+       "",
+       "",
+       "",
+       "images/quote/binding-saddle-stitch"
       ],
       [
-       "Spiral / Coil"
+       "Spiral / Coil",
+       "",
+       "",
+       "",
+       "images/quote/binding-spiral-coil"
       ],
       [
-       "Perfect Bind"
+       "Perfect Bind",
+       "",
+       "",
+       "",
+       "images/quote/binding-perfect-bind"
       ]
      ]
     },
@@ -2898,18 +4381,32 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "4.25\" × 5.5\""
+       "4.25\" × 5.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-25-5-5"
       ],
       [
-       "5.5\" × 8.5\""
+       "5.5\" × 8.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-5-5-8-5"
       ],
       [
        "8.5\" × 11\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-8-5-11"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -2922,19 +4419,39 @@ window.QV2_DATA = {
      "type": "paper",
      "opts": [
       [
-       "80lb Gloss Cover"
+       "80lb Gloss Cover",
+       "",
+       "",
+       "",
+       "images/quote/coverstock-80lb-gloss-cover"
       ],
       [
-       "80lb Silk Cover"
+       "80lb Silk Cover",
+       "",
+       "",
+       "",
+       "images/quote/coverstock-80lb-silk-cover"
       ],
       [
-       "100lb Gloss Cover"
+       "100lb Gloss Cover",
+       "",
+       "",
+       "",
+       "images/quote/coverstock-100lb-gloss-cover"
       ],
       [
-       "100lb Silk Cover"
+       "100lb Silk Cover",
+       "",
+       "",
+       "",
+       "images/quote/coverstock-100lb-silk-cover"
       ],
       [
-       "12PT Card Stock"
+       "12PT Card Stock",
+       "",
+       "",
+       "",
+       "images/quote/coverstock-12pt-card-stock"
       ],
       [
        "Not sure — recommend for me"
@@ -2949,22 +4466,46 @@ window.QV2_DATA = {
      "type": "paper",
      "opts": [
       [
-       "60lb Offset Text"
+       "60lb Offset Text",
+       "",
+       "",
+       "",
+       "images/quote/insidestock-60lb-offset-text"
       ],
       [
-       "70lb Text"
+       "70lb Text",
+       "",
+       "",
+       "",
+       "images/quote/insidestock-70lb-text"
       ],
       [
-       "80lb Gloss Text"
+       "80lb Gloss Text",
+       "",
+       "",
+       "",
+       "images/quote/insidestock-80lb-gloss-text"
       ],
       [
-       "80lb Silk Text"
+       "80lb Silk Text",
+       "",
+       "",
+       "",
+       "images/quote/insidestock-80lb-silk-text"
       ],
       [
-       "100lb Gloss Text"
+       "100lb Gloss Text",
+       "",
+       "",
+       "",
+       "images/quote/insidestock-100lb-gloss-text"
       ],
       [
-       "100lb Silk Text"
+       "100lb Silk Text",
+       "",
+       "",
+       "",
+       "images/quote/insidestock-100lb-silk-text"
       ],
       [
        "Not sure — recommend for me"
@@ -2979,13 +4520,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Both Sides"
+       "Full Color, Both Sides",
+       "",
+       "",
+       "",
+       "images/quote/printcover-full-color-both-sides"
       ],
       [
-       "Full Color, Outside Only"
+       "Full Color, Outside Only",
+       "",
+       "",
+       "",
+       "images/quote/printcover-full-color-outside-only"
       ],
       [
-       "B&W, Both Sides"
+       "B&W, Both Sides",
+       "",
+       "",
+       "",
+       "images/quote/printcover-b-w-both-sides"
       ]
      ],
      "short": "Cover print"
@@ -2996,10 +4549,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/printinside-full-color-double-sided"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/printinside-b-w-double-sided"
       ]
      ],
      "short": "Inside print"
@@ -3016,10 +4577,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -3032,27 +4601,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional lamination",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -3065,23 +4651,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -3106,16 +4706,30 @@ window.QV2_DATA = {
       [
        "9\" × 12\" (Standard)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-9-12-standard"
       ],
       [
-       "9\" × 14.5\" (Legal)"
+       "9\" × 14.5\" (Legal)",
+       "",
+       "",
+       "",
+       "images/quote/size-9-14-5-legal"
       ],
       [
-       "6\" × 9\" (Half Size)"
+       "6\" × 9\" (Half Size)",
+       "",
+       "",
+       "",
+       "images/quote/size-6-9-half-size"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -3129,25 +4743,38 @@ window.QV2_DATA = {
      "opts": [
       [
        "100lb Gloss Cover",
-       "Thinner than 14PT — still holds its shape"
+       "Thinner than 14PT — still holds its shape",
+       "",
+       "",
+       "images/quote/paper-100lb-gloss-cover"
       ],
       [
        "14PT Gloss",
        "Standard sturdy card stock, glossy finish",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-14pt-gloss"
       ],
       [
        "14PT Silk",
-       "Standard sturdy card stock, smooth satin finish, no glare"
+       "Standard sturdy card stock, smooth satin finish, no glare",
+       "",
+       "",
+       "images/quote/paper-14pt-silk"
       ],
       [
        "16PT Gloss Cover",
-       "Extra-thick, glossy finish"
+       "Extra-thick, glossy finish",
+       "",
+       "",
+       "images/quote/paper-16pt-gloss-cover"
       ],
       [
        "16PT Silk",
        "Extra-thick, smooth satin finish",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-16pt-silk"
       ],
       [
        "Not sure — recommend for me"
@@ -3162,19 +4789,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -3187,27 +4834,44 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — no additional coating",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Soft Touch Laminate",
-       "Velvety, suede-like laminate film — premium tactile feel"
+       "Velvety, suede-like laminate film — premium tactile feel",
+       "",
+       "",
+       "images/quote/finish-soft-touch-laminate"
       ],
       [
        "Matte Laminate",
-       "Flat, non-reflective laminate film — subdued matte look"
+       "Flat, non-reflective laminate film — subdued matte look",
+       "",
+       "",
+       "images/quote/finish-matte-laminate"
       ],
       [
        "Gloss Laminate",
-       "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+       "Thick, high-gloss plastic film — most durable, water/scuff resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-laminate"
       ],
       [
        "Gloss UV",
-       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+       "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant",
+       "",
+       "",
+       "images/quote/finish-gloss-uv"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — lightest protective sheen, most economical"
+       "Thin water-based coating — lightest protective sheen, most economical",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -3220,23 +4884,37 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard finish — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Spot UV",
-       "Selective high-gloss accents over the base finish"
+       "Selective high-gloss accents over the base finish",
+       "",
+       "",
+       "images/quote/accent-spot-uv"
       ],
       [
        "Raised Spot UV",
-       "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+       "Thicker, tactile UV you can feel — 50-micron raised gloss accents",
+       "",
+       "",
+       "images/quote/accent-raised-spot-uv"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents — flat finish"
+       "Hot-stamped metallic foil accents — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -3247,16 +4925,32 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Two Pockets"
+       "Two Pockets",
+       "",
+       "",
+       "",
+       "images/quote/pocket-two-pockets"
       ],
       [
-       "One Pocket (Right)"
+       "One Pocket (Right)",
+       "",
+       "",
+       "",
+       "images/quote/pocket-one-pocket-right"
       ],
       [
-       "One Pocket (Left)"
+       "One Pocket (Left)",
+       "",
+       "",
+       "",
+       "images/quote/pocket-one-pocket-left"
       ],
       [
-       "No Pocket"
+       "No Pocket",
+       "",
+       "",
+       "",
+       "images/quote/pocket-no-pocket"
       ]
      ],
      "more": true
@@ -3278,10 +4972,18 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "8.5\" × 11\""
+       "8.5\" × 11\"",
+       "",
+       "",
+       "",
+       "images/quote/size-8-5-11"
       ],
       [
-       "5.5\" × 8.5\""
+       "5.5\" × 8.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-5-5-8-5"
       ],
       [
        "Not sure — recommend for me"
@@ -3296,32 +4998,51 @@ window.QV2_DATA = {
       [
        "24lb Bond White",
        "Standard copy-paper weight — everyday business printing",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-24lb-bond-white"
       ],
       [
        "24lb Laid White",
-       "Textured, formal feel — classic stationery texture"
+       "Textured, formal feel — classic stationery texture",
+       "",
+       "",
+       "images/quote/paper-24lb-laid-white"
       ],
       [
        "28lb Linen Bright White",
-       "Textured linen finish — upscale, formal look"
+       "Textured linen finish — upscale, formal look",
+       "",
+       "",
+       "images/quote/paper-28lb-linen-bright-white"
       ],
       [
        "32lb Premium Bond",
        "Noticeably heavier than standard bond — premium feel",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-32lb-premium-bond"
       ],
       [
        "60lb Offset White",
-       "Lightweight, economical option"
+       "Lightweight, economical option",
+       "",
+       "",
+       "images/quote/paper-60lb-offset-white"
       ],
       [
        "70lb Text White",
-       "Slightly heavier than standard bond"
+       "Slightly heavier than standard bond",
+       "",
+       "",
+       "images/quote/paper-70lb-text-white"
       ],
       [
        "80lb Text White",
-       "Sturdiest text-weight option"
+       "Sturdiest text-weight option",
+       "",
+       "",
+       "images/quote/paper-80lb-text-white"
       ],
       [
        "Not sure — recommend for me"
@@ -3336,19 +5057,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -3361,11 +5102,16 @@ window.QV2_DATA = {
       [
        "No Finish",
        "Standard — uncoated, easiest to write/print on",
-       "popular"
+       "popular",
+       "",
+       "images/quote/finish-no-finish"
       ],
       [
        "Aqueous Coating",
-       "Thin water-based coating — light protective sheen, resists fingerprints/light moisture"
+       "Thin water-based coating — light protective sheen, resists fingerprints/light moisture",
+       "",
+       "",
+       "images/quote/finish-aqueous-coating"
       ]
      ],
      "more": true
@@ -3378,15 +5124,23 @@ window.QV2_DATA = {
       [
        "No Coating",
        "Standard — no additional treatment",
-       "popular"
+       "popular",
+       "",
+       "images/quote/accent-no-coating"
       ],
       [
        "Foil Stamping",
-       "Hot-stamped metallic foil accents on logo/border — flat finish"
+       "Hot-stamped metallic foil accents on logo/border — flat finish",
+       "",
+       "",
+       "images/quote/accent-foil-stamping"
       ],
       [
        "Raised Foil",
-       "Foil stamping with raised texture — most premium option"
+       "Foil stamping with raised texture — most premium option",
+       "",
+       "",
+       "images/quote/accent-raised-foil"
       ]
      ],
      "more": true
@@ -3411,31 +5165,65 @@ window.QV2_DATA = {
       [
        "#10 (9.5\" × 4.125\")",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-10-9-5-4-125"
       ],
       [
-       "#9 (8.875\" × 3.875\")"
+       "#9 (8.875\" × 3.875\")",
+       "",
+       "",
+       "",
+       "images/quote/size-9-8-875-3-875"
       ],
       [
-       "A2 (4.375\" × 5.75\")"
+       "A2 (4.375\" × 5.75\")",
+       "",
+       "",
+       "",
+       "images/quote/size-a2-4-375-5-75"
       ],
       [
-       "A7 (5.25\" × 7.25\")"
+       "A7 (5.25\" × 7.25\")",
+       "",
+       "",
+       "",
+       "images/quote/size-a7-5-25-7-25"
       ],
       [
-       "4\" × 6\""
+       "4\" × 6\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-6"
       ],
       [
-       "5\" × 7\""
+       "5\" × 7\"",
+       "",
+       "",
+       "",
+       "images/quote/size-5-7"
       ],
       [
-       "6\" × 9\""
+       "6\" × 9\"",
+       "",
+       "",
+       "",
+       "images/quote/size-6-9"
       ],
       [
-       "9\" × 12\""
+       "9\" × 12\"",
+       "",
+       "",
+       "",
+       "images/quote/size-9-12"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -3450,15 +5238,23 @@ window.QV2_DATA = {
       [
        "24lb Bond White",
        "Standard envelope weight — everyday business mail",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-24lb-bond-white"
       ],
       [
        "60lb Offset White",
-       "Lightweight, economical option"
+       "Lightweight, economical option",
+       "",
+       "",
+       "images/quote/paper-60lb-offset-white"
       ],
       [
        "70lb Text White",
-       "Slightly heavier — sturdier feel"
+       "Slightly heavier — sturdier feel",
+       "",
+       "",
+       "images/quote/paper-70lb-text-white"
       ],
       [
        "Not sure — recommend for me"
@@ -3473,19 +5269,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -3496,10 +5312,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Blank"
+       "Blank",
+       "",
+       "",
+       "",
+       "images/quote/envstyle-blank"
       ],
       [
-       "Window"
+       "Window",
+       "",
+       "",
+       "",
+       "images/quote/envstyle-window"
       ]
      ],
      "more": true
@@ -3524,10 +5348,16 @@ window.QV2_DATA = {
       [
        "6.5\" × 3.625\" (#6¾)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-6-5-3-625-6"
       ],
       [
-       "8.875\" × 3.875\" (#9)"
+       "8.875\" × 3.875\" (#9)",
+       "",
+       "",
+       "",
+       "images/quote/size-8-875-3-875-9"
       ],
       [
        "Not sure — recommend for me"
@@ -3542,7 +5372,9 @@ window.QV2_DATA = {
       [
        "24lb White Wove Uncoated",
        "Standard remittance envelope weight — smooth uncoated finish, easy to write on",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-24lb-white-wove-uncoated"
       ],
       [
        "Not sure — recommend for me"
@@ -3557,13 +5389,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Both Sides"
+       "Full Color, Both Sides",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-both-sides"
       ],
       [
-       "Full Color, Front Only"
+       "Full Color, Front Only",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-front-only"
       ],
       [
-       "Full Color, Back Only"
+       "Full Color, Back Only",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-back-only"
       ]
      ],
      "short": "Print"
@@ -3574,10 +5418,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Short Flap"
+       "Short Flap",
+       "",
+       "",
+       "",
+       "images/quote/flap-short-flap"
       ],
       [
-       "Long Flap"
+       "Long Flap",
+       "",
+       "",
+       "",
+       "images/quote/flap-long-flap"
       ]
      ],
      "more": true
@@ -3588,15 +5440,24 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Shrink Wrapping"
+       "No Shrink Wrapping",
+       "",
+       "",
+       "",
+       "images/quote/shrink-no-shrink-wrapping"
       ],
       [
-       "Shrink Wrap 50 Per Package"
+       "Shrink Wrap 50 Per Package",
+       "",
+       "",
+       "",
+       "images/quote/shrink-shrink-wrap-50-per-package"
       ]
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/quote/p-remittance-envelopes"
   },
   "Notepads": {
    "qty": [
@@ -3614,23 +5475,39 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "3.5\" × 8.5\""
+       "3.5\" × 8.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-3-5-8-5"
       ],
       [
        "4.25\" × 5.5\" (Half Letter)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-4-25-5-5-half-letter"
       ],
       [
        "5.5\" × 8.5\" (Half Letter tall)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-5-5-8-5-half-letter-tall"
       ],
       [
-       "8.5\" × 11\" (Letter)"
+       "8.5\" × 11\" (Letter)",
+       "",
+       "",
+       "",
+       "images/quote/size-8-5-11-letter"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -3645,15 +5522,23 @@ window.QV2_DATA = {
       [
        "60lb Offset Text",
        "Lightweight, like notebook paper — smooth writing surface",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-60lb-offset-text"
       ],
       [
        "70lb Text",
-       "Slightly heavier — less see-through when writing"
+       "Slightly heavier — less see-through when writing",
+       "",
+       "",
+       "images/quote/paper-70lb-text"
       ],
       [
        "80lb Text",
-       "Sturdiest option — minimal show-through, premium feel"
+       "Sturdiest option — minimal show-through, premium feel",
+       "",
+       "",
+       "images/quote/paper-80lb-text"
       ],
       [
        "Not sure — recommend for me"
@@ -3668,19 +5553,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -3691,10 +5596,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Portrait"
+       "Portrait",
+       "",
+       "",
+       "",
+       "images/quote/layout-portrait"
       ],
       [
-       "Landscape"
+       "Landscape",
+       "",
+       "",
+       "",
+       "images/quote/layout-landscape"
       ]
      ],
      "more": true
@@ -3705,10 +5618,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "25 Sheets"
+       "25 Sheets",
+       "",
+       "",
+       "",
+       "images/quote/sheets-25-sheets"
       ],
       [
-       "50 Sheets"
+       "50 Sheets",
+       "",
+       "",
+       "",
+       "images/quote/sheets-50-sheets"
       ]
      ],
      "more": true
@@ -3730,18 +5651,32 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "4.25\" × 5.5\""
+       "4.25\" × 5.5\"",
+       "",
+       "",
+       "",
+       "images/quote/size-4-25-5-5"
       ],
       [
        "5.5\" × 8.5\"",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/size-5-5-8-5"
       ],
       [
-       "8.5\" × 11\""
+       "8.5\" × 11\"",
+       "",
+       "",
+       "",
+       "images/quote/size-8-5-11"
       ],
       [
-       "Custom Size"
+       "Custom Size",
+       "",
+       "",
+       "",
+       "images/quote/size-custom-size"
       ],
       [
        "Not sure — recommend for me"
@@ -3756,13 +5691,23 @@ window.QV2_DATA = {
       [
        "NCR 2-Part (White / Canary)",
        "",
-       "popular"
+       "popular",
+       "",
+       "images/quote/paper-ncr-2-part-white-canary"
       ],
       [
-       "NCR 3-Part (White / Canary / Pink)"
+       "NCR 3-Part (White / Canary / Pink)",
+       "",
+       "",
+       "",
+       "images/quote/paper-ncr-3-part-white-canary-pink"
       ],
       [
-       "NCR 4-Part (White / Canary / Pink / Goldenrod)"
+       "NCR 4-Part (White / Canary / Pink / Goldenrod)",
+       "",
+       "",
+       "",
+       "images/quote/paper-ncr-4-part-white-canary-pink-goldenrod"
       ],
       [
        "Not sure — recommend for me"
@@ -3777,19 +5722,39 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Full Color, Double-Sided"
+       "Full Color, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-double-sided"
       ],
       [
-       "Full Color, Single-Sided"
+       "Full Color, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-full-color-single-sided"
       ],
       [
-       "Color Front / B&W Back"
+       "Color Front / B&W Back",
+       "",
+       "",
+       "",
+       "images/quote/print-color-front-b-w-back"
       ],
       [
-       "B&W, Double-Sided"
+       "B&W, Double-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-double-sided"
       ],
       [
-       "B&W, Single-Sided"
+       "B&W, Single-Sided",
+       "",
+       "",
+       "",
+       "images/quote/print-b-w-single-sided"
       ]
      ],
      "short": "Print"
@@ -3800,10 +5765,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "No Numbering"
+       "No Numbering",
+       "",
+       "",
+       "",
+       "images/quote/numbering-no-numbering"
       ],
       [
-       "Sequential Numbering"
+       "Sequential Numbering",
+       "",
+       "",
+       "",
+       "images/quote/numbering-sequential-numbering"
       ]
      ],
      "more": true
@@ -3828,13 +5801,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Indoors"
+       "Indoors",
+       "",
+       "",
+       "",
+       "images/quote/use-indoors"
       ],
       [
-       "Outdoors"
+       "Outdoors",
+       "",
+       "",
+       "",
+       "images/quote/use-outdoors"
       ],
       [
-       "Event or trade show"
+       "Event or trade show",
+       "",
+       "",
+       "",
+       "images/quote/use-event-or-trade-show"
       ],
       [
        "Not sure — recommend for me"
@@ -3856,39 +5841,66 @@ window.QV2_DATA = {
       ],
       [
        "18oz Blockout Vinyl Banner",
-       "Indoor and outdoor. A blockout layer allows printing on both sides; often used for street and light-pole banners."
+       "Indoor and outdoor. A blockout layer allows printing on both sides; often used for street and light-pole banners.",
+       "",
+       "",
+       "images/quote/18oz-blockout-vinyl-banner"
       ],
       [
        "Backlit Banner",
-       "Made for light boxes; best at night with the light on."
+       "Made for light boxes; best at night with the light on.",
+       "",
+       "",
+       "images/quote/backlit-banner"
       ],
       [
        "Mesh Banner",
-       "Indoor and outdoor; lets wind pass through."
+       "Indoor and outdoor; lets wind pass through.",
+       "",
+       "",
+       "images/quote/mesh-banner"
       ],
       [
        "Indoor Banner (smooth)",
-       "Single-sided, smooth finish for close-up indoor use; also holds up outdoors."
+       "Single-sided, smooth finish for close-up indoor use; also holds up outdoors.",
+       "",
+       "",
+       "images/quote/indoor-banner-smooth"
       ],
       [
        "Pole Banner Set",
-       "Double-sided 18oz blockout vinyl with pole pockets and four corner grommets; hardware optional."
+       "Double-sided 18oz blockout vinyl with pole pockets and four corner grommets; hardware optional.",
+       "",
+       "",
+       "images/quote/pole-banner-set"
       ],
       [
        "9oz Fabric Banner (wrinkle-free)",
-       "Single-sided dye-sublimated polyester; indoor."
+       "Single-sided dye-sublimated polyester; indoor.",
+       "",
+       "",
+       "images/quote/9oz-fabric-banner-wrinkle-free"
       ],
       [
        "Blockout Fabric Banner (9.5oz)",
-       "Blockout fabric banner."
+       "Blockout fabric banner.",
+       "",
+       "",
+       "images/quote/blockout-fabric-banner-9-5oz"
       ],
       [
        "Tension Fabric",
-       "Single-sided, 2-way stretch polyester."
+       "Single-sided, 2-way stretch polyester.",
+       "",
+       "",
+       "images/quote/tension-fabric"
       ],
       [
        "Hand Banner (set of 10)",
-       "13oz matte vinyl, 9.5 in tall, single-sided; with or without hardware."
+       "13oz matte vinyl, 9.5 in tall, single-sided; with or without hardware.",
+       "",
+       "",
+       "images/quote/hand-banner-set-of-10"
       ],
       [
        "Not sure — recommend for me"
@@ -3910,11 +5922,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Single-sided"
+       "Single-sided",
+       "",
+       "",
+       "",
+       "images/quote/sides-single-sided"
       ],
       [
        "Double-sided",
-       "Fabric, tension, indoor and hand banners are single-sided only."
+       "Fabric, tension, indoor and hand banners are single-sided only.",
+       "",
+       "",
+       "images/quote/sides-double-sided"
       ]
      ],
      "short": "Printed on"
@@ -3925,34 +5944,74 @@ window.QV2_DATA = {
      "type": "multi",
      "opts": [
       [
-       "Hems + grommets (standard)"
+       "Hems + grommets (standard)",
+       "",
+       "",
+       "",
+       "images/quote/hems-grommets-standard"
       ],
       [
-       "Hems only"
+       "Hems only",
+       "",
+       "",
+       "",
+       "images/quote/hems-only"
       ],
       [
-       "Pole pocket (2\", 3\" or 4\")"
+       "Pole pocket (2\", 3\" or 4\")",
+       "",
+       "",
+       "",
+       "images/quote/pole-pocket-2-3-or-4"
       ],
       [
-       "Sewn-in rope (3/16\" or 5/16\")"
+       "Sewn-in rope (3/16\" or 5/16\")",
+       "",
+       "",
+       "",
+       "images/quote/sewn-in-rope-3-16-or-5-16"
       ],
       [
-       "Windslits"
+       "Windslits",
+       "",
+       "",
+       "",
+       "images/quote/windslits"
       ],
       [
-       "Reinforced corners (banner tabs)"
+       "Reinforced corners (banner tabs)",
+       "",
+       "",
+       "",
+       "images/quote/reinforced-corners-banner-tabs"
       ],
       [
-       "Velcro (single-sided only)"
+       "Velcro (single-sided only)",
+       "",
+       "",
+       "",
+       "images/quote/velcro-single-sided-only"
       ],
       [
-       "Webbing and D-rings"
+       "Webbing and D-rings",
+       "",
+       "",
+       "",
+       "images/quote/webbing-and-d-rings"
       ],
       [
-       "Heat-knife cut edge, no hem (fabric)"
+       "Heat-knife cut edge, no hem (fabric)",
+       "",
+       "",
+       "",
+       "images/quote/heat-knife-cut-edge-no-hem-fabric"
       ],
       [
-       "No finishing"
+       "No finishing",
+       "",
+       "",
+       "",
+       "images/quote/no-finishing"
       ]
      ],
      "short": "Finishing"
@@ -3963,13 +6022,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Banner + hardware"
+       "Banner + hardware",
+       "",
+       "",
+       "",
+       "images/quote/hardware-banner-hardware"
       ],
       [
-       "Banner only"
+       "Banner only",
+       "",
+       "",
+       "",
+       "images/quote/hardware-banner-only"
       ],
       [
-       "Hardware only"
+       "Hardware only",
+       "",
+       "",
+       "",
+       "images/quote/hardware-hardware-only"
       ]
      ],
      "more": true,
@@ -3995,13 +6066,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Indoors"
+       "Indoors",
+       "",
+       "",
+       "",
+       "images/quote/use-indoors"
       ],
       [
-       "Outdoors"
+       "Outdoors",
+       "",
+       "",
+       "",
+       "images/quote/use-outdoors"
       ],
       [
-       "Event or trade show"
+       "Event or trade show",
+       "",
+       "",
+       "",
+       "images/quote/use-event-or-trade-show"
       ],
       [
        "Not sure — recommend for me"
@@ -4023,7 +6106,10 @@ window.QV2_DATA = {
       ],
       [
        "PVC Board (1/8\")",
-       "Water-resistant; indoor and outdoor."
+       "Water-resistant; indoor and outdoor.",
+       "",
+       "",
+       "images/quote/pvc-board-1-8"
       ],
       [
        "Foam Board (3/16\")",
@@ -4034,32 +6120,59 @@ window.QV2_DATA = {
       ],
       [
        "Styrene (.020\")",
-       "Thin white polystyrene sheet; indoor and outdoor; single-sided."
+       "Thin white polystyrene sheet; indoor and outdoor; single-sided.",
+       "",
+       "",
+       "images/quote/styrene-020"
       ],
       [
        "Metal Sign (16 gauge steel)",
-       "Powder-coated; indoor and outdoor."
+       "Powder-coated; indoor and outdoor.",
+       "",
+       "",
+       "images/quote/metal-sign-16-gauge-steel"
       ],
       [
        "Magnet (30 mil)",
-       "Printed on one side only; indoor and outdoor; waterproof and UV safe."
+       "Printed on one side only; indoor and outdoor; waterproof and UV safe.",
+       "",
+       "",
+       "images/quote/magnet-30-mil"
       ],
       [
        "Reflective Coroplast",
-       "4mm coroplast with reflective vinyl; medium-term outdoor use."
+       "4mm coroplast with reflective vinyl; medium-term outdoor use.",
+       "",
+       "",
+       "images/quote/reflective-coroplast"
       ],
       [
-       "Reflective PVC Board"
+       "Reflective PVC Board",
+       "",
+       "",
+       "",
+       "images/quote/reflective-pvc-board"
       ],
       [
-       "Reflective Aluminum Sign"
+       "Reflective Aluminum Sign",
+       "",
+       "",
+       "",
+       "images/quote/reflective-aluminum-sign"
       ],
       [
        "Dry-Erase Coroplast",
-       "4mm coroplast with a dry-erase coating."
+       "4mm coroplast with a dry-erase coating.",
+       "",
+       "",
+       "images/quote/dry-erase-coroplast"
       ],
       [
-       "Dry-Erase Magnet"
+       "Dry-Erase Magnet",
+       "",
+       "",
+       "",
+       "images/quote/dry-erase-magnet"
       ],
       [
        "Not sure — recommend for me"
@@ -4081,11 +6194,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Single-sided"
+       "Single-sided",
+       "",
+       "",
+       "",
+       "images/quote/sides-single-sided"
       ],
       [
        "Double-sided",
-       "Not for styrene or magnets (one side only)."
+       "Not for styrene or magnets (one side only).",
+       "",
+       "",
+       "images/quote/sides-double-sided"
       ]
      ],
      "short": "Printed on"
@@ -4096,14 +6216,25 @@ window.QV2_DATA = {
      "type": "multi",
      "opts": [
       [
-       "Grommets"
+       "Grommets",
+       "",
+       "",
+       "",
+       "images/quote/grommets"
       ],
       [
        "H-stake (steel)",
-       "H-stakes are for coroplast yard signs."
+       "H-stakes are for coroplast yard signs.",
+       "",
+       "",
+       "images/quote/h-stake-steel"
       ],
       [
-       "None"
+       "None",
+       "",
+       "",
+       "",
+       "images/quote/none"
       ]
      ],
      "short": "Add-ons"
@@ -4126,13 +6257,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Indoors"
+       "Indoors",
+       "",
+       "",
+       "",
+       "images/quote/use-indoors"
       ],
       [
-       "Outdoors"
+       "Outdoors",
+       "",
+       "",
+       "",
+       "images/quote/use-outdoors"
       ],
       [
-       "Event or trade show"
+       "Event or trade show",
+       "",
+       "",
+       "",
+       "images/quote/use-event-or-trade-show"
       ],
       [
        "Not sure — recommend for me"
@@ -4148,32 +6291,51 @@ window.QV2_DATA = {
       [
        "Premium Window Cling",
        "8 mil film with low-tack adhesive; single-sided; indoor or outdoor.",
-       "Popular"
+       "Popular",
+       "",
+       "images/quote/premium-window-cling"
       ],
       [
        "Adhesive Window Perf",
-       "70/30 perforated film: graphic on one side, clear view from the other; indoor or outdoor."
+       "70/30 perforated film: graphic on one side, clear view from the other; indoor or outdoor.",
+       "",
+       "",
+       "images/quote/adhesive-window-perf"
       ],
       [
        "Adhesive Vinyl (high performance)",
-       "3 mil film; removable; use on clean, flat, smooth surfaces only."
+       "3 mil film; removable; use on clean, flat, smooth surfaces only.",
+       "",
+       "",
+       "images/quote/adhesive-vinyl-high-performance"
       ],
       [
        "Adhesive Clear Vinyl",
-       "4 mil clear film with permanent adhesive."
+       "4 mil clear film with permanent adhesive.",
+       "",
+       "",
+       "images/quote/adhesive-clear-vinyl"
       ],
       [
-       "Adhesive Translucent Vinyl"
+       "Adhesive Translucent Vinyl",
+       "",
+       "",
+       "",
+       "images/quote/adhesive-translucent-vinyl"
       ],
       [
        "Adhesive Wall Fabric",
-       "6.5 mil fabric-style film; repositionable; for wall murals and temporary wall decals."
+       "6.5 mil fabric-style film; repositionable; for wall murals and temporary wall decals.",
+       "",
+       "",
+       "images/quote/adhesive-wall-fabric"
       ],
       [
        "Floor Graphics",
        "Textured slip-resistant laminate; indoor only.",
        "",
-       "indoor"
+       "indoor",
+       "images/quote/floor-graphics"
       ],
       [
        "Not sure — recommend for me"
@@ -4207,10 +6369,17 @@ window.QV2_DATA = {
      "opts": [
       [
        "Canvas Roll",
-       "15 mil semi-gloss artist canvas; ships rolled and unstretched; indoor."
+       "15 mil semi-gloss artist canvas; ships rolled and unstretched; indoor.",
+       "",
+       "",
+       "images/quote/canvas-roll"
       ],
       [
-       "Acrylic Print"
+       "Acrylic Print",
+       "",
+       "",
+       "",
+       "images/quote/acrylic-print"
       ],
       [
        "Not sure — recommend for me"
@@ -4226,7 +6395,8 @@ window.QV2_DATA = {
      "ph": "e.g. 24 × 36 in",
      "short": "Size"
     }
-   ]
+   ],
+   "img": "images/quote/p-canvas-wall-art"
   },
   "Flags": {
    "qty": [
@@ -4243,13 +6413,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Feather"
+       "Feather",
+       "",
+       "",
+       "",
+       "images/quote/feather"
       ],
       [
-       "Teardrop"
+       "Teardrop",
+       "",
+       "",
+       "",
+       "images/quote/teardrop"
       ],
       [
-       "Pole flag"
+       "Pole flag",
+       "",
+       "",
+       "",
+       "images/quote/pole-flag"
       ],
       [
        "Not sure — recommend for me"
@@ -4270,10 +6452,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Single-sided"
+       "Single-sided",
+       "",
+       "",
+       "",
+       "images/quote/sides-single-sided"
       ],
       [
-       "Double-sided"
+       "Double-sided",
+       "",
+       "",
+       "",
+       "images/quote/sides-double-sided"
       ],
       [
        "Not sure — recommend for me"
@@ -4287,10 +6477,18 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Flag + hardware"
+       "Flag + hardware",
+       "",
+       "",
+       "",
+       "images/quote/hardware-flag-hardware"
       ],
       [
-       "Flag only"
+       "Flag only",
+       "",
+       "",
+       "",
+       "images/quote/hardware-flag-only"
       ],
       [
        "Not sure — recommend for me"
@@ -4298,7 +6496,8 @@ window.QV2_DATA = {
      ],
      "short": "Hardware"
     }
-   ]
+   ],
+   "img": "images/quote/p-flags"
   },
   "Banner Stands": {
    "qty": [
@@ -4322,7 +6521,11 @@ window.QV2_DATA = {
        "images/home/retractable-banners.jpg"
       ],
       [
-       "Another kind of stand (tell us below)"
+       "Another kind of stand (tell us below)",
+       "",
+       "",
+       "",
+       "images/quote/another-kind-of-stand-tell-us-below"
       ],
       [
        "Not sure — recommend for me"
@@ -4359,13 +6562,25 @@ window.QV2_DATA = {
      "type": "size",
      "opts": [
       [
-       "10 × 10 ft"
+       "10 × 10 ft",
+       "",
+       "",
+       "",
+       "images/quote/size-10-10-ft"
       ],
       [
-       "10 × 15 ft"
+       "10 × 15 ft",
+       "",
+       "",
+       "",
+       "images/quote/size-10-15-ft"
       ],
       [
-       "10 × 20 ft"
+       "10 × 20 ft",
+       "",
+       "",
+       "",
+       "images/quote/size-10-20-ft"
       ],
       [
        "Not sure — recommend for me"
@@ -4379,7 +6594,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/quote/p-tents"
   },
   "Table Throws": {
    "qty": [
@@ -4403,7 +6619,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/quote/p-table-throws"
   },
   "Popup & Backlit Film": {
    "qty": [
@@ -4420,13 +6637,25 @@ window.QV2_DATA = {
      "type": "one",
      "opts": [
       [
-       "Indoors"
+       "Indoors",
+       "",
+       "",
+       "",
+       "images/quote/use-indoors"
       ],
       [
-       "Outdoors"
+       "Outdoors",
+       "",
+       "",
+       "",
+       "images/quote/use-outdoors"
       ],
       [
-       "Event or trade show"
+       "Event or trade show",
+       "",
+       "",
+       "",
+       "images/quote/use-event-or-trade-show"
       ],
       [
        "Not sure — recommend for me"
@@ -4441,11 +6670,17 @@ window.QV2_DATA = {
      "opts": [
       [
        "Popup (14 mil double white)",
-       "Non-adhesive, matte, single-sided; smooth for close-up indoor use and holds up outdoors."
+       "Non-adhesive, matte, single-sided; smooth for close-up indoor use and holds up outdoors.",
+       "",
+       "",
+       "images/quote/popup-14-mil-double-white"
       ],
       [
        "Backlit Film",
-       "For light boxes and backlit displays."
+       "For light boxes and backlit displays.",
+       "",
+       "",
+       "images/quote/backlit-film"
       ],
       [
        "Not sure — recommend for me"
@@ -4461,7 +6696,8 @@ window.QV2_DATA = {
      "ph": "e.g. 36 × 48 in",
      "short": "Size"
     }
-   ]
+   ],
+   "img": "images/quote/p-popup-backlit-film"
   },
   "Hardware Only": {
    "qty": [
@@ -4478,7 +6714,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Hardware"
     }
-   ]
+   ],
+   "img": "images/quote/p-hardware-only"
   },
   "Step & Repeat Backdrops": {
    "qty": [
@@ -4502,7 +6739,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/quote/p-step-repeat-backdrops"
   },
   "A-Frames & Sign Holders": {
    "qty": [
@@ -4526,7 +6764,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/quote/p-a-frames-sign-holders"
   },
   "Real Estate Signs": {
    "qty": [
@@ -4550,7 +6789,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/quote/p-real-estate-signs"
   },
   "Trade Show Displays": {
    "qty": [
@@ -4574,7 +6814,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/quote/p-trade-show-displays"
   }
  }
 };

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" width="240" height="170" role="img" aria-label="Window"><defs>
+<linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0891B2"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+<linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E2D3D"/><stop offset="1" stop-color="#3B5068"/></linearGradient>
+<linearGradient id="gs" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="glow" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#FFF7C2"/><stop offset="1" stop-color="#FFE08A" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.4" fill="#fff" fill-opacity=".85"/></pattern>
+<pattern id="flute" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#F8FAFC"/><path d="M0 4h8" stroke="#CBD5E1" stroke-width="1.2"/></pattern>
+</defs><rect width="240" height="170" fill="#E8F1F6"/><ellipse cx="120" cy="154" rx="80" ry="5" fill="#000" fill-opacity=".12"/><rect x="36" y="42" width="168" height="92" rx="3" fill="#fff" stroke="#94A3B8"/><path d="M36 42l84 58 84-58" fill="#F1F5F9" stroke="#94A3B8"/><rect x="56" y="88" width="68" height="30" fill="#DBEAFE" stroke="#94A3B8"/><path d="M62 98h40M62 106h30" stroke="#1E2D3D" stroke-width="3"/><text x="120" y="156" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#1E2D3D">Window envelope</text></svg>

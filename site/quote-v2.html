@@ -1077,7 +1077,7 @@
   function tile(name) {
     var sub = isSpecial(name) ? SPECIAL[name].sub : groupOf(name);
     if (VIA[name]) { sub = 'Matches: ' + VIA[name]; }
-    var img = (PRODUCTS[name] && PRODUCTS[name].img) || '';
+    var img = (PRODUCTS[name] && PRODUCTS[name].img) || (SPECIAL[name] && SPECIAL[name].img) || '';
     var quiet = isSpecial(name) ? ' quiet' : '';
     return '<button type="button" class="tile' + quiet + '" data-p="' + esc(name) + '"' + (img ? ' data-img="' + esc(img) + '" data-cap="' + esc(productLabel(name)) + '"' : '') + ' aria-pressed="' + (S.product === name) + '"><strong>' + esc(productLabel(name)) + '</strong><span>' + esc(sub) + '</span>' + (img ? '<i class="peek" data-peek>Photo</i>' : '') + '</button>';
   }
@@ -1132,7 +1132,8 @@
   }
   function feelChip(q, v) {
     var cur = S.a[q.k + '_feel'] || [];
-    return '<button type="button" class="chip sm" data-k="' + q.k + '" data-t="feel" data-v="' + esc(v) + '" aria-pressed="' + (cur.indexOf(v) > -1) + '">' + esc(v) + '</button>';
+    var fi = 'images/quote/feel-' + v.toLowerCase().replace(/ \(.*$/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return '<button type="button" class="chip sm" data-k="' + q.k + '" data-t="feel" data-v="' + esc(v) + '" data-img="' + fi + '" data-cap="' + esc(v) + '" aria-pressed="' + (cur.indexOf(v) > -1) + '">' + esc(v) + '</button>';
   }
   function qHtml(q) {
     var h = '<div class="qgroup" data-q="' + q.k + '"><p>' + esc(q.label) + (q.type === 'paper' ? ' <em>(choose any you would like us to quote)</em>' : '') + '</p>';
@@ -1376,9 +1377,15 @@
   var pop = document.createElement('div'); pop.id = 'qv2-pop'; pop.hidden = true;
   pop.innerHTML = '<img alt=""><span></span>'; document.body.appendChild(pop);
   var popImg = pop.querySelector('img'), popCap = pop.querySelector('span'), popFor = null;
+  // a path without an extension tries a real photo (.jpg) first, then the illustration (.svg)
+  function setPopSrc(src) {
+    if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { popImg.onerror = null; popImg.src = src; return; }
+    popImg.onerror = function () { popImg.onerror = function () { hidePop(); }; popImg.src = src + '.svg'; };
+    popImg.src = src + '.jpg';
+  }
   function showPop(el) {
     var src = el.getAttribute('data-img'); if (!src) { return; }
-    popFor = el; popImg.src = src; popCap.textContent = el.getAttribute('data-cap') || '';
+    popFor = el; setPopSrc(src); popCap.textContent = el.getAttribute('data-cap') || '';
     pop.hidden = false;
     var r = el.getBoundingClientRect(), w = pop.offsetWidth || 240, h = pop.offsetHeight || 200;
     var left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8));
