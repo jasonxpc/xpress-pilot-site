@@ -73,7 +73,8 @@ window.QV2_DATA = {
     "Yard Signs",
     "Posters",
     "Window, Wall & Floor Graphics",
-    "Canvas & Wall Art"
+    "Canvas & Wall Art",
+    "Popup & Backlit Film"
    ]
   ],
   [
@@ -86,7 +87,8 @@ window.QV2_DATA = {
     "Step & Repeat Backdrops",
     "A-Frames & Sign Holders",
     "Real Estate Signs",
-    "Trade Show Displays"
+    "Trade Show Displays",
+    "Hardware Only"
    ]
   ],
   [
@@ -108,7 +110,7 @@ window.QV2_DATA = {
   ]
  ],
  "keywords": {
-  "Flyers": "flyer leaflet handout handbill sheet",
+  "Flyers": "flyer flyers leaflet handout handbill sheet one pager",
   "Brochures": "brochure trifold tri-fold folded half-fold pamphlet",
   "Postcards": "postcard post card mailer eddm direct mail greeting card invitation",
   "Rack Cards": "rack card",
@@ -121,21 +123,21 @@ window.QV2_DATA = {
   "Hang Tags": "hang tag gift tag product tag swing tag",
   "Certificates": "certificate award diploma",
   "Stickers & Labels": "sticker label decal die-cut kiss-cut holographic foil glitter static cling roll sheet barcode upc bottle",
-  "Banners": "banner vinyl mesh fabric blockout backlit pole banner hand banner tension fabric indoor banner grommet hem trade show",
-  "Rigid Signs & Magnets": "rigid sign coroplast foam board foamcore pvc board styrene metal sign magnet car magnet reflective dry erase poster board",
-  "Yard Signs": "yard sign lawn sign coroplast stake election campaign",
+  "Banners": "banner banners sign signage vinyl mesh fabric blockout backlit pole banner hand banner tension fabric indoor banner grommet hem trade show event",
+  "Rigid Signs & Magnets": "rigid sign signs signage board coroplast corrugated plastic foam board foamcore foam core sintra pvc board styrene metal sign steel sign magnet car magnet vehicle magnet reflective dry erase whiteboard poster board",
+  "Yard Signs": "yard sign signs lawn sign coroplast stake h-stake election campaign political",
   "Posters": "poster print paper poster",
-  "Window, Wall & Floor Graphics": "window cling window perf adhesive vinyl decal wall decal wall mural floor graphic clear vinyl translucent",
-  "Canvas & Wall Art": "canvas wall art acrylic print fine art",
-  "Flags": "flag feather flag teardrop flag pole flag advertising flag",
-  "Banner Stands": "banner stand retractable roll up pull up display",
-  "Tents": "tent canopy pop up event tent 10x10",
-  "Table Throws": "table throw table cover tablecloth",
-  "Step & Repeat Backdrops": "step and repeat backdrop photo wall",
-  "A-Frames & Sign Holders": "a-frame sandwich board sidewalk sign sign holder signicade",
-  "Real Estate Signs": "real estate sign open house for sale",
-  "Trade Show Displays": "trade show display booth pop up",
-  "Booklets": "booklet book yearbook catalog program saddle stitch spiral coil perfect bound magazine",
+  "Window, Wall & Floor Graphics": "window graphic window cling window perf perforated adhesive vinyl decal wall decal wall mural wall fabric floor graphic floor decal clear vinyl translucent sign signage",
+  "Canvas & Wall Art": "canvas wall art acrylic print fine art photo print art print",
+  "Flags": "flag flags feather flag teardrop flag pole flag advertising flag swooper beach flag",
+  "Banner Stands": "banner stand stand standee retractable roll up rollup pull up pullup x frame easel display",
+  "Tents": "tent tents canopy popup pop up pop-up event tent custom tent 10x10 10x15 10x20 gazebo",
+  "Table Throws": "table throw table cover tablecloth table runner trade show fabric polyester dye sublimation",
+  "Step & Repeat Backdrops": "step and repeat step repeat backdrop photo wall photo booth press wall",
+  "A-Frames & Sign Holders": "a-frame a frame aframe sandwich board sidewalk sign sign holder signicade stand sign stand",
+  "Real Estate Signs": "real estate sign signs open house for sale realtor rider frame",
+  "Trade Show Displays": "trade show tradeshow display booth pop up popup backdrop stand",
+  "Booklets": "booklet booklets book books yearbook catalog catalogue program saddle stitch stapled spiral coil perfect bound magazine manual zine",
   "Presentation Folders": "folder presentation pocket",
   "Letterhead": "letterhead stationery",
   "Envelopes": "envelope",
@@ -143,7 +145,9 @@ window.QV2_DATA = {
   "Notepads": "notepad pad notebook memo",
   "Invoice Books": "invoice book ncr form carbonless receipt",
   "Other": "other custom badge id stamp notary rubber stamp name tag lanyard not listed something else",
-  "Reorder": "repeat reorder again same as before previous order"
+  "Reorder": "repeat reorder again same as before previous order",
+  "Popup & Backlit Film": "popup pop up backlit film light box lightbox translite 14 mil poster",
+  "Hardware Only": "hardware stand pole bracket frame base"
  },
  "special": {
   "Other": {
@@ -516,7 +520,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/flyers.jpg"
   },
   "Brochures": {
    "qty": [
@@ -756,7 +761,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/brochures.jpg"
   },
   "Postcards": {
    "qty": [
@@ -970,7 +976,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/postcards.jpg"
   },
   "Rack Cards": {
    "qty": [
@@ -1120,7 +1127,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/rack-cards.jpg"
   },
   "Door Hangers": {
    "qty": [
@@ -1304,7 +1312,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/door-hangers.jpg"
   },
   "Table Tents": {
    "qty": [
@@ -1459,7 +1468,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/table-tents.jpg"
   },
   "Calendars": {
    "qty": [
@@ -1639,7 +1649,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/calendars.jpg"
   },
   "Menus": {
    "qty": [
@@ -1848,7 +1859,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/menus.jpg"
   },
   "Placemats": {
    "qty": [
@@ -1924,7 +1936,8 @@ window.QV2_DATA = {
      ],
      "short": "Print"
     }
-   ]
+   ],
+   "img": "images/products/placemats.jpg"
   },
   "Business Cards": {
    "qty": [
@@ -2117,7 +2130,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/business-cards.jpg"
   },
   "Hang Tags": {
    "qty": [
@@ -2303,7 +2317,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/hang-tags.jpg"
   },
   "Certificates": {
    "qty": [
@@ -2453,7 +2468,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/certificates.jpg"
   },
   "Stickers & Labels": {
    "qty": [
@@ -2573,7 +2589,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/stickers-labels.jpg"
   },
   "Yard Signs": {
    "qty": [
@@ -2667,7 +2684,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/yard-signs.jpg"
   },
   "Posters": {
    "qty": [
@@ -2846,7 +2864,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/posters.jpg"
   },
   "Booklets": {
    "qty": [
@@ -3067,7 +3086,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/booklets.jpg"
   },
   "Presentation Folders": {
    "qty": [
@@ -3241,7 +3261,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/presentation-folders.jpg"
   },
   "Letterhead": {
    "qty": [
@@ -3370,7 +3391,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/letterhead-envelopes.jpg"
   },
   "Envelopes": {
    "qty": [
@@ -3482,7 +3504,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/envelopes.jpg"
   },
   "Remittance Envelopes": {
    "qty": [
@@ -3690,7 +3713,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/notepads.jpg"
   },
   "Invoice Books": {
    "qty": [
@@ -3784,7 +3808,8 @@ window.QV2_DATA = {
      ],
      "more": true
     }
-   ]
+   ],
+   "img": "images/products/invoice-books.jpg"
   },
   "Banners": {
    "qty": [
@@ -3825,7 +3850,9 @@ window.QV2_DATA = {
       [
        "13oz Vinyl Banner",
        "Indoor and outdoor; waterproof and UV safe.",
-       "Popular"
+       "Popular",
+       "",
+       "images/home/vinyl-banners.jpg"
       ],
       [
        "18oz Blockout Vinyl Banner",
@@ -3948,7 +3975,8 @@ window.QV2_DATA = {
      "more": true,
      "short": "Hardware"
     }
-   ]
+   ],
+   "img": "images/home/vinyl-banners.jpg"
   },
   "Rigid Signs & Magnets": {
    "qty": [
@@ -3989,7 +4017,9 @@ window.QV2_DATA = {
       [
        "Coroplast (4mm)",
        "Corrugated plastic; indoor and outdoor; the usual yard-sign material.",
-       "Popular"
+       "Popular",
+       "",
+       "images/home/yard-signs.jpg"
       ],
       [
        "PVC Board (1/8\")",
@@ -3999,7 +4029,8 @@ window.QV2_DATA = {
        "Foam Board (3/16\")",
        "Indoor only; not waterproof.",
        "",
-       "indoor"
+       "indoor",
+       "images/home/foam-board-signs.jpg"
       ],
       [
        "Styrene (.020\")",
@@ -4077,7 +4108,8 @@ window.QV2_DATA = {
      ],
      "short": "Add-ons"
     }
-   ]
+   ],
+   "img": "images/home/foam-board-signs.jpg"
   },
   "Window, Wall & Floor Graphics": {
    "qty": [
@@ -4157,7 +4189,8 @@ window.QV2_DATA = {
      "ph": "e.g. 36 × 48 in",
      "short": "Size"
     }
-   ]
+   ],
+   "img": "images/products/window-clings.jpg"
   },
   "Canvas & Wall Art": {
    "qty": [
@@ -4277,6 +4310,27 @@ window.QV2_DATA = {
    ],
    "questions": [
     {
+     "k": "type",
+     "label": "Type of stand",
+     "type": "one",
+     "opts": [
+      [
+       "Retractable banner stand",
+       "Roll-up stand: the printed banner pulls up from the base.",
+       "Popular",
+       "",
+       "images/home/retractable-banners.jpg"
+      ],
+      [
+       "Another kind of stand (tell us below)"
+      ],
+      [
+       "Not sure — recommend for me"
+      ]
+     ],
+     "short": "Stand"
+    },
+    {
      "k": "size",
      "label": "Size",
      "type": "line",
@@ -4289,7 +4343,8 @@ window.QV2_DATA = {
      "type": "text",
      "short": "Details"
     }
-   ]
+   ],
+   "img": "images/home/retractable-banners.jpg"
   },
   "Tents": {
    "qty": [
@@ -4347,6 +4402,81 @@ window.QV2_DATA = {
      "label": "Anything else? (8.8 oz polyester, full-color dye sublimation)",
      "type": "text",
      "short": "Details"
+    }
+   ]
+  },
+  "Popup & Backlit Film": {
+   "qty": [
+    "1",
+    "2",
+    "5",
+    "10",
+    "25"
+   ],
+   "questions": [
+    {
+     "k": "use",
+     "label": "Where will it be used?",
+     "type": "one",
+     "opts": [
+      [
+       "Indoors"
+      ],
+      [
+       "Outdoors"
+      ],
+      [
+       "Event or trade show"
+      ],
+      [
+       "Not sure — recommend for me"
+      ]
+     ],
+     "short": "Used"
+    },
+    {
+     "k": "material",
+     "label": "Material",
+     "type": "paper",
+     "opts": [
+      [
+       "Popup (14 mil double white)",
+       "Non-adhesive, matte, single-sided; smooth for close-up indoor use and holds up outdoors."
+      ],
+      [
+       "Backlit Film",
+       "For light boxes and backlit displays."
+      ],
+      [
+       "Not sure — recommend for me"
+      ]
+     ],
+     "short": "Material",
+     "feel": false
+    },
+    {
+     "k": "size",
+     "label": "Size (width × height)",
+     "type": "line",
+     "ph": "e.g. 36 × 48 in",
+     "short": "Size"
+    }
+   ]
+  },
+  "Hardware Only": {
+   "qty": [
+    "1",
+    "2",
+    "3",
+    "5",
+    "10"
+   ],
+   "questions": [
+    {
+     "k": "describe",
+     "label": "Which hardware? (stands, poles, frames, bases…)",
+     "type": "text",
+     "short": "Hardware"
     }
    ]
   },

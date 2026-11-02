@@ -498,8 +498,28 @@
     @media (min-width: 601px) { .qv2-steps a { flex: 1 1 0; } }
 
     /* summary rows carry their step's color so answers map back to the steps */
-    .qv2-summary [data-step] { border-left: 3px solid var(--c); padding-left: 10px; }
-    .qv2-summary dt { color: var(--ct, #6B7280); }
+    .qv2-summary dt { color: var(--ct, #6B7280); display: flex; align-items: center; gap: 7px; }
+    .qv2-summary dt::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+
+    #qv2-pop { position: fixed; z-index: 400; width: 240px; padding: 8px; background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.18); pointer-events: none; }
+    #qv2-pop[hidden] { display: none; }
+    #qv2-pop img { display: block; width: 100%; height: 170px; object-fit: cover; border-radius: 8px; background: var(--cool-white); }
+    #qv2-pop span { display: block; font-size: 13px; font-weight: 600; color: var(--slate); margin-top: 6px; text-align: center; }
+    .tile { position: relative; }
+    .tile .peek { display: none; position: absolute; top: 8px; right: 8px; font-style: normal; font-size: 11px; font-weight: 700; color: var(--cyan); border: 1px solid var(--cyan); border-radius: 999px; padding: 2px 8px; background: #fff; }
+    @media (hover: none) { .tile .peek { display: inline-block; } #qv2-pop { pointer-events: auto; } }
+
+    /* hero band: same dark blue as the other pages */
+    .qv2-hero { background: var(--slate); padding: 56px 64px 44px; }
+    .qv2-hero-in { max-width: 1180px; margin: 0 auto; }
+    .qv2-hero .qv2-eyebrow { color: var(--sky); }
+    .qv2-hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -.02em; color: #fff; line-height: 1.12; margin-bottom: 12px; }
+    .qv2-hero p { font-size: 17px; color: rgba(255,255,255,.72); max-width: 640px; }
+    .qv2-hero p strong { color: #fff; }
+    .qv2-hero .qv2-where { font-size: 14px; margin-top: 10px; color: rgba(255,255,255,.6); }
+    @media (max-width: 900px) { .qv2-hero { padding: 40px 24px 32px; } .qv2-hero h1 { font-size: 32px; } }
+    .qv2 .qv2-preview { margin-top: 20px; }
+    .qv2 .qv2-steps { margin-top: 20px; }
   </style>
 </head>
 <body>
@@ -759,15 +779,17 @@
     </script>
   </nav>
 
-<main class="qv2">
-  <div class="qv2-preview" id="qv2-preview">Design preview &mdash; this page is not live yet and nothing you enter is sent.</div>
-
-  <header class="qv2-head">
+<section class="qv2-hero">
+  <div class="qv2-hero-in">
     <span class="qv2-eyebrow">Get a quote</span>
     <h1>Tell us what you need.</h1>
     <p>Six short steps on one page. Not sure about something? Choose <strong>Not sure</strong> and we'll help you decide.</p>
     <p class="qv2-where">Xpress Printing &middot; Irvine, California. Looking for a different &ldquo;Xpress Printing&rdquo;? That isn't us &mdash; we're the Irvine shop.</p>
-  </header>
+  </div>
+</section>
+
+<main class="qv2">
+  <div class="qv2-preview" id="qv2-preview">Design preview &mdash; this page is not live yet and nothing you enter is sent.</div>
 
   <nav class="qv2-steps" id="qv2-steps" aria-label="Quote steps">
     <a href="#s1" data-step="1"><b>1</b><span>Item</span></a>
@@ -1006,29 +1028,73 @@
   function qs() { return cur() ? buildQs(cur()) : []; }
 
   /* ── 1. product search + tiles ── */
-  function matches(name, q) {
-    var hay = (productLabel(name) + ' ' + (KEYWORDS[name] || '') + ' ' + groupOf(name)).toLowerCase();
-    return q.split(/\s+/).filter(Boolean).every(function (t) { return hay.indexOf(t) > -1 || hay.indexOf(t.replace(/s$/, '')) > -1; });
+  function norm(s) { return ' ' + String(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim() + ' '; }
+  var INDEX = null;
+  function buildIndex() {
+    INDEX = {};
+    Object.keys(PRODUCTS).concat(Object.keys(SPECIAL)).forEach(function (n) {
+      var opts = [];
+      buildQs(n).forEach(function (q) { (q.opts || []).forEach(function (o) { opts.push(optVal(o)); }); });
+      INDEX[n] = { name: norm(productLabel(n)), kw: norm((KEYWORDS[n] || '') + ' ' + groupOf(n)), opts: opts, optsN: opts.map(norm) };
+    });
   }
+  function variants(t) {
+    var v = [t];
+    if (t.length > 3 && /s$/.test(t)) { v.push(t.replace(/s$/, '')); }
+    if (t.length > 4 && /es$/.test(t)) { v.push(t.replace(/es$/, '')); }
+    return v;
+  }
+  // returns { score, via } or null; every word the visitor typed has to match somewhere
+  function matchInfo(name, q) {
+    if (!INDEX) { buildIndex(); }
+    var ix = INDEX[name]; if (!ix) { return null; }
+    var tokens = norm(q).trim().split(' ').filter(Boolean), score = 0, via = '';
+    for (var i = 0; i < tokens.length; i++) {
+      var best = 0;
+      variants(tokens[i]).forEach(function (t) {
+        var s = 0, key = ' ' + t;
+        if (ix.name.indexOf(key) > -1) { s = 4; }
+        else if (ix.kw.indexOf(key) > -1) { s = 3; }
+        else if (t.length > 3 && (ix.name.replace(/ /g, '').indexOf(t) > -1 || ix.kw.replace(/ /g, '').indexOf(t) > -1)) { s = 2; }
+        else {
+          for (var k = 0; k < ix.optsN.length; k++) { if (ix.optsN[k].indexOf(key + ' ') > -1) { s = 1; if (!via) { via = ix.opts[k]; } break; } }
+        }
+        if (s > best) { best = s; }
+      });
+      if (!best) { return null; }
+      score += best;
+    }
+    return { score: score, via: score / tokens.length < 2 ? via : '' };
+  }
+  function matches(name, q) { return !!matchInfo(name, q); }
+  var VIA = {};
   function tile(name) {
     var sub = isSpecial(name) ? SPECIAL[name].sub : groupOf(name);
+    if (VIA[name]) { sub = 'Matches: ' + VIA[name]; }
+    var img = (PRODUCTS[name] && PRODUCTS[name].img) || '';
     var quiet = isSpecial(name) ? ' quiet' : '';
-    return '<button type="button" class="tile' + quiet + '" data-p="' + esc(name) + '" aria-pressed="' + (S.product === name) + '"><strong>' + esc(productLabel(name)) + '</strong><span>' + esc(sub) + '</span></button>';
+    return '<button type="button" class="tile' + quiet + '" data-p="' + esc(name) + '"' + (img ? ' data-img="' + esc(img) + '" data-cap="' + esc(productLabel(name)) + '"' : '') + ' aria-pressed="' + (S.product === name) + '"><strong>' + esc(productLabel(name)) + '</strong><span>' + esc(sub) + '</span>' + (img ? '<i class="peek" data-peek>Photo</i>' : '') + '</button>';
   }
   function renderProducts() {
     var q = ($('prod-search').value || '').trim().toLowerCase(), box = $('product-tiles'), h = '', more = $('see-all');
     var all = []; GROUPS.forEach(function (g) { g[1].forEach(function (n) { all.push(n); }); });
     if (q) {
-      var hits = all.filter(function (n) { return matches(n, q); });
-      ['Reorder', 'Other'].forEach(function (n) { if (matches(n, q)) { hits.push(n); } });
+      VIA = {};
+      var scored = [];
+      all.forEach(function (n, i) { var m = matchInfo(n, q); if (m) { scored.push({ n: n, s: m.score, i: i }); if (m.via) { VIA[n] = m.via; } } });
+      scored.sort(function (x, y) { return y.s - x.s || x.i - y.i; });
+      var hits = scored.map(function (x) { return x.n; });
+      ['Reorder', 'Other'].forEach(function (n) { if (matchInfo(n, q)) { hits.push(n); } });
       if (hits.indexOf('Other') < 0) { hits.push('Other'); }
       h = '<button type="button" class="tile typed" data-p="__typed" aria-pressed="false"><strong>Use &ldquo;' + esc($('prod-search').value.trim()) + '&rdquo;</strong><span>Keep exactly what I typed</span></button>' + hits.map(tile).join('');
       if (hits.length === 1) { h = '<p class="qv2-hint" style="grid-column:1/-1">No ready-made match for &ldquo;' + esc(q) + '&rdquo; &mdash; use what you typed and tell us the details in the next step.</p>' + h; }
       more.hidden = true;
     } else if (S.showAll) {
+      VIA = {};
       h = GROUPS.map(function (g) { return '<h3 class="grp">' + esc(g[0]) + '</h3>' + g[1].map(tile).join(''); }).join('') + '<h3 class="grp">Other</h3>' + tile('Other') + tile('Reorder');
       more.hidden = false; more.textContent = 'Show fewer';
     } else {
+      VIA = {};
       h = POPULAR.map(tile).join('') + tile('Other') + tile('Reorder');
       h += '<div class="qv2-hint" style="grid-column:1/-1">First time? Start from an example: ' + PRESETS.map(function (s, i) { return '<a href="#" data-preset="' + i + '">' + esc(s.label) + '</a>'; }).join(' &middot; ') + '</div>';
       more.hidden = false; more.textContent = 'See all ' + all.length + ' products';
@@ -1056,7 +1122,7 @@
     var v = optVal(o), cur = S.a[q.k];
     var on = Array.isArray(cur) ? cur.indexOf(v) > -1 : cur === v;
     var b = optBadge(o);
-    return '<button type="button" class="chip" data-k="' + q.k + '" data-t="' + attrs + '" data-v="' + esc(v) + '" aria-pressed="' + on + '">' + esc(v) + (b ? ' <em class="badge">' + esc(b) + '</em>' : '') + '</button>';
+    return '<button type="button" class="chip" data-k="' + q.k + '" data-t="' + attrs + '" data-v="' + esc(v) + '"' + (Array.isArray(o) && o[4] ? ' data-img="' + esc(o[4]) + '" data-cap="' + esc(v) + '"' : '') + ' aria-pressed="' + on + '">' + esc(v) + (b ? ' <em class="badge">' + esc(b) + '</em>' : '') + '</button>';
   }
   function feelChip(q, v) {
     var cur = S.a[q.k + '_feel'] || [];
@@ -1286,6 +1352,30 @@
     var st = e.target.closest('#qv2-steps a'); if (st) { expand(+st.getAttribute('data-step')); }
   });
 
+  /* ── photo preview ── */
+  var pop = document.createElement('div'); pop.id = 'qv2-pop'; pop.hidden = true;
+  pop.innerHTML = '<img alt=""><span></span>'; document.body.appendChild(pop);
+  var popImg = pop.querySelector('img'), popCap = pop.querySelector('span'), popFor = null;
+  function showPop(el) {
+    var src = el.getAttribute('data-img'); if (!src) { return; }
+    popFor = el; popImg.src = src; popCap.textContent = el.getAttribute('data-cap') || '';
+    pop.hidden = false;
+    var r = el.getBoundingClientRect(), w = pop.offsetWidth || 240, h = pop.offsetHeight || 200;
+    var left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8));
+    var top = r.bottom + 8; if (top + h > window.innerHeight - 8) { top = Math.max(8, r.top - h - 8); }
+    pop.style.left = left + 'px'; pop.style.top = top + 'px';
+  }
+  function hidePop() { pop.hidden = true; popFor = null; }
+  document.addEventListener('mouseover', function (e) { if (!window.matchMedia('(hover: hover)').matches) { return; } var el = e.target.closest('[data-img]'); if (el) { showPop(el); } else if (popFor) { hidePop(); } });
+  document.addEventListener('focusin', function (e) { var el = e.target.closest('[data-img]'); if (el) { showPop(el); } });
+  document.addEventListener('focusout', hidePop);
+  window.addEventListener('scroll', hidePop, { passive: true });
+  document.addEventListener('click', function (e) {
+    var pk = e.target.closest('[data-peek]');
+    if (pk) { e.preventDefault(); e.stopPropagation(); var host = pk.closest('[data-img]'); if (popFor === host) { hidePop(); } else { showPop(host); } return; }
+    if (!e.target.closest('#qv2-pop')) { hidePop(); }
+  }, true);
+
   /* ── events ── */
   $('prod-search').addEventListener('input', function () {
     if (S.product && typedText()) { S.product = null; S.a = {}; S.qtyChips = []; renderQty(); }
@@ -1301,6 +1391,7 @@
   $('product-tiles').addEventListener('click', function (e) {
     var pr = e.target.closest('[data-preset]');
     if (pr) { e.preventDefault(); var s = PRESETS[+pr.getAttribute('data-preset')]; S.product = null; pickProduct(s.product, s.a); return; }
+    if (e.target.closest('[data-peek]')) { return; }
     var t = e.target.closest('[data-p]'); if (t) { var nm = t.getAttribute('data-p'); pickProduct(nm); if (nm !== '__typed') { collapse(1, true); } else { collapse(1, true); } }
   });
   $('details-body').addEventListener('click', function (e) {
