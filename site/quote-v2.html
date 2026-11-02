@@ -459,6 +459,9 @@
     @keyframes qv2pulse { 0% { box-shadow: 0 0 0 0 rgba(8,145,178,.55); } 100% { box-shadow: 0 0 0 14px rgba(8,145,178,0); } }
     .qv2-btn.ready { animation: qv2pulse 1.4s ease-out 2; }
     @media (prefers-reduced-motion: reduce) { .qv2-card.pulse, .qv2-btn.ready { animation: none; } }
+
+    .tile.typed { border-style: dashed; }
+    .tile.typed strong { color: var(--cyan); word-break: break-word; }
   </style>
 </head>
 <body>
@@ -748,6 +751,7 @@
         <label class="qv2-search"><input type="search" id="prod-search" placeholder="Type what you need — banner, sticker, menu, yard sign&hellip;" autocomplete="off" aria-label="Search products"></label>
           <div class="tiles" id="product-tiles" role="group" aria-label="Item"></div>
           <button type="button" class="qv2-seeall" id="see-all"></button>
+        <button type="button" class="qv2-next" data-next="1" disabled>Continue &darr;</button>
         </div>
       </section>
 
@@ -3100,10 +3104,12 @@
   function optVal(o) { return Array.isArray(o) ? o[0] : o; }
   function optHint(o) { return Array.isArray(o) ? (o[1] || '') : ''; }
   function optBadge(o) { return Array.isArray(o) ? (o[2] || '') : ''; }
+  function typedText() { var el = $('prod-search'); return el ? el.value.trim() : ''; }
+  function cur() { return S.product || (typedText() ? '__typed' : null); }
   function cfg() { return CATALOG[S.product] || CATALOG['default']; }
   function groupOf(name) { var g = ''; GROUPS.forEach(function (x) { if (x[1].indexOf(name) > -1) { g = x[0]; } }); return g; }
   function isSpecial(name) { return !!SPECIAL[name]; }
-  function productLabel(name) { return isSpecial(name) ? SPECIAL[name].label : name; }
+  function productLabel(name) { return name === '__typed' ? typedText() : (isSpecial(name) ? SPECIAL[name].label : name); }
 
   /* ── what to ask for each product, built from the real catalog ── */
   function mk(k, label, type, opts, more, extra) {
@@ -3117,11 +3123,18 @@
   }
   function buildQs(name) {
     if (name === 'Other') { return [mk('describe', 'Tell us what you need', 'text')]; }
+    if (name === '__typed') {
+      return [mk('size', 'Size (if you know it)', 'line', [], false, { ph: 'e.g. 4 × 9 in' }),
+        mk('paper', 'Paper / material', 'paper', [[NS]], false, { short: 'Paper' }),
+        mk('print', 'Color and sides', 'one', plain(PRINT_MODE), false, { short: 'Print' }),
+        mk('describe', 'Anything else about it?', 'text')];
+    }
     if (name === 'Reorder') {
       return [mk('prev', 'Which order? (job name, date or invoice number)', 'text'),
         mk('changes', 'Any changes?', 'one', plain(['Exactly the same', 'Same, with small changes']))];
     }
     var c = CATALOG[name] || CATALOG['default'], qs = [];
+    if (c.showBinding) { qs.push(mk('binding', 'Binding', 'one', plain(STATIC.binding))); }
     // size
     if (c.sizes && c.sizes.length && !c.showBanner) { qs.push(mk('size', 'Size', 'size', plain(c.sizes).concat([[NS]]), false, { meta: c.sizeMeta })); }
     else { qs.push(mk('size', 'Size (width × height, in inches)', 'line', [], false, { ph: 'e.g. 3 × 6 ft, or 36 × 72 in' })); }
@@ -3141,7 +3154,6 @@
       qs.push(mk('printcover', 'Cover color and sides', 'one', plain(STATIC.cover), false, { short: 'Cover print' }));
       qs.push(mk('printinside', 'Inside pages color and sides', 'one', plain(STATIC.inside), false, { short: 'Inside print' }));
     }
-    if (c.showBinding) { qs.push(mk('binding', 'Binding', 'one', plain(STATIC.binding))); }
     if (c.showPages) { qs.push(mk('pages', 'Inside pages (not counting the cover)', 'pages', [], false, { short: 'Inside pages' })); }
     // everything else goes under "More options"
     var more = function (k, label, list, flag, extra) { if (flag) { qs.push(mk(k, label, 'one', Array.isArray(list[0]) ? list : plain(list), true, extra)); } };
@@ -3159,7 +3171,7 @@
     if (['Postcards', 'Flyers', 'Brochures'].indexOf(name) > -1) { qs.push(mk('mailing', 'Mailing', 'one', plain(STATIC.mailing), true)); }
     return qs;
   }
-  function qs() { return S.product ? buildQs(S.product) : []; }
+  function qs() { return cur() ? buildQs(cur()) : []; }
 
   /* ── 1. product search + tiles ── */
   function matches(name, q) {
@@ -3178,8 +3190,8 @@
       var hits = all.filter(function (n) { return matches(n, q); });
       ['Reorder', 'Other'].forEach(function (n) { if (matches(n, q)) { hits.push(n); } });
       if (hits.indexOf('Other') < 0) { hits.push('Other'); }
-      h = hits.map(tile).join('');
-      if (hits.length === 1) { h = '<p class="qv2-hint" style="grid-column:1/-1">Nothing matches &ldquo;' + esc(q) + '&rdquo; &mdash; choose &ldquo;Something else&rdquo; and tell us what you need.</p>' + h; }
+      h = '<button type="button" class="tile typed" data-p="__typed" aria-pressed="false"><strong>Use &ldquo;' + esc($('prod-search').value.trim()) + '&rdquo;</strong><span>Keep exactly what I typed</span></button>' + hits.map(tile).join('');
+      if (hits.length === 1) { h = '<p class="qv2-hint" style="grid-column:1/-1">No ready-made match for &ldquo;' + esc(q) + '&rdquo; &mdash; use what you typed and tell us the details in the next step.</p>' + h; }
       more.hidden = true;
     } else if (S.showAll) {
       h = GROUPS.map(function (g) { return '<h3 class="grp">' + esc(g[0]) + '</h3>' + g[1].map(tile).join(''); }).join('') + '<h3 class="grp">Other</h3>' + tile('Other') + tile('Reorder');
@@ -3192,7 +3204,12 @@
     box.innerHTML = h;
   }
   function pickProduct(name, preset) {
-    if (S.product !== name) { S.product = name; S.a = {}; S.qtyChips = []; S.moreOpen = false; }
+    var typedMode = name === '__typed';
+    if (typedMode) { S.product = null; S.a = {}; S.qtyChips = []; S.moreOpen = false; }
+    else {
+      if (S.product !== name) { S.product = name; S.a = {}; S.qtyChips = []; S.moreOpen = false; }
+      var se = $('prod-search'); if (se && se.value) { se.value = ''; }
+    }
     if (preset) { for (var k in preset) { S.a[k] = preset[k]; } }
     renderProducts(); renderDetails(); renderQty(); update();
   }
@@ -3239,7 +3256,7 @@
   }
   function renderDetails() {
     var body = $('details-body'), all = qs();
-    if (!S.product) { body.innerHTML = '<p class="qv2-hint">Choose an item above and the right questions will appear here.</p>'; return; }
+    if (!cur()) { body.innerHTML = '<p class="qv2-hint">Choose an item above and the right questions will appear here.</p>'; return; }
     var ess = all.filter(function (q) { return !q.more; }), more = all.filter(function (q) { return q.more; });
     var moreAnswered = more.some(function (q) { return S.a[q.k] && S.a[q.k].length !== 0; });
     var h = ess.map(qHtml).join('');
@@ -3349,7 +3366,7 @@
   }
   function qtyText() { return parseQty().map(function (n) { return n.toLocaleString('en-US'); }).join(' / '); }
   function lines() {
-    var rows = [['Item', S.product ? productLabel(S.product) : '']];
+    var rows = [['Item', cur() ? productLabel(cur()) : '']];
     detailLines().forEach(function (r) { rows.push(r); });
     rows.push(['Quantity', qtyText()]);
     if (parseInt(S.versions, 10) > 1) { rows.push(['Versions', S.versions]); }
@@ -3364,7 +3381,7 @@
   function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
   function done() {
     var d = {};
-    d[1] = !!S.product; d[2] = detailLines().length > 0; d[3] = parseQty().length > 0;
+    d[1] = !!cur(); d[2] = detailLines().length > 0; d[3] = parseQty().length > 0;
     d[4] = !!(($('need-asap').checked || $('need-date').value) && S.how);
     d[5] = !!S.files; d[6] = !!($('c-name').value.trim() && emailOk($('c-email').value.trim()));
     return d;
@@ -3428,12 +3445,21 @@
   });
 
   /* ── events ── */
-  $('prod-search').addEventListener('input', renderProducts);
+  $('prod-search').addEventListener('input', function () {
+    if (S.product && typedText()) { S.product = null; S.a = {}; S.qtyChips = []; renderQty(); }
+    renderProducts(); renderDetails(); update();
+  });
+  $('prod-search').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') { return; }
+    var tiles = document.querySelectorAll('#product-tiles [data-p]:not([data-p="__typed"]):not([data-p="Other"])');
+    if (tiles.length === 1) { pickProduct(tiles[0].getAttribute('data-p')); collapse(1, true); }
+    else if (typedText()) { collapse(1, true); }
+  });
   $('see-all').addEventListener('click', function () { S.showAll = !S.showAll; $('prod-search').value = ''; renderProducts(); });
   $('product-tiles').addEventListener('click', function (e) {
     var pr = e.target.closest('[data-preset]');
     if (pr) { e.preventDefault(); var s = PRESETS[+pr.getAttribute('data-preset')]; S.product = null; pickProduct(s.product, s.a); return; }
-    var t = e.target.closest('[data-p]'); if (t) { pickProduct(t.getAttribute('data-p')); collapse(1, true); }
+    var t = e.target.closest('[data-p]'); if (t) { var nm = t.getAttribute('data-p'); pickProduct(nm); if (nm !== '__typed') { collapse(1, true); } else { collapse(1, true); } }
   });
   $('details-body').addEventListener('click', function (e) {
     var mb = e.target.closest('[data-more]'); if (mb) { S.moreOpen = !(S.moreOpen || false); renderDetails(); return; }
@@ -3483,7 +3509,7 @@
     if (miss.length) { m.textContent = 'Please add: ' + miss.join('; ') + '.'; m.classList.remove('hidden'); $('s' + first).scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     m.classList.add('hidden');
     var msg = buildMessage(); $('f-message').value = msg;
-    $('f-subject').value = 'Quote request: ' + productLabel(S.product);
+    $('f-subject').value = 'Quote request: ' + productLabel(cur());
     var preview = form.getAttribute('action').indexOf('REPLACE_WITH_ID') > -1;
     function finish(note) {
       form.classList.add('hidden'); $('qv2-steps').classList.add('hidden');
