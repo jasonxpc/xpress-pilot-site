@@ -608,6 +608,13 @@ a { text-decoration: none; color: inherit; }
     .nav { padding: 0 16px !important; gap: 12px !important; }
     .nav-logo-full { height: 26px !important; }
   }
+  @media (max-width: 360px) {
+    .nav { padding: 0 12px !important; gap: 8px !important; }
+    .nav-logo-full { height: 22px !important; }
+    html, body { overflow-x: hidden; }
+    .nav-actions { gap: 6px; }
+    .nav-actions .btn-quote-nav { padding: 8px 10px; font-size: 13px; }
+  }
 </style>
 <nav class="nav">
     <a href="index.html" class="nav-logo">
