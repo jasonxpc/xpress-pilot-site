@@ -3136,6 +3136,8 @@
     var c = CATALOG[name] || CATALOG['default'], qs = [];
     if (c.showBinding) { qs.push(mk('binding', 'Binding', 'one', plain(STATIC.binding))); }
     // size
+    // large-format items only: indoor or outdoor drives the material choice
+    if (['Banners & Signs', 'Posters', 'Window Clings'].indexOf(name) > -1) { qs.push(mk('use', 'Where will it be used?', 'one', plain(['Indoors', 'Outdoors', 'Event or trade show', NS]), false, { short: 'Used' })); }
     if (c.sizes && c.sizes.length && !c.showBanner) { qs.push(mk('size', 'Size', 'size', plain(c.sizes).concat([[NS]]), false, { meta: c.sizeMeta })); }
     else { qs.push(mk('size', 'Size (width × height, in inches)', 'line', [], false, { ph: 'e.g. 3 × 6 ft, or 36 × 72 in' })); }
     // paper: several choices allowed, plus weight/finish words, plus free text
