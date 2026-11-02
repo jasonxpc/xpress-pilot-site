@@ -433,6 +433,32 @@
     .qv2-next { margin-top: 18px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; padding: 11px 24px; border: none; border-radius: 8px; background: var(--slate); color: #fff; }
     .qv2-next:disabled { background: var(--border); color: #9CA3AF; cursor: not-allowed; }
     @media (max-width: 600px) { .qv2-card.collapsed .csum { margin-left: 0; flex-wrap: wrap; } .qv2-next { width: 100%; } }
+
+    /* ─── search, badges, paper helpers, active step ─── */
+    .qv2-search { display: block; margin-bottom: 14px; }
+    .qv2-search input { width: 100%; font: inherit; font-size: 17px; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: 10px; background: #fff; }
+    .qv2-search input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(8,145,178,.15); }
+    .qv2-seeall { margin-top: 12px; font: inherit; font-size: 14px; font-weight: 700; color: var(--cyan); background: none; border: none; cursor: pointer; padding: 4px 0; }
+    .qv2-seeall[hidden] { display: none; }
+    .tiles .grp { grid-column: 1 / -1; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px; }
+    .chip .badge { font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; background: #FEF3C7; color: #92400E; border-radius: 999px; padding: 2px 7px; margin-left: 4px; vertical-align: 1px; }
+    .chip.sm { font-size: 13px; padding: 6px 12px; }
+    .qgroup > p em { font-weight: 400; color: var(--text-muted); font-style: normal; }
+    .qv2-hint p { margin: 2px 0 0; }
+    .feel { margin-top: 12px; padding: 12px 14px; background: var(--cool-white); border: 1px dashed var(--border); border-radius: 10px; }
+    .feel > p { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .qv2-more { margin: 4px 0 16px; font: inherit; font-size: 14px; font-weight: 700; color: var(--slate); background: var(--cool-white); border: 1.5px solid var(--border); border-radius: 8px; padding: 9px 14px; cursor: pointer; }
+    .qv2-more span { display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-left: 6px; border-radius: 10px; background: var(--border); font-size: 12px; }
+    .more-box { padding-top: 6px; border-top: 1px solid var(--border); }
+
+    .qv2-card { transition: border-color .25s, box-shadow .25s; }
+    .qv2-card.active { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(8,145,178,.14), 0 8px 24px rgba(8,145,178,.08); }
+    .qv2-card.active h2 b { background: var(--cyan); }
+    .qv2-card:not(.active):not(.collapsed) h2 b { background: #94A3B8; }
+    .qv2-card.pulse { animation: qv2pulse .9s ease-out 1; }
+    @keyframes qv2pulse { 0% { box-shadow: 0 0 0 0 rgba(8,145,178,.55); } 100% { box-shadow: 0 0 0 14px rgba(8,145,178,0); } }
+    .qv2-btn.ready { animation: qv2pulse 1.4s ease-out 2; }
+    @media (prefers-reduced-motion: reduce) { .qv2-card.pulse, .qv2-btn.ready { animation: none; } }
   </style>
 </head>
 <body>
@@ -719,7 +745,9 @@
         <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="1">Change</button></div>
         <div class="cbody">
         
-        <div class="tiles" id="product-tiles" role="group" aria-label="Item"></div>
+        <label class="qv2-search"><input type="search" id="prod-search" placeholder="Type what you need — banner, sticker, menu, yard sign&hellip;" autocomplete="off" aria-label="Search products"></label>
+          <div class="tiles" id="product-tiles" role="group" aria-label="Item"></div>
+          <button type="button" class="qv2-seeall" id="see-all"></button>
         </div>
       </section>
 
@@ -764,11 +792,7 @@
           </label>
           <label class="check"><input type="checkbox" id="need-asap"> <span>As soon as possible</span></label>
         </div>
-        <div class="tiles small" id="how-tiles" role="group" aria-label="Pickup or delivery"></div>
-        <label class="qv2-field hidden" id="addr-wrap">
-          <span>Delivery address</span>
-          <textarea id="addr" rows="3" placeholder="Street, city, ZIP"></textarea>
-        </label>
+        <div class="tiles small" id="how-tiles" role="group" aria-label="Pickup or shipping"></div>
         <button type="button" class="qv2-next" data-next="4" disabled>Continue &darr;</button>
         </div>
       </section>
@@ -910,192 +934,2357 @@
 (function () {
   'use strict';
 
+  /* Real options come from the existing quote page (PRODUCT_CONFIGS), copied in by build.py. */
+  var CATALOG = {
+ "Business Cards": {
+  "sizes": [
+   "3.5\" × 2\" (Standard)",
+   "1.75\" × 3.5\" (Slim)",
+   "2\" × 2\" (Square)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "3.5\" × 2\" (Standard)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Cover (Slim)",
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Silk",
+   "16PT Linen",
+   "Metallic / Foil Board",
+   "Plastic / PVC"
+  ],
+  "paperMeta": {
+   "100lb Cover (Slim)": {
+    "note": "Noticeably thinner than 14PT — easy on the wallet!"
+   },
+   "14PT Gloss": {
+    "note": "Sharp colors, glossy finish"
+   },
+   "14PT Silk": {
+    "badge": "popular",
+    "note": "Most common choice — smooth satin finish, no glare"
+   },
+   "16PT Silk": {
+    "badge": "popular",
+    "note": "Smooth satin finish, rich colors — one of our most-used weights (Veritiv Endurance)"
+   },
+   "16PT Linen": {
+    "note": "Textured classic feel"
+   },
+   "Metallic / Foil Board": {
+    "note": "Eye-catching shimmer — great for luxury brands"
+   },
+   "Plastic / PVC": {
+    "note": "Waterproof & durable — credit card feel"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": true,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "100",
+   "250",
+   "500",
+   "1,000",
+   "2,500"
+  ],
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional lamination"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  }
+ },
+ "Flyers": {
+  "sizes": [
+   "3.5\" × 8.5\" (Rack Card)",
+   "4\" × 6\"",
+   "4.25\" × 5.5\" (Half Letter)",
+   "5.5\" × 8.5\" (Half Letter)",
+   "8.5\" × 11\" (Letter)",
+   "8.5\" × 14\" (Legal)",
+   "11\" × 17\" (Tabloid)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\" (Letter)": {
+    "badge": "popular"
+   },
+   "5.5\" × 8.5\" (Half Letter)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "60lb Uncoated",
+   "70lb Uncoated",
+   "80lb Gloss Text",
+   "80lb Silk Text",
+   "100lb Gloss Text",
+   "100lb Silk Text"
+  ],
+  "paperMeta": {
+   "60lb Uncoated": {
+    "note": "Lightweight, like notebook paper — most economical"
+   },
+   "70lb Uncoated": {
+    "note": "Slightly heavier than copy paper — good all-purpose weight"
+   },
+   "80lb Gloss Text": {
+    "note": "Magazine-page weight with a shiny finish"
+   },
+   "80lb Silk Text": {
+    "note": "Magazine-page weight, no glare"
+   },
+   "100lb Gloss Text": {
+    "badge": "popular",
+    "note": "Our sturdiest flyer paper — glossy, premium feel"
+   },
+   "100lb Silk Text": {
+    "badge": "popular",
+    "note": "Our sturdiest flyer paper — smooth, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": true,
+  "showBundle": true,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000",
+   "10,000"
+  ]
+ },
+ "Brochures": {
+  "sizes": [
+   "8.5\" × 11\" (Letter flat)",
+   "8.5\" × 14\" (Legal flat)",
+   "11\" × 17\" (Tabloid flat)",
+   "11\" × 25.5\" (Tabloid flat — trifold)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\" (Letter flat)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "80lb Gloss Text",
+   "80lb Silk Text",
+   "100lb Gloss Text",
+   "100lb Silk Text",
+   "100lb Gloss Cover",
+   "100lb Silk Cover"
+  ],
+  "paperMeta": {
+   "80lb Gloss Text": {
+    "note": "Magazine-page weight with a shiny finish"
+   },
+   "80lb Silk Text": {
+    "note": "Magazine-page weight, no glare"
+   },
+   "100lb Gloss Text": {
+    "badge": "popular",
+    "note": "Heavier, near-cardstock feel — glossy"
+   },
+   "100lb Silk Text": {
+    "badge": "popular",
+    "note": "Heavier, near-cardstock feel — no glare"
+   },
+   "100lb Gloss Cover": {
+    "note": "Sturdy cardstock — like a magazine cover, glossy"
+   },
+   "100lb Silk Cover": {
+    "note": "Sturdy cardstock — like a magazine cover, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": true,
+  "showScore": true,
+  "showBundle": true,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500",
+   "1,000",
+   "2,500"
+  ]
+ },
+ "Postcards": {
+  "sizes": [
+   "4\" × 6\"",
+   "4.25\" × 5.5\"",
+   "5\" × 7\"",
+   "5.5\" × 8.5\"",
+   "6\" × 9\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "4\" × 6\"": {
+    "badge": "popular"
+   },
+   "5\" × 7\"": {
+    "badge": "popular"
+   },
+   "5.5\" × 8.5\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Gloss Cover",
+   "100lb Silk Cover",
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Gloss Cover",
+   "16PT Silk Cover"
+  ],
+  "paperMeta": {
+   "100lb Gloss Cover": {
+    "note": "Thinner than 14PT — still sturdy, glossy"
+   },
+   "100lb Silk Cover": {
+    "note": "Thinner than 14PT — still sturdy, satin finish, no glare"
+   },
+   "14PT Gloss": {
+    "note": "Standard postcard thickness — sturdy, glossy finish"
+   },
+   "14PT Silk": {
+    "badge": "popular",
+    "note": "Standard postcard thickness — smooth satin finish, no glare"
+   },
+   "16PT Gloss Cover": {
+    "note": "Extra-thick, glossy finish"
+   },
+   "16PT Silk Cover": {
+    "note": "Extra-thick, smooth satin finish, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": true,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "50",
+   "100",
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000"
+  ]
+ },
+ "Banners & Signs": {
+  "sizes": [],
+  "paper": [
+   "13oz Vinyl (Outdoor Gloss)",
+   "13oz Vinyl (Silk)",
+   "18oz Blockout Vinyl",
+   "15oz Backlit Vinyl",
+   "Mesh Banner (Wind-Resistant)",
+   "Foam Board 3/16\"",
+   "Foam Board 1/2\"",
+   "Retractable Banner Stand",
+   "PVC Board",
+   "Aluminum Sign (.040)",
+   "Magnet Sheet (30mil)"
+  ],
+  "paperMeta": {
+   "13oz Vinyl (Outdoor Gloss)": {
+    "badge": "popular"
+   }
+  },
+  "showPrintMode": false,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": true,
+  "showCorners": false,
+  "showFinishing": true,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "10",
+   "25"
+  ]
+ },
+ "Stickers & Labels": {
+  "sizes": [
+   "2\" × 2\"",
+   "2\" × 3\"",
+   "3\" × 3\"",
+   "3\" × 4\"",
+   "4\" × 4\"",
+   "4\" × 6\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "3\" × 3\"": {
+    "badge": "popular"
+   },
+   "3\" × 4\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "White Gloss Vinyl",
+   "White Silk Vinyl",
+   "Clear Gloss Vinyl",
+   "Clear Silk Vinyl",
+   "Kraft / Recycled",
+   "Foil (Gold/Silver)",
+   "Holographic",
+   "Glitter",
+   "Reflective",
+   "Glow-in-the-Dark",
+   "Static Cling (Removable)",
+   "Polyester (Waterproof)"
+  ],
+  "paperMeta": {
+   "White Gloss Vinyl": {
+    "badge": "popular"
+   }
+  },
+  "showPrintMode": false,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": true,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "50",
+   "100",
+   "250",
+   "500",
+   "1,000",
+   "2,500"
+  ]
+ },
+ "Booklets": {
+  "sizes": [
+   "4.25\" × 5.5\"",
+   "5.5\" × 8.5\"",
+   "8.5\" × 11\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [],
+  "coverPaper": [
+   "80lb Gloss Cover",
+   "80lb Silk Cover",
+   "100lb Gloss Cover",
+   "100lb Silk Cover",
+   "12PT Card Stock"
+  ],
+  "insidePaper": [
+   "60lb Offset Text",
+   "70lb Text",
+   "80lb Gloss Text",
+   "80lb Silk Text",
+   "100lb Gloss Text",
+   "100lb Silk Text"
+  ],
+  "showPrintMode": false,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": true,
+  "showPages": true,
+  "showLayout": true,
+  "showCoverPaper": true,
+  "showPrintModeCoverInside": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500"
+  ],
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional lamination"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  }
+ },
+ "Rack Cards": {
+  "sizes": [
+   "3.5\" × 8.5\"",
+   "4\" × 9\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "4\" × 9\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Gloss Cover",
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Gloss Cover",
+   "16PT Silk Cover"
+  ],
+  "paperMeta": {
+   "100lb Gloss Cover": {
+    "note": "Thinner than 14PT — still sturdy enough to stand in a rack"
+   },
+   "14PT Gloss": {
+    "badge": "popular",
+    "note": "Sturdy card stock — stands up well in display racks"
+   },
+   "14PT Silk": {
+    "note": "Sturdy card stock, smooth satin finish, no glare"
+   },
+   "16PT Gloss Cover": {
+    "note": "Extra-thick, glossy finish"
+   },
+   "16PT Silk Cover": {
+    "note": "Extra-thick, smooth satin finish, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000"
+  ]
+ },
+ "Posters": {
+  "sizes": [
+   "11\" × 17\" (Tabloid)",
+   "12\" × 18\"",
+   "18\" × 24\"",
+   "24\" × 36\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "11\" × 17\" (Tabloid)": {
+    "badge": "popular"
+   },
+   "18\" × 24\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "80lb Gloss Text",
+   "80lb Silk Text",
+   "100lb Gloss Text",
+   "100lb Silk Text"
+  ],
+  "paperMeta": {
+   "80lb Gloss Text": {
+    "note": "Magazine-page weight with a shiny finish"
+   },
+   "80lb Silk Text": {
+    "note": "Magazine-page weight, no glare"
+   },
+   "100lb Gloss Text": {
+    "badge": "popular",
+    "note": "Our sturdiest poster paper — glossy, vivid colors"
+   },
+   "100lb Silk Text": {
+    "note": "Our sturdiest poster paper — no glare, easy to read from an angle"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant, good for repeated handling/display"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": false,
+  "showPrintModeSides": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500"
+  ]
+ },
+ "Door Hangers": {
+  "sizes": [
+   "3.5\" × 8.5\"",
+   "3.5\" × 11\"",
+   "4\" × 7\"",
+   "4.25\" × 11\"",
+   "4.25\" × 14\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "4.25\" × 11\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Gloss Book",
+   "100lb Gloss Cover",
+   "10PT EnduraACE (Weatherproof Synthetic)",
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Gloss Cover",
+   "16PT Silk Cover"
+  ],
+  "paperMeta": {
+   "100lb Gloss Book": {
+    "note": "Lighter, flyer-weight paper — most economical"
+   },
+   "100lb Gloss Cover": {
+    "note": "Thinner than 14PT — still sturdy"
+   },
+   "10PT EnduraACE (Weatherproof Synthetic)": {
+    "note": "Thinner but tear- and weather-resistant — built for outdoor hanging"
+   },
+   "14PT Gloss": {
+    "badge": "popular",
+    "note": "Standard sturdy card stock, glossy finish"
+   },
+   "14PT Silk": {
+    "note": "Standard sturdy card stock, smooth satin finish, no glare"
+   },
+   "16PT Gloss Cover": {
+    "note": "Extra-thick, glossy finish"
+   },
+   "16PT Silk Cover": {
+    "note": "Extra-thick, smooth satin finish, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showDieCut": true,
+  "qty": [
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000"
+  ]
+ },
+ "Table Tents": {
+  "sizes": [
+   "4\" × 6\"",
+   "5\" × 5.5\"",
+   "3.5\" × 8.5\" (Tall)",
+   "5\" × 7\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "4\" × 6\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Gloss Cover",
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Gloss Cover",
+   "16PT Silk Cover"
+  ],
+  "paperMeta": {
+   "100lb Gloss Cover": {
+    "note": "Thinner than 14PT — still sturdy enough to stand"
+   },
+   "14PT Gloss": {
+    "badge": "popular",
+    "note": "Sturdy card stock — stands up on its own"
+   },
+   "14PT Silk": {
+    "note": "Sturdy card stock, smooth satin finish, no glare"
+   },
+   "16PT Gloss Cover": {
+    "note": "Extra-thick, glossy finish"
+   },
+   "16PT Silk Cover": {
+    "note": "Extra-thick, smooth satin finish, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "50",
+   "100",
+   "250",
+   "500"
+  ]
+ },
+ "Calendars": {
+  "sizes": [
+   "8.5\" × 11\" (Wall)",
+   "11\" × 17\" (Wall)",
+   "12\" × 12\" (Photo)",
+   "4\" × 9\" (Desk Tent)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\" (Wall)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Gloss Text",
+   "100lb Silk Text",
+   "14PT Gloss Cover"
+  ],
+  "paperMeta": {
+   "100lb Gloss Text": {
+    "badge": "popular",
+    "note": "Sturdy, magazine-cover weight — glossy"
+   },
+   "100lb Silk Text": {
+    "note": "Sturdy, magazine-cover weight — no glare"
+   },
+   "14PT Gloss Cover": {
+    "note": "Thicker card stock — extra durable for daily flipping"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant — good for daily-handled cover"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": true,
+  "showPages": false,
+  "showMonthCount": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250"
+  ]
+ },
+ "Yard Signs": {
+  "sizes": [
+   "18\" × 24\"",
+   "24\" × 36\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "18\" × 24\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "4mm White Coroplast"
+  ],
+  "showPrintMode": false,
+  "showPrintModeSides": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "showHStake": true,
+  "qty": [
+   "5",
+   "10",
+   "25",
+   "50"
+  ]
+ },
+ "Window Clings": {
+  "sizes": [
+   "4\" × 6\"",
+   "6\" × 6\"",
+   "8.5\" × 11\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "Clear Static Cling",
+   "White Static Cling",
+   "Perforated Window Film"
+  ],
+  "paperMeta": {
+   "Clear Static Cling": {
+    "badge": "popular"
+   }
+  },
+  "showPrintMode": false,
+  "showPrintModeSides": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "50",
+   "100",
+   "250",
+   "500"
+  ]
+ },
+ "Notepads": {
+  "sizes": [
+   "3.5\" × 8.5\"",
+   "4.25\" × 5.5\" (Half Letter)",
+   "5.5\" × 8.5\" (Half Letter tall)",
+   "8.5\" × 11\" (Letter)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "4.25\" × 5.5\" (Half Letter)": {
+    "badge": "popular"
+   },
+   "5.5\" × 8.5\" (Half Letter tall)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "60lb Offset Text",
+   "70lb Text",
+   "80lb Text"
+  ],
+  "paperMeta": {
+   "60lb Offset Text": {
+    "badge": "popular",
+    "note": "Lightweight, like notebook paper — smooth writing surface"
+   },
+   "70lb Text": {
+    "note": "Slightly heavier — less see-through when writing"
+   },
+   "80lb Text": {
+    "note": "Sturdiest option — minimal show-through, premium feel"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "showSheetCount": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500",
+   "1,000"
+  ]
+ },
+ "Hang Tags": {
+  "sizes": [
+   "2\" × 3.5\"",
+   "2\" × 4\"",
+   "3\" × 3\"",
+   "3.5\" × 5\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "2\" × 3.5\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Gloss Cover",
+   "16PT Silk Cover"
+  ],
+  "paperMeta": {
+   "14PT Gloss": {
+    "note": "Standard sturdy card stock, glossy finish"
+   },
+   "14PT Silk": {
+    "badge": "popular",
+    "note": "Standard sturdy card stock, smooth satin finish, no glare"
+   },
+   "16PT Gloss Cover": {
+    "note": "Extra-thick, glossy finish"
+   },
+   "16PT Silk Cover": {
+    "note": "Extra-thick, smooth satin finish, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": true,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showDrillHole": true,
+  "qty": [
+   "100",
+   "250",
+   "500",
+   "1,000",
+   "2,500"
+  ]
+ },
+ "Menus": {
+  "sizes": [
+   "4.25\" × 11\" (Single fold)",
+   "8.5\" × 11\" (Letter)",
+   "8.5\" × 14\" (Legal)",
+   "11\" × 17\" (Tabloid)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\" (Letter)": {
+    "badge": "popular"
+   },
+   "8.5\" × 14\" (Legal)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "80lb Gloss Text",
+   "80lb Silk Text",
+   "100lb Gloss Text",
+   "100lb Silk Text",
+   "100lb Gloss Cover",
+   "100lb Silk Cover"
+  ],
+  "paperMeta": {
+   "80lb Gloss Text": {
+    "note": "Lighter, flyer-weight — budget option, glossy"
+   },
+   "80lb Silk Text": {
+    "note": "Lighter, flyer-weight — budget option, no glare"
+   },
+   "100lb Gloss Text": {
+    "note": "Sturdier text weight, glossy"
+   },
+   "100lb Silk Text": {
+    "note": "Sturdier text weight, no glare"
+   },
+   "100lb Gloss Cover": {
+    "badge": "popular",
+    "note": "Sturdy cardstock — holds up well to handling & spills, glossy"
+   },
+   "100lb Silk Cover": {
+    "badge": "popular",
+    "note": "Sturdy cardstock — holds up well to handling & spills, no glare"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant, best for wipeable menus"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": true,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500"
+  ]
+ },
+ "Placemats": {
+  "sizes": [
+   "10\" × 14\" (Standard)",
+   "12\" × 16\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "10\" × 14\" (Standard)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "60lb Uncoated",
+   "70lb Uncoated"
+  ],
+  "paperMeta": {
+   "60lb Uncoated": {
+    "badge": "popular",
+    "note": "Lightweight, economical — standard disposable placemat weight"
+   },
+   "70lb Uncoated": {
+    "note": "Slightly heavier — holds up a bit better under plates/utensils"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showLayout": false,
+  "qty": [
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000"
+  ]
+ },
+ "Presentation Folders": {
+  "sizes": [
+   "9\" × 12\" (Standard)",
+   "9\" × 14.5\" (Legal)",
+   "6\" × 9\" (Half Size)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "9\" × 12\" (Standard)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "100lb Gloss Cover",
+   "14PT Gloss",
+   "14PT Silk",
+   "16PT Gloss Cover",
+   "16PT Silk"
+  ],
+  "paperMeta": {
+   "100lb Gloss Cover": {
+    "note": "Thinner than 14PT — still holds its shape"
+   },
+   "14PT Gloss": {
+    "badge": "popular",
+    "note": "Standard sturdy card stock, glossy finish"
+   },
+   "14PT Silk": {
+    "note": "Standard sturdy card stock, smooth satin finish, no glare"
+   },
+   "16PT Gloss Cover": {
+    "note": "Extra-thick, glossy finish"
+   },
+   "16PT Silk": {
+    "badge": "popular",
+    "note": "Extra-thick, smooth satin finish"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, water/scuff resistant"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Raised Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Raised Spot UV": {
+    "note": "Thicker, tactile UV you can feel — 50-micron raised gloss accents"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showPocket": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500"
+  ]
+ },
+ "Certificates": {
+  "sizes": [
+   "8.5\" × 11\" (Letter)",
+   "8.5\" × 14\" (Legal)",
+   "11\" × 8.5\" (Landscape)",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "8.5\" × 11\" (Letter)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "80lb Gloss Cover",
+   "80lb Uncoated Cover",
+   "100lb Gloss Cover",
+   "100lb Silk Cover",
+   "Parchment / Linen"
+  ],
+  "paperMeta": {
+   "80lb Gloss Cover": {
+    "note": "Solid cardstock feel, glossy"
+   },
+   "80lb Uncoated Cover": {
+    "note": "Solid cardstock feel, natural non-shiny finish"
+   },
+   "100lb Gloss Cover": {
+    "badge": "popular",
+    "note": "Our sturdiest option — premium glossy finish"
+   },
+   "100lb Silk Cover": {
+    "note": "Our sturdiest option — premium, no glare"
+   },
+   "Parchment / Linen": {
+    "badge": "popular",
+    "note": "Textured, formal finish — traditional certificate look"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Soft Touch Laminate",
+   "Matte Laminate",
+   "Gloss Laminate",
+   "Gloss UV",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — no additional coating (needed if the certificate will be signed after printing)"
+   },
+   "Soft Touch Laminate": {
+    "note": "Velvety, suede-like laminate film — premium tactile feel"
+   },
+   "Matte Laminate": {
+    "note": "Flat, non-reflective laminate film — subdued matte look"
+   },
+   "Gloss Laminate": {
+    "note": "Thick, high-gloss plastic film — most durable, good for display/award certificates"
+   },
+   "Gloss UV": {
+    "note": "Liquid UV coating cured under light — high gloss, thinner than laminate, less scratch-resistant"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — lightest protective sheen, most economical"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Spot UV",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard finish — no additional treatment"
+   },
+   "Spot UV": {
+    "note": "Selective high-gloss accents over the base finish"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents — flat finish, classic gold/silver seal look"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500"
+  ]
+ },
+ "Letterhead": {
+  "sizes": [
+   "8.5\" × 11\"",
+   "5.5\" × 8.5\""
+  ],
+  "paper": [
+   "24lb Bond White",
+   "24lb Laid White",
+   "28lb Linen Bright White",
+   "32lb Premium Bond",
+   "60lb Offset White",
+   "70lb Text White",
+   "80lb Text White"
+  ],
+  "paperMeta": {
+   "24lb Bond White": {
+    "badge": "popular",
+    "note": "Standard copy-paper weight — everyday business printing"
+   },
+   "24lb Laid White": {
+    "note": "Textured, formal feel — classic stationery texture"
+   },
+   "28lb Linen Bright White": {
+    "note": "Textured linen finish — upscale, formal look"
+   },
+   "32lb Premium Bond": {
+    "badge": "popular",
+    "note": "Noticeably heavier than standard bond — premium feel"
+   },
+   "60lb Offset White": {
+    "note": "Lightweight, economical option"
+   },
+   "70lb Text White": {
+    "note": "Slightly heavier than standard bond"
+   },
+   "80lb Text White": {
+    "note": "Sturdiest text-weight option"
+   }
+  },
+  "laminateOptions": [
+   "No Finish",
+   "Aqueous Coating"
+  ],
+  "laminateMeta": {
+   "No Finish": {
+    "badge": "popular",
+    "note": "Standard — uncoated, easiest to write/print on"
+   },
+   "Aqueous Coating": {
+    "note": "Thin water-based coating — light protective sheen, resists fingerprints/light moisture"
+   }
+  },
+  "coatingOptions": [
+   "No Coating",
+   "Foil Stamping",
+   "Raised Foil"
+  ],
+  "coatingMeta": {
+   "No Coating": {
+    "badge": "popular",
+    "note": "Standard — no additional treatment"
+   },
+   "Foil Stamping": {
+    "note": "Hot-stamped metallic foil accents on logo/border — flat finish"
+   },
+   "Raised Foil": {
+    "note": "Foil stamping with raised texture — most premium option"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": true,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "250",
+   "500",
+   "1,000",
+   "2,500"
+  ]
+ },
+ "Envelopes": {
+  "sizes": [
+   "#10 (9.5\" × 4.125\")",
+   "#9 (8.875\" × 3.875\")",
+   "A2 (4.375\" × 5.75\")",
+   "A7 (5.25\" × 7.25\")",
+   "4\" × 6\"",
+   "5\" × 7\"",
+   "6\" × 9\"",
+   "9\" × 12\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "#10 (9.5\" × 4.125\")": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "24lb Bond White",
+   "60lb Offset White",
+   "70lb Text White"
+  ],
+  "paperMeta": {
+   "24lb Bond White": {
+    "badge": "popular",
+    "note": "Standard envelope weight — everyday business mail"
+   },
+   "60lb Offset White": {
+    "note": "Lightweight, economical option"
+   },
+   "70lb Text White": {
+    "note": "Slightly heavier — sturdier feel"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showEnvStyle": true,
+  "qty": [
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000"
+  ]
+ },
+ "Remittance Envelopes": {
+  "sizes": [
+   "6.5\" × 3.625\" (#6¾)",
+   "8.875\" × 3.875\" (#9)"
+  ],
+  "sizeMeta": {
+   "6.5\" × 3.625\" (#6¾)": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "24lb White Wove Uncoated"
+  ],
+  "paperMeta": {
+   "24lb White Wove Uncoated": {
+    "badge": "popular",
+    "note": "Standard remittance envelope weight — smooth uncoated finish, easy to write on"
+   }
+  },
+  "showPrintMode": false,
+  "showPrintModeEnvelope": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showFlapStyle": true,
+  "showShrinkWrap": true,
+  "qty": [
+   "250",
+   "500",
+   "1,000",
+   "2,500",
+   "5,000"
+  ]
+ },
+ "Invoice Books": {
+  "sizes": [
+   "4.25\" × 5.5\"",
+   "5.5\" × 8.5\"",
+   "8.5\" × 11\"",
+   "Custom Size"
+  ],
+  "sizeMeta": {
+   "5.5\" × 8.5\"": {
+    "badge": "popular"
+   }
+  },
+  "paper": [
+   "NCR 2-Part (White / Canary)",
+   "NCR 3-Part (White / Canary / Pink)",
+   "NCR 4-Part (White / Canary / Pink / Goldenrod)"
+  ],
+  "paperMeta": {
+   "NCR 2-Part (White / Canary)": {
+    "badge": "popular"
+   }
+  },
+  "showPrintMode": true,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "showNumbering": true,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250"
+  ]
+ },
+ "default": {
+  "sizes": [],
+  "paper": [],
+  "showPrintMode": false,
+  "showPrintMode2Sided": false,
+  "showFold": false,
+  "showBundle": false,
+  "showBanner": false,
+  "showCorners": false,
+  "showFinishing": false,
+  "showShape": false,
+  "showBinding": false,
+  "showPages": false,
+  "qty": [
+   "25",
+   "50",
+   "100",
+   "250",
+   "500",
+   "1,000"
+  ]
+ }
+};
   var FILES_URL = 'https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a';
   var NS = 'Not sure — recommend for me';
-  var SIDES = { k: 'sides', label: 'Printed on', type: 'one', opts: ['One side', 'Both sides', NS] };
 
-  // opts: plain string, or [value, hint] when a one-line explanation helps first-timers.
-  var PRODUCTS = [
-    { id: 'banner', label: 'Banners', sub: 'Vinyl or fabric, indoors or out', q: [
-      { k: 'use', label: 'Where will it be used?', type: 'one', opts: ['Indoors', 'Outdoors', 'Event or trade show', NS] },
-      { k: 'size', label: 'Size', type: 'size', opts: ['2 × 4 ft', '3 × 6 ft', '4 × 8 ft'] },
-      { k: 'material', label: 'Material', type: 'one', opts: [
-        ['Vinyl', 'Sturdy; the usual choice for outdoors.'],
-        ['Fabric', 'A softer look, nice for indoor displays.'],
-        ['Mesh', 'Lets wind pass through.'], NS] },
-      { k: 'finish', label: 'Finishing', type: 'multi', opts: ['Hemmed edges', 'Grommets (holes)', 'Pole pockets', NS] }
-    ] },
-    { id: 'label', label: 'Labels & Stickers', sub: 'Sheets or rolls, any shape', q: [
-      { k: 'size', label: 'Size', type: 'size', opts: ['2 × 2 in', '3 × 3 in', '4 × 4 in'] },
-      { k: 'shape', label: 'Shape', type: 'one', opts: ['Square or rectangle', 'Circle', 'Custom cut shape', NS] },
-      { k: 'material', label: 'Material', type: 'one', opts: [
-        ['Paper', 'For indoor use and dry products.'],
-        ['Waterproof', 'For bottles, coolers or outdoor use.'],
-        ['Clear', 'See-through, so the surface shows.'], NS] },
-      { k: 'format', label: 'Delivered as', type: 'one', opts: ['Sheets', 'Rolls', NS] }
-    ] },
-    { id: 'booklet', label: 'Booklets & Books', sub: 'Stapled or spiral bound', q: [
-      { k: 'size', label: 'Page size', type: 'size', opts: ['8.5 × 11 in', '5.5 × 8.5 in'] },
-      { k: 'pages', label: 'Total pages (including the cover)', type: 'pages' },
-      { k: 'binding', label: 'Binding', type: 'one', opts: [
-        ['Stapled', 'Best for thinner booklets.'],
-        ['Spiral', 'Lies flat and flips easily, good for notes or signing.'],
-        ['Glued spine', 'A book-like spine for thicker page counts.'], NS] },
-      { k: 'cover', label: 'Cover', type: 'one', opts: ['Same paper as the inside', 'Heavier cover', NS] }
-    ] },
-    { id: 'tag', label: 'Hang Tags', sub: 'Gift tags, product tags', q: [
-      { k: 'size', label: 'Size', type: 'size', opts: ['2 × 3.5 in', '3 × 3 in'] },
-      SIDES,
-      { k: 'paper', label: 'Paper', type: 'one', opts: ['Standard card stock', 'Heavier / premium', NS] },
-      { k: 'extras', label: 'Extras', type: 'multi', opts: ['Hole drilled', 'String or ribbon included'] }
-    ] },
-    { id: 'sign', label: 'Posters & Signs', sub: 'Foam core, yard signs, stands', q: [
-      { k: 'type', label: 'What kind?', type: 'one', opts: ['Poster on foam core', 'Yard sign (with stake)', 'Standing sign with base', 'Window or wall sign', NS] },
-      { k: 'size', label: 'Size', type: 'size', opts: ['18 × 24 in', '24 × 24 in', '24 × 36 in', '27 × 40 in'] },
-      SIDES,
-      { k: 'use', label: 'Where will it be used?', type: 'one', opts: ['Indoors', 'Outdoors', NS] }
-    ] },
-    { id: 'flyer', label: 'Flyers & Brochures', sub: 'Flat or folded', q: [
-      { k: 'type', label: 'What kind?', type: 'one', opts: ['Flat flyer', 'Folded brochure', 'Rack card', 'Door hanger', NS] },
-      { k: 'size', label: 'Size', type: 'size', opts: ['8.5 × 11 in', '5.5 × 8.5 in', '4 × 6 in', '11 × 17 in'] },
-      SIDES,
-      { k: 'paper', label: 'Paper', type: 'one', opts: [
-        ['Glossy', 'Shiny and vivid; good for photos.'],
-        ['Matte', 'Smooth, no glare; easy to read.'],
-        ['Uncoated', 'Plain paper you can write on.'], NS] }
-    ] },
-    { id: 'card', label: 'Business Cards', sub: 'Standard and premium stock', q: [
-      { k: 'size', label: 'Size', type: 'size', opts: ['3.5 × 2 in (standard)', 'Square'] },
-      SIDES,
-      { k: 'paper', label: 'Paper', type: 'one', opts: ['Standard', 'Thick / premium', 'Matte', 'Glossy', NS] },
-      { k: 'finish', label: 'Finishing', type: 'multi', opts: ['Rounded corners', 'Something special (tell us in the notes)'] }
-    ] },
-    { id: 'postcard', label: 'Postcards & Greeting Cards', sub: 'Flat or folded', q: [
-      { k: 'size', label: 'Size', type: 'size', opts: ['4 × 6 in', '5 × 7 in', '5.5 × 8.5 in'] },
-      { k: 'fold', label: 'Style', type: 'one', opts: ['Flat card', 'Folded card', NS] },
-      SIDES,
-      { k: 'env', label: 'Envelopes', type: 'one', opts: ['Include envelopes', 'No envelopes'] }
-    ] },
-    { id: 'badge', label: 'ID Badges & Stamps', sub: 'Badges, name tags, stamps', q: [
-      { k: 'type', label: 'What kind?', type: 'one', opts: ['ID badge', 'Name tag', 'Rubber or notary stamp', NS] },
-      { k: 'size', label: 'Size', type: 'size', opts: [] }
-    ] },
-    { id: 'other', label: 'Something else', sub: 'Describe it and we will advise', q: [
-      { k: 'describe', label: 'Tell us what you have in mind', type: 'text' }
-    ] },
-    { id: 'reorder', label: 'Repeat of a past order', sub: 'Same job as before', q: [
-      { k: 'prev', label: 'Which order? (job name, date or invoice number)', type: 'text' },
-      { k: 'changes', label: 'Any changes?', type: 'one', opts: ['Exactly the same', 'Same, with small changes'] }
-    ] }
+  var GROUPS = [
+    ['Marketing Prints', ['Flyers', 'Brochures', 'Postcards', 'Rack Cards', 'Door Hangers', 'Table Tents', 'Calendars', 'Menus', 'Placemats']],
+    ['Cards & Stationery', ['Business Cards', 'Hang Tags', 'Certificates']],
+    ['Stickers & Labels', ['Stickers & Labels']],
+    ['Large Format & Signs', ['Banners & Signs', 'Yard Signs', 'Posters', 'Window Clings']],
+    ['Booklets & Folders', ['Booklets', 'Presentation Folders']],
+    ['Office & Business', ['Letterhead', 'Envelopes', 'Remittance Envelopes', 'Notepads', 'Invoice Books']]
   ];
+  var POPULAR = ['Banners & Signs', 'Stickers & Labels', 'Booklets', 'Flyers', 'Business Cards', 'Posters', 'Yard Signs', 'Hang Tags', 'Postcards', 'Brochures'];
+  var KEYWORDS = {
+    'Banners & Signs': 'banner sign vinyl mesh foam board foamboard retractable pull up stand trade show aluminum magnet pvc backlit blockout hemmed grommet',
+    'Stickers & Labels': 'sticker label decal die-cut kiss-cut holographic foil glitter static cling roll sheet barcode upc bottle',
+    'Booklets': 'booklet book yearbook catalog program saddle stitch spiral coil perfect bound magazine',
+    'Flyers': 'flyer leaflet handout handbill sheet',
+    'Business Cards': 'business card cards name card',
+    'Posters': 'poster print foam core',
+    'Yard Signs': 'yard sign lawn sign coroplast stake election campaign',
+    'Hang Tags': 'hang tag gift tag product tag swing tag',
+    'Postcards': 'postcard post card mailer eddm direct mail greeting card invitation',
+    'Brochures': 'brochure trifold tri-fold folded half-fold pamphlet',
+    'Rack Cards': 'rack card', 'Door Hangers': 'door hanger', 'Table Tents': 'table tent',
+    'Calendars': 'calendar wall desk', 'Menus': 'menu restaurant', 'Placemats': 'placemat',
+    'Window Clings': 'window cling', 'Notepads': 'notepad pad notebook memo',
+    'Presentation Folders': 'folder presentation pocket', 'Certificates': 'certificate award diploma',
+    'Letterhead': 'letterhead stationery', 'Envelopes': 'envelope', 'Remittance Envelopes': 'remittance envelope',
+    'Invoice Books': 'invoice book ncr form carbonless receipt',
+    'Other': 'other custom badge id stamp notary rubber stamp name tag lanyard not listed something else',
+    'Reorder': 'repeat reorder again same as before previous order'
+  };
+  var SPECIAL = {
+    Other: { label: 'Something else', sub: 'Not listed? Tell us what you need' },
+    Reorder: { label: 'Repeat of a past order', sub: 'Same job as before' }
+  };
+
+  var PRINT_MODE = ['Full Color, Double-Sided', 'Full Color, Single-Sided', 'Color Front / B&W Back', 'B&W, Double-Sided', 'B&W, Single-Sided'];
+  var STATIC = {
+    layout: ['Portrait', 'Landscape'], sides: ['Single-Sided', 'Double-Sided'],
+    pm2: ['Full Color', 'B&W'], cover: ['Full Color, Both Sides', 'Full Color, Outside Only', 'B&W, Both Sides'],
+    inside: ['Full Color, Double-Sided', 'B&W, Double-Sided'], env: ['Full Color, Both Sides', 'Full Color, Front Only', 'Full Color, Back Only'],
+    fold: ['No Fold', 'Half Fold', 'Tri-Fold', 'Z-Fold', 'Quarter Fold', 'Gate Fold', 'Accordion Fold', 'Roll Fold'],
+    score: ['No Score', 'Score Before Fold'], bundle: ['No Bundle', '25 per pack', '50 per pack'],
+    corners: ['Square', 'Rounded (1/8")', 'Rounded (1/4")'], shape: ['Die-Cut', 'Kiss-Cut', 'Circle', 'Oval', 'Square / Rect'],
+    binding: ['Saddle Stitch', 'Spiral / Coil', 'Perfect Bind'], finishing: ['Hemmed + Grommets', 'Hemmed Only', 'No Finishing'],
+    hstake: ['H-Stake', 'A-Frame Stand', 'Post & Frame', 'Sign Only'], drill: ['No Hole', 'Drill Hole (1/8")', 'Bottleneck Die-Cut'],
+    diecut: ['Standard', 'Arch', 'Starburst'], pocket: ['Two Pockets', 'One Pocket (Right)', 'One Pocket (Left)', 'No Pocket'],
+    numbering: ['No Numbering', 'Sequential Numbering'], envstyle: ['Blank', 'Window'], flap: ['Short Flap', 'Long Flap'],
+    shrink: ['No Shrink Wrapping', 'Shrink Wrap 50 Per Package'], month: ['6-Month', '12-Month', '18-Month'], sheets: ['25 Sheets', '50 Sheets'],
+    mailing: ['Print only', 'I also need mailing (EDDM or my own list)']
+  };
+  var FEEL_FINISH = ['Gloss', 'Silk / satin', 'Matte', 'Uncoated'];
+  var FEEL_WEIGHT = ['Text weight (lighter, like magazine pages)', 'Cover weight (heavier, like card stock)'];
+  var DEFAULT_QTY = ['25', '50', '100', '250', '500', '1,000', '2,500'];
 
   var PRESETS = [
-    { label: 'An outdoor banner', product: 'banner', a: { use: 'Outdoors', material: 'Vinyl' } },
-    { label: 'Flyers to hand out', product: 'flyer', a: { type: 'Flat flyer', size: '8.5 × 11 in' } },
-    { label: 'Business cards', product: 'card', a: { size: '3.5 × 2 in (standard)', sides: 'Both sides' } }
+    { label: 'An outdoor banner', product: 'Banners & Signs', a: { paper: ['13oz Vinyl (Outdoor Gloss)'] } },
+    { label: 'Flyers to hand out', product: 'Flyers', a: { size: '8.5" × 11" (Letter)', paper: ['100lb Gloss Text'], print: 'Full Color, Double-Sided' } },
+    { label: 'Business cards', product: 'Business Cards', a: { size: '3.5" × 2" (Standard)', paper: ['16PT Silk'], print: 'Full Color, Double-Sided' } }
   ];
 
-  var QTY_CHIPS = [25, 50, 100, 250, 500, 1000, 2500];
-  var SYNONYMS = { flyers: 'flyer', brochures: 'flyer', 'rack cards': 'flyer', 'door hangers': 'flyer',
-    'business cards': 'card', postcards: 'postcard', banners: 'banner', stickers: 'label', labels: 'label',
-    booklets: 'booklet', posters: 'sign', signs: 'sign', 'hang tags': 'tag' };
-
-  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null };
+  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null, moreOpen: false, showAll: false };
   var $ = function (id) { return document.getElementById(id); };
   var form = $('qv2-form');
 
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function optVal(o) { return Array.isArray(o) ? o[0] : o; }
-  function optHint(o) { return Array.isArray(o) ? o[1] : ''; }
-  function prod() { return PRODUCTS.filter(function (p) { return p.id === S.product; })[0] || null; }
+  function optHint(o) { return Array.isArray(o) ? (o[1] || '') : ''; }
+  function optBadge(o) { return Array.isArray(o) ? (o[2] || '') : ''; }
+  function cfg() { return CATALOG[S.product] || CATALOG['default']; }
+  function groupOf(name) { var g = ''; GROUPS.forEach(function (x) { if (x[1].indexOf(name) > -1) { g = x[0]; } }); return g; }
+  function isSpecial(name) { return !!SPECIAL[name]; }
+  function productLabel(name) { return isSpecial(name) ? SPECIAL[name].label : name; }
 
-  /* ── 1. product tiles ── */
+  /* ── what to ask for each product, built from the real catalog ── */
+  function mk(k, label, type, opts, more, extra) {
+    var q = { k: k, label: label, type: type, opts: opts || [], more: !!more };
+    if (extra) { for (var i in extra) { q[i] = extra[i]; } }
+    return q;
+  }
+  function plain(list) { return list.map(function (v) { return [v]; }); }
+  function stockOpts(list, meta) {
+    return list.map(function (v) { var m = (meta && meta[v]) || {}; return [v, m.note || '', m.badge || '']; }).concat([[NS]]);
+  }
+  function buildQs(name) {
+    if (name === 'Other') { return [mk('describe', 'Tell us what you need', 'text')]; }
+    if (name === 'Reorder') {
+      return [mk('prev', 'Which order? (job name, date or invoice number)', 'text'),
+        mk('changes', 'Any changes?', 'one', plain(['Exactly the same', 'Same, with small changes']))];
+    }
+    var c = CATALOG[name] || CATALOG['default'], qs = [];
+    // size
+    if (c.sizes && c.sizes.length && !c.showBanner) { qs.push(mk('size', 'Size', 'size', plain(c.sizes).concat([[NS]]), false, { meta: c.sizeMeta })); }
+    else { qs.push(mk('size', 'Size (width × height, in inches)', 'line', [], false, { ph: 'e.g. 3 × 6 ft, or 36 × 72 in' })); }
+    // paper: several choices allowed, plus weight/finish words, plus free text
+    if (c.showCoverPaper || c.coverPaper) {
+      qs.push(mk('coverstock', 'Cover stock', 'paper', stockOpts(c.coverPaper || [], c.paperMeta), false, { short: 'Cover stock' }));
+      qs.push(mk('insidestock', 'Inside pages stock', 'paper', stockOpts(c.insidePaper || [], c.paperMeta), false, { short: 'Inside stock' }));
+    } else if (c.paper && c.paper.length) {
+      qs.push(mk('paper', 'Paper / material', 'paper', stockOpts(c.paper, c.paperMeta), false, { short: 'Paper' }));
+    } else { qs.push(mk('paper', 'Paper / material', 'paper', [[NS]], false, { short: 'Paper' })); }
+    // color and sides
+    if (c.showPrintMode) { qs.push(mk('print', 'Color and sides', 'one', plain(PRINT_MODE), false, { short: 'Print' })); }
+    else if (c.showPrintMode2Sided) { qs.push(mk('print', 'Color (double-sided)', 'one', plain(STATIC.pm2), false, { short: 'Print' })); }
+    else if (c.showPrintModeSides) { qs.push(mk('print', 'Printed on', 'one', plain(STATIC.sides), false, { short: 'Printed on' })); }
+    if (c.showPrintModeEnvelope) { qs.push(mk('print', 'Color and sides', 'one', plain(STATIC.env), false, { short: 'Print' })); }
+    if (c.showPrintModeCoverInside) {
+      qs.push(mk('printcover', 'Cover color and sides', 'one', plain(STATIC.cover), false, { short: 'Cover print' }));
+      qs.push(mk('printinside', 'Inside pages color and sides', 'one', plain(STATIC.inside), false, { short: 'Inside print' }));
+    }
+    if (c.showBinding) { qs.push(mk('binding', 'Binding', 'one', plain(STATIC.binding))); }
+    if (c.showPages) { qs.push(mk('pages', 'Inside pages (not counting the cover)', 'pages', [], false, { short: 'Inside pages' })); }
+    // everything else goes under "More options"
+    var more = function (k, label, list, flag, extra) { if (flag) { qs.push(mk(k, label, 'one', Array.isArray(list[0]) ? list : plain(list), true, extra)); } };
+    more('layout', 'Layout', STATIC.layout, c.showLayout);
+    if (c.laminateOptions) { qs.push(mk('finish', 'Finish over the paper', 'one', stockOpts(c.laminateOptions, c.laminateMeta).slice(0, -1), true)); }
+    if (c.coatingOptions) { qs.push(mk('accent', 'Special accents (coating, foil)', 'one', stockOpts(c.coatingOptions, c.coatingMeta).slice(0, -1), true)); }
+    more('fold', 'Folding', STATIC.fold, c.showFold); more('score', 'Score / crease', STATIC.score, c.showScore);
+    more('bundle', 'Shrink-wrap bundles', STATIC.bundle, c.showBundle); more('corners', 'Corners', STATIC.corners, c.showCorners);
+    more('shape', 'Cut style', STATIC.shape, c.showShape); more('finishing', 'Finishing', STATIC.finishing, c.showFinishing);
+    more('mount', 'Mounting', STATIC.hstake, c.showHStake); more('hang', 'Hang method', STATIC.drill, c.showDrillHole);
+    more('diecut', 'Die-cut shape', STATIC.diecut, c.showDieCut); more('pocket', 'Pocket configuration', STATIC.pocket, c.showPocket);
+    more('numbering', 'Numbering', STATIC.numbering, c.showNumbering); more('envstyle', 'Envelope style', STATIC.envstyle, c.showEnvStyle);
+    more('flap', 'Flap style', STATIC.flap, c.showFlapStyle); more('shrink', 'Shrink wrapping', STATIC.shrink, c.showShrinkWrap);
+    more('months', 'Calendar length', STATIC.month, c.showMonthCount); more('sheets', 'Sheets per pad', STATIC.sheets, c.showSheetCount);
+    if (['Postcards', 'Flyers', 'Brochures'].indexOf(name) > -1) { qs.push(mk('mailing', 'Mailing', 'one', plain(STATIC.mailing), true)); }
+    return qs;
+  }
+  function qs() { return S.product ? buildQs(S.product) : []; }
+
+  /* ── 1. product search + tiles ── */
+  function matches(name, q) {
+    var hay = (productLabel(name) + ' ' + (KEYWORDS[name] || '') + ' ' + groupOf(name)).toLowerCase();
+    return q.split(/\s+/).filter(Boolean).every(function (t) { return hay.indexOf(t) > -1 || hay.indexOf(t.replace(/s$/, '')) > -1; });
+  }
+  function tile(name) {
+    var sub = isSpecial(name) ? SPECIAL[name].sub : groupOf(name);
+    var quiet = isSpecial(name) ? ' quiet' : '';
+    return '<button type="button" class="tile' + quiet + '" data-p="' + esc(name) + '" aria-pressed="' + (S.product === name) + '"><strong>' + esc(productLabel(name)) + '</strong><span>' + esc(sub) + '</span></button>';
+  }
   function renderProducts() {
-    var html = PRODUCTS.map(function (p) {
-      return '<button type="button" class="tile' + (p.id === 'reorder' || p.id === 'other' ? ' quiet' : '') + '" data-p="' + p.id + '" aria-pressed="' + (S.product === p.id) + '"><strong>' + esc(p.label) + '</strong><span>' + esc(p.sub) + '</span></button>';
-    }).join('');
-    html += '<div class="qv2-hint" style="grid-column:1/-1">First time? Start from an example: ' + PRESETS.map(function (s, i) {
-      return '<a href="#" data-preset="' + i + '">' + esc(s.label) + '</a>';
-    }).join(' &middot; ') + '</div>';
-    $('product-tiles').innerHTML = html;
+    var q = ($('prod-search').value || '').trim().toLowerCase(), box = $('product-tiles'), h = '', more = $('see-all');
+    var all = []; GROUPS.forEach(function (g) { g[1].forEach(function (n) { all.push(n); }); });
+    if (q) {
+      var hits = all.filter(function (n) { return matches(n, q); });
+      ['Reorder', 'Other'].forEach(function (n) { if (matches(n, q)) { hits.push(n); } });
+      if (hits.indexOf('Other') < 0) { hits.push('Other'); }
+      h = hits.map(tile).join('');
+      if (hits.length === 1) { h = '<p class="qv2-hint" style="grid-column:1/-1">Nothing matches &ldquo;' + esc(q) + '&rdquo; &mdash; choose &ldquo;Something else&rdquo; and tell us what you need.</p>' + h; }
+      more.hidden = true;
+    } else if (S.showAll) {
+      h = GROUPS.map(function (g) { return '<h3 class="grp">' + esc(g[0]) + '</h3>' + g[1].map(tile).join(''); }).join('') + '<h3 class="grp">Other</h3>' + tile('Other') + tile('Reorder');
+      more.hidden = false; more.textContent = 'Show fewer';
+    } else {
+      h = POPULAR.map(tile).join('') + tile('Other') + tile('Reorder');
+      h += '<div class="qv2-hint" style="grid-column:1/-1">First time? Start from an example: ' + PRESETS.map(function (s, i) { return '<a href="#" data-preset="' + i + '">' + esc(s.label) + '</a>'; }).join(' &middot; ') + '</div>';
+      more.hidden = false; more.textContent = 'See all ' + all.length + ' products';
+    }
+    box.innerHTML = h;
   }
-
-  function pickProduct(id, preset) {
-    if (S.product !== id) { S.product = id; S.a = {}; }
+  function pickProduct(name, preset) {
+    if (S.product !== name) { S.product = name; S.a = {}; S.qtyChips = []; S.moreOpen = false; }
     if (preset) { for (var k in preset) { S.a[k] = preset[k]; } }
-    renderProducts(); renderDetails(); update();
+    renderProducts(); renderDetails(); renderQty(); update();
   }
 
-  /* ── 2. details (depends on the product) ── */
-  function renderDetails() {
-    var p = prod(), body = $('details-body');
-    if (!p) { body.innerHTML = '<p class="qv2-hint">Choose an item above and the right questions will appear here.</p>'; return; }
-    body.innerHTML = p.q.map(function (q) {
-      var h = '<div class="qgroup" data-q="' + q.k + '"><p>' + esc(q.label) + '</p>';
-      if (q.type === 'text') {
-        h += '<label class="qv2-field" style="margin-top:0"><textarea rows="3" data-text="' + q.k + '">' + esc(S.a[q.k] || '') + '</textarea></label>';
-      } else if (q.type === 'pages') {
-        h += '<label class="qv2-field narrow" style="margin-top:0"><input type="number" min="4" max="500" step="1" data-pages value="' + esc(S.a.pages || '') + '"></label>' +
-          '<p class="qv2-hint" id="pages-note">Booklets are printed in multiples of 4 pages (8, 12, 16, 20&hellip;).</p>';
-      } else {
-        var opts = q.opts.slice();
-        if (q.type === 'size') { opts = opts.concat(['Custom size', 'Same as a previous order', NS]); }
-        h += '<div class="chips">' + opts.map(function (o) {
-          var v = optVal(o), on = q.type === 'multi' ? (S.a[q.k] || []).indexOf(v) > -1 : S.a[q.k] === v;
-          return '<button type="button" class="chip" data-k="' + q.k + '" data-t="' + q.type + '" data-v="' + esc(v) + '" aria-pressed="' + on + '">' + esc(v) + '</button>';
-        }).join('') + '</div>';
-        if (q.type === 'size') {
-          h += '<label class="qv2-field narrow' + (S.a[q.k] === 'Custom size' ? '' : ' hidden') + '" data-custom="' + q.k + '"><span>Width × height</span><input type="text" data-customtext="' + q.k + '" value="' + esc(S.a[q.k + '_custom'] || '') + '" placeholder="e.g. 5 × 7 in"></label>';
-        }
-        h += '<p class="qv2-hint" data-hint="' + q.k + '"></p>';
+  /* ── 2. details ── */
+  function selectedHints(q) {
+    var cur = S.a[q.k], list = Array.isArray(cur) ? cur : (cur ? [cur] : []), out = [];
+    q.opts.forEach(function (o) { if (list.indexOf(optVal(o)) > -1 && optHint(o)) { out.push(list.length > 1 ? optVal(o) + ' — ' + optHint(o) : optHint(o)); } });
+    return out;
+  }
+  function chip(q, o, attrs) {
+    var v = optVal(o), cur = S.a[q.k];
+    var on = Array.isArray(cur) ? cur.indexOf(v) > -1 : cur === v;
+    var b = optBadge(o);
+    return '<button type="button" class="chip" data-k="' + q.k + '" data-t="' + attrs + '" data-v="' + esc(v) + '" aria-pressed="' + on + '">' + esc(v) + (b ? ' <em class="badge">' + esc(b) + '</em>' : '') + '</button>';
+  }
+  function feelChip(q, v) {
+    var cur = S.a[q.k + '_feel'] || [];
+    return '<button type="button" class="chip sm" data-k="' + q.k + '" data-t="feel" data-v="' + esc(v) + '" aria-pressed="' + (cur.indexOf(v) > -1) + '">' + esc(v) + '</button>';
+  }
+  function qHtml(q) {
+    var h = '<div class="qgroup" data-q="' + q.k + '"><p>' + esc(q.label) + (q.type === 'paper' ? ' <em>(choose any you would like us to quote)</em>' : '') + '</p>';
+    if (q.type === 'text') {
+      h += '<label class="qv2-field" style="margin-top:0"><textarea rows="3" data-text="' + q.k + '">' + esc(S.a[q.k] || '') + '</textarea></label>';
+    } else if (q.type === 'line') {
+      h += '<label class="qv2-field" style="margin-top:0"><input type="text" data-line="' + q.k + '" placeholder="' + esc(q.ph || '') + '" value="' + esc(S.a[q.k] || '') + '"></label>';
+    } else if (q.type === 'pages') {
+      h += '<label class="qv2-field narrow" style="margin-top:0"><input type="number" min="4" max="500" step="1" data-pages value="' + esc(S.a.pages || '') + '"></label>' +
+        '<p class="qv2-hint" id="pages-note">Pages are printed in multiples of 4 (8, 12, 16, 20&hellip;).</p>';
+    } else {
+      h += '<div class="chips">' + q.opts.map(function (o) { return chip(q, o, q.type === 'paper' ? 'multi' : (q.type === 'size' ? 'size' : 'one')); }).join('') + '</div>';
+      if (q.type === 'size') {
+        var cs = (q.opts.filter(function (o) { return /^Custom/.test(optVal(o)); })[0] || [])[0];
+        if (cs) { h += '<label class="qv2-field narrow' + (S.a[q.k] === cs ? '' : ' hidden') + '" data-custom="' + q.k + '"><span>Width × height</span><input type="text" data-customtext="' + q.k + '" value="' + esc(S.a[q.k + '_custom'] || '') + '" placeholder="e.g. 5 × 7 in"></label>'; }
       }
-      return h + '</div>';
-    }).join('');
-    p.q.forEach(function (q) { showHint(q); });
-    checkPages();
+      if (q.type === 'paper') {
+        h += '<div class="feel"><p>Not sure of the names? Pick the look and weight you have in mind:</p><div class="chips">' +
+          FEEL_FINISH.concat(FEEL_WEIGHT).map(function (v) { return feelChip(q, v); }).join('') + '</div></div>' +
+          '<label class="qv2-field"><span>Know the weight or thickness? Type it <em>(e.g. 100lb gloss cover, 14pt, 3mm)</em></span><input type="text" data-papertext="' + q.k + '" value="' + esc(S.a[q.k + '_text'] || '') + '"></label>';
+      }
+      h += '<div class="qv2-hint" data-hint="' + q.k + '"></div>';
+    }
+    return h + '</div>';
   }
-
+  function renderDetails() {
+    var body = $('details-body'), all = qs();
+    if (!S.product) { body.innerHTML = '<p class="qv2-hint">Choose an item above and the right questions will appear here.</p>'; return; }
+    var ess = all.filter(function (q) { return !q.more; }), more = all.filter(function (q) { return q.more; });
+    var moreAnswered = more.some(function (q) { return S.a[q.k] && S.a[q.k].length !== 0; });
+    var h = ess.map(qHtml).join('');
+    if (more.length) {
+      var open = S.moreOpen || moreAnswered;
+      h += '<button type="button" class="qv2-more" data-more aria-expanded="' + open + '">' + (open ? 'Fewer options' : 'More options (optional)') + ' <span>' + more.length + '</span></button>';
+      if (open) { h += '<div class="more-box">' + more.map(qHtml).join('') + '</div>'; }
+    }
+    body.innerHTML = h;
+    all.forEach(showHint); checkPages();
+  }
   function showHint(q) {
-    var el = document.querySelector('[data-hint="' + q.k + '"]');
-    if (!el || !q.opts) { return; }
-    var cur = S.a[q.k], hint = '';
-    q.opts.forEach(function (o) { if (optVal(o) === cur && optHint(o)) { hint = optHint(o); } });
-    el.textContent = hint;
-    el.style.display = hint ? '' : 'none';
+    var el = document.querySelector('[data-hint="' + q.k + '"]'); if (!el) { return; }
+    var hs = selectedHints(q);
+    el.innerHTML = hs.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
   }
-
   function checkPages() {
     var n = $('pages-note'); if (!n) { return; }
-    var v = parseInt(S.a.pages, 10);
-    n.style.color = (v && v % 4 !== 0) ? '#B45309' : '';
-    n.innerHTML = (v && v % 4 !== 0)
-      ? v + ' pages isn\'t a multiple of 4 &mdash; we\'ll let you know how to adjust (add blank pages or remove one).'
-      : 'Booklets are printed in multiples of 4 pages (8, 12, 16, 20&hellip;).';
+    var v = parseInt(S.a.pages, 10), bad = v && v % 4 !== 0;
+    n.style.color = bad ? '#B45309' : '';
+    n.innerHTML = bad ? v + ' isn\'t a multiple of 4 &mdash; we\'ll let you know how to adjust (add blank pages or remove one).' : 'Pages are printed in multiples of 4 (8, 12, 16, 20&hellip;).';
   }
 
   /* ── 3. quantity ── */
+  function qtyList() { return (cfg().qty || DEFAULT_QTY).map(function (s) { return parseInt(String(s).replace(/,/g, ''), 10); }).filter(Boolean); }
   function parseQty() {
     var t = ($('qty-text').value || '').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
     var nums = (t.match(/\d+/g) || []).map(Number).filter(function (n) { return n > 0; });
-    var all = S.qtyChips.concat(nums);
-    var seen = {}; var out = [];
-    all.forEach(function (n) { if (!seen[n]) { seen[n] = 1; out.push(n); } });
+    var seen = {}, out = [];
+    S.qtyChips.concat(nums).forEach(function (n) { if (!seen[n]) { seen[n] = 1; out.push(n); } });
     out.sort(function (a, b) { return a - b; });
     return out.slice(0, 8);
   }
   function renderQty() {
-    $('qty-chips').innerHTML = QTY_CHIPS.map(function (n) {
+    $('qty-chips').innerHTML = qtyList().map(function (n) {
       return '<button type="button" class="chip" data-qty="' + n + '" aria-pressed="' + (S.qtyChips.indexOf(n) > -1) + '">' + n.toLocaleString('en-US') + '</button>';
     }).join('');
   }
 
-  /* ── 4. timing / how ── */
-  var HOW = [['Pickup', 'I\'ll pick it up in Irvine', 'Pickup'], ['Delivery', 'Deliver or ship it to me', 'Add your address']];
+  /* ── 4. timing / pickup ── */
+  var HOW = [['Pickup', 'I\'ll pick it up in Irvine', ''], ['Ship', 'Ship it to me', 'Shipping is quoted separately']];
   function renderHow() {
     $('how-tiles').innerHTML = HOW.map(function (h) {
-      return '<button type="button" class="tile" data-how="' + h[0] + '" aria-pressed="' + (S.how === h[0]) + '"><strong>' + esc(h[1]) + '</strong><span>' + esc(h[2]) + '</span></button>';
+      return '<button type="button" class="tile" data-how="' + h[0] + '" aria-pressed="' + (S.how === h[0]) + '"><strong>' + esc(h[1]) + '</strong>' + (h[2] ? '<span>' + esc(h[2]) + '</span>' : '') + '</button>';
     }).join('');
-    $('addr-wrap').classList.toggle('hidden', S.how !== 'Delivery');
   }
 
   /* ── 5. files ── */
@@ -1108,18 +3297,13 @@
   var photoInput = document.createElement('input');
   photoInput.type = 'file'; photoInput.name = 'reference_files'; photoInput.multiple = true; photoInput.accept = 'image/*,.pdf';
   var photoNote = document.createElement('p'); photoNote.className = 'qv2-hint';
-
   function renderFiles() {
     $('file-tiles').innerHTML = FILES.map(function (f) {
       return '<button type="button" class="tile" data-file="' + f[0] + '" aria-pressed="' + (S.files === f[0]) + '"><strong>' + esc(f[1]) + '</strong><span>' + esc(f[2]) + '</span></button>';
     }).join('');
-    var box = $('file-extra'), h = '';
-    if (S.files === 'ready') {
-      h += '<label class="qv2-field"><span>Link to your design <em>(Canva, Google Drive, Dropbox&hellip;)</em></span><input type="url" id="canva-link" placeholder="https://" value="' + esc(S.canva || '') + '"></label>';
-    }
-    if (S.files === 'ready' || S.files === 'photo') {
-      h += '<div class="qv2-field"><span>Attach a small file <em>(images or PDF, up to 3 files, 5 MB each)</em></span><div id="file-slot"></div></div>';
-    }
+    var h = '';
+    if (S.files === 'ready') { h += '<label class="qv2-field"><span>Link to your design <em>(Canva, Google Drive, Dropbox&hellip;)</em></span><input type="url" id="canva-link" placeholder="https://" value="' + esc(S.canva || '') + '"></label>'; }
+    if (S.files === 'ready' || S.files === 'photo') { h += '<div class="qv2-field"><span>Attach a small file <em>(images or PDF, up to 3 files, 5 MB each)</em></span><div id="file-slot"></div></div>'; }
     if (S.files === 'ready') {
       h += '<div class="qv2-tip"><strong>Large file?</strong> Upload it to our secure folder instead.<br><a class="qv2-linkbtn" href="' + FILES_URL + '" target="_blank" rel="noopener">Upload large files &rarr;</a>' +
         '<ul><li>Send one PDF with the pages in order.</li><li>Booklets need a multiple of 4 pages.</li><li>Print-ready files include bleed and crop marks. From Canva, choose &ldquo;PDF Print&rdquo; with crop marks and bleed.</li></ul>' +
@@ -1127,9 +3311,8 @@
     }
     if (S.files === 'help') { h += '<p class="qv2-hint">Tell us about your idea in the notes below (step 6). Photos or examples you like help a lot &mdash; you can attach them there or send them after we reply.</p>'; }
     if (S.files === 'later') { h += '<p class="qv2-hint">No problem. When you are ready, <a href="' + FILES_URL + '" target="_blank" rel="noopener">upload your files here</a>.</p>'; }
-    box.innerHTML = h;
-    var slot = $('file-slot');
-    if (slot) { slot.appendChild(photoInput); slot.appendChild(photoNote); }
+    $('file-extra').innerHTML = h;
+    var slot = $('file-slot'); if (slot) { slot.appendChild(photoInput); slot.appendChild(photoNote); }
     var cl = $('canva-link'); if (cl) { cl.addEventListener('input', function () { S.canva = cl.value; update(); }); }
   }
   photoInput.addEventListener('change', function () {
@@ -1141,37 +3324,38 @@
     update();
   });
 
-  /* ── summary + completion ── */
-  function qtyText() { return parseQty().map(function (n) { return n.toLocaleString('en-US'); }).join(' / '); }
+  /* ── summary and completion ── */
+  function shortLabel(q) {
+    return q.short || q.label.replace(/\?$/, '').replace(/ \(.*\)$/, '');
+  }
   function detailLines() {
-    var p = prod(), out = [];
-    if (!p) { return out; }
-    p.q.forEach(function (q) {
+    var out = [];
+    qs().forEach(function (q) {
       var v = S.a[q.k];
-      if (q.type === 'size' && v === 'Custom size') { v = 'Custom: ' + (S.a[q.k + '_custom'] || '(to be confirmed)'); }
+      if (q.type === 'paper') {
+        var parts = [];
+        if (v && v.length) { parts.push(v.join(', ')); }
+        var feel = S.a[q.k + '_feel']; if (feel && feel.length) { parts.push('Look/weight: ' + feel.join(', ')); }
+        var tx = (S.a[q.k + '_text'] || '').trim(); if (tx) { parts.push('Typed: ' + tx); }
+        if (parts.length) { out.push([shortLabel(q), parts.join(' | ')]); }
+        return;
+      }
+      if (q.type === 'size' && /^Custom/.test(v || '')) { v = v + ': ' + (S.a[q.k + '_custom'] || '(to be confirmed)'); }
       if (Array.isArray(v)) { v = v.join(', '); }
       if (q.type === 'pages' && v) { v = v + ' pages'; }
       if (v) { out.push([shortLabel(q), String(v)]); }
     });
     return out;
   }
-  function shortLabel(q) {
-    var map = { 'Where will it be used?': 'Used', 'What kind?': 'Kind', 'Total pages (including the cover)': 'Pages',
-      'Tell us what you have in mind': 'Description', 'Which order? (job name, date or invoice number)': 'Previous order',
-      'Delivered as': 'Format', 'Printed on': 'Printed on' };
-    return map[q.label] || q.label.replace(/\?$/, '');
-  }
+  function qtyText() { return parseQty().map(function (n) { return n.toLocaleString('en-US'); }).join(' / '); }
   function lines() {
-    var p = prod(), rows = [];
-    rows.push(['Item', p ? p.label : '']);
+    var rows = [['Item', S.product ? productLabel(S.product) : '']];
     detailLines().forEach(function (r) { rows.push(r); });
     rows.push(['Quantity', qtyText()]);
     if (parseInt(S.versions, 10) > 1) { rows.push(['Versions', S.versions]); }
-    var when = $('need-asap').checked ? 'As soon as possible' : ($('need-date').value ? 'By ' + $('need-date').value : '');
-    rows.push(['Needed', when]);
-    rows.push(['Pickup / delivery', S.how === 'Delivery' ? 'Delivery' + ($('addr').value ? ': ' + $('addr').value.replace(/\s*\n\s*/g, ', ') : '') : (S.how ? 'Pickup in Irvine' : '')]);
-    var f = FILES.filter(function (x) { return x[0] === S.files; })[0];
-    var fv = f ? f[1] : '';
+    rows.push(['Needed', $('need-asap').checked ? 'As soon as possible' : ($('need-date').value ? 'By ' + $('need-date').value : '')]);
+    rows.push(['Pickup / shipping', S.how === 'Ship' ? 'Ship to me (quoted separately)' : (S.how ? 'Pickup in Irvine' : '')]);
+    var f = FILES.filter(function (x) { return x[0] === S.files; })[0], fv = f ? f[1] : '';
     if (S.canva) { fv += ' — ' + S.canva; }
     if (photoInput.files && photoInput.files.length) { fv += ' (' + photoInput.files.length + ' file(s) attached)'; }
     rows.push(['Files', fv]);
@@ -1180,51 +3364,54 @@
   function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
   function done() {
     var d = {};
-    d[1] = !!S.product;
-    d[2] = detailLines().length > 0;
-    d[3] = parseQty().length > 0;
+    d[1] = !!S.product; d[2] = detailLines().length > 0; d[3] = parseQty().length > 0;
     d[4] = !!(($('need-asap').checked || $('need-date').value) && S.how);
-    d[5] = !!S.files;
-    d[6] = !!($('c-name').value.trim() && emailOk($('c-email').value.trim()));
+    d[5] = !!S.files; d[6] = !!($('c-name').value.trim() && emailOk($('c-email').value.trim()));
     return d;
   }
-  function update() {
-    var rows = lines(), dl = $('summary');
-    dl.innerHTML = rows.map(function (r) { return '<div><dt>' + esc(r[0]) + '</dt><dd class="' + (r[1] ? '' : 'empty') + '">' + (r[1] ? esc(r[1]) : '&mdash;') + '</dd></div>'; }).join('');
-    var d = done(), firstOpen = 0, count = 0;
-    for (var i = 1; i <= 6; i++) { if (d[i]) { count++; } else if (!firstOpen) { firstOpen = i; } }
-    Array.prototype.forEach.call(document.querySelectorAll('#qv2-steps a'), function (a) {
-      var n = +a.getAttribute('data-step');
-      a.classList.toggle('done', !!d[n]);
-      a.classList.toggle('now', n === firstOpen);
-    });
-    $('progress-note').textContent = count + ' of 6 steps done';
-    Array.prototype.forEach.call(document.querySelectorAll('.qv2-next'), function (b) {
-      b.disabled = !d[+b.getAttribute('data-next')];
-    });
-    for (var n = 1; n <= 6; n++) {
-      var card = $('s' + n);
-      if (card.classList.contains('collapsed')) {
-        if (!d[n]) { card.classList.remove('collapsed'); } else { fillSummary(n); }
-      }
-    }
-  }
-
-  /* ── collapsing: a finished step folds to one line and can be reopened ── */
   function stepSummary(n) {
     var rows = lines(), get = function (key) { var r = rows.filter(function (x) { return x[0] === key; })[0]; return r ? r[1] : ''; };
     if (n === 1) { return get('Item'); }
     if (n === 2) { return detailLines().map(function (r) { return r[1]; }).join(' · '); }
     if (n === 3) { return get('Quantity') + (get('Versions') ? ' · ' + get('Versions') + ' versions' : ''); }
-    if (n === 4) { return [get('Needed'), get('Pickup / delivery')].filter(Boolean).join(' · '); }
+    if (n === 4) { return [get('Needed'), get('Pickup / shipping')].filter(Boolean).join(' · '); }
     if (n === 5) { return get('Files'); }
     return '';
   }
-  function fillSummary(n) {
-    var c = $('s' + n), box = c.querySelector('.csum');
-    c.querySelector('.csum-text').textContent = stepSummary(n);
-    box.hidden = false;
+  function fillSummary(n) { var c = $('s' + n); c.querySelector('.csum-text').textContent = stepSummary(n); c.querySelector('.csum').hidden = false; }
+  function update() {
+    var rows = lines();
+    $('summary').innerHTML = rows.map(function (r) { return '<div><dt>' + esc(r[0]) + '</dt><dd class="' + (r[1] ? '' : 'empty') + '">' + (r[1] ? esc(r[1]) : '&mdash;') + '</dd></div>'; }).join('');
+    var d = done(), firstOpen = 0, count = 0, i;
+    for (i = 1; i <= 6; i++) { if (d[i]) { count++; } else if (!firstOpen) { firstOpen = i; } }
+    Array.prototype.forEach.call(document.querySelectorAll('#qv2-steps a'), function (a) {
+      var n = +a.getAttribute('data-step'); a.classList.toggle('done', !!d[n]); a.classList.toggle('now', n === firstOpen);
+    });
+    $('progress-note').textContent = count + ' of 6 steps done';
+    for (i = 1; i <= 6; i++) { $('s' + i).classList.toggle('active', i === firstOpen); }
+    if (firstOpen !== S.lastActive) {
+      S.lastActive = firstOpen;
+      var ac = firstOpen ? $('s' + firstOpen) : null;
+      if (ac && S.started) { ac.classList.remove('pulse'); void ac.offsetWidth; ac.classList.add('pulse'); }
+    }
+    var sb = $('send-btn'); if (sb) { var rdy = count === 6; if (rdy && !sb.classList.contains('ready')) { sb.classList.add('ready'); } if (!rdy) { sb.classList.remove('ready'); } }
+    Array.prototype.forEach.call(document.querySelectorAll('.qv2-next'), function (b) { b.disabled = !d[+b.getAttribute('data-next')]; });
+    for (var n = 1; n <= 6; n++) {
+      var card = $('s' + n);
+      if (card.classList.contains('collapsed')) { if (!d[n]) { card.classList.remove('collapsed'); } else { fillSummary(n); } }
+    }
   }
+  function buildMessage() {
+    var rows = lines();
+    rows.push(['Name', $('c-name').value.trim()]);
+    if ($('c-company').value.trim()) { rows.push(['Company', $('c-company').value.trim()]); }
+    rows.push(['Email', $('c-email').value.trim()]);
+    if ($('c-phone').value.trim()) { rows.push(['Phone', $('c-phone').value.trim()]); }
+    if ($('c-notes').value.trim()) { rows.push(['Notes', $('c-notes').value.trim()]); }
+    return rows.filter(function (r) { return r[1]; }).map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+  }
+
+  /* ── collapsing: a finished step folds to one line and can be reopened ── */
   function collapse(n, goNext) {
     if (n >= 6 || !done()[n]) { return; }
     $('s' + n).classList.add('collapsed'); fillSummary(n);
@@ -1239,37 +3426,33 @@
     var ch = e.target.closest('.csum-change'); if (ch) { expand(+ch.getAttribute('data-change')); return; }
     var st = e.target.closest('#qv2-steps a'); if (st) { expand(+st.getAttribute('data-step')); }
   });
-  function buildMessage() {
-    var rows = lines();
-    rows.push(['Name', $('c-name').value.trim()]);
-    if ($('c-company').value.trim()) { rows.push(['Company', $('c-company').value.trim()]); }
-    rows.push(['Email', $('c-email').value.trim()]);
-    if ($('c-phone').value.trim()) { rows.push(['Phone', $('c-phone').value.trim()]); }
-    if ($('c-notes').value.trim()) { rows.push(['Notes', $('c-notes').value.trim()]); }
-    return rows.filter(function (r) { return r[1]; }).map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
-  }
 
   /* ── events ── */
+  $('prod-search').addEventListener('input', renderProducts);
+  $('see-all').addEventListener('click', function () { S.showAll = !S.showAll; $('prod-search').value = ''; renderProducts(); });
   $('product-tiles').addEventListener('click', function (e) {
     var pr = e.target.closest('[data-preset]');
     if (pr) { e.preventDefault(); var s = PRESETS[+pr.getAttribute('data-preset')]; S.product = null; pickProduct(s.product, s.a); return; }
     var t = e.target.closest('[data-p]'); if (t) { pickProduct(t.getAttribute('data-p')); collapse(1, true); }
   });
   $('details-body').addEventListener('click', function (e) {
+    var mb = e.target.closest('[data-more]'); if (mb) { S.moreOpen = !(S.moreOpen || false); renderDetails(); return; }
     var c = e.target.closest('.chip'); if (!c) { return; }
     var k = c.getAttribute('data-k'), v = c.getAttribute('data-v'), t = c.getAttribute('data-t');
-    if (t === 'multi') {
-      var arr = S.a[k] || [];
-      if (v === NS) { arr = arr.indexOf(NS) > -1 ? [] : [NS]; }
-      else { arr = arr.filter(function (x) { return x !== NS; }); var i = arr.indexOf(v); if (i > -1) { arr.splice(i, 1); } else { arr.push(v); } }
-      S.a[k] = arr.length ? arr : undefined;
+    if (t === 'multi' || t === 'feel') {
+      var key = t === 'feel' ? k + '_feel' : k, arr = (S.a[key] || []).slice();
+      if (t === 'multi' && v === NS) { arr = arr.indexOf(NS) > -1 ? [] : [NS]; }
+      else { if (t === 'multi') { arr = arr.filter(function (x) { return x !== NS; }); } var i = arr.indexOf(v); if (i > -1) { arr.splice(i, 1); } else { arr.push(v); } }
+      S.a[key] = arr.length ? arr : undefined;
     } else { S.a[k] = S.a[k] === v ? undefined : v; }
     renderDetails(); update();
   });
   $('details-body').addEventListener('input', function (e) {
     var x = e.target;
     if (x.hasAttribute('data-text')) { S.a[x.getAttribute('data-text')] = x.value; }
+    else if (x.hasAttribute('data-line')) { S.a[x.getAttribute('data-line')] = x.value; }
     else if (x.hasAttribute('data-customtext')) { S.a[x.getAttribute('data-customtext') + '_custom'] = x.value; }
+    else if (x.hasAttribute('data-papertext')) { S.a[x.getAttribute('data-papertext') + '_text'] = x.value; }
     else if (x.hasAttribute('data-pages')) { S.a.pages = x.value; checkPages(); }
     update();
   });
@@ -1283,7 +3466,6 @@
   $('versions').addEventListener('input', function () { S.versions = $('versions').value; update(); });
   $('need-date').addEventListener('input', function () { if ($('need-date').value) { $('need-asap').checked = false; } update(); });
   $('need-asap').addEventListener('change', function () { if ($('need-asap').checked) { $('need-date').value = ''; } update(); });
-  $('addr').addEventListener('input', update);
   $('how-tiles').addEventListener('click', function (e) { var t = e.target.closest('[data-how]'); if (t) { S.how = t.getAttribute('data-how'); renderHow(); update(); } });
   $('file-tiles').addEventListener('click', function (e) { var t = e.target.closest('[data-file]'); if (t) { S.files = t.getAttribute('data-file'); renderFiles(); update(); } });
   ['c-name', 'c-company', 'c-email', 'c-phone', 'c-notes'].forEach(function (id) { $(id).addEventListener('input', update); });
@@ -1291,7 +3473,7 @@
   form.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.tagName === 'INPUT') { e.preventDefault(); } });
 
   $('send-btn').addEventListener('click', function () {
-    var d = done(), names = { 1: 'an item', 2: 'at least one detail (or choose “Not sure”)', 3: 'a quantity', 4: 'a date and pickup or delivery', 5: 'how you will send your file', 6: 'your name and a valid email' };
+    var d = done(), names = { 1: 'an item', 2: 'at least one detail (or choose “Not sure”)', 3: 'a quantity', 4: 'a date and pickup or shipping', 5: 'how you will send your file', 6: 'your name and a valid email' };
     var miss = [], first = 0;
     for (var i = 1; i <= 6; i++) {
       var card = $('s' + i); card.classList.toggle('flag', !d[i]);
@@ -1301,7 +3483,7 @@
     if (miss.length) { m.textContent = 'Please add: ' + miss.join('; ') + '.'; m.classList.remove('hidden'); $('s' + first).scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     m.classList.add('hidden');
     var msg = buildMessage(); $('f-message').value = msg;
-    $('f-subject').value = 'Quote request: ' + prod().label;
+    $('f-subject').value = 'Quote request: ' + productLabel(S.product);
     var preview = form.getAttribute('action').indexOf('REPLACE_WITH_ID') > -1;
     function finish(note) {
       form.classList.add('hidden'); $('qv2-steps').classList.add('hidden');
@@ -1319,13 +3501,14 @@
   var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
   $('need-date').min = today.toISOString().slice(0, 10);
   renderProducts(); renderDetails(); renderQty(); renderHow(); renderFiles();
-  var param = (new URLSearchParams(location.search).get('product') || '').toLowerCase().replace(/\+/g, ' ');
+  var param = new URLSearchParams(location.search).get('product');
   if (param) {
-    var id = SYNONYMS[param];
-    if (!id) { PRODUCTS.forEach(function (p) { if (!id && (p.label.toLowerCase().indexOf(param) > -1 || p.id === param)) { id = p.id; } }); }
-    if (id) { pickProduct(id); }
+    var want = param.replace(/\+/g, ' ').toLowerCase(), found = null;
+    Object.keys(CATALOG).forEach(function (n) { if (!found && n !== 'default' && n.toLowerCase() === want) { found = n; } });
+    if (!found) { Object.keys(CATALOG).forEach(function (n) { if (!found && n !== 'default' && matches(n, want)) { found = n; } }); }
+    if (found) { pickProduct(found); }
   }
-  update();
+  update(); S.started = true;
 })();
 </script>
 </body>
