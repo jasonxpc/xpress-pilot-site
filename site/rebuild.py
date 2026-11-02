@@ -65,7 +65,7 @@ for path in pages:
         # strip any of those duplicates too, or they silently pile up forever.
         c = re.sub(
             r'(?:<style>(?:(?!</style>).)*?nav-prod-panel(?:(?!</style>).)*?</style>\s*)*<nav\b[^>]*>.*?</nav>',
-            nav,
+            lambda _m: nav,  # callable: nav contains backslashes (CSS escapes) that re would treat as group refs
             c,
             flags=re.DOTALL
         )
