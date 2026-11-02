@@ -520,6 +520,10 @@
     @media (max-width: 900px) { .qv2-hero { padding: 40px 24px 32px; } .qv2-hero h1 { font-size: 32px; } }
     .qv2 .qv2-preview { margin-top: 20px; }
     .qv2 .qv2-steps { margin-top: 20px; }
+
+    .chip.turn { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.2; padding: 8px 16px; }
+    .chip.turn small { font-size: 11px; font-weight: 400; color: #6B7280; margin-top: 2px; }
+    .chip.turn[aria-pressed="true"] small { color: inherit; opacity: .8; }
   </style>
 </head>
 <body>
@@ -849,13 +853,15 @@
         <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="4">Change</button></div>
         <div class="cbody">
         
-        <div class="row">
-          <label class="qv2-field narrow">
-            <span>Needed by</span>
-            <input type="date" id="need-date">
-          </label>
-          <label class="check"><input type="checkbox" id="need-asap"> <span>As soon as possible</span></label>
+        <div class="qgroup"><p>How fast do you need it?</p>
+          <div class="chips" id="turn-chips" role="group" aria-label="Turnaround"></div>
+          <p class="qv2-hint">Estimated dates count business days from today. Large-format and special-order items may take longer &mdash; we'll confirm.</p>
         </div>
+        <label class="qv2-field narrow">
+          <span>Or pick a date <em>(optional)</em></span>
+          <input type="date" id="need-date">
+        </label>
+        <div class="qgroup" style="margin-top:20px"><p>Pickup or shipping?</p></div>
         <div class="tiles small" id="how-tiles" role="group" aria-label="Pickup or shipping"></div>
         <button type="button" class="qv2-next" data-next="4" disabled>Continue &darr;</button>
         </div>
@@ -1203,6 +1209,19 @@
   }
 
   /* ── 4. timing / pickup ── */
+  /* turnaround chips (same choices as the original quote page); dates count business days */
+  var TURN = [['Same day', 0], ['Next day', 1], ['2 days', 2], ['3\u20135 days', 5], ['7\u201310 days', 10]];
+  function addBusinessDays(n) {
+    var d = new Date(), left = n;
+    while (left > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0 && d.getDay() !== 6) { left--; } }
+    return d;
+  }
+  function turnDate(n) { return addBusinessDays(n).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }); }
+  function renderTurn() {
+    $('turn-chips').innerHTML = TURN.map(function (x) {
+      return '<button type="button" class="chip turn" data-turn="' + esc(x[0]) + '" aria-pressed="' + (S.turn === x[0]) + '">' + esc(x[0]) + '<small>' + esc(turnDate(x[1])) + '</small></button>';
+    }).join('');
+  }
   var HOW = [['Pickup', 'I\'ll pick it up in Irvine', ''], ['Ship', 'Ship it to me', 'Shipping is quoted separately']];
   function renderHow() {
     $('how-tiles').innerHTML = HOW.map(function (h) {
@@ -1276,7 +1295,8 @@
     detailLines().forEach(function (r) { rows.push([r[0], r[1], 2]); });
     rows.push(['Quantity', qtyText(), 3]);
     if (parseInt(S.versions, 10) > 1) { rows.push(['Versions', S.versions, 3]); }
-    rows.push(['Needed', $('need-asap').checked ? 'As soon as possible' : ($('need-date').value ? 'By ' + $('need-date').value : ''), 4]);
+    var needBits = []; if (S.turn) { needBits.push(S.turn); } if ($('need-date').value) { needBits.push('by ' + $('need-date').value); }
+    rows.push(['Needed', needBits.join(', '), 4]);
     rows.push(['Pickup / shipping', S.how === 'Ship' ? 'Ship to me (quoted separately)' : (S.how ? 'Pickup in Irvine' : ''), 4]);
     var f = FILES.filter(function (x) { return x[0] === S.files; })[0], fv = f ? f[1] : '';
     if (S.canva) { fv += ' — ' + S.canva; }
@@ -1288,7 +1308,7 @@
   function done() {
     var d = {};
     d[1] = !!cur(); d[2] = detailLines().length > 0; d[3] = parseQty().length > 0;
-    d[4] = !!(($('need-asap').checked || $('need-date').value) && S.how);
+    d[4] = !!((S.turn || $('need-date').value) && S.how);
     d[5] = !!S.files; d[6] = !!($('c-name').value.trim() && emailOk($('c-email').value.trim()));
     return d;
   }
@@ -1423,8 +1443,8 @@
   });
   $('qty-text').addEventListener('input', update);
   $('versions').addEventListener('input', function () { S.versions = $('versions').value; update(); });
-  $('need-date').addEventListener('input', function () { if ($('need-date').value) { $('need-asap').checked = false; } update(); });
-  $('need-asap').addEventListener('change', function () { if ($('need-asap').checked) { $('need-date').value = ''; } update(); });
+  $('need-date').addEventListener('input', update);
+  $('turn-chips').addEventListener('click', function (e) { var c = e.target.closest('[data-turn]'); if (!c) { return; } var v = c.getAttribute('data-turn'); S.turn = S.turn === v ? null : v; renderTurn(); update(); });
   $('how-tiles').addEventListener('click', function (e) { var t = e.target.closest('[data-how]'); if (t) { S.how = t.getAttribute('data-how'); renderHow(); update(); } });
   $('file-tiles').addEventListener('click', function (e) { var t = e.target.closest('[data-file]'); if (t) { S.files = t.getAttribute('data-file'); renderFiles(); update(); } });
   ['c-name', 'c-company', 'c-email', 'c-phone', 'c-notes'].forEach(function (id) { $(id).addEventListener('input', update); });
@@ -1459,7 +1479,7 @@
   /* ── init ── */
   var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
   $('need-date').min = today.toISOString().slice(0, 10);
-  renderProducts(); renderDetails(); renderQty(); renderHow(); renderFiles();
+  renderProducts(); renderDetails(); renderQty(); renderTurn(); renderHow(); renderFiles();
   var param = new URLSearchParams(location.search).get('product');
   if (param) {
     var want = param.replace(/\+/g, ' ').toLowerCase(), found = null;
