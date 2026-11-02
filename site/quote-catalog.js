@@ -14,6 +14,38 @@
  *  - Prices never appear here.
  */
 window.QV2_DATA = {
+ "usePhotos": false,
+ "photos": {
+  "p-flyers": "images/products/flyers.jpg",
+  "p-brochures": "images/products/brochures.jpg",
+  "p-postcards": "images/products/postcards.jpg",
+  "p-rack-cards": "images/products/rack-cards.jpg",
+  "p-door-hangers": "images/products/door-hangers.jpg",
+  "p-table-tents": "images/products/table-tents.jpg",
+  "p-calendars": "images/products/calendars.jpg",
+  "p-menus": "images/products/menus.jpg",
+  "p-placemats": "images/products/placemats.jpg",
+  "p-business-cards": "images/products/business-cards.jpg",
+  "p-hang-tags": "images/products/hang-tags.jpg",
+  "p-certificates": "images/products/certificates.jpg",
+  "p-stickers-labels": "images/products/stickers-labels.jpg",
+  "p-banners": "images/home/vinyl-banners.jpg",
+  "p-yard-signs": "images/products/yard-signs.jpg",
+  "p-posters": "images/products/posters.jpg",
+  "p-window-wall-floor-graphics": "images/products/window-clings.jpg",
+  "p-rigid-signs-magnets": "images/home/foam-board-signs.jpg",
+  "p-banner-stands": "images/home/retractable-banners.jpg",
+  "p-booklets": "images/products/booklets.jpg",
+  "p-presentation-folders": "images/products/presentation-folders.jpg",
+  "p-letterhead": "images/products/letterhead-envelopes.jpg",
+  "p-envelopes": "images/products/envelopes.jpg",
+  "p-notepads": "images/products/notepads.jpg",
+  "p-invoice-books": "images/products/invoice-books.jpg",
+  "13oz-vinyl-banner": "images/home/vinyl-banners.jpg",
+  "coroplast-4mm": "images/home/yard-signs.jpg",
+  "foam-board-3-16": "images/home/foam-board-signs.jpg",
+  "retractable-banner-stand": "images/home/retractable-banners.jpg"
+ },
  "notSure": "Not sure — recommend for me",
  "filesUrl": "https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a",
  "defaultQty": [
@@ -706,7 +738,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/flyers.jpg"
+   "img": "images/quote/p-flyers"
   },
   "Brochures": {
    "qty": [
@@ -1092,7 +1124,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/brochures.jpg"
+   "img": "images/quote/p-brochures"
   },
   "Postcards": {
    "qty": [
@@ -1421,7 +1453,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/postcards.jpg"
+   "img": "images/quote/p-postcards"
   },
   "Rack Cards": {
    "qty": [
@@ -1647,7 +1679,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/rack-cards.jpg"
+   "img": "images/quote/p-rack-cards"
   },
   "Door Hangers": {
    "qty": [
@@ -1937,7 +1969,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/door-hangers.jpg"
+   "img": "images/quote/p-door-hangers"
   },
   "Table Tents": {
    "qty": [
@@ -2176,7 +2208,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/table-tents.jpg"
+   "img": "images/quote/p-table-tents"
   },
   "Calendars": {
    "qty": [
@@ -2458,7 +2490,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/calendars.jpg"
+   "img": "images/quote/p-calendars"
   },
   "Menus": {
    "qty": [
@@ -2791,7 +2823,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/menus.jpg"
+   "img": "images/quote/p-menus"
   },
   "Placemats": {
    "qty": [
@@ -2903,7 +2935,7 @@ window.QV2_DATA = {
      "short": "Print"
     }
    ],
-   "img": "images/products/placemats.jpg"
+   "img": "images/quote/p-placemats"
   },
   "Business Cards": {
    "qty": [
@@ -3201,7 +3233,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/business-cards.jpg"
+   "img": "images/quote/p-business-cards"
   },
   "Hang Tags": {
    "qty": [
@@ -3492,7 +3524,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/hang-tags.jpg"
+   "img": "images/quote/p-hang-tags"
   },
   "Certificates": {
    "qty": [
@@ -3718,7 +3750,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/certificates.jpg"
+   "img": "images/quote/p-certificates"
   },
   "Stickers & Labels": {
    "qty": [
@@ -3929,7 +3961,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/stickers-labels.jpg"
+   "img": "images/quote/p-stickers-labels"
   },
   "Yard Signs": {
    "qty": [
@@ -4070,7 +4102,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/yard-signs.jpg"
+   "img": "images/quote/p-yard-signs"
   },
   "Posters": {
    "qty": [
@@ -4336,7 +4368,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/posters.jpg"
+   "img": "images/quote/p-posters"
   },
   "Booklets": {
    "qty": [
@@ -4687,7 +4719,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/booklets.jpg"
+   "img": "images/quote/p-booklets"
   },
   "Presentation Folders": {
    "qty": [
@@ -4956,7 +4988,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/presentation-folders.jpg"
+   "img": "images/quote/p-presentation-folders"
   },
   "Letterhead": {
    "qty": [
@@ -5146,7 +5178,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/letterhead-envelopes.jpg"
+   "img": "images/quote/p-letterhead"
   },
   "Envelopes": {
    "qty": [
@@ -5329,7 +5361,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/envelopes.jpg"
+   "img": "images/quote/p-envelopes"
   },
   "Remittance Envelopes": {
    "qty": [
@@ -5635,7 +5667,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/notepads.jpg"
+   "img": "images/quote/p-notepads"
   },
   "Invoice Books": {
    "qty": [
@@ -5782,7 +5814,7 @@ window.QV2_DATA = {
      "more": true
     }
    ],
-   "img": "images/products/invoice-books.jpg"
+   "img": "images/quote/p-invoice-books"
   },
   "Banners": {
    "qty": [
@@ -5837,7 +5869,7 @@ window.QV2_DATA = {
        "Indoor and outdoor; waterproof and UV safe.",
        "Popular",
        "",
-       "images/home/vinyl-banners.jpg"
+       "images/quote/13oz-vinyl-banner"
       ],
       [
        "18oz Blockout Vinyl Banner",
@@ -6047,7 +6079,7 @@ window.QV2_DATA = {
      "short": "Hardware"
     }
    ],
-   "img": "images/home/vinyl-banners.jpg"
+   "img": "images/quote/p-banners"
   },
   "Rigid Signs & Magnets": {
    "qty": [
@@ -6102,7 +6134,7 @@ window.QV2_DATA = {
        "Corrugated plastic; indoor and outdoor; the usual yard-sign material.",
        "Popular",
        "",
-       "images/home/yard-signs.jpg"
+       "images/quote/coroplast-4mm"
       ],
       [
        "PVC Board (1/8\")",
@@ -6116,7 +6148,7 @@ window.QV2_DATA = {
        "Indoor only; not waterproof.",
        "",
        "indoor",
-       "images/home/foam-board-signs.jpg"
+       "images/quote/foam-board-3-16"
       ],
       [
        "Styrene (.020\")",
@@ -6240,7 +6272,7 @@ window.QV2_DATA = {
      "short": "Add-ons"
     }
    ],
-   "img": "images/home/foam-board-signs.jpg"
+   "img": "images/quote/p-rigid-signs-magnets"
   },
   "Window, Wall & Floor Graphics": {
    "qty": [
@@ -6352,7 +6384,7 @@ window.QV2_DATA = {
      "short": "Size"
     }
    ],
-   "img": "images/products/window-clings.jpg"
+   "img": "images/quote/p-window-wall-floor-graphics"
   },
   "Canvas & Wall Art": {
    "qty": [
@@ -6518,7 +6550,7 @@ window.QV2_DATA = {
        "Roll-up stand: the printed banner pulls up from the base.",
        "Popular",
        "",
-       "images/home/retractable-banners.jpg"
+       "images/quote/retractable-banner-stand"
       ],
       [
        "Another kind of stand (tell us below)",
@@ -6547,7 +6579,7 @@ window.QV2_DATA = {
      "short": "Details"
     }
    ],
-   "img": "images/home/retractable-banners.jpg"
+   "img": "images/quote/p-banner-stands"
   },
   "Tents": {
    "qty": [

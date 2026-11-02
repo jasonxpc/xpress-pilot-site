@@ -1385,11 +1385,19 @@
   var pop = document.createElement('div'); pop.id = 'qv2-pop'; pop.hidden = true;
   pop.innerHTML = '<img alt=""><span></span>'; document.body.appendChild(pop);
   var popImg = pop.querySelector('img'), popCap = pop.querySelector('span'), popFor = null;
-  // a path without an extension tries a real photo (.jpg) first, then the illustration (.svg)
+  // Illustrations are the default so every preview looks the same. When quote-catalog.js sets usePhotos to true,
+  // a photo is tried first (the "photos" table, or <name>.jpg dropped next to the .svg) and the illustration is the fallback.
+  // usePhotos is {tiles, options}: product tiles and option chips appear in different steps, so each can switch separately.
   function setPopSrc(src) {
     if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { popImg.onerror = null; popImg.src = src; return; }
-    popImg.onerror = function () { popImg.onerror = function () { hidePop(); }; popImg.src = src + '.svg'; };
-    popImg.src = src + '.jpg';
+    popImg.onerror = function () { hidePop(); };
+    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : up.options;
+    if (on) {
+      var key = src.replace(/^.*\//, ''), first = (D.photos && D.photos[key]) || (src + '.jpg');
+      popImg.onerror = function () { popImg.onerror = function () { hidePop(); }; popImg.src = src + '.svg'; };
+      popImg.src = first; return;
+    }
+    popImg.src = src + '.svg';
   }
   function showPop(el) {
     var src = el.getAttribute('data-img'); if (!src) { return; }
