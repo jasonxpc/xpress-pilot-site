@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="XP26-Symbol-Tr.png">
+  <title>Get a Quote (preview) — Xpress Printing | Irvine, CA</title>
+  <meta name="description" content="Request a print quote from Xpress Printing in Irvine, California.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:      #1E2D3D;
+      --cyan:       #0891B2;
+      --sky:        #38BDF8;
+      --crimson:    #DC2626;
+      --cyan-tint:  #E0F2FE;
+      --cool-white: #F8FAFC;
+      --white:      #FFFFFF;
+      --text:       #111827;
+      --text-muted: #6B7280;
+      --border:     #E2E8F0;
+      --font: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cool-white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid #E2E8F0;
+      height: 64px;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 2.6px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-logo-full { height: 36px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+      cursor: default;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-trigger { color: var(--cyan); }
+
+    .mega-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid #E2E8F0;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.12);
+      padding: 32px 48px;
+      width: 860px;
+      z-index: 300;
+    }
+
+    .nav-dropdown:hover .mega-menu { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+
+    .mega-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 12px;
+    }
+
+    .mega-col ul { list-style: none; }
+    .mega-col ul li { margin-bottom: 6px; }
+    .mega-col ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color .15s;
+    }
+    .mega-col ul li a:hover { color: var(--cyan); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-upload {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      border: 1.5px solid var(--cyan);
+      background: transparent;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-upload:hover { background: var(--cyan-tint); } .btn-account { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--cyan); background: var(--cyan-tint); border: none; padding: 7px 14px 7px 7px; border-radius: 20px; text-decoration: none; white-space: nowrap; transition: opacity .15s; } .btn-account:hover { opacity: .8; } .btn-account-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--white); color: var(--cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    .btn-quote-nav {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-quote-nav:hover { opacity: .88; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--slate);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 56px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand-logo {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-brand-logo-img {
+      height: 26px;
+      width: auto;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .footer-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .footer-contact-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+      text-decoration: none;
+    }
+    .footer-contact-link svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: rgba(255,255,255,.35);
+    }
+    .footer-contact-link:hover { color: var(--cyan); }
+    .footer-contact-link:hover svg { color: var(--cyan); }
+    .footer-slogan {
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+    .footer-slogan strong { font-weight: 700; }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-hour-row {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+    }
+    .footer-same-day {
+      font-size: 13px;
+      color: var(--cyan);
+      margin-top: 4px;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(8,145,178,.12);
+      border: 1px solid rgba(8,145,178,.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+    }
+    @media (max-width: 960px) {
+      .footer { padding: 48px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ─── COPY TOAST ─── */
+    .copy-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--slate);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    /* ─── QUOTE V2 (one-page, multiple choice) ─── */
+    .qv2 { max-width: 1180px; margin: 0 auto; padding: 0 24px 72px; }
+    .qv2 .hidden { display: none !important; }
+    .qv2-preview { margin: 16px 0 0; padding: 8px 14px; background: #FEF3C7; color: #92400E; border-radius: 8px; font-size: 13px; font-weight: 600; }
+    .qv2-head { padding: 36px 0 8px; }
+    .qv2-eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
+    .qv2-head h1 { font-size: 40px; font-weight: 800; letter-spacing: -.02em; color: var(--slate); line-height: 1.15; margin-bottom: 10px; }
+    .qv2-head p { font-size: 17px; color: var(--text-muted); max-width: 640px; }
+    .qv2-head .qv2-where { font-size: 14px; margin-top: 10px; }
+
+    .qv2-steps { position: sticky; top: 64px; z-index: 50; display: flex; gap: 6px; margin: 20px 0 24px; padding: 10px; background: rgba(248,250,252,.95); backdrop-filter: blur(6px); border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; }
+    .qv2-steps a { flex: 1 1 0; min-width: 86px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 10px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+    .qv2-steps b { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--border); color: var(--slate); font-size: 12px; }
+    .qv2-steps a.done { color: var(--slate); }
+    .qv2-steps a.done b { background: var(--cyan); color: #fff; font-size: 0; }
+    .qv2-steps a.done b::after { content: "\2713"; font-size: 13px; }
+    .qv2-steps a.now { background: var(--cyan-tint); color: var(--cyan); }
+
+    .qv2-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; }
+    .qv2-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 26px 28px; margin-bottom: 18px; scroll-margin-top: 150px; }
+    .qv2-card.flag { border-color: var(--crimson); box-shadow: 0 0 0 3px rgba(220,38,38,.12); }
+    .qv2-card h2 { font-size: 20px; font-weight: 700; color: var(--slate); margin-bottom: 16px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .qv2-card h2 b { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--slate); color: #fff; font-size: 14px; }
+    .qv2-card h2 small { flex-basis: 100%; font-size: 14px; font-weight: 400; color: var(--text-muted); margin-left: 38px; margin-top: -6px; }
+
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .tiles.small { grid-template-columns: repeat(2, 1fr); margin-top: 14px; }
+    .tile { text-align: left; font: inherit; cursor: pointer; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: 10px; background: var(--white); color: var(--text); transition: border-color .15s, background .15s; }
+    .tile strong { display: block; font-size: 15px; font-weight: 700; color: var(--slate); }
+    .tile span { display: block; font-size: 13px; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+    .tile:hover { border-color: var(--sky); }
+    .tile[aria-pressed="true"] { border-color: var(--cyan); background: var(--cyan-tint); box-shadow: 0 0 0 1px var(--cyan) inset; }
+    .tile.quiet strong { font-weight: 600; color: var(--text-muted); }
+
+    .qgroup { margin-bottom: 20px; }
+    .qgroup:last-child { margin-bottom: 0; }
+    .qgroup > p { font-size: 14px; font-weight: 700; color: var(--slate); margin-bottom: 8px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; padding: 9px 16px; border: 1.5px solid var(--border); border-radius: 999px; background: var(--white); color: var(--slate); }
+    .chip:hover { border-color: var(--sky); }
+    .chip[aria-pressed="true"] { border-color: var(--cyan); background: var(--cyan-tint); color: var(--cyan); }
+
+    .qv2-field { display: block; margin-top: 14px; }
+    .qv2-field > span { display: block; font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 6px; }
+    .qv2-field > span i { color: var(--crimson); font-style: normal; }
+    .qv2-field > span em { font-weight: 400; color: var(--text-muted); font-style: normal; }
+    .qv2-field input, .qv2-field textarea, .qv2-field select { width: 100%; font: inherit; font-size: 16px; padding: 11px 13px; border: 1.5px solid var(--border); border-radius: 8px; background: #fff; color: var(--text); }
+    .qv2-field input:focus, .qv2-field textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(8,145,178,.15); }
+    .qv2-field.narrow { max-width: 240px; }
+    .qv2-hint { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+    .qv2-hint a, .qv2-tip a { color: var(--cyan); font-weight: 600; }
+    .row { display: flex; gap: 24px; align-items: flex-end; flex-wrap: wrap; }
+    .check { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--slate); padding-bottom: 11px; cursor: pointer; }
+    .check input { width: 18px; height: 18px; accent-color: var(--cyan); }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+
+    .qv2-tip { margin-top: 14px; padding: 14px 16px; background: var(--cool-white); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text-muted); }
+    .qv2-tip ul { margin: 6px 0 0 18px; }
+    .qv2-tip li { margin-bottom: 3px; }
+    .qv2-linkbtn { display: inline-block; margin-top: 12px; padding: 10px 16px; border: 1.5px solid var(--cyan); color: var(--cyan); font-weight: 700; border-radius: 8px; font-size: 14px; }
+
+    .qv2-aside { position: sticky; top: 150px; }
+    .qv2-summary { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .qv2-summary h3 { font-size: 16px; font-weight: 700; color: var(--slate); margin-bottom: 12px; }
+    .qv2-summary dl { display: grid; gap: 10px; }
+    .qv2-summary dt { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+    .qv2-summary dd { font-size: 14px; color: var(--text); margin-top: 1px; word-break: break-word; }
+    .qv2-summary dd.empty { color: #9CA3AF; }
+
+    .qv2-send { margin-top: 6px; }
+    .qv2-btn { display: inline-block; font: inherit; font-size: 17px; font-weight: 700; cursor: pointer; border: none; border-radius: 10px; padding: 15px 34px; background: var(--crimson); color: #fff; }
+    .qv2-btn:hover { opacity: .92; }
+    .qv2-btn.ghost { background: transparent; border: 1.5px solid var(--slate); color: var(--slate); font-size: 15px; padding: 11px 22px; }
+    .qv2-missing { margin-bottom: 14px; padding: 12px 14px; background: #FEF2F2; color: #991B1B; border-radius: 8px; font-size: 14px; font-weight: 600; }
+
+    .qv2-done { text-align: center; padding: 48px 28px; max-width: 640px; margin: 32px auto 0; }
+    .qv2-done h2 { justify-content: center; }
+    .done-check { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%; background: var(--cyan); color: #fff; display: grid; place-items: center; font-size: 28px; }
+    .qv2-done pre { text-align: left; white-space: pre-wrap; font: inherit; font-size: 14px; background: var(--cool-white); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 16px 0 20px; }
+
+    @media (max-width: 900px) {
+      .qv2-layout { grid-template-columns: 1fr; }
+      .qv2-aside { position: static; order: 2; }
+      .qv2-head h1 { font-size: 30px; }
+      .tiles { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .qv2 { padding: 0 16px 56px; }
+      .qv2-card { padding: 20px 16px; }
+      .qv2-steps { top: 56px; margin-left: -4px; margin-right: -4px; }
+      .qv2-steps a span { display: none; }
+      .qv2-steps a { min-width: 0; padding: 8px 4px; }
+      .qv2-steps a.now span { display: inline; }
+      .tiles.small, .grid2 { grid-template-columns: 1fr; }
+      .tile { padding: 12px 12px; }
+      .qv2-btn { width: 100%; }
+    }
+
+    /* ─── collapsible steps ─── */
+    .qv2-card .csum { display: none; }
+    .qv2-card.collapsed .csum { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -6px 0 0 38px; }
+    .qv2-card.collapsed .cbody { display: none; }
+    .qv2-card.collapsed h2 { margin-bottom: 14px; }
+    .qv2-card.collapsed h2 b { background: var(--cyan); font-size: 0; }
+    .qv2-card.collapsed h2 b::after { content: "\2713"; font-size: 14px; }
+    .csum-text { font-size: 15px; font-weight: 600; color: var(--text); word-break: break-word; }
+    .csum-change { font: inherit; font-size: 14px; font-weight: 700; color: var(--cyan); background: none; border: 1.5px solid var(--cyan); border-radius: 8px; padding: 6px 14px; cursor: pointer; flex: none; }
+    .qv2-next { margin-top: 18px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; padding: 11px 24px; border: none; border-radius: 8px; background: var(--slate); color: #fff; }
+    .qv2-next:disabled { background: var(--border); color: #9CA3AF; cursor: not-allowed; }
+    @media (max-width: 600px) { .qv2-card.collapsed .csum { margin-left: 0; flex-wrap: wrap; } .qv2-next { width: 100%; } }
+  </style>
+</head>
+<body>
+<!-- ─── NAV ─── -->
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+  /* Mobile menu (hamburger) */
+  .nav-burger { display: none; }
+  .nav-mobile { display: none; }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .btn-upload { display: none !important; }
+    .nav-burger {
+      display: inline-flex !important;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 0 9px;
+      background: transparent;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .nav-burger span { display: block; height: 2px; background: var(--slate); border-radius: 2px; }
+    .nav-mobile.open {
+      display: block;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      background: var(--white);
+      z-index: 250;
+      padding: 8px 24px 32px;
+      border-top: 1px solid #E2E8F0;
+    }
+    .nav-mobile a, .nav-mobile summary {
+      display: block;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--slate);
+      padding: 14px 0;
+      border-bottom: 1px solid #EEF2F6;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-mobile summary { list-style: none; }
+    .nav-mobile summary::-webkit-details-marker { display: none; }
+    .nav-mobile summary::after { content: "\25BE"; float: right; color: #94A3B8; }
+    .nav-mobile details[open] summary::after { content: "\25B4"; }
+    .nav-mobile .nm-sub { padding: 4px 0 10px 12px; }
+    .nav-mobile .nm-sub a { font-size: 15px; font-weight: 500; padding: 9px 0; border-bottom: none; }
+    .nav-mobile .nm-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #64748B; padding: 10px 0 2px; }
+    .nav-mobile .nm-cta { border-bottom: none; text-align: center; border-radius: 10px; margin-top: 14px; padding: 14px; }
+    .nav-mobile .nm-quote { background: var(--crimson); color: var(--white); }
+    .nav-mobile .nm-upload { color: var(--cyan); border: 1.5px solid var(--cyan); }
+    .nav-actions .btn-quote-nav { padding: 8px 14px; }
+    .nav-actions { gap: 8px; }
+  }
+  @media (max-width: 520px) {
+    .nav { padding: 0 16px !important; gap: 12px !important; }
+    .nav-logo-full { height: 26px !important; }
+  }
+  @media (max-width: 360px) {
+    .nav { padding: 0 12px !important; gap: 8px !important; }
+    .nav-logo-full { height: 22px !important; }
+    html, body { overflow-x: hidden; }
+    .nav-actions { gap: 6px; }
+    .nav-actions .btn-quote-nav { padding: 8px 10px; font-size: 13px; }
+  }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Full-Bk.png" alt="Xpress Printing" class="nav-logo-full">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+            <a href="quote.html?product=Placemats" class="nav-prod-item">Placemats</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DB2777; background:#FCE7F3;">Stickers &amp; Labels</span>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Remittance+Envelopes" class="nav-prod-item">Remittance Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books / NCR Forms</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Direct Mail Services</span>
+            <a href="quote.html?product=Postcards&mailing=1" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Flyers&mailing=1" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures&mailing=1" class="nav-prod-item">Half-Fold Brochures</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="portfolio.html" data-nav="portfolio">By Industry</a></li>
+      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Log In hidden until accounts exist (login.html / account.html kept) -->
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <details>
+        <summary>Products</summary>
+        <div class="nm-sub">
+          <a href="products.html">All products</a>
+          <div class="nm-label">Marketing Prints</div>
+          <a href="quote.html?product=Flyers">Flyers</a>
+          <a href="quote.html?product=Brochures">Brochures</a>
+          <a href="quote.html?product=Postcards">Postcards</a>
+          <a href="quote.html?product=Rack+Cards">Rack Cards</a>
+          <a href="quote.html?product=Door+Hangers">Door Hangers</a>
+          <a href="quote.html?product=Table+Tents">Table Tents</a>
+          <a href="quote.html?product=Calendars">Calendars</a>
+          <a href="quote.html?product=Menus">Menus</a>
+          <a href="quote.html?product=Placemats">Placemats</a>
+          <div class="nm-label">Cards &amp; Stationery</div>
+          <a href="quote.html?product=Business+Cards">Business Cards</a>
+          <a href="quote.html?product=Hang+Tags">Hang Tags</a>
+          <a href="quote.html?product=Certificates">Certificates</a>
+          <div class="nm-label">Stickers &amp; Labels</div>
+          <a href="quote.html?product=Stickers+%26+Labels">Stickers &amp; Labels</a>
+          <div class="nm-label">Large Format &amp; Signs</div>
+          <a href="quote.html?product=Banners+%26+Signs">Banners &amp; Signs</a>
+          <a href="quote.html?product=Yard+Signs">Yard Signs</a>
+          <a href="quote.html?product=Window+Clings">Window Clings</a>
+          <a href="quote.html?product=Posters">Posters</a>
+          <div class="nm-label">Booklets &amp; Folders</div>
+          <a href="quote.html?product=Booklets">Booklets</a>
+          <a href="quote.html?product=Presentation+Folders">Presentation Folders</a>
+          <div class="nm-label">Office &amp; Business</div>
+          <a href="quote.html?product=Letterhead">Letterhead</a>
+          <a href="quote.html?product=Envelopes">Envelopes</a>
+          <a href="quote.html?product=Remittance+Envelopes">Remittance Envelopes</a>
+          <a href="quote.html?product=Notepads">Notepads</a>
+          <a href="quote.html?product=Invoice+Books">Invoice Books / NCR Forms</a>
+          <div class="nm-label">Direct Mail Services</div>
+          <a href="quote.html?product=Postcards&mailing=1">Postcards</a>
+          <a href="quote.html?product=Flyers&mailing=1">Flyers</a>
+          <a href="quote.html?product=Brochures&mailing=1">Half-Fold Brochures</a>
+        </div>
+      </details>
+      <a href="portfolio.html">By Industry</a>
+      <a href="same-day.html">Same-Day</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="quote.html" class="nm-cta nm-quote">Get a Quote</a>
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="nm-cta nm-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+    </div>
+    <script>
+      (function () {
+        var b = document.getElementById('navBurger'), m = document.getElementById('navMobile');
+        if (!b || !m) return;
+        function set(open) { m.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false'); document.body.style.overflow = open ? 'hidden' : ''; }
+        b.addEventListener('click', function () { set(!m.classList.contains('open')); });
+        m.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+        window.addEventListener('resize', function () { if (window.innerWidth > 900) set(false); });
+      })();
+    </script>
+  </nav>
+
+<main class="qv2">
+  <div class="qv2-preview" id="qv2-preview">Design preview &mdash; this page is not live yet and nothing you enter is sent.</div>
+
+  <header class="qv2-head">
+    <span class="qv2-eyebrow">Get a quote</span>
+    <h1>Tell us what you need.</h1>
+    <p>Six short steps on one page. Not sure about something? Choose <strong>Not sure</strong> and we'll help you decide.</p>
+    <p class="qv2-where">Xpress Printing &middot; Irvine, California. Looking for a different &ldquo;Xpress Printing&rdquo;? That isn't us &mdash; we're the Irvine shop.</p>
+  </header>
+
+  <nav class="qv2-steps" id="qv2-steps" aria-label="Quote steps">
+    <a href="#s1" data-step="1"><b>1</b><span>Item</span></a>
+    <a href="#s2" data-step="2"><b>2</b><span>Details</span></a>
+    <a href="#s3" data-step="3"><b>3</b><span>Quantity</span></a>
+    <a href="#s4" data-step="4"><b>4</b><span>Timing</span></a>
+    <a href="#s5" data-step="5"><b>5</b><span>Your files</span></a>
+    <a href="#s6" data-step="6"><b>6</b><span>Contact</span></a>
+  </nav>
+
+  <form id="qv2-form" class="qv2-layout" action="https://formspree.io/f/REPLACE_WITH_ID" method="POST" enctype="multipart/form-data" novalidate>
+    <div class="qv2-main">
+
+      <section class="qv2-card" id="s1" data-step="1">
+        <h2><b>1</b> What do you need?</h2>
+        <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="1">Change</button></div>
+        <div class="cbody">
+        
+        <div class="tiles" id="product-tiles" role="group" aria-label="Item"></div>
+        </div>
+      </section>
+
+      <section class="qv2-card" id="s2" data-step="2">
+        <h2><b>2</b> Details <small>Pick what you know &mdash; the rest we can recommend.</small></h2>
+        <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="2">Change</button></div>
+        <div class="cbody">
+        
+        <div id="details-body"><p class="qv2-hint">Choose an item above and the right questions will appear here.</p></div>
+        <button type="button" class="qv2-next" data-next="2" disabled>Continue &darr;</button>
+        </div>
+      </section>
+
+      <section class="qv2-card" id="s3" data-step="3">
+        <h2><b>3</b> How many?</h2>
+        <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="3">Change</button></div>
+        <div class="cbody">
+        
+        <div class="chips" id="qty-chips" role="group" aria-label="Quantity"></div>
+        <label class="qv2-field">
+          <span>Or type your own &mdash; separate several quantities with a slash</span>
+          <input type="text" id="qty-text" inputmode="numeric" placeholder="e.g. 100 / 250 / 500" autocomplete="off">
+        </label>
+        <p class="qv2-hint">Add more than one quantity if you'd like to compare.</p>
+        <label class="qv2-field narrow">
+          <span>Different designs or versions</span>
+          <input type="number" id="versions" min="1" max="99" value="1">
+        </label>
+        <button type="button" class="qv2-next" data-next="3" disabled>Continue &darr;</button>
+        </div>
+      </section>
+
+      <section class="qv2-card" id="s4" data-step="4">
+        <h2><b>4</b> When do you need it?</h2>
+        <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="4">Change</button></div>
+        <div class="cbody">
+        
+        <div class="row">
+          <label class="qv2-field narrow">
+            <span>Needed by</span>
+            <input type="date" id="need-date">
+          </label>
+          <label class="check"><input type="checkbox" id="need-asap"> <span>As soon as possible</span></label>
+        </div>
+        <div class="tiles small" id="how-tiles" role="group" aria-label="Pickup or delivery"></div>
+        <label class="qv2-field hidden" id="addr-wrap">
+          <span>Delivery address</span>
+          <textarea id="addr" rows="3" placeholder="Street, city, ZIP"></textarea>
+        </label>
+        <button type="button" class="qv2-next" data-next="4" disabled>Continue &darr;</button>
+        </div>
+      </section>
+
+      <section class="qv2-card" id="s5" data-step="5">
+        <h2><b>5</b> Your files</h2>
+        <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="5">Change</button></div>
+        <div class="cbody">
+        
+        <div class="tiles small" id="file-tiles" role="group" aria-label="Files"></div>
+        <div id="file-extra"></div>
+        <button type="button" class="qv2-next" data-next="5" disabled>Continue &darr;</button>
+        </div>
+      </section>
+
+      <section class="qv2-card" id="s6" data-step="6">
+        <h2><b>6</b> How can we reach you?</h2>
+        <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="6">Change</button></div>
+        <div class="cbody">
+        
+        <div class="grid2">
+          <label class="qv2-field"><span>Your name <i>*</i></span><input type="text" id="c-name" name="name" autocomplete="name"></label>
+          <label class="qv2-field"><span>Company <em>(optional)</em></span><input type="text" id="c-company" name="company" autocomplete="organization"></label>
+          <label class="qv2-field"><span>Email <i>*</i></span><input type="email" id="c-email" name="email" autocomplete="email"></label>
+          <label class="qv2-field"><span>Phone <em>(optional)</em></span><input type="tel" id="c-phone" name="phone" autocomplete="tel"></label>
+        </div>
+        <label class="qv2-field">
+          <span>Anything else we should know? <em>(optional)</em></span>
+          <textarea id="c-notes" rows="3" placeholder="Colors, finish, where it will be used, an example you like&hellip;"></textarea>
+        </label>
+        <input type="hidden" name="_subject" id="f-subject" value="Quote request">
+        <input type="hidden" name="message" id="f-message">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+        </div>
+      </section>
+
+      <div class="qv2-send">
+        <p class="qv2-missing hidden" id="missing" role="alert"></p>
+        <button type="button" class="qv2-btn" id="send-btn">Send my request</button>
+        <p class="qv2-hint">We'll reply by email. Prefer to talk? Call <a href="tel:9498519710">(949) 851-9710</a>.</p>
+      </div>
+    </div>
+
+    <aside class="qv2-aside" aria-label="Your request so far">
+      <div class="qv2-summary">
+        <h3>Your request</h3>
+        <dl id="summary"></dl>
+        <p class="qv2-hint" id="progress-note"></p>
+      </div>
+    </aside>
+  </form>
+
+  <section class="qv2-card qv2-done hidden" id="done">
+    <div class="done-check">&#10003;</div>
+    <h2>Request received</h2>
+    <p id="done-note"></p>
+    <pre id="done-msg"></pre>
+    <p><a class="qv2-btn ghost" href="index.html">Back to homepage</a></p>
+  </section>
+</main>
+
+<footer class="footer">
+<style>/* mobile-fixes */@media (max-width: 700px){.footer{padding:40px 24px 24px !important}.footer-grid{grid-template-columns:1fr !important;gap:28px !important}}</style>
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">By Industry</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
+
+<script>
+(function () {
+  'use strict';
+
+  var FILES_URL = 'https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a';
+  var NS = 'Not sure — recommend for me';
+  var SIDES = { k: 'sides', label: 'Printed on', type: 'one', opts: ['One side', 'Both sides', NS] };
+
+  // opts: plain string, or [value, hint] when a one-line explanation helps first-timers.
+  var PRODUCTS = [
+    { id: 'banner', label: 'Banners', sub: 'Vinyl or fabric, indoors or out', q: [
+      { k: 'use', label: 'Where will it be used?', type: 'one', opts: ['Indoors', 'Outdoors', 'Event or trade show', NS] },
+      { k: 'size', label: 'Size', type: 'size', opts: ['2 × 4 ft', '3 × 6 ft', '4 × 8 ft'] },
+      { k: 'material', label: 'Material', type: 'one', opts: [
+        ['Vinyl', 'Sturdy; the usual choice for outdoors.'],
+        ['Fabric', 'A softer look, nice for indoor displays.'],
+        ['Mesh', 'Lets wind pass through.'], NS] },
+      { k: 'finish', label: 'Finishing', type: 'multi', opts: ['Hemmed edges', 'Grommets (holes)', 'Pole pockets', NS] }
+    ] },
+    { id: 'label', label: 'Labels & Stickers', sub: 'Sheets or rolls, any shape', q: [
+      { k: 'size', label: 'Size', type: 'size', opts: ['2 × 2 in', '3 × 3 in', '4 × 4 in'] },
+      { k: 'shape', label: 'Shape', type: 'one', opts: ['Square or rectangle', 'Circle', 'Custom cut shape', NS] },
+      { k: 'material', label: 'Material', type: 'one', opts: [
+        ['Paper', 'For indoor use and dry products.'],
+        ['Waterproof', 'For bottles, coolers or outdoor use.'],
+        ['Clear', 'See-through, so the surface shows.'], NS] },
+      { k: 'format', label: 'Delivered as', type: 'one', opts: ['Sheets', 'Rolls', NS] }
+    ] },
+    { id: 'booklet', label: 'Booklets & Books', sub: 'Stapled or spiral bound', q: [
+      { k: 'size', label: 'Page size', type: 'size', opts: ['8.5 × 11 in', '5.5 × 8.5 in'] },
+      { k: 'pages', label: 'Total pages (including the cover)', type: 'pages' },
+      { k: 'binding', label: 'Binding', type: 'one', opts: [
+        ['Stapled', 'Best for thinner booklets.'],
+        ['Spiral', 'Lies flat and flips easily, good for notes or signing.'],
+        ['Glued spine', 'A book-like spine for thicker page counts.'], NS] },
+      { k: 'cover', label: 'Cover', type: 'one', opts: ['Same paper as the inside', 'Heavier cover', NS] }
+    ] },
+    { id: 'tag', label: 'Hang Tags', sub: 'Gift tags, product tags', q: [
+      { k: 'size', label: 'Size', type: 'size', opts: ['2 × 3.5 in', '3 × 3 in'] },
+      SIDES,
+      { k: 'paper', label: 'Paper', type: 'one', opts: ['Standard card stock', 'Heavier / premium', NS] },
+      { k: 'extras', label: 'Extras', type: 'multi', opts: ['Hole drilled', 'String or ribbon included'] }
+    ] },
+    { id: 'sign', label: 'Posters & Signs', sub: 'Foam core, yard signs, stands', q: [
+      { k: 'type', label: 'What kind?', type: 'one', opts: ['Poster on foam core', 'Yard sign (with stake)', 'Standing sign with base', 'Window or wall sign', NS] },
+      { k: 'size', label: 'Size', type: 'size', opts: ['18 × 24 in', '24 × 24 in', '24 × 36 in', '27 × 40 in'] },
+      SIDES,
+      { k: 'use', label: 'Where will it be used?', type: 'one', opts: ['Indoors', 'Outdoors', NS] }
+    ] },
+    { id: 'flyer', label: 'Flyers & Brochures', sub: 'Flat or folded', q: [
+      { k: 'type', label: 'What kind?', type: 'one', opts: ['Flat flyer', 'Folded brochure', 'Rack card', 'Door hanger', NS] },
+      { k: 'size', label: 'Size', type: 'size', opts: ['8.5 × 11 in', '5.5 × 8.5 in', '4 × 6 in', '11 × 17 in'] },
+      SIDES,
+      { k: 'paper', label: 'Paper', type: 'one', opts: [
+        ['Glossy', 'Shiny and vivid; good for photos.'],
+        ['Matte', 'Smooth, no glare; easy to read.'],
+        ['Uncoated', 'Plain paper you can write on.'], NS] }
+    ] },
+    { id: 'card', label: 'Business Cards', sub: 'Standard and premium stock', q: [
+      { k: 'size', label: 'Size', type: 'size', opts: ['3.5 × 2 in (standard)', 'Square'] },
+      SIDES,
+      { k: 'paper', label: 'Paper', type: 'one', opts: ['Standard', 'Thick / premium', 'Matte', 'Glossy', NS] },
+      { k: 'finish', label: 'Finishing', type: 'multi', opts: ['Rounded corners', 'Something special (tell us in the notes)'] }
+    ] },
+    { id: 'postcard', label: 'Postcards & Greeting Cards', sub: 'Flat or folded', q: [
+      { k: 'size', label: 'Size', type: 'size', opts: ['4 × 6 in', '5 × 7 in', '5.5 × 8.5 in'] },
+      { k: 'fold', label: 'Style', type: 'one', opts: ['Flat card', 'Folded card', NS] },
+      SIDES,
+      { k: 'env', label: 'Envelopes', type: 'one', opts: ['Include envelopes', 'No envelopes'] }
+    ] },
+    { id: 'badge', label: 'ID Badges & Stamps', sub: 'Badges, name tags, stamps', q: [
+      { k: 'type', label: 'What kind?', type: 'one', opts: ['ID badge', 'Name tag', 'Rubber or notary stamp', NS] },
+      { k: 'size', label: 'Size', type: 'size', opts: [] }
+    ] },
+    { id: 'other', label: 'Something else', sub: 'Describe it and we will advise', q: [
+      { k: 'describe', label: 'Tell us what you have in mind', type: 'text' }
+    ] },
+    { id: 'reorder', label: 'Repeat of a past order', sub: 'Same job as before', q: [
+      { k: 'prev', label: 'Which order? (job name, date or invoice number)', type: 'text' },
+      { k: 'changes', label: 'Any changes?', type: 'one', opts: ['Exactly the same', 'Same, with small changes'] }
+    ] }
+  ];
+
+  var PRESETS = [
+    { label: 'An outdoor banner', product: 'banner', a: { use: 'Outdoors', material: 'Vinyl' } },
+    { label: 'Flyers to hand out', product: 'flyer', a: { type: 'Flat flyer', size: '8.5 × 11 in' } },
+    { label: 'Business cards', product: 'card', a: { size: '3.5 × 2 in (standard)', sides: 'Both sides' } }
+  ];
+
+  var QTY_CHIPS = [25, 50, 100, 250, 500, 1000, 2500];
+  var SYNONYMS = { flyers: 'flyer', brochures: 'flyer', 'rack cards': 'flyer', 'door hangers': 'flyer',
+    'business cards': 'card', postcards: 'postcard', banners: 'banner', stickers: 'label', labels: 'label',
+    booklets: 'booklet', posters: 'sign', signs: 'sign', 'hang tags': 'tag' };
+
+  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null };
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('qv2-form');
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function optVal(o) { return Array.isArray(o) ? o[0] : o; }
+  function optHint(o) { return Array.isArray(o) ? o[1] : ''; }
+  function prod() { return PRODUCTS.filter(function (p) { return p.id === S.product; })[0] || null; }
+
+  /* ── 1. product tiles ── */
+  function renderProducts() {
+    var html = PRODUCTS.map(function (p) {
+      return '<button type="button" class="tile' + (p.id === 'reorder' || p.id === 'other' ? ' quiet' : '') + '" data-p="' + p.id + '" aria-pressed="' + (S.product === p.id) + '"><strong>' + esc(p.label) + '</strong><span>' + esc(p.sub) + '</span></button>';
+    }).join('');
+    html += '<div class="qv2-hint" style="grid-column:1/-1">First time? Start from an example: ' + PRESETS.map(function (s, i) {
+      return '<a href="#" data-preset="' + i + '">' + esc(s.label) + '</a>';
+    }).join(' &middot; ') + '</div>';
+    $('product-tiles').innerHTML = html;
+  }
+
+  function pickProduct(id, preset) {
+    if (S.product !== id) { S.product = id; S.a = {}; }
+    if (preset) { for (var k in preset) { S.a[k] = preset[k]; } }
+    renderProducts(); renderDetails(); update();
+  }
+
+  /* ── 2. details (depends on the product) ── */
+  function renderDetails() {
+    var p = prod(), body = $('details-body');
+    if (!p) { body.innerHTML = '<p class="qv2-hint">Choose an item above and the right questions will appear here.</p>'; return; }
+    body.innerHTML = p.q.map(function (q) {
+      var h = '<div class="qgroup" data-q="' + q.k + '"><p>' + esc(q.label) + '</p>';
+      if (q.type === 'text') {
+        h += '<label class="qv2-field" style="margin-top:0"><textarea rows="3" data-text="' + q.k + '">' + esc(S.a[q.k] || '') + '</textarea></label>';
+      } else if (q.type === 'pages') {
+        h += '<label class="qv2-field narrow" style="margin-top:0"><input type="number" min="4" max="500" step="1" data-pages value="' + esc(S.a.pages || '') + '"></label>' +
+          '<p class="qv2-hint" id="pages-note">Booklets are printed in multiples of 4 pages (8, 12, 16, 20&hellip;).</p>';
+      } else {
+        var opts = q.opts.slice();
+        if (q.type === 'size') { opts = opts.concat(['Custom size', 'Same as a previous order', NS]); }
+        h += '<div class="chips">' + opts.map(function (o) {
+          var v = optVal(o), on = q.type === 'multi' ? (S.a[q.k] || []).indexOf(v) > -1 : S.a[q.k] === v;
+          return '<button type="button" class="chip" data-k="' + q.k + '" data-t="' + q.type + '" data-v="' + esc(v) + '" aria-pressed="' + on + '">' + esc(v) + '</button>';
+        }).join('') + '</div>';
+        if (q.type === 'size') {
+          h += '<label class="qv2-field narrow' + (S.a[q.k] === 'Custom size' ? '' : ' hidden') + '" data-custom="' + q.k + '"><span>Width × height</span><input type="text" data-customtext="' + q.k + '" value="' + esc(S.a[q.k + '_custom'] || '') + '" placeholder="e.g. 5 × 7 in"></label>';
+        }
+        h += '<p class="qv2-hint" data-hint="' + q.k + '"></p>';
+      }
+      return h + '</div>';
+    }).join('');
+    p.q.forEach(function (q) { showHint(q); });
+    checkPages();
+  }
+
+  function showHint(q) {
+    var el = document.querySelector('[data-hint="' + q.k + '"]');
+    if (!el || !q.opts) { return; }
+    var cur = S.a[q.k], hint = '';
+    q.opts.forEach(function (o) { if (optVal(o) === cur && optHint(o)) { hint = optHint(o); } });
+    el.textContent = hint;
+    el.style.display = hint ? '' : 'none';
+  }
+
+  function checkPages() {
+    var n = $('pages-note'); if (!n) { return; }
+    var v = parseInt(S.a.pages, 10);
+    n.style.color = (v && v % 4 !== 0) ? '#B45309' : '';
+    n.innerHTML = (v && v % 4 !== 0)
+      ? v + ' pages isn\'t a multiple of 4 &mdash; we\'ll let you know how to adjust (add blank pages or remove one).'
+      : 'Booklets are printed in multiples of 4 pages (8, 12, 16, 20&hellip;).';
+  }
+
+  /* ── 3. quantity ── */
+  function parseQty() {
+    var t = ($('qty-text').value || '').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
+    var nums = (t.match(/\d+/g) || []).map(Number).filter(function (n) { return n > 0; });
+    var all = S.qtyChips.concat(nums);
+    var seen = {}; var out = [];
+    all.forEach(function (n) { if (!seen[n]) { seen[n] = 1; out.push(n); } });
+    out.sort(function (a, b) { return a - b; });
+    return out.slice(0, 8);
+  }
+  function renderQty() {
+    $('qty-chips').innerHTML = QTY_CHIPS.map(function (n) {
+      return '<button type="button" class="chip" data-qty="' + n + '" aria-pressed="' + (S.qtyChips.indexOf(n) > -1) + '">' + n.toLocaleString('en-US') + '</button>';
+    }).join('');
+  }
+
+  /* ── 4. timing / how ── */
+  var HOW = [['Pickup', 'I\'ll pick it up in Irvine', 'Pickup'], ['Delivery', 'Deliver or ship it to me', 'Add your address']];
+  function renderHow() {
+    $('how-tiles').innerHTML = HOW.map(function (h) {
+      return '<button type="button" class="tile" data-how="' + h[0] + '" aria-pressed="' + (S.how === h[0]) + '"><strong>' + esc(h[1]) + '</strong><span>' + esc(h[2]) + '</span></button>';
+    }).join('');
+    $('addr-wrap').classList.toggle('hidden', S.how !== 'Delivery');
+  }
+
+  /* ── 5. files ── */
+  var FILES = [
+    ['ready', 'I have my file ready', 'PDF, image or a Canva link'],
+    ['photo', 'I only have a photo or example', 'Show us what you have in mind'],
+    ['help', 'I need help with the design', 'We\'ll talk it through'],
+    ['later', 'I\'ll send it later', 'Skip for now']
+  ];
+  var photoInput = document.createElement('input');
+  photoInput.type = 'file'; photoInput.name = 'reference_files'; photoInput.multiple = true; photoInput.accept = 'image/*,.pdf';
+  var photoNote = document.createElement('p'); photoNote.className = 'qv2-hint';
+
+  function renderFiles() {
+    $('file-tiles').innerHTML = FILES.map(function (f) {
+      return '<button type="button" class="tile" data-file="' + f[0] + '" aria-pressed="' + (S.files === f[0]) + '"><strong>' + esc(f[1]) + '</strong><span>' + esc(f[2]) + '</span></button>';
+    }).join('');
+    var box = $('file-extra'), h = '';
+    if (S.files === 'ready') {
+      h += '<label class="qv2-field"><span>Link to your design <em>(Canva, Google Drive, Dropbox&hellip;)</em></span><input type="url" id="canva-link" placeholder="https://" value="' + esc(S.canva || '') + '"></label>';
+    }
+    if (S.files === 'ready' || S.files === 'photo') {
+      h += '<div class="qv2-field"><span>Attach a small file <em>(images or PDF, up to 3 files, 5 MB each)</em></span><div id="file-slot"></div></div>';
+    }
+    if (S.files === 'ready') {
+      h += '<div class="qv2-tip"><strong>Large file?</strong> Upload it to our secure folder instead.<br><a class="qv2-linkbtn" href="' + FILES_URL + '" target="_blank" rel="noopener">Upload large files &rarr;</a>' +
+        '<ul><li>Send one PDF with the pages in order.</li><li>Booklets need a multiple of 4 pages.</li><li>Print-ready files include bleed and crop marks. From Canva, choose &ldquo;PDF Print&rdquo; with crop marks and bleed.</li></ul>' +
+        '<a href="resources.html#bleed" target="_blank" rel="noopener">File setup guide</a> &middot; <a href="resources.html#canva-guide" target="_blank" rel="noopener">Canva guide</a></div>';
+    }
+    if (S.files === 'help') { h += '<p class="qv2-hint">Tell us about your idea in the notes below (step 6). Photos or examples you like help a lot &mdash; you can attach them there or send them after we reply.</p>'; }
+    if (S.files === 'later') { h += '<p class="qv2-hint">No problem. When you are ready, <a href="' + FILES_URL + '" target="_blank" rel="noopener">upload your files here</a>.</p>'; }
+    box.innerHTML = h;
+    var slot = $('file-slot');
+    if (slot) { slot.appendChild(photoInput); slot.appendChild(photoNote); }
+    var cl = $('canva-link'); if (cl) { cl.addEventListener('input', function () { S.canva = cl.value; update(); }); }
+  }
+  photoInput.addEventListener('change', function () {
+    var files = Array.prototype.slice.call(photoInput.files), msg = '';
+    if (files.length > 3) { msg = 'Please choose up to 3 files.'; }
+    files.forEach(function (f) { if (f.size > 5 * 1024 * 1024) { msg = f.name + ' is over 5 MB — please use the large-file upload link instead.'; } });
+    if (msg) { photoInput.value = ''; photoNote.textContent = msg; photoNote.style.color = '#B45309'; }
+    else { photoNote.textContent = files.length ? files.length + ' file(s) attached.' : ''; photoNote.style.color = ''; }
+    update();
+  });
+
+  /* ── summary + completion ── */
+  function qtyText() { return parseQty().map(function (n) { return n.toLocaleString('en-US'); }).join(' / '); }
+  function detailLines() {
+    var p = prod(), out = [];
+    if (!p) { return out; }
+    p.q.forEach(function (q) {
+      var v = S.a[q.k];
+      if (q.type === 'size' && v === 'Custom size') { v = 'Custom: ' + (S.a[q.k + '_custom'] || '(to be confirmed)'); }
+      if (Array.isArray(v)) { v = v.join(', '); }
+      if (q.type === 'pages' && v) { v = v + ' pages'; }
+      if (v) { out.push([shortLabel(q), String(v)]); }
+    });
+    return out;
+  }
+  function shortLabel(q) {
+    var map = { 'Where will it be used?': 'Used', 'What kind?': 'Kind', 'Total pages (including the cover)': 'Pages',
+      'Tell us what you have in mind': 'Description', 'Which order? (job name, date or invoice number)': 'Previous order',
+      'Delivered as': 'Format', 'Printed on': 'Printed on' };
+    return map[q.label] || q.label.replace(/\?$/, '');
+  }
+  function lines() {
+    var p = prod(), rows = [];
+    rows.push(['Item', p ? p.label : '']);
+    detailLines().forEach(function (r) { rows.push(r); });
+    rows.push(['Quantity', qtyText()]);
+    if (parseInt(S.versions, 10) > 1) { rows.push(['Versions', S.versions]); }
+    var when = $('need-asap').checked ? 'As soon as possible' : ($('need-date').value ? 'By ' + $('need-date').value : '');
+    rows.push(['Needed', when]);
+    rows.push(['Pickup / delivery', S.how === 'Delivery' ? 'Delivery' + ($('addr').value ? ': ' + $('addr').value.replace(/\s*\n\s*/g, ', ') : '') : (S.how ? 'Pickup in Irvine' : '')]);
+    var f = FILES.filter(function (x) { return x[0] === S.files; })[0];
+    var fv = f ? f[1] : '';
+    if (S.canva) { fv += ' — ' + S.canva; }
+    if (photoInput.files && photoInput.files.length) { fv += ' (' + photoInput.files.length + ' file(s) attached)'; }
+    rows.push(['Files', fv]);
+    return rows;
+  }
+  function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function done() {
+    var d = {};
+    d[1] = !!S.product;
+    d[2] = detailLines().length > 0;
+    d[3] = parseQty().length > 0;
+    d[4] = !!(($('need-asap').checked || $('need-date').value) && S.how);
+    d[5] = !!S.files;
+    d[6] = !!($('c-name').value.trim() && emailOk($('c-email').value.trim()));
+    return d;
+  }
+  function update() {
+    var rows = lines(), dl = $('summary');
+    dl.innerHTML = rows.map(function (r) { return '<div><dt>' + esc(r[0]) + '</dt><dd class="' + (r[1] ? '' : 'empty') + '">' + (r[1] ? esc(r[1]) : '&mdash;') + '</dd></div>'; }).join('');
+    var d = done(), firstOpen = 0, count = 0;
+    for (var i = 1; i <= 6; i++) { if (d[i]) { count++; } else if (!firstOpen) { firstOpen = i; } }
+    Array.prototype.forEach.call(document.querySelectorAll('#qv2-steps a'), function (a) {
+      var n = +a.getAttribute('data-step');
+      a.classList.toggle('done', !!d[n]);
+      a.classList.toggle('now', n === firstOpen);
+    });
+    $('progress-note').textContent = count + ' of 6 steps done';
+    Array.prototype.forEach.call(document.querySelectorAll('.qv2-next'), function (b) {
+      b.disabled = !d[+b.getAttribute('data-next')];
+    });
+    for (var n = 1; n <= 6; n++) {
+      var card = $('s' + n);
+      if (card.classList.contains('collapsed')) {
+        if (!d[n]) { card.classList.remove('collapsed'); } else { fillSummary(n); }
+      }
+    }
+  }
+
+  /* ── collapsing: a finished step folds to one line and can be reopened ── */
+  function stepSummary(n) {
+    var rows = lines(), get = function (key) { var r = rows.filter(function (x) { return x[0] === key; })[0]; return r ? r[1] : ''; };
+    if (n === 1) { return get('Item'); }
+    if (n === 2) { return detailLines().map(function (r) { return r[1]; }).join(' · '); }
+    if (n === 3) { return get('Quantity') + (get('Versions') ? ' · ' + get('Versions') + ' versions' : ''); }
+    if (n === 4) { return [get('Needed'), get('Pickup / delivery')].filter(Boolean).join(' · '); }
+    if (n === 5) { return get('Files'); }
+    return '';
+  }
+  function fillSummary(n) {
+    var c = $('s' + n), box = c.querySelector('.csum');
+    c.querySelector('.csum-text').textContent = stepSummary(n);
+    box.hidden = false;
+  }
+  function collapse(n, goNext) {
+    if (n >= 6 || !done()[n]) { return; }
+    $('s' + n).classList.add('collapsed'); fillSummary(n);
+    if (!goNext) { return; }
+    var d = done(), t = 0;
+    for (var i = 1; i <= 6; i++) { if (!d[i]) { t = i; break; } }
+    if (t) { expand(t); $('s' + t).scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+  function expand(n) { $('s' + n).classList.remove('collapsed'); }
+  document.addEventListener('click', function (e) {
+    var nx = e.target.closest('.qv2-next'); if (nx && !nx.disabled) { collapse(+nx.getAttribute('data-next'), true); return; }
+    var ch = e.target.closest('.csum-change'); if (ch) { expand(+ch.getAttribute('data-change')); return; }
+    var st = e.target.closest('#qv2-steps a'); if (st) { expand(+st.getAttribute('data-step')); }
+  });
+  function buildMessage() {
+    var rows = lines();
+    rows.push(['Name', $('c-name').value.trim()]);
+    if ($('c-company').value.trim()) { rows.push(['Company', $('c-company').value.trim()]); }
+    rows.push(['Email', $('c-email').value.trim()]);
+    if ($('c-phone').value.trim()) { rows.push(['Phone', $('c-phone').value.trim()]); }
+    if ($('c-notes').value.trim()) { rows.push(['Notes', $('c-notes').value.trim()]); }
+    return rows.filter(function (r) { return r[1]; }).map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+  }
+
+  /* ── events ── */
+  $('product-tiles').addEventListener('click', function (e) {
+    var pr = e.target.closest('[data-preset]');
+    if (pr) { e.preventDefault(); var s = PRESETS[+pr.getAttribute('data-preset')]; S.product = null; pickProduct(s.product, s.a); return; }
+    var t = e.target.closest('[data-p]'); if (t) { pickProduct(t.getAttribute('data-p')); collapse(1, true); }
+  });
+  $('details-body').addEventListener('click', function (e) {
+    var c = e.target.closest('.chip'); if (!c) { return; }
+    var k = c.getAttribute('data-k'), v = c.getAttribute('data-v'), t = c.getAttribute('data-t');
+    if (t === 'multi') {
+      var arr = S.a[k] || [];
+      if (v === NS) { arr = arr.indexOf(NS) > -1 ? [] : [NS]; }
+      else { arr = arr.filter(function (x) { return x !== NS; }); var i = arr.indexOf(v); if (i > -1) { arr.splice(i, 1); } else { arr.push(v); } }
+      S.a[k] = arr.length ? arr : undefined;
+    } else { S.a[k] = S.a[k] === v ? undefined : v; }
+    renderDetails(); update();
+  });
+  $('details-body').addEventListener('input', function (e) {
+    var x = e.target;
+    if (x.hasAttribute('data-text')) { S.a[x.getAttribute('data-text')] = x.value; }
+    else if (x.hasAttribute('data-customtext')) { S.a[x.getAttribute('data-customtext') + '_custom'] = x.value; }
+    else if (x.hasAttribute('data-pages')) { S.a.pages = x.value; checkPages(); }
+    update();
+  });
+  $('qty-chips').addEventListener('click', function (e) {
+    var c = e.target.closest('[data-qty]'); if (!c) { return; }
+    var n = +c.getAttribute('data-qty'), i = S.qtyChips.indexOf(n);
+    if (i > -1) { S.qtyChips.splice(i, 1); } else { S.qtyChips.push(n); }
+    renderQty(); update();
+  });
+  $('qty-text').addEventListener('input', update);
+  $('versions').addEventListener('input', function () { S.versions = $('versions').value; update(); });
+  $('need-date').addEventListener('input', function () { if ($('need-date').value) { $('need-asap').checked = false; } update(); });
+  $('need-asap').addEventListener('change', function () { if ($('need-asap').checked) { $('need-date').value = ''; } update(); });
+  $('addr').addEventListener('input', update);
+  $('how-tiles').addEventListener('click', function (e) { var t = e.target.closest('[data-how]'); if (t) { S.how = t.getAttribute('data-how'); renderHow(); update(); } });
+  $('file-tiles').addEventListener('click', function (e) { var t = e.target.closest('[data-file]'); if (t) { S.files = t.getAttribute('data-file'); renderFiles(); update(); } });
+  ['c-name', 'c-company', 'c-email', 'c-phone', 'c-notes'].forEach(function (id) { $(id).addEventListener('input', update); });
+  form.addEventListener('submit', function (e) { e.preventDefault(); });
+  form.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.tagName === 'INPUT') { e.preventDefault(); } });
+
+  $('send-btn').addEventListener('click', function () {
+    var d = done(), names = { 1: 'an item', 2: 'at least one detail (or choose “Not sure”)', 3: 'a quantity', 4: 'a date and pickup or delivery', 5: 'how you will send your file', 6: 'your name and a valid email' };
+    var miss = [], first = 0;
+    for (var i = 1; i <= 6; i++) {
+      var card = $('s' + i); card.classList.toggle('flag', !d[i]);
+      if (!d[i]) { card.classList.remove('collapsed'); miss.push(names[i]); if (!first) { first = i; } }
+    }
+    var m = $('missing');
+    if (miss.length) { m.textContent = 'Please add: ' + miss.join('; ') + '.'; m.classList.remove('hidden'); $('s' + first).scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    m.classList.add('hidden');
+    var msg = buildMessage(); $('f-message').value = msg;
+    $('f-subject').value = 'Quote request: ' + prod().label;
+    var preview = form.getAttribute('action').indexOf('REPLACE_WITH_ID') > -1;
+    function finish(note) {
+      form.classList.add('hidden'); $('qv2-steps').classList.add('hidden');
+      $('done-note').textContent = note; $('done-msg').textContent = msg;
+      $('done').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (preview) { finish('Preview only — nothing was sent. This is what would arrive:'); return; }
+    var btn = $('send-btn'); btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) { throw new Error('send failed'); } finish('Thank you — we will reply to ' + $('c-email').value.trim() + ' by email.'); })
+      .catch(function () { btn.disabled = false; btn.textContent = 'Send my request'; m.textContent = 'Sorry, that did not go through. Please try again or call (949) 851-9710.'; m.classList.remove('hidden'); });
+  });
+
+  /* ── init ── */
+  var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  $('need-date').min = today.toISOString().slice(0, 10);
+  renderProducts(); renderDetails(); renderQty(); renderHow(); renderFiles();
+  var param = (new URLSearchParams(location.search).get('product') || '').toLowerCase().replace(/\+/g, ' ');
+  if (param) {
+    var id = SYNONYMS[param];
+    if (!id) { PRODUCTS.forEach(function (p) { if (!id && (p.label.toLowerCase().indexOf(param) > -1 || p.id === param)) { id = p.id; } }); }
+    if (id) { pickProduct(id); }
+  }
+  update();
+})();
+</script>
+</body>
+</html>
