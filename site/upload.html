@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="XP26-Symbol-Tr.png">
+  <title>Upload Your Files — Xpress Printing | Irvine, CA</title>
+  <meta name="description" content="How to prepare and send your print files to Xpress Printing in Irvine, California: file setup checklist and our secure upload link.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:      #1E2D3D;
+      --cyan:       #0891B2;
+      --sky:        #38BDF8;
+      --crimson:    #DC2626;
+      --cyan-tint:  #E0F2FE;
+      --cool-white: #F8FAFC;
+      --white:      #FFFFFF;
+      --text:       #111827;
+      --text-muted: #6B7280;
+      --border:     #E2E8F0;
+      --font: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cool-white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid #E2E8F0;
+      height: 64px;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 2.6px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-logo-full { height: 36px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color .15s;
+      cursor: default;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-trigger { color: var(--cyan); }
+
+    .mega-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid #E2E8F0;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.12);
+      padding: 32px 48px;
+      width: 860px;
+      z-index: 300;
+    }
+
+    .nav-dropdown:hover .mega-menu { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+
+    .mega-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 12px;
+    }
+
+    .mega-col ul { list-style: none; }
+    .mega-col ul li { margin-bottom: 6px; }
+    .mega-col ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color .15s;
+    }
+    .mega-col ul li a:hover { color: var(--cyan); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-upload {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      border: 1.5px solid var(--cyan);
+      background: transparent;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-upload:hover { background: var(--cyan-tint); } .btn-account { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--cyan); background: var(--cyan-tint); border: none; padding: 7px 14px 7px 7px; border-radius: 20px; text-decoration: none; white-space: nowrap; transition: opacity .15s; } .btn-account:hover { opacity: .8; } .btn-account-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--white); color: var(--cyan); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    .btn-quote-nav {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--crimson);
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-quote-nav:hover { opacity: .88; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--slate);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 56px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand-logo {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-brand-logo-img {
+      height: 26px;
+      width: auto;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .footer-contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .footer-contact-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+      text-decoration: none;
+    }
+    .footer-contact-link svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: rgba(255,255,255,.35);
+    }
+    .footer-contact-link:hover { color: var(--cyan); }
+    .footer-contact-link:hover svg { color: var(--cyan); }
+    .footer-slogan {
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,.9);
+      line-height: 1.5;
+    }
+    .footer-slogan strong { font-weight: 700; }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+      transition: color .15s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-hour-row {
+      font-size: 13px;
+      color: rgba(255,255,255,.6);
+    }
+    .footer-same-day {
+      font-size: 13px;
+      color: var(--cyan);
+      margin-top: 4px;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(8,145,178,.12);
+      border: 1px solid rgba(8,145,178,.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+    }
+    @media (max-width: 960px) {
+      .footer { padding: 48px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ─── COPY TOAST ─── */
+    .copy-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--slate);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .up-hero { background: var(--slate); padding: 56px 64px 44px; }
+    .up-hero-in, .up-main { max-width: 1000px; margin: 0 auto; }
+    .up-eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); margin-bottom: 8px; }
+    .up-hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -.02em; color: #fff; line-height: 1.12; margin-bottom: 12px; }
+    .up-hero p { font-size: 17px; color: rgba(255,255,255,.72); max-width: 640px; }
+    .up-main { padding: 40px 24px 72px; }
+    .up-steps { display: grid; gap: 18px; }
+    .up-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 26px 28px; display: grid; grid-template-columns: 44px 1fr; gap: 18px; }
+    .up-num { width: 44px; height: 44px; border-radius: 50%; background: var(--cyan); color: #fff; display: grid; place-items: center; font-size: 18px; font-weight: 800; }
+    .up-card h2 { font-size: 20px; font-weight: 700; color: var(--slate); margin-bottom: 8px; }
+    .up-card p, .up-card li { font-size: 15px; color: #374151; }
+    .up-card ul { margin: 8px 0 0 18px; display: grid; gap: 6px; }
+    .up-card a.link { color: var(--cyan); font-weight: 600; }
+    .up-btn { display: inline-block; margin-top: 14px; padding: 14px 28px; background: var(--crimson); color: #fff; font-weight: 700; border-radius: 10px; font-size: 16px; }
+    .up-btn:hover { opacity: .92; }
+    .up-note { margin-top: 12px; font-size: 13px; color: var(--text-muted); }
+    .up-help { margin-top: 28px; padding: 18px 22px; background: var(--cyan-tint); border-radius: 12px; font-size: 15px; color: var(--slate); }
+    .up-help a { color: var(--cyan); font-weight: 700; }
+    @media (max-width: 700px) { .up-hero { padding: 40px 24px 32px; } .up-hero h1 { font-size: 32px; } .up-card { grid-template-columns: 1fr; padding: 20px 18px; } .up-num { width: 36px; height: 36px; font-size: 16px; } }
+  </style>
+</head>
+<body>
+<style>
+  /* Products sidebar dropdown */
+  .nav-prod-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.12);
+    z-index: 300;
+    width: 680px;
+    padding: 16px 0 12px;
+    column-count: 3;
+    column-gap: 0;
+  }
+  .nav-dropdown:hover .nav-prod-panel { display: block; }
+  .nav-prod-group {
+    break-inside: avoid;
+    padding: 0 0 12px;
+  }
+  .nav-prod-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 5px 20px 5px 16px;
+    background: var(--cyan-tint, #f0fbff);
+    margin-bottom: 4px;
+  }
+  .nav-prod-item {
+    display: block;
+    font-size: 13px;
+    color: var(--slate);
+    padding: 4px 16px;
+    line-height: 1.3;
+    transition: color .15s, background .15s;
+    text-decoration: none;
+  }
+  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
+  /* Mobile menu (hamburger) */
+  .nav-burger { display: none; }
+  .nav-mobile { display: none; }
+  @media (max-width: 900px) {
+    .nav-links { display: none !important; }
+    .btn-upload { display: none !important; }
+    .nav-burger {
+      display: inline-flex !important;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 0 9px;
+      background: transparent;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .nav-burger span { display: block; height: 2px; background: var(--slate); border-radius: 2px; }
+    .nav-mobile.open {
+      display: block;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      background: var(--white);
+      z-index: 250;
+      padding: 8px 24px 32px;
+      border-top: 1px solid #E2E8F0;
+    }
+    .nav-mobile a, .nav-mobile summary {
+      display: block;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--slate);
+      padding: 14px 0;
+      border-bottom: 1px solid #EEF2F6;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-mobile summary { list-style: none; }
+    .nav-mobile summary::-webkit-details-marker { display: none; }
+    .nav-mobile summary::after { content: "\25BE"; float: right; color: #94A3B8; }
+    .nav-mobile details[open] summary::after { content: "\25B4"; }
+    .nav-mobile .nm-sub { padding: 4px 0 10px 12px; }
+    .nav-mobile .nm-sub a { font-size: 15px; font-weight: 500; padding: 9px 0; border-bottom: none; }
+    .nav-mobile .nm-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #64748B; padding: 10px 0 2px; }
+    .nav-mobile .nm-cta { border-bottom: none; text-align: center; border-radius: 10px; margin-top: 14px; padding: 14px; }
+    .nav-mobile .nm-quote { background: var(--crimson); color: var(--white); }
+    .nav-mobile .nm-upload { color: var(--cyan); border: 1.5px solid var(--cyan); }
+    .nav-actions .btn-quote-nav { padding: 8px 14px; }
+    .nav-actions { gap: 8px; }
+  }
+  /* mid-width screens (small laptops, tablets held sideways): the full menu does not fit, so tighten it */
+  @media (min-width: 901px) and (max-width: 1240px) {
+    .nav { padding: 0 24px !important; gap: 14px !important; }
+    .nav-links { gap: 0 !important; }
+    .nav-links > a, .nav-links .nav-dropdown > a, .nav-links .nav-dropdown > button { padding-left: 9px !important; padding-right: 9px !important; font-size: 13px !important; }
+    .btn-upload { display: none !important; }
+  }
+  @media (max-width: 520px) {
+    .nav { padding: 0 16px !important; gap: 12px !important; }
+    .nav-logo-full { height: 26px !important; }
+  }
+  @media (max-width: 360px) {
+    .nav { padding: 0 12px !important; gap: 8px !important; }
+    .nav-logo-full { height: 22px !important; }
+    html, body { overflow-x: hidden; }
+    .nav-actions { gap: 6px; }
+    .nav-actions .btn-quote-nav { padding: 8px 10px; font-size: 13px; }
+  }
+</style>
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="XP26-Full-Bk.png" alt="Xpress Printing" class="nav-logo-full">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="home">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
+        <div class="nav-prod-panel">
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
+            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
+            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
+            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
+            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
+            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
+            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
+            <a href="quote.html?product=Placemats" class="nav-prod-item">Placemats</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
+            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
+            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
+            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DB2777; background:#FCE7F3;">Stickers &amp; Labels</span>
+            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
+            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
+            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
+            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
+            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
+            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
+            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
+            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
+            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
+            <a href="quote.html?product=Remittance+Envelopes" class="nav-prod-item">Remittance Envelopes</a>
+            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
+            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books / NCR Forms</a>
+          </div>
+
+          <div class="nav-prod-group">
+            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Direct Mail Services</span>
+            <a href="quote.html?product=Postcards&mailing=1" class="nav-prod-item">Postcards</a>
+            <a href="quote.html?product=Flyers&mailing=1" class="nav-prod-item">Flyers</a>
+            <a href="quote.html?product=Brochures&mailing=1" class="nav-prod-item">Half-Fold Brochures</a>
+          </div>
+
+        </div>
+      </li>
+      <li><a href="portfolio.html" data-nav="portfolio">By Industry</a></li>
+      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
+      <li><a href="resources.html" data-nav="resources">Resources</a></li>
+      <li><a href="about.html" data-nav="about">About</a></li>
+      <li><a href="contact.html" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Log In hidden until accounts exist (login.html / account.html kept) -->
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <details>
+        <summary>Products</summary>
+        <div class="nm-sub">
+          <a href="products.html">All products</a>
+          <div class="nm-label">Marketing Prints</div>
+          <a href="quote.html?product=Flyers">Flyers</a>
+          <a href="quote.html?product=Brochures">Brochures</a>
+          <a href="quote.html?product=Postcards">Postcards</a>
+          <a href="quote.html?product=Rack+Cards">Rack Cards</a>
+          <a href="quote.html?product=Door+Hangers">Door Hangers</a>
+          <a href="quote.html?product=Table+Tents">Table Tents</a>
+          <a href="quote.html?product=Calendars">Calendars</a>
+          <a href="quote.html?product=Menus">Menus</a>
+          <a href="quote.html?product=Placemats">Placemats</a>
+          <div class="nm-label">Cards &amp; Stationery</div>
+          <a href="quote.html?product=Business+Cards">Business Cards</a>
+          <a href="quote.html?product=Hang+Tags">Hang Tags</a>
+          <a href="quote.html?product=Certificates">Certificates</a>
+          <div class="nm-label">Stickers &amp; Labels</div>
+          <a href="quote.html?product=Stickers+%26+Labels">Stickers &amp; Labels</a>
+          <div class="nm-label">Large Format &amp; Signs</div>
+          <a href="quote.html?product=Banners+%26+Signs">Banners &amp; Signs</a>
+          <a href="quote.html?product=Yard+Signs">Yard Signs</a>
+          <a href="quote.html?product=Window+Clings">Window Clings</a>
+          <a href="quote.html?product=Posters">Posters</a>
+          <div class="nm-label">Booklets &amp; Folders</div>
+          <a href="quote.html?product=Booklets">Booklets</a>
+          <a href="quote.html?product=Presentation+Folders">Presentation Folders</a>
+          <div class="nm-label">Office &amp; Business</div>
+          <a href="quote.html?product=Letterhead">Letterhead</a>
+          <a href="quote.html?product=Envelopes">Envelopes</a>
+          <a href="quote.html?product=Remittance+Envelopes">Remittance Envelopes</a>
+          <a href="quote.html?product=Notepads">Notepads</a>
+          <a href="quote.html?product=Invoice+Books">Invoice Books / NCR Forms</a>
+          <div class="nm-label">Direct Mail Services</div>
+          <a href="quote.html?product=Postcards&mailing=1">Postcards</a>
+          <a href="quote.html?product=Flyers&mailing=1">Flyers</a>
+          <a href="quote.html?product=Brochures&mailing=1">Half-Fold Brochures</a>
+        </div>
+      </details>
+      <a href="portfolio.html">By Industry</a>
+      <a href="same-day.html">Same-Day</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="quote.html" class="nm-cta nm-quote">Get a Quote</a>
+      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="nm-cta nm-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
+    </div>
+    <script>
+      (function () {
+        var b = document.getElementById('navBurger'), m = document.getElementById('navMobile');
+        if (!b || !m) return;
+        function set(open) { m.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false'); document.body.style.overflow = open ? 'hidden' : ''; }
+        b.addEventListener('click', function () { set(!m.classList.contains('open')); });
+        m.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+        window.addEventListener('resize', function () { if (window.innerWidth > 900) set(false); });
+      })();
+    </script>
+  </nav>
+
+<section class="up-hero">
+  <div class="up-hero-in">
+    <span class="up-eyebrow">Send your files</span>
+    <h1>Upload your files in three steps.</h1>
+    <p>Get your file ready, send it to our secure folder, and we'll confirm by email. Not sure your file is ready? Send it anyway &mdash; we'll check it.</p>
+  </div>
+</section>
+
+<main class="up-main">
+  <div class="up-steps">
+    <section class="up-card">
+      <div class="up-num">1</div>
+      <div>
+        <h2>Get your file ready</h2>
+        <ul>
+          <li>Send <strong>one PDF</strong> with the pages in order.</li>
+          <li>Booklets and books need a <strong>multiple of 4 pages</strong> (8, 12, 16, 20&hellip;).</li>
+          <li>Print-ready files include <strong>bleed</strong> and <strong>crop marks</strong>. Colors in CMYK.</li>
+          <li>Made it in Canva? Download as <strong>PDF Print</strong> with crop marks and bleed turned on.</li>
+          <li>Only have a photo, a sample, or a rough idea? That works too &mdash; we can help.</li>
+        </ul>
+        <p class="up-note"><a class="link" href="resources.html#bleed">File setup guide</a> &middot; <a class="link" href="resources.html#canva-guide">Canva guide</a> &middot; <a class="link" href="resources.html#size-table">Size guide</a></p>
+      </div>
+    </section>
+
+    <section class="up-card">
+      <div class="up-num">2</div>
+      <div>
+        <h2>Upload to our secure folder</h2>
+        <p>Large files are fine &mdash; this is the easiest way to send them.</p>
+        <a class="up-btn" href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" target="_blank" rel="noopener">Upload your files &rarr;</a>
+        <p class="up-note">Opens in a new tab. When you're done, come back and tell us what the files are for (step 3).</p>
+      </div>
+    </section>
+
+    <section class="up-card">
+      <div class="up-num">3</div>
+      <div>
+        <h2>Tell us what to print</h2>
+        <p>Files alone don't tell us the paper, size, or quantity. Send a quote request so we can match your files to the right job.</p>
+        <a class="up-btn" style="background:var(--cyan)" href="quote-v2.html">Request a quote &rarr;</a>
+        <p class="up-note">Already sent a quote request? Reply to our email with your file name, or call us.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="up-help">Trouble uploading? Email <a href="mailto:info@xpressprinting.com">info@xpressprinting.com</a> or call <a href="tel:9498519710">(949) 851-9710</a>. We're the Irvine, California shop &mdash; Looking for a different &ldquo;Xpress Printing&rdquo;? That isn't us.</div>
+</main>
+<footer class="footer">
+<style>/* mobile-fixes */@media (max-width: 700px){.footer{padding:40px 24px 24px !important}.footer-grid{grid-template-columns:1fr !important;gap:28px !important}}</style>
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-where" style="font-size:12px;line-height:1.5;color:rgba(255,255,255,.55);margin:10px 0 0">Looking for a different &ldquo;Xpress Printing&rdquo;? We're the Irvine, California shop.</p>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">By Industry</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
