@@ -802,266 +802,13 @@
 <main class="qv2">
   <div class="qv2-preview" id="qv2-preview">Design preview &mdash; this page is not live yet and nothing you enter is sent.</div>
 
-  <style>
-  /* Products sidebar dropdown */
-  .nav-prod-panel {
-    display: none;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid #E2E8F0;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 12px 48px rgba(0,0,0,.12);
-    z-index: 300;
-    width: 680px;
-    padding: 16px 0 12px;
-    column-count: 3;
-    column-gap: 0;
-  }
-  .nav-dropdown:hover .nav-prod-panel { display: block; }
-  .nav-prod-group {
-    break-inside: avoid;
-    padding: 0 0 12px;
-  }
-  .nav-prod-group-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    padding: 5px 20px 5px 16px;
-    background: var(--cyan-tint, #f0fbff);
-    margin-bottom: 4px;
-  }
-  .nav-prod-item {
-    display: block;
-    font-size: 13px;
-    color: var(--slate);
-    padding: 4px 16px;
-    line-height: 1.3;
-    transition: color .15s, background .15s;
-    text-decoration: none;
-  }
-  .nav-prod-item:hover { color: var(--cyan); background: var(--cyan-tint, #f0fbff); }
-  /* Mobile menu (hamburger) */
-  .nav-burger { display: none; }
-  .nav-mobile { display: none; }
-  @media (max-width: 900px) {
-    .nav-links { display: none !important; }
-    .btn-upload { display: none !important; }
-    .nav-burger {
-      display: inline-flex !important;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 40px;
-      height: 40px;
-      padding: 0 9px;
-      background: transparent;
-      border: 1px solid #E2E8F0;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .nav-burger span { display: block; height: 2px; background: var(--slate); border-radius: 2px; }
-    .nav-mobile.open {
-      display: block;
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow-y: auto;
-      background: var(--white);
-      z-index: 250;
-      padding: 8px 24px 32px;
-      border-top: 1px solid #E2E8F0;
-    }
-    .nav-mobile a, .nav-mobile summary {
-      display: block;
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--slate);
-      padding: 14px 0;
-      border-bottom: 1px solid #EEF2F6;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .nav-mobile summary { list-style: none; }
-    .nav-mobile summary::-webkit-details-marker { display: none; }
-    .nav-mobile summary::after { content: "\25BE"; float: right; color: #94A3B8; }
-    .nav-mobile details[open] summary::after { content: "\25B4"; }
-    .nav-mobile .nm-sub { padding: 4px 0 10px 12px; }
-    .nav-mobile .nm-sub a { font-size: 15px; font-weight: 500; padding: 9px 0; border-bottom: none; }
-    .nav-mobile .nm-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #64748B; padding: 10px 0 2px; }
-    .nav-mobile .nm-cta { border-bottom: none; text-align: center; border-radius: 10px; margin-top: 14px; padding: 14px; }
-    .nav-mobile .nm-quote { background: var(--crimson); color: var(--white); }
-    .nav-mobile .nm-upload { color: var(--cyan); border: 1.5px solid var(--cyan); }
-    .nav-actions .btn-quote-nav { padding: 8px 14px; }
-    .nav-actions { gap: 8px; }
-  }
-  /* mid-width screens (small laptops, tablets held sideways): the full menu does not fit, so tighten it */
-  @media (min-width: 901px) and (max-width: 1240px) {
-    .nav { padding: 0 24px !important; gap: 14px !important; }
-    .nav-links { gap: 0 !important; }
-    .nav-links > a, .nav-links .nav-dropdown > a, .nav-links .nav-dropdown > button { padding-left: 9px !important; padding-right: 9px !important; font-size: 13px !important; }
-    .btn-upload { display: none !important; }
-  }
-  @media (max-width: 520px) {
-    .nav { padding: 0 16px !important; gap: 12px !important; }
-    .nav-logo-full { height: 26px !important; }
-  }
-  @media (max-width: 360px) {
-    .nav { padding: 0 12px !important; gap: 8px !important; }
-    .nav-logo-full { height: 22px !important; }
-    html, body { overflow-x: hidden; }
-    .nav-actions { gap: 6px; }
-    .nav-actions .btn-quote-nav { padding: 8px 10px; font-size: 13px; }
-  }
-</style>
-<nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <img src="XP26-Full-Bk.png" alt="Xpress Printing" class="nav-logo-full">
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="index.html" data-nav="home">Home</a></li>
-      <li class="nav-dropdown">
-        <a href="products.html" class="nav-dropdown-trigger">Products &#9660;</a>
-        <div class="nav-prod-panel">
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#F59E0B; background:#FEF3C7;">Marketing Prints</span>
-            <a href="quote.html?product=Flyers" class="nav-prod-item">Flyers</a>
-            <a href="quote.html?product=Brochures" class="nav-prod-item">Brochures</a>
-            <a href="quote.html?product=Postcards" class="nav-prod-item">Postcards</a>
-            <a href="quote.html?product=Rack+Cards" class="nav-prod-item">Rack Cards</a>
-            <a href="quote.html?product=Door+Hangers" class="nav-prod-item">Door Hangers</a>
-            <a href="quote.html?product=Table+Tents" class="nav-prod-item">Table Tents</a>
-            <a href="quote.html?product=Calendars" class="nav-prod-item">Calendars</a>
-            <a href="quote.html?product=Menus" class="nav-prod-item">Menus</a>
-            <a href="quote.html?product=Placemats" class="nav-prod-item">Placemats</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#6366F1; background:#EEF2FF;">Cards &amp; Stationery</span>
-            <a href="quote.html?product=Business+Cards" class="nav-prod-item">Business Cards</a>
-            <a href="quote.html?product=Hang+Tags" class="nav-prod-item">Hang Tags</a>
-            <a href="quote.html?product=Certificates" class="nav-prod-item">Certificates</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#DB2777; background:#FCE7F3;">Stickers &amp; Labels</span>
-            <a href="quote.html?product=Stickers+%26+Labels" class="nav-prod-item">Stickers &amp; Labels</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#65A30D; background:#ECFCCB;">Large Format &amp; Signs</span>
-            <a href="quote.html?product=Banners+%26+Signs" class="nav-prod-item">Banners &amp; Signs</a>
-            <a href="quote.html?product=Yard+Signs" class="nav-prod-item">Yard Signs</a>
-            <a href="quote.html?product=Window+Clings" class="nav-prod-item">Window Clings</a>
-            <a href="quote.html?product=Posters" class="nav-prod-item">Posters</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#7C3AED; background:#F3E8FF;">Booklets &amp; Folders</span>
-            <a href="quote.html?product=Booklets" class="nav-prod-item">Booklets</a>
-            <a href="quote.html?product=Presentation+Folders" class="nav-prod-item">Presentation Folders</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#4B5563; background:#F1F5F9;">Office &amp; Business</span>
-            <a href="quote.html?product=Letterhead" class="nav-prod-item">Letterhead</a>
-            <a href="quote.html?product=Envelopes" class="nav-prod-item">Envelopes</a>
-            <a href="quote.html?product=Remittance+Envelopes" class="nav-prod-item">Remittance Envelopes</a>
-            <a href="quote.html?product=Notepads" class="nav-prod-item">Notepads</a>
-            <a href="quote.html?product=Invoice+Books" class="nav-prod-item">Invoice Books / NCR Forms</a>
-          </div>
-
-          <div class="nav-prod-group">
-            <span class="nav-prod-group-label" style="color:#DC2626; background:#FEE2E2;">Direct Mail Services</span>
-            <a href="quote.html?product=Postcards&mailing=1" class="nav-prod-item">Postcards</a>
-            <a href="quote.html?product=Flyers&mailing=1" class="nav-prod-item">Flyers</a>
-            <a href="quote.html?product=Brochures&mailing=1" class="nav-prod-item">Half-Fold Brochures</a>
-          </div>
-
-        </div>
-      </li>
-      <li><a href="portfolio.html" data-nav="portfolio">By Industry</a></li>
-      <li><a href="same-day.html" data-nav="same-day">Same-Day</a></li>
-      <li><a href="resources.html" data-nav="resources">Resources</a></li>
-      <li><a href="about.html" data-nav="about">About</a></li>
-      <li><a href="contact.html" data-nav="contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <!-- Log In hidden until accounts exist (login.html / account.html kept) -->
-      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="btn-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
-      <a href="quote.html" class="btn-quote-nav">Get a Quote</a>
-      <button type="button" class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-    </div>
-
-    <div class="nav-mobile" id="navMobile">
-      <a href="index.html">Home</a>
-      <details>
-        <summary>Products</summary>
-        <div class="nm-sub">
-          <a href="products.html">All products</a>
-          <div class="nm-label">Marketing Prints</div>
-          <a href="quote.html?product=Flyers">Flyers</a>
-          <a href="quote.html?product=Brochures">Brochures</a>
-          <a href="quote.html?product=Postcards">Postcards</a>
-          <a href="quote.html?product=Rack+Cards">Rack Cards</a>
-          <a href="quote.html?product=Door+Hangers">Door Hangers</a>
-          <a href="quote.html?product=Table+Tents">Table Tents</a>
-          <a href="quote.html?product=Calendars">Calendars</a>
-          <a href="quote.html?product=Menus">Menus</a>
-          <a href="quote.html?product=Placemats">Placemats</a>
-          <div class="nm-label">Cards &amp; Stationery</div>
-          <a href="quote.html?product=Business+Cards">Business Cards</a>
-          <a href="quote.html?product=Hang+Tags">Hang Tags</a>
-          <a href="quote.html?product=Certificates">Certificates</a>
-          <div class="nm-label">Stickers &amp; Labels</div>
-          <a href="quote.html?product=Stickers+%26+Labels">Stickers &amp; Labels</a>
-          <div class="nm-label">Large Format &amp; Signs</div>
-          <a href="quote.html?product=Banners+%26+Signs">Banners &amp; Signs</a>
-          <a href="quote.html?product=Yard+Signs">Yard Signs</a>
-          <a href="quote.html?product=Window+Clings">Window Clings</a>
-          <a href="quote.html?product=Posters">Posters</a>
-          <div class="nm-label">Booklets &amp; Folders</div>
-          <a href="quote.html?product=Booklets">Booklets</a>
-          <a href="quote.html?product=Presentation+Folders">Presentation Folders</a>
-          <div class="nm-label">Office &amp; Business</div>
-          <a href="quote.html?product=Letterhead">Letterhead</a>
-          <a href="quote.html?product=Envelopes">Envelopes</a>
-          <a href="quote.html?product=Remittance+Envelopes">Remittance Envelopes</a>
-          <a href="quote.html?product=Notepads">Notepads</a>
-          <a href="quote.html?product=Invoice+Books">Invoice Books / NCR Forms</a>
-          <div class="nm-label">Direct Mail Services</div>
-          <a href="quote.html?product=Postcards&mailing=1">Postcards</a>
-          <a href="quote.html?product=Flyers&mailing=1">Flyers</a>
-          <a href="quote.html?product=Brochures&mailing=1">Half-Fold Brochures</a>
-        </div>
-      </details>
-      <a href="portfolio.html">By Industry</a>
-      <a href="same-day.html">Same-Day</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="quote.html" class="nm-cta nm-quote">Get a Quote</a>
-      <a href="https://personal.filesanywhere.com/guest/fr?v=8b69638d6163a37ba69a" class="nm-cta nm-upload" target="_blank" rel="noopener">&#11014; Upload Files</a>
-    </div>
-    <script>
-      (function () {
-        var b = document.getElementById('navBurger'), m = document.getElementById('navMobile');
-        if (!b || !m) return;
-        function set(open) { m.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false'); document.body.style.overflow = open ? 'hidden' : ''; }
-        b.addEventListener('click', function () { set(!m.classList.contains('open')); });
-        m.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
-        window.addEventListener('resize', function () { if (window.innerWidth > 900) set(false); });
-      })();
-    </script>
+  <nav class="qv2-steps" id="qv2-steps" aria-label="Quote steps">
+    <a href="#s1" data-step="1"><b>1</b><span>Item</span></a>
+    <a href="#s2" data-step="2"><b>2</b><span>Details</span></a>
+    <a href="#s3" data-step="3"><b>3</b><span>Quantity</span></a>
+    <a href="#s4" data-step="4"><b>4</b><span>Timing</span></a>
+    <a href="#s5" data-step="5"><b>5</b><span>Your files</span></a>
+    <a href="#s6" data-step="6"><b>6</b><span>Contact</span></a>
   </nav>
 
   <form id="qv2-form" class="qv2-layout" action="https://formspree.io/f/REPLACE_WITH_ID" method="POST" enctype="multipart/form-data" novalidate>
@@ -1183,6 +930,83 @@
     <p><a class="qv2-btn ghost" href="index.html">Back to homepage</a></p>
   </section>
 </main>
+
+<footer class="footer">
+<style>/* mobile-fixes */@media (max-width: 700px){.footer{padding:40px 24px 24px !important}.footer-grid{grid-template-columns:1fr !important;gap:28px !important}}</style>
+    <div class="footer-grid">
+      <div>
+        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
+        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            info@xpressprinting.com
+          </a>
+          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            18195 E McDurmott, Ste H, Irvine, CA 92614
+          </span>
+          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            (949) 851-9710
+          </a>
+          <p class="footer-where" style="font-size:12px;line-height:1.5;color:rgba(255,255,255,.55);margin:10px 0 0">Looking for a different &ldquo;Xpress Printing&rdquo;? We're the Irvine, California shop.</p>
+          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="quote.html">Business Cards</a></li>
+          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
+          <li><a href="quote.html">Banners &amp; Signs</a></li>
+          <li><a href="quote.html">Stickers &amp; Labels</a></li>
+          <li><a href="quote.html">Booklets &amp; Folders</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">By Industry</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <div class="footer-hours">
+          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
+          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
+          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
+      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
+    </div>
+  </footer>
+  <div class="copy-toast" id="copy-toast"></div>
+  <script>
+    (function() {
+      var toast = document.getElementById('copy-toast');
+      var timer;
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy]');
+        if (!el) return;
+        var text = el.getAttribute('data-copy');
+        if (!text) return;
+        e.preventDefault();
+        navigator.clipboard.writeText(text).then(function() {
+          toast.textContent = '✓ Copied: ' + text;
+          toast.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+      });
+    })();
+  </script>
 
 <script src="quote-catalog.js"></script>
 <script>
@@ -1681,81 +1505,5 @@
   update(); S.started = true;
 })();
 </script>
-<footer class="footer">
-<style>/* mobile-fixes */@media (max-width: 700px){.footer{padding:40px 24px 24px !important}.footer-grid{grid-template-columns:1fr !important;gap:28px !important}}</style>
-    <div class="footer-grid">
-      <div>
-        <img src="XP26-Text-Wh.png" alt="Xpress Printing" class="footer-brand-logo-img">
-        <p class="footer-tagline">Irvine's local commercial print shop since 1984.<br>Fast turnaround, fair prices, no surprises.</p>
-        <div class="footer-contact-links">
-          <a href="mailto:info@xpressprinting.com" class="footer-contact-link" data-copy="info@xpressprinting.com" title="Click to copy">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-            info@xpressprinting.com
-          </a>
-          <span class="footer-contact-link" data-copy="18195 E McDurmott, Ste H, Irvine, CA 92614" title="Click to copy" style="cursor:pointer">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            18195 E McDurmott, Ste H, Irvine, CA 92614
-          </span>
-          <a href="tel:9498519710" class="footer-contact-link" data-copy="(949) 851-9710" title="Click to copy">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12 19.79 19.79 0 0 1 1 3.18 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
-            (949) 851-9710
-          </a>
-          <p class="footer-where" style="font-size:12px;line-height:1.5;color:rgba(255,255,255,.55);margin:10px 0 0">Looking for a different &ldquo;Xpress Printing&rdquo;? We're the Irvine, California shop.</p>
-          <p class="footer-slogan">Print <strong style="color:#F59E0B">Fast.</strong> Look <strong style="color:#0891B2">Sharp.</strong> Stay <strong style="color:#8DC63F">Local.</strong></p>
-        </div>
-      </div>
-      <div>
-        <p class="footer-col-title">Products</p>
-        <ul class="footer-links">
-          <li><a href="quote.html">Business Cards</a></li>
-          <li><a href="quote.html">Flyers &amp; Brochures</a></li>
-          <li><a href="quote.html">Banners &amp; Signs</a></li>
-          <li><a href="quote.html">Stickers &amp; Labels</a></li>
-          <li><a href="quote.html">Booklets &amp; Folders</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Company</p>
-        <ul class="footer-links">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">By Industry</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Hours</p>
-        <div class="footer-hours">
-          <p class="footer-hour-row">Mon&ndash;Fri: 9 AM &ndash; 5 PM</p>
-          <p class="footer-hour-row">Sat &amp; Sun: Closed</p>
-          <p class="footer-same-day">&#9889; Same-day cutoff: 10 AM</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2026 Xpress Printing &middot; Irvine, CA. All rights reserved.</p>
-      <span class="footer-badge">&#9889; 30-Min Quote Guarantee</span>
-    </div>
-  </footer>
-  <div class="copy-toast" id="copy-toast"></div>
-  <script>
-    (function() {
-      var toast = document.getElementById('copy-toast');
-      var timer;
-      document.addEventListener('click', function(e) {
-        var el = e.target.closest('[data-copy]');
-        if (!el) return;
-        var text = el.getAttribute('data-copy');
-        if (!text) return;
-        e.preventDefault();
-        navigator.clipboard.writeText(text).then(function() {
-          toast.textContent = '✓ Copied: ' + text;
-          toast.classList.add('show');
-          clearTimeout(timer);
-          timer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
