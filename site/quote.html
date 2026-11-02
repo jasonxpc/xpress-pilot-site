@@ -311,9 +311,21 @@
     .sidebar-group.collapsed .sidebar-group-label svg { transform: rotate(-90deg); }
     .sidebar-group.collapsed .sidebar-product-btn { display: none; }
     .sidebar-group.hidden { display: none; }
+    .sidebar-m-bar { display: none; }
     @media (max-width: 900px) {
       .quote-page-layout { grid-template-columns: 1fr; }
-      .quote-sidebar { display: none; }
+      /* Phone: the product list becomes a picker above the form (it used to be hidden, leaving no way to choose a product) */
+      .quote-sidebar { position: static; height: auto; overflow: visible; border-right: none; border-bottom: 1px solid var(--border); padding: 12px 0 16px; }
+      .sidebar-m-bar {
+        display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        width: calc(100% - 32px); margin: 0 16px 12px; padding: 14px 16px;
+        font-family: var(--font); font-size: 15px; font-weight: 700; color: var(--cyan);
+        background: var(--cyan-tint); border: 1.5px solid var(--cyan); border-radius: 10px; cursor: pointer; text-align: left;
+      }
+      .quote-sidebar.m-collapsed { padding-bottom: 12px; }
+      .quote-sidebar.m-collapsed > :not(.sidebar-m-bar) { display: none; }
+      .quote-sidebar.m-collapsed .sidebar-m-bar { margin-bottom: 0; }
+      .sidebar-product-btn { padding: 11px 20px; font-size: 15px; }
     }
 
     /* File upload */
@@ -1038,7 +1050,8 @@
       .quote-hero { padding: 40px 24px 0; }
       .quote-hero-inner { grid-template-columns: 1fr; gap: 28px; }
       .quote-hero-h1 { font-size: 32px; }
-      .quote-split { grid-template-columns: 1fr; }
+      .quote-split { grid-template-columns: 1fr; padding: 12px !important; border-radius: 12px; }
+      .quote-form-panel { padding: 20px 14px 28px !important; border-radius: 12px; }
       .quote-preview { display: none; }
       .q-input-row { grid-template-columns: 1fr; }
       .q-product-info { padding: 28px 24px 32px; }
@@ -1477,7 +1490,8 @@
 <!-- ─── QUOTE PAGE LAYOUT ─── -->
 <div class="quote-page-layout">
 
-  <aside class="quote-sidebar">
+  <aside class="quote-sidebar" id="quote-sidebar">
+    <button type="button" class="sidebar-m-bar" id="sidebar-m-bar" onclick="toggleMobilePicker()"><span id="sidebar-m-bar-text">Choose a product</span><span aria-hidden="true">&#9662;</span></button>
     <p class="sidebar-label">What are you printing?</p>
     <div class="sidebar-search-wrap">
       <div class="sidebar-search-inner">
@@ -1703,7 +1717,7 @@
       <div class="quote-no-product" id="quote-no-product">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         <p class="no-product-title">Select a product to get started</p>
-        <p class="no-product-sub">Choose from the list on the left — we'll show you the right options.</p>
+        <p class="no-product-sub">Pick a product from the list — we'll show you the right options.</p>
       </div>
 
       <!-- SEARCH RESULTS (from ?q= homepage search — sidebar stays unfiltered) -->
@@ -2372,11 +2386,29 @@ function selectSidebarProduct(btn) {
   // Deferred two frames so it fires after the new form's layout (turnaround
   // pills, dropdowns, etc.) has fully settled — scrolling before that could
   // land partway down if the page height was still changing mid-animation.
+  var isPhone = window.matchMedia('(max-width: 900px)').matches;
+  if (isPhone) {
+    var sb = document.getElementById('quote-sidebar');
+    var bt = document.getElementById('sidebar-m-bar-text');
+    if (sb) sb.classList.add('m-collapsed');
+    if (bt) bt.textContent = product + ' \u2014 change';
+  }
   requestAnimationFrame(function() {
     requestAnimationFrame(function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (isPhone) {
+        var lay = document.querySelector('.quote-page-layout');
+        window.scrollTo({ top: lay ? lay.getBoundingClientRect().top + window.pageYOffset - 64 : 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   });
+}
+
+// Phone product picker: open/close the product list above the form
+function toggleMobilePicker() {
+  var sb = document.getElementById('quote-sidebar');
+  if (sb) sb.classList.toggle('m-collapsed');
 }
 
 // Entry point for customers whose intent is "mail something," not "print a
@@ -2424,7 +2456,7 @@ const PRODUCT_CONFIGS = {
     refPrice: {
       name: 'Standard Business Card',
       spec: '16pt cardstock, silk finish — sturdy as a playing card, smooth as a jazz solo, not a hint of glare.',
-      amount: '$45', unit: '/ 500 cards',
+      amount: '500 cards', unit: '',  // no prices on the site (price display on hold)
       note: 'Exact price confirmed within 30 min after you submit.',
       size: '3.5" × 2" (Standard)', paper: '16PT Silk', finish: 'No Finish', coating: 'No Coating', qty: '500'
     },
