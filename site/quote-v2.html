@@ -436,9 +436,10 @@
     @media (max-width: 600px) { .qv2-card.collapsed .csum { margin-left: 0; flex-wrap: wrap; } .qv2-next { width: 100%; } }
 
     /* ─── search, badges, paper helpers, active step ─── */
-    .qv2-search { display: block; margin-bottom: 14px; }
-    .qv2-search input { width: 100%; font: inherit; font-size: 17px; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: 10px; background: #fff; }
-    .qv2-search input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(8,145,178,.15); }
+    .qv2-search { display: block; margin-bottom: 0; }
+    .qv2-search input { width: 100%; font: inherit; font-size: 19px; font-weight: 500; padding: 18px 18px 18px 54px; border: 2px solid #1E2D3D; border-radius: 12px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E2D3D' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5L21 21'/%3E%3C/svg%3E") no-repeat 18px center; box-shadow: 0 4px 14px rgba(30,45,61,.12); color: #1E2D3D; }
+    .qv2-search input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 4px rgba(8,145,178,.2), 0 4px 14px rgba(30,45,61,.12); }
+    .qv2-search-hint { display: block; margin: 8px 2px 14px; font-size: 14px; color: var(--slate); }
     .qv2-seeall { margin-top: 12px; font: inherit; font-size: 14px; font-weight: 700; color: var(--cyan); background: none; border: none; cursor: pointer; padding: 4px 0; }
     .qv2-seeall[hidden] { display: none; }
     .tiles .grp { grid-column: 1 / -1; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px; }
@@ -489,7 +490,8 @@
     .tile strong { font-weight: 600; color: #1F2937; }
     .tile span { font-weight: 400; color: #6B7280; }
     .qv2-field input, .qv2-field textarea { font-weight: 400; color: #111827; }
-    .qv2-field input::placeholder, .qv2-field textarea::placeholder, .qv2-search input::placeholder { color: #9CA3AF; font-style: italic; font-weight: 400; }
+    .qv2-field input::placeholder, .qv2-field textarea::placeholder { color: #9CA3AF; font-style: italic; font-weight: 400; }
+    .qv2-search input::placeholder { color: #6B7280; font-style: normal; font-weight: 400; }
     .qv2-hint { color: #6B7280; font-weight: 400; }
     .feel > p { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 600; color: #6B7280; }
 
@@ -819,7 +821,8 @@
         <div class="csum" hidden><span class="csum-text"></span><button type="button" class="csum-change" data-change="1">Change</button></div>
         <div class="cbody">
         
-        <label class="qv2-search"><input type="search" id="prod-search" placeholder="Type what you need — banner, sticker, menu, yard sign&hellip;" autocomplete="off" aria-label="Search products"></label>
+        <label class="qv2-search"><input type="search" id="prod-search" placeholder="Try: banner, sticker, menu&hellip;" autocomplete="off" aria-label="Search products"></label>
+        <span class="qv2-search-hint">Just type a few letters &mdash; matching items appear right away. Or browse below.</span>
           <div class="tiles" id="product-tiles" role="group" aria-label="Item"></div>
           <button type="button" class="qv2-seeall" id="see-all"></button>
         <button type="button" class="qv2-next" data-next="1" disabled>Continue &darr;</button>
