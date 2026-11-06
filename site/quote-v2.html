@@ -455,6 +455,9 @@
     .qv2-path span { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
     .qv2-path.on { border-color: #2563EB; background: rgba(37,99,235,.06); box-shadow: 0 0 0 1px #2563EB inset; }
     .qv2-path:hover { border-color: #2563EB; }
+    .qv2-backlink { display: none; margin-top: 4px; padding: 4px 0; background: none; border: 0; font: inherit; font-size: 14px; font-weight: 600; color: #1D4ED8; cursor: pointer; }
+    .qv2-backlink:hover { text-decoration: underline; }
+    body.qv2-quick .qv2-backlink { display: inline-block; }
     @media (max-width: 640px) { .qv2-paths-grid { grid-template-columns: 1fr; } }
     body.qv2-quick #qv2-steps, body.qv2-quick #s1, body.qv2-quick #s2, body.qv2-quick #s3, body.qv2-quick #s4, body.qv2-quick #s5, body.qv2-quick .qv2-aside { display: none; }
     body.qv2-quick .qv2-layout { grid-template-columns: 1fr; }
@@ -921,6 +924,7 @@
           <span>Anything else we should know? <em>(optional)</em></span>
           <textarea id="c-notes" rows="3" placeholder="Colors, finish, where it will be used, an example you like&hellip;"></textarea>
         </label>
+        <button type="button" class="qv2-backlink" data-path="steps">&larr; Show the step-by-step questions instead</button>
         <input type="hidden" name="_subject" id="f-subject" value="Quote request">
         <input type="hidden" name="message" id="f-message">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
@@ -1460,7 +1464,7 @@
     if (pt) {
       S.quick = pt.getAttribute('data-path') === 'note';
       document.body.classList.toggle('qv2-quick', S.quick);
-      Array.prototype.forEach.call(document.querySelectorAll('.qv2-path'), function (b) { var on = b === pt; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+      Array.prototype.forEach.call(document.querySelectorAll('.qv2-path'), function (b) { var on = b.getAttribute('data-path') === pt.getAttribute('data-path'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
       var h6 = document.querySelector('#s6 h2'), nl = document.querySelector('#s6 label.qv2-field textarea');
       if (h6) { h6.innerHTML = S.quick ? '<b>&#9998;</b> Tell us what you need' : '<b>6</b> How can we reach you?'; }
       var nsp = $('c-notes').parentNode.querySelector('span');
@@ -1468,6 +1472,7 @@
       $('c-notes').rows = S.quick ? 6 : 3;
       $('c-notes').placeholder = S.quick ? 'e.g. 250 menus, 8.5 × 11, folded, on sturdy paper, needed by Friday. Add anything that helps: sizes, colors, where it will be used…' : 'Colors, finish, where it will be used, an example you like…';
       var m0 = $('missing'); if (m0) { m0.classList.add('hidden'); }
+      $('qv2-paths').scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
   });
