@@ -447,6 +447,17 @@
     .chip.sm { font-size: 13px; padding: 6px 12px; }
     .qgroup > p em { font-weight: 400; color: var(--text-muted); font-style: normal; }
     .qv2-hint p { margin: 2px 0 0; }
+    .qv2-paths { margin: 0 0 18px; }
+    .qv2-paths-lead { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .qv2-paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .qv2-path { text-align: left; font: inherit; padding: 14px 16px; background: #fff; border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
+    .qv2-path strong { font-size: 16px; color: var(--slate, #0F172A); }
+    .qv2-path span { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+    .qv2-path.on { border-color: #2563EB; background: rgba(37,99,235,.06); box-shadow: 0 0 0 1px #2563EB inset; }
+    .qv2-path:hover { border-color: #2563EB; }
+    @media (max-width: 640px) { .qv2-paths-grid { grid-template-columns: 1fr; } }
+    body.qv2-quick #qv2-steps, body.qv2-quick #s1, body.qv2-quick #s2, body.qv2-quick #s3, body.qv2-quick #s4, body.qv2-quick #s5, body.qv2-quick .qv2-aside { display: none; }
+    body.qv2-quick .qv2-layout { grid-template-columns: 1fr; }
     .qv2-feeltoggle { margin-top: 12px; padding: 4px 0; background: none; border: 0; font: inherit; font-size: 13px; font-weight: 600; color: var(--primary, #1d4ed8); cursor: pointer; text-align: left; }
     .qv2-feeltoggle:hover { text-decoration: underline; }
     .feel { margin-top: 8px; padding: 12px 14px; background: var(--cool-white); border: 1px dashed var(--border); border-radius: 10px; }
@@ -806,6 +817,14 @@
 <main class="qv2">
   <div class="qv2-preview" id="qv2-preview">Design preview &mdash; this page is not live yet and nothing you enter is sent.</div>
 
+  <section class="qv2-paths" id="qv2-paths" aria-label="Two ways to ask for a quote">
+    <p class="qv2-paths-lead">Two ways to ask &mdash; use whichever is easier for you.</p>
+    <div class="qv2-paths-grid">
+      <button type="button" class="qv2-path on" data-path="steps" aria-pressed="true"><strong>Pick it step by step</strong><span>Choose the item, size, paper and more. We&rsquo;ll fill in the rest. About 2 minutes.</span></button>
+      <button type="button" class="qv2-path" data-path="note" aria-pressed="false"><strong>Just tell us in your own words</strong><span>Write what you need, add your email, and we&rsquo;ll reply with questions or a quote.</span></button>
+    </div>
+  </section>
+
   <nav class="qv2-steps" id="qv2-steps" aria-label="Quote steps">
     <a href="#s1" data-step="1"><b>1</b><span>Item</span></a>
     <a href="#s2" data-step="2"><b>2</b><span>Details</span></a>
@@ -1025,7 +1044,7 @@
   var FEEL_FINISH = ['Gloss', 'Silk / satin', 'Matte', 'Uncoated'];
   var FEEL_WEIGHT = ['Text weight (lighter, like magazine pages)', 'Cover weight (heavier, like card stock)'];
 
-  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null, moreOpen: false, showAll: false, feelOpen: {} };
+  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null, moreOpen: false, showAll: false, feelOpen: {}, quick: false };
   var $ = function (id) { return document.getElementById(id); };
   var form = $('qv2-form');
 
@@ -1365,12 +1384,12 @@
     }
   }
   function buildMessage() {
-    var rows = lines();
+    var rows = S.quick ? [] : lines();
     rows.push(['Name', $('c-name').value.trim()]);
     if ($('c-company').value.trim()) { rows.push(['Company', $('c-company').value.trim()]); }
     rows.push(['Email', $('c-email').value.trim()]);
     if ($('c-phone').value.trim()) { rows.push(['Phone', $('c-phone').value.trim()]); }
-    if ($('c-notes').value.trim()) { rows.push(['Notes', $('c-notes').value.trim()]); }
+    if ($('c-notes').value.trim()) { rows.push([S.quick ? 'What I need' : 'Notes', $('c-notes').value.trim()]); }
     return rows.filter(function (r) { return r[1]; }).map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
   }
 
@@ -1439,6 +1458,22 @@
     if (tiles.length === 1) { pickProduct(tiles[0].getAttribute('data-p')); collapse(1, true); }
     else if (typedText()) { collapse(1, true); }
   });
+  document.addEventListener('click', function (e) {
+    var pt = e.target.closest('[data-path]');
+    if (pt) {
+      S.quick = pt.getAttribute('data-path') === 'note';
+      document.body.classList.toggle('qv2-quick', S.quick);
+      Array.prototype.forEach.call(document.querySelectorAll('.qv2-path'), function (b) { var on = b === pt; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+      var h6 = document.querySelector('#s6 h2'), nl = document.querySelector('#s6 label.qv2-field textarea');
+      if (h6) { h6.innerHTML = S.quick ? '<b>&#9998;</b> Tell us what you need' : '<b>6</b> How can we reach you?'; }
+      var nsp = $('c-notes').parentNode.querySelector('span');
+      if (nsp) { nsp.innerHTML = S.quick ? 'What do you need? <i>*</i>' : 'Anything else we should know? <em>(optional)</em>'; }
+      $('c-notes').rows = S.quick ? 6 : 3;
+      $('c-notes').placeholder = S.quick ? 'e.g. 250 menus, 8.5 × 11, folded, on sturdy paper, needed by Friday. Add anything that helps: sizes, colors, where it will be used…' : 'Colors, finish, where it will be used, an example you like…';
+      var m0 = $('missing'); if (m0) { m0.classList.add('hidden'); }
+      return;
+    }
+  });
   $('see-all').addEventListener('click', function () { S.showAll = !S.showAll; $('prod-search').value = ''; renderProducts(); });
   $('product-tiles').addEventListener('click', function (e) {
     var pr = e.target.closest('[data-preset]');
@@ -1487,15 +1522,20 @@
   $('send-btn').addEventListener('click', function () {
     var d = done(), names = { 1: 'an item', 2: 'at least one detail (or choose “Not sure”)', 3: 'a quantity', 4: 'a date and pickup or shipping', 5: 'how you will send your file', 6: 'your name and a valid email' };
     var miss = [], first = 0;
-    for (var i = 1; i <= 6; i++) {
-      var card = $('s' + i); card.classList.toggle('flag', !d[i]);
-      if (!d[i]) { card.classList.remove('collapsed'); miss.push(names[i]); if (!first) { first = i; } }
+    if (S.quick) {
+      if (!$('c-notes').value.trim()) { miss.push('a few words about what you need'); first = 6; }
+      if (!d[6]) { miss.push(names[6]); first = 6; }
+    } else {
+      for (var i = 1; i <= 6; i++) {
+        var card = $('s' + i); card.classList.toggle('flag', !d[i]);
+        if (!d[i]) { card.classList.remove('collapsed'); miss.push(names[i]); if (!first) { first = i; } }
+      }
     }
     var m = $('missing');
     if (miss.length) { m.textContent = 'Please add: ' + miss.join('; ') + '.'; m.classList.remove('hidden'); $('s' + first).scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     m.classList.add('hidden');
     var msg = buildMessage(); $('f-message').value = msg;
-    $('f-subject').value = 'Quote request: ' + productLabel(cur());
+    $('f-subject').value = S.quick ? 'Quote request (written note)' : 'Quote request: ' + productLabel(cur());
     var preview = form.getAttribute('action').indexOf('REPLACE_WITH_ID') > -1;
     function finish(note) {
       form.classList.add('hidden'); $('qv2-steps').classList.add('hidden');
