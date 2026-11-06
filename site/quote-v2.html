@@ -447,7 +447,9 @@
     .chip.sm { font-size: 13px; padding: 6px 12px; }
     .qgroup > p em { font-weight: 400; color: var(--text-muted); font-style: normal; }
     .qv2-hint p { margin: 2px 0 0; }
-    .feel { margin-top: 12px; padding: 12px 14px; background: var(--cool-white); border: 1px dashed var(--border); border-radius: 10px; }
+    .qv2-feeltoggle { margin-top: 12px; padding: 4px 0; background: none; border: 0; font: inherit; font-size: 13px; font-weight: 600; color: var(--primary, #1d4ed8); cursor: pointer; text-align: left; }
+    .qv2-feeltoggle:hover { text-decoration: underline; }
+    .feel { margin-top: 8px; padding: 12px 14px; background: var(--cool-white); border: 1px dashed var(--border); border-radius: 10px; }
     .feel > p { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
     .qv2-more { margin: 4px 0 16px; font: inherit; font-size: 14px; font-weight: 700; color: var(--slate); background: var(--cool-white); border: 1.5px solid var(--border); border-radius: 8px; padding: 9px 14px; cursor: pointer; }
     .qv2-more span { display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-left: 6px; border-radius: 10px; background: var(--border); font-size: 12px; }
@@ -1023,7 +1025,7 @@
   var FEEL_FINISH = ['Gloss', 'Silk / satin', 'Matte', 'Uncoated'];
   var FEEL_WEIGHT = ['Text weight (lighter, like magazine pages)', 'Cover weight (heavier, like card stock)'];
 
-  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null, moreOpen: false, showAll: false };
+  var S = { product: null, a: {}, qtyChips: [], versions: '1', how: null, files: null, moreOpen: false, showAll: false, feelOpen: {} };
   var $ = function (id) { return document.getElementById(id); };
   var form = $('qv2-form');
 
@@ -1162,9 +1164,13 @@
         if (cs) { h += '<label class="qv2-field narrow' + (S.a[q.k] === cs ? '' : ' hidden') + '" data-custom="' + q.k + '"><span>Width × height</span><input type="text" data-customtext="' + q.k + '" value="' + esc(S.a[q.k + '_custom'] || '') + '" placeholder="e.g. 5 × 7 in"></label>'; }
       }
       if (q.type === 'paper' && q.feel) {
-        h += '<div class="feel"><p>Not sure of the names? Pick the look and weight you have in mind:</p><div class="chips">' +
-          FEEL_FINISH.concat(FEEL_WEIGHT).map(function (v) { return feelChip(q, v); }).join('') + '</div></div>' +
-          '<label class="qv2-field"><span>Know the weight or thickness? Type it <em>(e.g. 100lb gloss cover, 14pt, 3mm)</em></span><input type="text" data-papertext="' + q.k + '" value="' + esc(S.a[q.k + '_text'] || '') + '"></label>';
+        var fOpen = (S.feelOpen && S.feelOpen[q.k]) || (S.a[q.k + '_feel'] || []).length > 0 || !!(S.a[q.k + '_text'] || '').trim();
+        h += '<button type="button" class="qv2-feeltoggle" data-feeltoggle="' + q.k + '" aria-expanded="' + fOpen + '">Not sure of the names, or have your own weight? <span aria-hidden="true">' + (fOpen ? '&#9652;' : '&#9662;') + '</span></button>';
+        if (fOpen) {
+          h += '<div class="feel"><p>Pick the look and weight you have in mind:</p><div class="chips">' +
+            FEEL_FINISH.concat(FEEL_WEIGHT).map(function (v) { return feelChip(q, v); }).join('') + '</div>' +
+            '<label class="qv2-field"><span>Know the weight or thickness? Type it <em>(e.g. 100lb gloss cover, 14pt, 3mm)</em></span><input type="text" data-papertext="' + q.k + '" value="' + esc(S.a[q.k + '_text'] || '') + '"></label></div>';
+        }
       } else if (q.type === 'paper') {
         h += '<label class="qv2-field"><span>Another material in mind? Type it <em>(optional)</em></span><input type="text" data-papertext="' + q.k + '" value="' + esc(S.a[q.k + '_text'] || '') + '"></label>';
       }
@@ -1394,7 +1400,7 @@
   function setPopSrc(src) {
     if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { popImg.onerror = null; popImg.src = src; return; }
     popImg.onerror = function () { hidePop(); };
-    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : up.options;
+    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : (up.options || /\/feel-(gloss|matte|silk-satin|uncoated)$/.test(src));
     if (on) {
       var key = src.replace(/^.*\//, ''), first = (D.photos && D.photos[key]) || (src + '.jpg');
       popImg.onerror = function () { popImg.onerror = function () { hidePop(); }; popImg.src = src + '.svg'; };
@@ -1441,6 +1447,7 @@
     var t = e.target.closest('[data-p]'); if (t) { var nm = t.getAttribute('data-p'); pickProduct(nm); if (nm !== '__typed') { collapse(1, true); } else { collapse(1, true); } }
   });
   $('details-body').addEventListener('click', function (e) {
+    var ft = e.target.closest('[data-feeltoggle]'); if (ft) { var fk = ft.getAttribute('data-feeltoggle'); S.feelOpen = S.feelOpen || {}; S.feelOpen[fk] = !S.feelOpen[fk]; renderDetails(); return; }
     var mb = e.target.closest('[data-more]'); if (mb) { S.moreOpen = !(S.moreOpen || false); renderDetails(); return; }
     var c = e.target.closest('.chip'); if (!c) { return; }
     var k = c.getAttribute('data-k'), v = c.getAttribute('data-v'), t = c.getAttribute('data-t');
