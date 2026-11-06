@@ -479,12 +479,9 @@
     .tile.typed strong { color: var(--cyan); word-break: break-word; }
 
     /* one color per step: it shows on the number, the highlight ring and the progress bar */
-    .qv2-card[data-step="1"], .qv2-steps a[data-step="1"], .qv2-summary [data-step="1"] { --ct: #0E7490; --c: #0891B2; --c-rgb: 8,145,178; }
-    .qv2-card[data-step="2"], .qv2-steps a[data-step="2"], .qv2-summary [data-step="2"] { --ct: #1D4ED8; --c: #2563EB; --c-rgb: 37,99,235; }
-    .qv2-card[data-step="3"], .qv2-steps a[data-step="3"], .qv2-summary [data-step="3"] { --ct: #6D28D9; --c: #7C3AED; --c-rgb: 124,58,237; }
-    .qv2-card[data-step="4"], .qv2-steps a[data-step="4"], .qv2-summary [data-step="4"] { --ct: #B45309; --c: #D97706; --c-rgb: 217,119,6; }
-    .qv2-card[data-step="5"], .qv2-steps a[data-step="5"], .qv2-summary [data-step="5"] { --ct: #15803D; --c: #16A34A; --c-rgb: 22,163,74; }
-    .qv2-card[data-step="6"], .qv2-steps a[data-step="6"], .qv2-summary [data-step="6"] { --ct: #B91C1C; --c: #DC2626; --c-rgb: 220,38,38; }
+    /* one brand blue for every step; green only marks a finished step, red stays for errors */
+    .qv2-card[data-step], .qv2-steps a[data-step], .qv2-summary [data-step] { --ct: #1D4ED8; --c: #2563EB; --c-rgb: 37,99,235; }
+    .qv2-steps a.done b { background: #16A34A; }
     .qv2-send { --c: #DC2626; --c-rgb: 220,38,38; }
     .qv2-card[data-step] .chip[aria-pressed="true"], .qv2-card[data-step] .tile[aria-pressed="true"] { border-color: var(--c); }
     .qv2-card[data-step] .chip[aria-pressed="true"] { background: rgba(var(--c-rgb),.1); color: var(--c); }
