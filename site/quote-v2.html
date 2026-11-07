@@ -1417,27 +1417,38 @@
   // Illustrations are the default so every preview looks the same. When quote-catalog.js sets usePhotos to true,
   // a photo is tried first (the "photos" table, or <name>.jpg dropped next to the .svg) and the illustration is the fallback.
   // usePhotos is {tiles, options}: product tiles and option chips appear in different steps, so each can switch separately.
-  function setPopSrc(src) {
-    if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { popImg.onerror = null; popImg.src = src; return; }
-    popImg.onerror = function () { hidePop(); };
+  // The list of images to try for one preview, best first. The first one that loads is shown, so a half-loaded or
+  // previous picture never flashes while the pointer moves between options.
+  function popCandidates(src) {
+    if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { return [src]; }
     var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : (up.options || /\/(feel-(gloss|matte|silk-satin|uncoated)|finish-(gloss-laminate|matte-laminate|aqueous-coating|gloss-uv))$/.test(src));
-    if (on) {
-      var key = src.replace(/^.*\//, ''), first = (D.photos && D.photos[key]) || (src + '.jpg');
-      popImg.onerror = function () { popImg.onerror = function () { hidePop(); }; popImg.src = src + '.svg'; };
-      popImg.src = first; return;
-    }
-    popImg.src = src + '.svg';
+    if (!on) { return [src + '.svg']; }
+    var key = src.replace(/^.*\//, ''), first = (D.photos && D.photos[key]) || (src + '.jpg');
+    return [first, src + '.svg'];
   }
+  var popTok = 0;
   function showPop(el) {
     var src = el.getAttribute('data-img'); if (!src) { return; }
-    popFor = el; setPopSrc(src); popCap.textContent = el.getAttribute('data-cap') || '';
-    pop.hidden = false;
-    var r = el.getBoundingClientRect(), w = pop.offsetWidth || 240, h = pop.offsetHeight || 200;
-    var left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8));
-    var top = r.bottom + 8; if (top + h > window.innerHeight - 8) { top = Math.max(8, r.top - h - 8); }
-    pop.style.left = left + 'px'; pop.style.top = top + 'px';
+    if (popFor === el) { return; }
+    popFor = el; var tok = ++popTok, list = popCandidates(src);
+    pop.hidden = true; popCap.textContent = el.getAttribute('data-cap') || '';
+    (function next(i) {
+      if (tok !== popTok) { return; }
+      if (i >= list.length) { popFor = null; return; }
+      var im = new Image();
+      im.onload = function () {
+        if (tok !== popTok) { return; }
+        popImg.src = list[i]; pop.hidden = false;
+        var r = el.getBoundingClientRect(), w = pop.offsetWidth || 240, h = pop.offsetHeight || 200;
+        var left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8));
+        var top = r.bottom + 8; if (top + h > window.innerHeight - 8) { top = Math.max(8, r.top - h - 8); }
+        pop.style.left = left + 'px'; pop.style.top = top + 'px';
+      };
+      im.onerror = function () { next(i + 1); };
+      im.src = list[i];
+    })(0);
   }
-  function hidePop() { pop.hidden = true; popFor = null; }
+  function hidePop() { popTok++; pop.hidden = true; popFor = null; }
   document.addEventListener('mouseover', function (e) { if (!window.matchMedia('(hover: hover)').matches) { return; } var el = e.target.closest('[data-img]'); if (el) { showPop(el); } else if (popFor) { hidePop(); } });
   document.addEventListener('focusin', function (e) { var el = e.target.closest('[data-img]'); if (el) { showPop(el); } });
   document.addEventListener('focusout', hidePop);
