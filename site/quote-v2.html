@@ -1421,7 +1421,7 @@
   // previous picture never flashes while the pointer moves between options.
   function popCandidates(src) {
     if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { return [src]; }
-    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : (up.options || /\/(feel-(gloss|matte|silk-satin|uncoated)|finish-(gloss-laminate|matte-laminate|aqueous-coating|gloss-uv))$/.test(src));
+    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : (up.options || /\/(feel-(gloss|matte|silk-satin|uncoated|text-weight|cover-weight)|finish-(gloss-laminate|matte-laminate|aqueous-coating|gloss-uv))$/.test(src));
     if (!on) { return [src + '.svg']; }
     var key = src.replace(/^.*\//, ''), first = (D.photos && D.photos[key]) || (src + '.jpg');
     return [first, src + '.svg'];
