@@ -1420,7 +1420,7 @@
   function setPopSrc(src) {
     if (/\.(jpe?g|png|webp|svg)$/i.test(src)) { popImg.onerror = null; popImg.src = src; return; }
     popImg.onerror = function () { hidePop(); };
-    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : (up.options || /\/feel-(gloss|matte|silk-satin|uncoated)$/.test(src));
+    var isTile = /\/p-[^\/]*$/.test(src), up = D.usePhotos || {}, on = isTile ? up.tiles : (up.options || /\/(feel-(gloss|matte|silk-satin|uncoated)|finish-(gloss-laminate|matte-laminate|aqueous-coating|gloss-uv))$/.test(src));
     if (on) {
       var key = src.replace(/^.*\//, ''), first = (D.photos && D.photos[key]) || (src + '.jpg');
       popImg.onerror = function () { popImg.onerror = function () { hidePop(); }; popImg.src = src + '.svg'; };
