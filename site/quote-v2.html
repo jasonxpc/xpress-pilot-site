@@ -1448,6 +1448,25 @@
       im.src = list[i];
     })(0);
   }
+  // Warm the browser cache so the first hover is as quick as the second: photos first (they are the large files),
+  // then illustrations, a few at a time once the page is idle. Skipped on touch screens and data-saver.
+  (function preloadPreviews() {
+    if (!window.matchMedia('(hover: hover)').matches || (navigator.connection && navigator.connection.saveData)) { return; }
+    var seen = {}, photos = [], rest = [];
+    (JSON.stringify(D).match(/images\/quote\/[A-Za-z0-9_\-]+/g) || []).forEach(function (src) {
+      if (seen[src]) { return; } seen[src] = 1;
+      var c = popCandidates(src); (c[0] !== src + '.svg' ? photos : rest).push(c[0]);
+    });
+    var queue = photos.concat(rest), running = 0;
+    function pump() {
+      while (running < 4 && queue.length) {
+        running++; var im = new Image();
+        im.onload = im.onerror = function () { running--; pump(); };
+        im.src = queue.shift();
+      }
+    }
+    (window.requestIdleCallback || function (f) { setTimeout(f, 1500); })(pump);
+  })();
   function hidePop() { popTok++; pop.hidden = true; popFor = null; }
   document.addEventListener('mouseover', function (e) { if (!window.matchMedia('(hover: hover)').matches) { return; } var el = e.target.closest('[data-img]'); if (el) { showPop(el); } else if (popFor) { hidePop(); } });
   document.addEventListener('focusin', function (e) { var el = e.target.closest('[data-img]'); if (el) { showPop(el); } });
